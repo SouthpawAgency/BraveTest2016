@@ -1,0 +1,71 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="robots" content="index,follow"/>
+	<meta name="description" content=""/>
+	<meta name="KEYWORDS" content=""/>
+    <link rel="shortcut icon" href="http://lab.southpawagency.com/_global_styles/images/favicon.ico?v=2">
+	<title>Brave test</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="http://code.angularjs.org/1.1.3/angular.min.js"></script>
+	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body ng-app="MyApp" class="ng-scope">
+	<div ng-controller="Questionnaire" class="container ng-scope">
+	<div ng-show="!isDone">
+			<div class="desc full-tile">{{source.questions[ questionNdx ].text}}</div>
+			<div id="progress" class="bar"></div> <a href="#" ng-click="onSelectResponse(-2)" class="heat-high med-tile">Strongly Disagree</a>
+<a href="#" ng-click="onSelectResponse(-1)" class="heat-med-high med-tile">Disagree</a>
+<a href="#" ng-click="onSelectResponse(0)" class="heat-med med-tile">Neutral</a>
+<a href="#" ng-click="onSelectResponse(1)" class="heat-med-low med-tile">Agree</a>
+<a href="#" ng-click="onSelectResponse(2)" class="heat-low med-tile">Strongly Agree</a>
+
+	</div>
+	<div ng-show="isDone">
+			<div class="desc full-tile">Done! #todo put results here and describe what they mean.(results in each category are -1.0 to +1.0)</div>
+			<div ng-repeat="category in source.categories">
+					<div class="info-tile">{{category}}</div>
+					<div ng-show="isCategoryLow($index)" class="score-tile heat-high">{{results.categories[$index] | number:1}}</div>
+					<div ng-show="isCategoryNeutral($index)" class="score-tile heat-med">{{results.categories[$index] | number:1}}</div>
+					<div ng-show="isCategoryHigh($index)" class="score-tile heat-low">{{results.categories[$index] | number:1}}</div>
+					<div style="clear:both;"></div>
+					<div ng-show="isCategoryLow($index)" class="desc message-tile">{{source.categoryMessages[$index].low}}</div>
+					<div ng-show="isCategoryNeutral($index)" class="desc message-tile">{{source.categoryMessages[$index].neutral}}</div>
+					<div ng-show="isCategoryHigh($index)" class="desc message-tile">{{source.categoryMessages[$index].high}}</div>
+			</div>
+	</div>
+</div>
+
+<div class="braveAvgOuter"><div id="braveAvg"></div></div>
+
+<div id='messagesDiv'></div>
+  <input type='text' id='nameInput' placeholder='Name'>
+  <input type='text' id='messageInput' placeholder='Message'>
+
+    <script>
+      var myDataRef = new Firebase('https://blistering-inferno-6990.firebaseio.com/');
+      $('#messageInput').keypress(function (e) {
+        if (e.keyCode == 13) {
+          var name = $('#nameInput').val();
+          var text = $('#messageInput').val();
+          myDataRef.push({name: name, text: text});
+          $('#messageInput').val('');
+        }
+      });
+      myDataRef.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+        displayChatMessage(message.name, message.text);
+      });
+      function displayChatMessage(name, text) {
+        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      };
+    </script>
+		<script src="js/app.js"></script>
+</body>
+</html>
