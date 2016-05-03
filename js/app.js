@@ -17,19 +17,19 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
     $scope.source = {
         "questions": [{
             "id": 1001,
-                "text": "I feel healthy.",
+                "text": "You rarely catch me changing my mind",
                 "catId": 0
         }, {
             "id": 1002,
-                "text": "I get the sleep I need.",
+                "text": "It's not over until the fat lady sings",
                 "catId": 0
         }, {
             "id": 1003,
-                "text": "I have the time with my family that I need.",
+                "text": "Rules? what rules? They're only made to be broken",
                 "catId": 1
         }, {
             "id": 1004,
-                "text": "I want to come in to work every single day.",
+                "text": "Just like the Duracell bunny, I keep going seven times longer than everyone else.",
                 "catId": 1
         }, {
             "id": 1005,
@@ -124,6 +124,8 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
         }]
     };
 
+
+
     var i;
     var questions = $scope.source.questions;
     var categories = $scope.source.categories;
@@ -140,14 +142,22 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
     $scope.source.categoryMaxScores = categoryMaxScores;
 
     $scope.questionNdx = 0;
+    $scope.questionsDone = false;
     $scope.isDone = false;
-    $scope.source.questions = shuffle($scope.source.questions);
+    $scope.shareShow = false;
+    $scope.profileInfo = true;
+    // $scope.source.questions = shuffle($scope.source.questions);
     $scope.results = {
         questions: {},
         categories: {}
     };
     for (i = 0; i < categoryCount; i++) {
         $scope.results.categories[i] = 0;
+    }
+
+    $scope.quizStart = function(){
+        $scope.questionsDone = true;
+        $scope.profileInfo = false;
     }
 
     $scope.isCategoryLow = function (catId) {
@@ -160,6 +170,7 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
         return $scope.results.categories[catId] >= 0.51;
     }
 
+
     $scope.onSelectResponse = function (response) {
         var questionNdx = $scope.questionNdx;
         var question = $scope.source.questions[questionNdx];
@@ -171,11 +182,16 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
         $scope.results.categories[catId] += catScore;
         $scope.questionNdx++;
         theUserRef.child('answers/' + (questionNdx + 1)).set(response);
-        $('#progress').width(parseInt(($scope.questionNdx / $scope.source.questions.length) * 523) + 'px');
         if ($scope.questionNdx == $scope.source.questions.length) {
             $scope.isDone = true;
+            $scope.questionsDone = false;
         }
         $scope.safeApply();
+    }
+
+    $scope.quizFinish = function(){
+        $scope.shareShow = true;
+        $scope.isDone = false;
     }
 
     $scope.safeApply = function (fn) {

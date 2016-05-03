@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="http://lab.southpawagency.com/_global_styles/images/favicon.ico?v=2">
 	<title>Brave test</title>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
-	<script type="text/javascript" src="http://code.angularjs.org/1.1.3/angular.min.js"></script>
+    <script type="text/javascript" src="http://code.angularjs.org/1.1.3/angular.min.js"></script>
 	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.0.0/jquery.serialize-object.compiled.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/path.js/0.8.4/path.min.js"></script>
@@ -32,7 +32,7 @@
  <span class="icon-bar"></span>
  <span class="icon-bar"></span>
 
-            </button> <a href="#" class="navbar-brand">Firebase login</a>
+            </button>
 
         </div>
         <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
@@ -53,106 +53,116 @@
         </nav>
     </div>
 </header>
-<div id="container" class="container">
-    <!-- LOGIN -->
-    <form id="frmLogin" role="form">
-         <h2>Login</h2>
 
-        <div class="form-group">
-            <label for="txtEmail">Email address</label>
-            <input type="email" class="form-control" id="txtEmail" placeholder="Enter email" name="email" />
-        </div>
-        <div class="form-group">
-            <label for="txtPass">Password</label>
-            <input type="password" class="form-control" id="txtPass" placeholder="Password" name="password" />
-        </div>
-        <button type="submit" class="btn btn-default btn-block">Login</button>
-        <br />
-        <br />
-         <h4>Login with</h4>
- <a href="#" class="btn btn-primary bt-social" data-provider="facebook">Facebook</a>
- <a href="#" class="btn btn-info bt-social" data-provider="twitter">Twitter</a>
 
-        <!-- <a href="#" class="btn btn-danger bt-social" data-provider="google">Google+</a> --> <a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a>
- <a href="#" class="btn btn-warning" id="btAnon">Anon</a>
+            <!-- QUIZ CONTROLLER -->
+            <div ng-controller="Questionnaire" class="container questionnaire ng-scope">
 
-    </form>
-    <!-- / LOGIN -->
-    <!-- LOGOUT -->
-    <form id="frmLogout" role="form">
-         <h2>You are logged out!</h2>
+                <div id="container" class="container">
+                    <!-- LOGIN -->
+                    <form id="frmLogin" role="form">
+                         <h2>Login</h2>
 
-    </form>
-    <!-- / LOGOUT -->
-    <!-- REGISTER -->
-    <form id="frmRegister" role="form">
-         <h2>Register</h2>
+                        <div class="form-group">
+                            <label for="txtEmail">Email address</label>
+                            <input type="email" class="form-control" id="txtEmail" placeholder="Enter email" name="email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="txtPass">Password</label>
+                            <input type="password" class="form-control" id="txtPass" placeholder="Password" name="password" />
+                        </div>
+                        <button type="submit" class="btn btn-default btn-block">Login</button>
+                        <br />
+                        <br />
+                         <h4>Login with</h4>
+                 <a href="#" class="btn btn-primary bt-social" data-provider="facebook">Facebook</a>
+                 <a href="#" class="btn btn-info bt-social" data-provider="twitter">Twitter</a>
 
-        <div class="form-group">
-            <label for="txtRegEmail">Email address</label>
-            <input type="email" class="form-control" id="txtEmail" placeholder="Enter email" name="email" />
-        </div>
-        <div class="form-group">
-            <label for="txtRegPass">Password</label>
-            <input type="password" class="form-control" id="txtPass" placeholder="Password" name="password" />
-        </div>
-        <button type="submit" class="btn btn-default">Register</button>
-    </form>
-    <!-- / REGISTER -->
-    <!-- PROFILE -->
-    <form id="frmProfile" role="form">
-         <!-- <h2>Profile</h2>
+                        <!-- <a href="#" class="btn btn-danger bt-social" data-provider="google">Google+</a> --> <a href="#" class="btn btn-default bt-social" data-provider="github">GitHub</a>
+                 <a href="#" class="btn btn-warning" id="btAnon">Anon</a>
 
-        <br /> -->
-        <!-- <div class="form-group">
-            <label for="txtName">Name</label>
-            <input type="text" class="form-control" id="txtName" placeholder="Name" name="name" />
-        </div>
-        <div class="form-group">
-            <label for="ddlDino">Favorite Dinosaur</label>
-            <select id="ddlDino" name="favoriteDinosaur" class="form-control">
-                <option>None</option>
-                <option>Pteranodon</option>
-                <option>Lambeosaurus</option>
-                <option>Stegosaurus</option>
-                <option>Daspletosaurus</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Update</button> -->
-				<div ng-controller="Questionnaire" class="container questionnaire ng-scope">
-				<div ng-show="!isDone">
-						<div class="desc full-tile">{{source.questions[ questionNdx ].text}}</div>
-						<!-- <div id="progress" class="bar"></div> -->
-						<a href="#" ng-click="onSelectResponse(-2)" class="heat-high med-tile"></a>
-						<a href="#" ng-click="onSelectResponse(-1)" class="heat-med-high med-tile"></a>
-						<a href="#" ng-click="onSelectResponse(0)" class="heat-med med-tile"></a>
-						<a href="#" ng-click="onSelectResponse(1)" class="heat-med-low med-tile"></a>
-						<a href="#" ng-click="onSelectResponse(2)" class="heat-low med-tile"></a>
-				</div>
-				<div ng-show="isDone">
-						<div class="desc full-tile">Done! #todo put results here and describe what they mean.(results in each category are -1.0 to +1.0)</div>
-						<div ng-repeat="category in source.categories">
-								<div class="info-tile">{{category}}</div>
-								<div ng-show="isCategoryLow($index)" class="score-tile heat-high">{{results.categories[$index] | number:1}}</div>
-								<div ng-show="isCategoryNeutral($index)" class="score-tile heat-med">{{results.categories[$index] | number:1}}</div>
-								<div ng-show="isCategoryHigh($index)" class="score-tile heat-low">{{results.categories[$index] | number:1}}</div>
-								<div style="clear:both;"></div>
-								<div ng-show="isCategoryLow($index)" class="desc message-tile">{{source.categoryMessages[$index].low}}</div>
-								<div ng-show="isCategoryNeutral($index)" class="desc message-tile">{{source.categoryMessages[$index].neutral}}</div>
-								<div ng-show="isCategoryHigh($index)" class="desc message-tile">{{source.categoryMessages[$index].high}}</div>
-						</div>
-				</div>
-			</div>
-    </form>
-    <!-- / PROFILE -->
-    <hr />
-    <!-- ALERT BOX -->
-    <div id="alert" class="alert" role="alert">
-         <h4 id="alert-title">You are not logged in</h4>
+                    </form>
+                    <!-- / LOGIN -->
+                    <!-- LOGOUT -->
+                    <form id="frmLogout" role="form">
+                         <h2>You are logged out!</h2>
 
-        <p id="alert-detail"></p>
-    </div>
-    <!-- / ALERT BOX -->
+                    </form>
+                    <!-- / LOGOUT -->
+                    <!-- REGISTER -->
+                    <form id="frmRegister" role="form">
+                         <h2>Register</h2>
+
+                        <div class="form-group">
+                            <label for="txtRegEmail">Email address</label>
+                            <input type="email" class="form-control" id="txtEmail" placeholder="Enter email" name="email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="txtRegPass">Password</label>
+                            <input type="password" class="form-control" id="txtPass" placeholder="Password" name="password" />
+                        </div>
+                        <button type="submit" class="btn btn-default">Register</button>
+                    </form>
+                    <!-- / REGISTER -->
+                    <!-- PROFILE -->
+                    <form id="frmProfile" role="form" ng-show="profileInfo">
+                            <!-- ALERT BOX -->
+                            <div id="alert" class="alert" role="alert">
+                                 <h4 id="alert-title">You are not logged in</h4>
+
+                                <p id="alert-detail"></p>
+                            </div>
+                            <!-- / ALERT BOX -->
+
+                        <br />
+                        <div class="form-group">
+                            <label for="txtName">Name</label>
+                            <input type="text" class="form-control" id="txtName" placeholder="Name" name="name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="ddlDino">Favorite Dinosaur</label>
+                            <select id="ddlDino" name="favoriteDinosaur" class="form-control">
+                                <option>None</option>
+                                <option>Pteranodon</option>
+                                <option>Lambeosaurus</option>
+                                <option>Stegosaurus</option>
+                                <option>Daspletosaurus</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" ng-click="quizStart()">Start Quiz</button>
+                    </form>
+
+
+                <!-- QUESTIONS -->
+                <div ng-show="questionsDone">
+                        <div class="desc full-tile">{{source.questions[ questionNdx ].text}}</div>
+                        <a href="#" ng-click="onSelectResponse(-1)" class="heat-high med-tile"></a>
+                        <a href="#" ng-click="onSelectResponse(-0.5)" class="heat-med-high med-tile"></a>
+                        <a href="#" ng-click="onSelectResponse(0.5)" class="heat-med-low med-tile"></a>
+                        <a href="#" ng-click="onSelectResponse(1)" class="heat-low med-tile"></a>
+                </div>
+
+                <!-- RESULTS -->
+                <div ng-show="isDone">
+                        <div ng-repeat="category in source.categories">
+                                <div class="info-tile">{{category}}</div>
+                                <div ng-show="isCategoryLow($index)" class="score-tile heat-high">{{results.categories[$index] | number:1}}</div>
+                                <div ng-show="isCategoryNeutral($index)" class="score-tile heat-med">{{results.categories[$index] | number:1}}</div>
+                                <div ng-show="isCategoryHigh($index)" class="score-tile heat-low">{{results.categories[$index] | number:1}}</div>
+                                <div style="clear:both;"></div>
+                                <div ng-show="isCategoryLow($index)" class="desc message-tile">{{source.categoryMessages[$index].low}}</div>
+                                <div ng-show="isCategoryNeutral($index)" class="desc message-tile">{{source.categoryMessages[$index].neutral}}</div>
+                                <div ng-show="isCategoryHigh($index)" class="desc message-tile">{{source.categoryMessages[$index].high}}</div>
+                        </div>
+                        <button class="btn btn-primary btn-lg pull-left" ng-click="quizFinish()">Continue</button>
+                </div>
+
+                <!-- SHARE PAGE -->
+                <div ng-show="shareShow">
+                        <h1>SHARE PAGE</h1>
+                </div>
+            </div>
+
 </div>
 		<script src="js/auth.js"></script>
 		<script src="js/app.js"></script>

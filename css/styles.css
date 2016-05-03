@@ -21,7 +21,7 @@ body {
     padding: 10px;
     color: #FEFEF2;
     font-family: segoe ui, verdana, arial, sans-serif;
-    background-color: #2d89ef;
+    background-color: #8F99A5;
 }
 .info-tile {
     width: 415px;
@@ -29,7 +29,7 @@ body {
     margin: 5px;
     padding: 10px;
     color: #FEFEF2;
-    background-color: #00aba9;
+    background-color: #3e58c2;
     font-family: segoe ui, verdana, arial, sans-serif;
     float: left;
 }
@@ -41,7 +41,7 @@ body {
     margin-bottom: 5px;
     margin-right: 5px;
     padding: 10px;
-    color: #FEFEF2;
+    color: #262626;
     font-family: segoe ui, verdana, arial, sans-serif;
     float: left;
     text-align: right;
