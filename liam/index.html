@@ -101,10 +101,10 @@
     <!-- / REGISTER -->
     <!-- PROFILE -->
     <form id="frmProfile" role="form">
-         <h2>Profile</h2>
+         <!-- <h2>Profile</h2>
 
-        <br />
-        <div class="form-group">
+        <br /> -->
+        <!-- <div class="form-group">
             <label for="txtName">Name</label>
             <input type="text" class="form-control" id="txtName" placeholder="Name" name="name" />
         </div>
@@ -118,16 +118,16 @@
                 <option>Daspletosaurus</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Update</button>
-				<div ng-controller="Questionnaire" class="container ng-scope">
+        <button type="submit" class="btn btn-primary">Update</button> -->
+				<div ng-controller="Questionnaire" class="container questionnaire ng-scope">
 				<div ng-show="!isDone">
 						<div class="desc full-tile">{{source.questions[ questionNdx ].text}}</div>
-						<div id="progress" class="bar"></div> <a href="#" ng-click="onSelectResponse(-2)" class="heat-high med-tile">Strongly Disagree</a>
-			<a href="#" ng-click="onSelectResponse(-1)" class="heat-med-high med-tile">Disagree</a>
-			<a href="#" ng-click="onSelectResponse(0)" class="heat-med med-tile">Neutral</a>
-			<a href="#" ng-click="onSelectResponse(1)" class="heat-med-low med-tile">Agree</a>
-			<a href="#" ng-click="onSelectResponse(2)" class="heat-low med-tile">Strongly Agree</a>
-
+						<!-- <div id="progress" class="bar"></div> -->
+						<a href="#" ng-click="onSelectResponse(-2)" class="heat-high med-tile"></a>
+						<a href="#" ng-click="onSelectResponse(-1)" class="heat-med-high med-tile"></a>
+						<a href="#" ng-click="onSelectResponse(0)" class="heat-med med-tile"></a>
+						<a href="#" ng-click="onSelectResponse(1)" class="heat-med-low med-tile"></a>
+						<a href="#" ng-click="onSelectResponse(2)" class="heat-low med-tile"></a>
 				</div>
 				<div ng-show="isDone">
 						<div class="desc full-tile">Done! #todo put results here and describe what they mean.(results in each category are -1.0 to +1.0)</div>

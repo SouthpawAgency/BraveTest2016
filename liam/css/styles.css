@@ -1,31 +1,15 @@
 body {
-    width: 530px;
-}
-.heat-low {
-    background-color: #199900;
-}
-.heat-med-low {
-    background-color: #78ba00;
-}
-.heat-med {
-    background-color: #e1b700;
-}
-.heat-med-high {
-    background-color: #ff7d23;
-}
-.heat-high {
-    background-color: #ff2e12;
+
 }
 .desc {
-    background-color: #2b5797;
     font-size: 1.1em;
 }
 .full-tile {
-    width: 490px;
     height: 100px;
     margin: 5px;
     padding: 10px;
-    color: #FEFEF2;
+    color: #000;
+    text-align: center;
     font-family: segoe ui, verdana, arial, sans-serif;
 }
 .message-tile {
@@ -73,7 +57,8 @@ body {
     width: 74px;
     height: 64px;
     padding: 10px;
-    float: left;
+    display: inline-block;
+    position: relative;
     margin: 5px;
     color: #ECF1EF;
     font-family: segoe ui, verdana, arial, sans-serif;
@@ -91,4 +76,37 @@ a:hover {
   background: #eaeaea;
   position: absolute;
   bottom: 0;
+}
+
+/* CUSTOM */
+
+.container.questionnaire {
+  width: 100%;
+  padding-left: 0;
+  padding-right:0;
+  text-align: center;
+}
+
+.med-tile::before {
+  content: '';
+  display: block;
+  background: black;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: calc(50% - 10px);
+  left: calc(50% - 10px);
+  border-radius: 50%;
+}
+
+.med-tile:hover::after {
+  content: '';
+  display: block;
+  border: 2px solid black;
+  width: 30px;
+  height:30px;
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+  border-radius: 50%;
 }

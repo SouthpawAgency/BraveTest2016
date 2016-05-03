@@ -1,5 +1,8 @@
 //<![CDATA[
   var myDataRef = new Firebase('https://blistering-inferno-6990.firebaseio.com/');
+
+  var theUser = myDataRef.child('web/uauth').getAuth();
+  var theUserRef = myDataRef.child('web/uauth/users').child(theUser.uid);
 //+ Jonas Raoni Soares Silva
 //@ http://jsfromhell.com/array/shuffle [v1.0]
 function shuffle(o) { //v1.0
@@ -167,7 +170,7 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
         $scope.results.questions[questionId] = response;
         $scope.results.categories[catId] += catScore;
         $scope.questionNdx++;
-        myDataRef.push({name: questionNdx, text: response});
+        theUserRef.child('answers/' + (questionNdx + 1)).set(response);
         $('#progress').width(parseInt(($scope.questionNdx / $scope.source.questions.length) * 523) + 'px');
         if ($scope.questionNdx == $scope.source.questions.length) {
             $scope.isDone = true;
