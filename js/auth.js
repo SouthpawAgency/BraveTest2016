@@ -236,7 +236,7 @@
             e.preventDefault();
             var userInfo = $(this).serializeObject();
 
-            userRef.set(userInfo, function onComplete() {
+            userRef.update(userInfo, function onComplete() {
 
                 // show the message if write is successful
                 showAlert({

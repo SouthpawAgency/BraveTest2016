@@ -136,25 +136,30 @@
                 <!-- QUESTIONS -->
                 <div ng-show="questionsDone">
                         <div class="desc full-tile">{{source.questions[ questionNdx ].text}}</div>
-                        <a href="#" ng-click="onSelectResponse(-1)" class="heat-high med-tile"></a>
-                        <a href="#" ng-click="onSelectResponse(-0.5)" class="heat-med-high med-tile"></a>
-                        <a href="#" ng-click="onSelectResponse(0.5)" class="heat-med-low med-tile"></a>
-                        <a href="#" ng-click="onSelectResponse(1)" class="heat-low med-tile"></a>
+                        <a href="#" class="heat-high med-tile responseSelector" ng-class="{'active':selectedTab === 's-disagree'}" ng-click="selectedTab = 's-disagree'; onSelectResponse(1)"></a>
+                        <a href="#" class="heat-med-high med-tile responseSelector" ng-class="{'active':selectedTab === 'disagree'}" ng-click="selectedTab = 'disagree'; onSelectResponse(2)"></a>
+												<a href="#" class="heat-med med-tile responseSelector" ng-class="{'active':selectedTab === 'neutral'}" ng-click="selectedTab = 'neutral'; onSelectResponse(3)"></a>
+                        <a href="#" class="heat-med-low med-tile responseSelector" ng-class="{'active':selectedTab === 'agree'}" ng-click="selectedTab = 'agree'; onSelectResponse(4)"></a>
+                        <a href="#" class="heat-low med-tile responseSelector" ng-class="{'active':selectedTab === 's-agree'}" ng-click="selectedTab = 's-agree'; onSelectResponse(5)"></a>
+												<br/>
+												<button class="btn btn-primary btn-lg" ng-click="onConfirmResponse(); selectedTab = ''">Next</button>
                 </div>
 
                 <!-- RESULTS -->
                 <div ng-show="isDone">
                         <div ng-repeat="category in source.categories">
                                 <div class="info-tile">{{category}}</div>
-                                <div ng-show="isCategoryLow($index)" class="score-tile heat-high">{{results.categories[$index] | number:1}}</div>
-                                <div ng-show="isCategoryNeutral($index)" class="score-tile heat-med">{{results.categories[$index] | number:1}}</div>
-                                <div ng-show="isCategoryHigh($index)" class="score-tile heat-low">{{results.categories[$index] | number:1}}</div>
+                                <div ng-show="isCategoryLeader($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
+                                <div ng-show="isCategoryAdventurer($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
+                                <div ng-show="isCategoryScientist($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
+																<div ng-show="isCategoryProtector($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
                                 <div style="clear:both;"></div>
-                                <div ng-show="isCategoryLow($index)" class="desc message-tile">{{source.categoryMessages[$index].low}}</div>
-                                <div ng-show="isCategoryNeutral($index)" class="desc message-tile">{{source.categoryMessages[$index].neutral}}</div>
-                                <div ng-show="isCategoryHigh($index)" class="desc message-tile">{{source.categoryMessages[$index].high}}</div>
+                                <div ng-show="isCategoryLeader($index)" class="desc message-tile">{{source.categoryMessages[$index].leader}}</div>
+                                <div ng-show="isCategoryAdventurer($index)" class="desc message-tile">{{source.categoryMessages[$index].adventurer}}</div>
+                                <div ng-show="isCategoryScientist($index)" class="desc message-tile">{{source.categoryMessages[$index].scientist}}</div>
+																<div ng-show="isCategoryProtector($index)" class="desc message-tile">{{source.categoryMessages[$index].protector}}</div>
                         </div>
-                        <button class="btn btn-primary btn-lg pull-left" ng-click="quizFinish()">Continue</button>
+                        <button class="btn btn-primary btn-lg" ng-click="quizFinish()">Continue</button>
                 </div>
 
                 <!-- SHARE PAGE -->
