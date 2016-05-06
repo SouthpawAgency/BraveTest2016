@@ -28,26 +28,21 @@
     <div class="container">
         <div class="navbar-header">
             <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"> <span class="sr-only">Toggle navigation</span>
- <span class="icon-bar"></span>
- <span class="icon-bar"></span>
- <span class="icon-bar"></span>
-
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </button>
-
         </div>
+
         <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
             <ul class="nav navbar-nav">
                 <li> <a href="#/">Login</a>
-
                 </li>
                 <li> <a href="#/logout">Logout</a>
-
                 </li>
                 <li> <a href="#/register">Register</a>
-
                 </li>
                 <li> <a href="#/profile">Profile</a>
-
                 </li>
             </ul>
         </nav>
@@ -138,26 +133,26 @@
                         <div class="desc full-tile">{{source.questions[ questionNdx ].text}}</div>
                         <a href="#" class="heat-high med-tile responseSelector" ng-class="{'active':selectedTab === 's-disagree'}" ng-click="selectedTab = 's-disagree'; onSelectResponse(1)"></a>
                         <a href="#" class="heat-med-high med-tile responseSelector" ng-class="{'active':selectedTab === 'disagree'}" ng-click="selectedTab = 'disagree'; onSelectResponse(2)"></a>
-												<a href="#" class="heat-med med-tile responseSelector" ng-class="{'active':selectedTab === 'neutral'}" ng-click="selectedTab = 'neutral'; onSelectResponse(3)"></a>
+						<a href="#" class="heat-med med-tile responseSelector" ng-class="{'active':selectedTab === 'neutral'}" ng-click="selectedTab = 'neutral'; onSelectResponse(3)"></a>
                         <a href="#" class="heat-med-low med-tile responseSelector" ng-class="{'active':selectedTab === 'agree'}" ng-click="selectedTab = 'agree'; onSelectResponse(4)"></a>
                         <a href="#" class="heat-low med-tile responseSelector" ng-class="{'active':selectedTab === 's-agree'}" ng-click="selectedTab = 's-agree'; onSelectResponse(5)"></a>
-												<br/>
-												<button class="btn btn-primary btn-lg" ng-click="onConfirmResponse(); selectedTab = ''">Next</button>
+						<br/>
+						<button class="btn btn-primary btn-lg" ng-click="onConfirmResponse(); selectedTab = ''">Next</button>
                 </div>
 
                 <!-- RESULTS -->
                 <div ng-show="isDone">
                         <div ng-repeat="category in source.categories">
-                                <div class="info-tile">{{category}}</div>
-                                <div ng-show="isCategoryLeader($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
-                                <div ng-show="isCategoryAdventurer($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
-                                <div ng-show="isCategoryScientist($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
-																<div ng-show="isCategoryProtector($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
-                                <div style="clear:both;"></div>
-                                <div ng-show="isCategoryLeader($index)" class="desc message-tile">{{source.categoryMessages[$index].leader}}</div>
-                                <div ng-show="isCategoryAdventurer($index)" class="desc message-tile">{{source.categoryMessages[$index].adventurer}}</div>
-                                <div ng-show="isCategoryScientist($index)" class="desc message-tile">{{source.categoryMessages[$index].scientist}}</div>
-																<div ng-show="isCategoryProtector($index)" class="desc message-tile">{{source.categoryMessages[$index].protector}}</div>
+                            <div class="info-tile">{{category}}</div>
+                            <div ng-show="isCategoryLeader($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
+                            <div ng-show="isCategoryAdventurer($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
+                            <div ng-show="isCategoryScientist($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
+							<div ng-show="isCategoryProtector($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
+                            <div style="clear:both;"></div>
+                            <div ng-show="isCategoryLeader($index)" class="desc message-tile">{{source.categoryMessages[$index].leader}}</div>
+                            <div ng-show="isCategoryAdventurer($index)" class="desc message-tile">{{source.categoryMessages[$index].adventurer}}</div>
+                            <div ng-show="isCategoryScientist($index)" class="desc message-tile">{{source.categoryMessages[$index].scientist}}</div>
+							<div ng-show="isCategoryProtector($index)" class="desc message-tile">{{source.categoryMessages[$index].protector}}</div>
                         </div>
                         <button class="btn btn-primary btn-lg" ng-click="quizFinish()">Continue</button>
                 </div>

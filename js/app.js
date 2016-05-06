@@ -67,6 +67,8 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
     };
 
 
+	var firstBackground = ["Question1.jpg"];
+    var backgrounds = ["Question1.jpg", "Question2.jpg", "Question3.jpg", "Question4.jpg", "Question5.jpg", "Question6.jpg", "Question7.jpg", "Question8.jpg", "Question9.jpg", "Question10.jpg", "Question10.jpg"];
 
     var i;
     var questions = $scope.source.questions;
@@ -100,6 +102,8 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
     $scope.quizStart = function(){
         $scope.questionsDone = true;
         $scope.profileInfo = false;
+        $('body').css("background-image",'url("images/'+firstBackground+'")');
+        
     }
 
     $scope.isCategoryLeader = function (catId) {
@@ -134,6 +138,8 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
         $scope.results.categories[catId] += catScore;
         $scope.questionNdx++;
         theUserRef.child('answers/' + (questionNdx + 1)).set(selectedResponse);
+        $('body').css("background-image",'url("images/'+backgrounds[i]+'")');
+        i++;
         if ($scope.questionNdx == $scope.source.questions.length) {
             $scope.isDone = true;
             $scope.questionsDone = false;
