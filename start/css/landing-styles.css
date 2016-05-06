@@ -1,0 +1,57 @@
+@font-face {font-family: 'knockout';src: url('../webfonts/ufonts.com_knockout-htf49-liteweight.woff') format('woff'),url('../webfonts/knockout-htf49-liteweight-webfont.ttf') format('truetype');}
+
+body {
+  min-height:100vh;
+  background:url('../images/Main page.jpg');
+  background-size:cover;
+  background-position:center;
+}
+
+.banner {
+  background: none;
+  height: auto;
+  text-align: center;
+}
+
+.banner .banner-slogan {
+  animation: none;
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+
+.banner .banner-slogan h1 {
+  display: block;
+  font-family: 'brush-tipTerrence', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 84px;
+  letter-spacing: 2px;
+}
+
+.banner .banner-slogan h1 strong {
+  font-size: 142px;
+}
+
+.btn {
+  color:white;
+  position: absolute;
+  bottom: 20%;
+  left:50%;
+  transform: translateX(-50%);
+  font-family: 'knockout';
+  background: url('../images/button.svg');
+  border: none;
+  background-size: contain;
+  font-size: 36px;
+  padding: 24px 40px 0 40px;
+  text-align: center;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+a.btn:hover {
+  color:white;
+  padding: 24px 50px 0 50px;
+}

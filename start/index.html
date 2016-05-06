@@ -129,19 +129,21 @@
 
 
                 <!-- QUESTIONS -->
-                <div ng-show="questionsDone">
+                <div class="ng-cloak" ng-show="questionsDone">
                         <div class="desc full-tile">{{source.questions[ questionNdx ].text}}</div>
+												<span>Disagree</span>
                         <a href="#" class="heat-high med-tile responseSelector" ng-class="{'active':selectedTab === 's-disagree'}" ng-click="selectedTab = 's-disagree'; onSelectResponse(1)"></a>
                         <a href="#" class="heat-med-high med-tile responseSelector" ng-class="{'active':selectedTab === 'disagree'}" ng-click="selectedTab = 'disagree'; onSelectResponse(2)"></a>
 						<a href="#" class="heat-med med-tile responseSelector" ng-class="{'active':selectedTab === 'neutral'}" ng-click="selectedTab = 'neutral'; onSelectResponse(3)"></a>
                         <a href="#" class="heat-med-low med-tile responseSelector" ng-class="{'active':selectedTab === 'agree'}" ng-click="selectedTab = 'agree'; onSelectResponse(4)"></a>
                         <a href="#" class="heat-low med-tile responseSelector" ng-class="{'active':selectedTab === 's-agree'}" ng-click="selectedTab = 's-agree'; onSelectResponse(5)"></a>
+												<span>Agree</span>
 						<br/>
 						<button class="btn btn-primary btn-lg" ng-click="onConfirmResponse(); selectedTab = ''">Next</button>
                 </div>
 
                 <!-- RESULTS -->
-                <div ng-show="isDone">
+                <div ng-show="isDone" class="ng-cloak">
                         <div ng-repeat="category in source.categories">
                             <div class="info-tile">{{category}}</div>
                             <div ng-show="isCategoryLeader($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
@@ -158,10 +160,24 @@
                 </div>
 
                 <!-- SHARE PAGE -->
-                <div ng-show="shareShow">
+                <div ng-show="shareShow" class="share">
                         <h1>SHARE PAGE</h1>
                 </div>
             </div>
+
+						<!-- Cache images -->
+						<div style="display:none;">
+							<img src="images/Question1.jpg">
+							<img src="images/Question2.jpg">
+							<img src="images/Question3.jpg">
+							<img src="images/Question4.jpg">
+							<img src="images/Question5.jpg">
+							<img src="images/Question6.jpg">
+							<img src="images/Question7.jpg">
+							<img src="images/Question8.jpg">
+							<img src="images/Question9.jpg">
+							<img src="images/Question10.jpg">
+						</div>
 
 </div>
 		<script src="js/auth.js"></script>

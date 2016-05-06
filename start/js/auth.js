@@ -59,7 +59,7 @@
     // returns a promise
     function authWithPassword(userObj) {
         var deferred = $.Deferred();
-        // console.log(userObj);
+        console.log(userObj);
         rootRef.authWithPassword(userObj, function onAuth(err, user) {
             if (err) {
                 deferred.reject(err);
