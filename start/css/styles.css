@@ -144,3 +144,7 @@ form {
  .message-tile {
    margin: auto;
  }
+
+ .navbar-nav{
+ 	float: none; 
+ }

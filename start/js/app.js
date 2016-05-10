@@ -69,6 +69,7 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
 
 	var firstBackground = ["Question1.jpg"];
     var backgrounds = ["Question1.jpg", "Question2.jpg", "Question3.jpg", "Question4.jpg", "Question5.jpg", "Question6.jpg", "Question7.jpg", "Question8.jpg", "Question9.jpg", "Question10.jpg", "Question10.jpg"];
+    var resultsBackgrounds = ["ResultsPageAventurer.jpg", "ResultsPageLeader.jpg", "ResultsPageProtector.jpg", "ResultsPageScientist.jpg"];
 
     var i;
     var questions = $scope.source.questions;

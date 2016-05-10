@@ -189,7 +189,11 @@
 
     // logout immediately when the controller is invoked
     controllers.logout = function (form) {
+
         rootRef.unauth();
+        routeTo('');
+
+
     };
 
     controllers.register = function (form) {
