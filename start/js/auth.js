@@ -23,6 +23,11 @@
             controller: 'profile',
             authRequired: true // must be logged in to get here
         },
+        '#/quiz': {
+            form: 'quizProfile',
+            controller: 'quiz',
+            authRequired: true // must be logged in to get here
+        },
     };
 
     // create the object to store our controllers
@@ -163,7 +168,7 @@
             var loginPromise = authWithPassword(userAndPass);
             e.preventDefault();
 
-            handleAuthResponse(loginPromise, 'profile');
+            handleAuthResponse(loginPromise, 'quiz');
 
         });
 
@@ -196,6 +201,13 @@
 
     };
 
+        // logout immediately when the controller is invoked
+    controllers.quiz = function (form) {
+
+
+
+    };
+
     controllers.register = function (form) {
 
         // Form submission for registering
@@ -218,7 +230,7 @@
 
         // If no current user send to register page
         if (!user) {
-            routeTo('register');
+            routeTo('login');
             return;
         }
 
@@ -309,6 +321,7 @@
     Path.map("#/logout").to(prepRoute);
     Path.map("#/register").to(prepRoute);
     Path.map("#/profile").to(prepRoute);
+    Path.map("#/quiz").to(prepRoute);
 
     Path.root("#/");
 

@@ -1,8 +1,8 @@
-//<![CDATA[
+
   var myDataRef = new Firebase('https://blistering-inferno-6990.firebaseio.com/');
 
-  var theUser = myDataRef.child('web/uauth').getAuth();
-  var theUserRef = myDataRef.child('web/uauth/users').child(theUser.uid);
+  // var theUser = myDataRef.child('web/uauth').getAuth();
+  // var theUserRef = myDataRef.child('web/uauth/users').child(theUser.uid);
 //+ Jonas Raoni Soares Silva
 //@ http://jsfromhell.com/array/shuffle [v1.0]
 function shuffle(o) { //v1.0
@@ -138,7 +138,7 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
         $scope.results.questions[questionId] = selectedResponse;
         $scope.results.categories[catId] += catScore;
         $scope.questionNdx++;
-        theUserRef.child('answers/' + (questionNdx + 1)).set(selectedResponse);
+        // theUserRef.child('answers/' + (questionNdx + 1)).set(selectedResponse);
         $('body').css("background-image",'url("images/'+backgrounds[i]+'")');
         i++;
         if ($scope.questionNdx == $scope.source.questions.length) {
@@ -168,5 +168,10 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
             this.$apply(fn);
         }
     };
+
+
 }]);
-//]]>
+
+
+
+

@@ -10,9 +10,9 @@ body {
     font-size: 1.1em;
 }
 .full-tile {
-    height: 100px;
+    height: auto;
     margin: 5px;
-    padding: 10px;
+    padding: 40px;
     color: #fff;
     text-align: center;
     font-family: segoe ui, verdana, arial, sans-serif;
@@ -60,13 +60,16 @@ body {
 }
 .med-tile {
     width: 74px;
-    height: 64px;
-    padding: 10px;
+/*    height: 64px;
+    padding: 10px;*/
     display: inline-block;
     position: relative;
     margin: 5px;
     color: #ECF1EF;
     font-family: segoe ui, verdana, arial, sans-serif;
+}
+.next-button{
+  margin-top: 20px;
 }
 a {
     text-decoration: none;
@@ -91,7 +94,7 @@ header.navbar {
 }
 
 form {
-	width: 300px;
+	width: 800px;
 	margin: auto;
 }
 
