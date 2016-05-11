@@ -206,7 +206,7 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
     $scope.onSelectProfileResponse = function (response) {
       console.log('profile click');
         //if response is selected...
-        var questionNdx = $scope.questionNdx;
+        var questionNdx = $scope.profileQuestionNdx;
         var question = $scope.source.profileQuestions[questionNdx];
         var questionId = question.id;
         $scope.profileQuestionNdx++;
