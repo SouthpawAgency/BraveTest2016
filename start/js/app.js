@@ -65,14 +65,24 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
             }],
         "profileQuestions": [{
             "id":1001,
-            "text": "This is the first question",
-            "optionLeft": "left option",
-            "optionRight": "right option"
+            "optionLeft": "snowboarding",
+            "optionRight": "skiing"
           },{
             "id":1002,
-            "text": "This is the second question",
-            "optionLeft": "left option2",
-            "optionRight": "right option2"
+            "optionLeft": "mature cheddar",
+            "optionRight": "blue cheese"
+          },{
+            "id":1003,
+            "optionLeft": "rock music",
+            "optionRight": "electronic music"
+          },{
+            "id":1004,
+            "optionLeft": "tea",
+            "optionRight": "coffee"
+          },{
+            "id":1005,
+            "optionLeft": "beach holiday",
+            "optionRight": "city break"
           }]
         }
 
@@ -204,6 +214,7 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
         // $('body').css("background-image",'url("images/'+backgrounds[i]+'")');
         // i++;
         if ($scope.profileQuestionNdx == $scope.source.profileQuestions.length) {
+            console.log('end');
             $scope.isProfileDone = true;
             $scope.profileQuestionsDone = true;
 
