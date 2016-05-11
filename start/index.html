@@ -41,8 +41,8 @@
                 </li>
                 <li> <a href="#/register">Register</a>
                 </li>
-                <li> <a href="#/profile">Profile</a>
-                </li>
+                <!-- <li> <a href="#/profile">Profile</a>
+                </li> -->
                 <li> <a href="#/quiz">Quiz</a>
                 </li>
                 <li class="pull-right"> <a href="#/logout">Logout</a>
@@ -105,14 +105,20 @@
                     <!-- PROFILE -->
                     <form id="frmProfile" role="form" ng-show="profileInfo">
                             <!-- ALERT BOX -->
-                            <div id="alert" class="alert" role="alert">
+                            <!-- <div id="alert" class="alert" role="alert">
                                  <h4 id="alert-title">You are not logged in</h4>
 
                                 <p id="alert-detail"></p>
-                            </div>
+                            </div> -->
                             <!-- / ALERT BOX -->
 
-                        <br />
+												<p>Answer these 5 quick questions to see how you compare to the other {{braveCategory}}s.</p>
+
+												<div>
+                        <div class="desc full-tile">{{source.profileQuestions[ questionNdx ].text}}</div>
+                        <a href="#" class="heat-high med-tile responseSelector" ng-click="onSelectProfileResponse(1)">{{source.profileQuestions[ questionNdx ].optionLeft}}</a>
+                        <a href="#" class="heat-med-high med-tile responseSelector" ng-click="onSelectProfileResponse(2)">{{source.profileQuestions[ questionNdx ].optionRight}}</a>
+                        </div>
                         <!--    <div class="form-group">
                             <label for="txtName">Name</label>
                             <input type="text" class="form-control" id="txtName" placeholder="Name" name="name" />
@@ -134,38 +140,50 @@
                     <form id="quizProfile" role="form" ng-show="profileInfo">
 
                         <!-- QUESTIONS -->
-                        <div ng-show="true" class="ng-cloak">
+                        <div ng-show="!questionsDone" class="ng-cloak">
                         <div class="desc full-tile">{{source.questions[ questionNdx ].text}}</div>
-                                                <span>Disagree</span>
+                        <span class="disagreeSpan">Disagree</span>
                         <a href="#" class="heat-high med-tile responseSelector" ng-class="{'active':selectedTab === 's-disagree'}" ng-click="selectedTab = 's-disagree'; onSelectResponse(1)"></a>
                         <a href="#" class="heat-med-high med-tile responseSelector" ng-class="{'active':selectedTab === 'disagree'}" ng-click="selectedTab = 'disagree'; onSelectResponse(2)"></a>
                         <a href="#" class="heat-med med-tile responseSelector" ng-class="{'active':selectedTab === 'neutral'}" ng-click="selectedTab = 'neutral'; onSelectResponse(3)"></a>
                         <a href="#" class="heat-med-low med-tile responseSelector" ng-class="{'active':selectedTab === 'agree'}" ng-click="selectedTab = 'agree'; onSelectResponse(4)"></a>
                         <a href="#" class="heat-low med-tile responseSelector" ng-class="{'active':selectedTab === 's-agree'}" ng-click="selectedTab = 's-agree'; onSelectResponse(5)"></a>
-                                                <span>Agree</span>
+                        <span class="agreeSpan">Agree</span>
                         <br/>
                         <button class="btn btn-primary btn-lg next-button" ng-click="onConfirmResponse(); selectedTab = ''">Next</button>
                         </div>
 
                         <!-- RESULTS -->
                         <div ng-show="isDone" class="ng-cloak">
-                                <div ng-repeat="category in source.categories">
-                                    <div class="info-tile">{{category}}</div>
-                                    <div ng-show="isCategoryLeader($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
-                                    <div ng-show="isCategoryAdventurer($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
-                                    <div ng-show="isCategoryScientist($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
-                                    <div ng-show="isCategoryProtector($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
-                                    <div style="clear:both;"></div>
-                                    <div ng-show="isCategoryLeader($index)" class="desc message-tile">{{source.categoryMessages[$index].leader}}</div>
-                                    <div ng-show="isCategoryAdventurer($index)" class="desc message-tile">{{source.categoryMessages[$index].adventurer}}</div>
-                                    <div ng-show="isCategoryScientist($index)" class="desc message-tile">{{source.categoryMessages[$index].scientist}}</div>
-                                    <div ng-show="isCategoryProtector($index)" class="desc message-tile">{{source.categoryMessages[$index].protector}}</div>
-                                </div>
-                                <button class="btn btn-primary btn-lg" ng-click="quizFinish()">Continue</button>
+                            <div ng-repeat="category in source.categories">
+                                <!-- <div class="info-tile">{{category}}</div>
+                                <div ng-show="isCategoryLeader($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
+                                <div ng-show="isCategoryAdventurer($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
+                                <div ng-show="isCategoryScientist($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
+                                <div ng-show="isCategoryProtector($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
+                                <div style="clear:both;"></div> -->
+                                <div ng-show="isCategoryLeader($index)" class="desc message-tile">
+																	<h1>You're a {{source.categoryMessages[$index].leader}}</h1>
+																	<p>Lead the way my friend, it’s what you were born to do. Be the black sheep, zag where others zig and pave the way for a brighter, more exciting future.</p>
+																</div>
+                                <div ng-show="isCategoryAdventurer($index)" class="desc message-tile">
+																	<h1>You're a {{source.categoryMessages[$index].adventurer}}</h1>
+																	<p>If there's a different way to look at something, you'll find it. You'll take the risks that others won't and work tirelessly to create something truly original.</p>
+																</div>
+                                <div ng-show="isCategoryScientist($index)" class="desc message-tile">
+																	<h1>You're a {{source.categoryMessages[$index].scientist}}</h1>
+																	<p>Yeah, science! You're like a combination of Walter White and Einstein! With the bravery to do things your own way and the furious curiosity to question everything, you're certainly not afraid to rock the boat.</p>
+																</div>
+                                <div ng-show="isCategoryProtector($index)" class="desc message-tile">
+																	<h1>You're a {{source.categoryMessages[$index].protector}}</h1>
+																	<p>You don't need your name up in lights. You're a humble hero and team player who knows how to get the best out of those around you, even if that means taking a back seat yourself.</p>
+																</div>
+                            </div>
+                            <a href="#/profile" class="btn quizbtn">Next</a>
                         </div>
 
                         <!-- SHARE PAGE -->
-                        <div ng-show="shareShow" class="share">
+                        <div ng-show="shareShow" class="ng-cloak share">
                                 <h1>SHARE PAGE</h1>
                         </div>
 

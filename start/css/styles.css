@@ -1,3 +1,5 @@
+@font-face {font-family: 'knockout';src: url('../webfonts/ufonts.com_knockout-htf49-liteweight.woff') format('woff'),url('../webfonts/knockout-htf49-liteweight-webfont.ttf') format('truetype');}
+
 body {
 	background-color: #1a1a1a;
 	background: url('../images/Main page.jpg');
@@ -26,7 +28,6 @@ body {
     padding: 10px;
     color: #FEFEF2;
     font-family: segoe ui, verdana, arial, sans-serif;
-    background-color: #8F99A5;
 }
 .info-tile {
     width: 415px;
@@ -60,8 +61,8 @@ body {
 }
 .med-tile {
     width: 74px;
-/*    height: 64px;
-    padding: 10px;*/
+    height: 64px;
+    padding: 10px;
     display: inline-block;
     position: relative;
     margin: 5px;
@@ -149,5 +150,34 @@ form {
  }
 
  .navbar-nav{
- 	float: none; 
+ 	float: none;
+ }
+
+ .disagreeSpan, .agreeSpan {
+	 	display: inline-block;
+    height: 64px;
+    line-height: 64px;
+    vertical-align: top;
+    margin-top: 5px;
+    margin-bottom: 5px;
+ }
+
+ a.btn.quizbtn {
+   color:white;
+   font-family: 'knockout', Arial, sans-serif;
+	 font-size: 30px;
+	 letter-spacing: 2px;
+   background: url('../images/button.svg');
+   border: none;
+   background-size: contain;
+   padding: 21px 55px 0 55px;
+   text-align: center;
+	 text-transform: uppercase;
+   background-position: center;
+   background-repeat: no-repeat;
+ }
+
+ a.btn.quizbtn:hover {
+   color:white;
+   padding: 21px 60px 0 60px;
  }
