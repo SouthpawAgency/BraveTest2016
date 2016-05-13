@@ -132,17 +132,17 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
     }
 
     $scope.isCategoryLeader = function (catId) {
-        return $scope.results.categories[catId] <= 0.39;
+        return $scope.results.categories[catId] >= 0.80;
 
     }
     $scope.isCategoryAdventurer = function (catId) {
-        return ($scope.results.categories[catId] >= 0.40 && $scope.results.categories[catId] <= 0.59);
-    }
-    $scope.isCategoryScientist = function (catId) {
         return ($scope.results.categories[catId] >= 0.60 && $scope.results.categories[catId] <= 0.79);
     }
+    $scope.isCategoryScientist = function (catId) {
+        return ($scope.results.categories[catId] >= 0.40 && $scope.results.categories[catId] <= 0.59);
+    }
     $scope.isCategoryProtector = function (catId) {
-        return $scope.results.categories[catId] >= 0.80;
+        return $scope.results.categories[catId] <= 0.39;
     }
 
     var selectedResponse = false;
