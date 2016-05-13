@@ -243,7 +243,7 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
         if ($scope.profileQuestionNdx == $scope.source.profileQuestions.length) {
             $scope.isProfileDone = true;
             $scope.profileQuestionsDone = true;
-            console.log($scope.profileQuestionsDone);
+            $scope.profileQuestionNdx = 0;
         }
         $scope.safeApply();
     }

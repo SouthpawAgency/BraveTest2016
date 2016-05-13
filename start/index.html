@@ -106,7 +106,7 @@
                     </form>
                     <!-- / REGISTER -->
                     <!-- PROFILE -->
-                    <form id="frmProfile" role="form" ng-show="!profileQuestionsDone">
+                    <form id="frmProfile" role="form">
                             <!-- ALERT BOX -->
                             <!-- <div id="alert" class="alert" role="alert">
                                  <h4 id="alert-title">You are not logged in</h4>
@@ -115,12 +115,13 @@
                             </div> -->
                             <!-- / ALERT BOX -->
 
-												<p>Answer these 5 quick questions to see how you compare to the other <span id="braveCategory">{{braveCategory}}</span>s.</p>
+												<p ng-show="!profileQuestionsDone">Answer these 5 quick questions to see how you compare to the other <span id="braveCategory">{{braveCategory}}</span>s.</p>
 
-												<div>
+												<div ng-show="!profileQuestionsDone">
                         <a href="#" class="profileSelector" ng-click="onSelectProfileResponse(1)">{{source.profileQuestions[ profileQuestionNdx ].optionLeft}}</a>
                         <a href="#" class="profileSelector" ng-click="onSelectProfileResponse(2)">{{source.profileQuestions[ profileQuestionNdx ].optionRight}}</a>
                         </div>
+												<a href="#/info" class="btn quizbtn" ng-show="profileQuestionsDone">View Results</a>
                         <!--    <div class="form-group">
                             <label for="txtName">Name</label>
                             <input type="text" class="form-control" id="txtName" placeholder="Name" name="name" />
@@ -196,13 +197,10 @@
                     <form id="infoProfile" role="form" ng-show="profileInfo">
 
                         <div class="css-slider">
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide a"><h1>Test 1</h1></span></a>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide b"><h1>Test 2</h1><img src="http://placehold.it/350x150"></span></a>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide c"></span></a>
                           <a href="javascript:void(0);" tabindex="-1"><span class="slide d"></span></a>
                           <a href="javascript:void(0);" tabindex="-1"><span class="slide e"></span></a>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide f"></span></a>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide g"></span></a>
+                          <a href="javascript:void(0);" tabindex="-1"><span class="slide f"><span id="infoThreeVal">00</span>% of <span id="braveCategory">{{braveCategory}}</span>s listen to rock</span></a>
+                          <a href="javascript:void(0);" tabindex="-1"><span class="slide g"><span id="infoTwoVal">00</span>% of <span id="braveCategory">{{braveCategory}}</span>s prefer mature cheddar</span></a>
                           <a href="javascript:void(0);" tabindex="-1"><span class="slide h"><span id="infoOneVal">00</span>% of <span id="braveCategory">{{braveCategory}}</span>s love snowboarding</span></a>
                         </div>
 

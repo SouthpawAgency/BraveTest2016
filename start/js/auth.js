@@ -73,7 +73,7 @@
     // returns a promise
     function authWithPassword(userObj) {
         var deferred = $.Deferred();
-        console.log(userObj);
+        // console.log(userObj);
         rootRef.authWithPassword(userObj, function onAuth(err, user) {
             if (err) {
                 deferred.reject(err);
@@ -222,7 +222,9 @@
       // Check the current user
       var user = rootRef.getAuth();
       var userRef;
-      var infoOneVal;
+      var infoOneVal,
+          infoTwoVal,
+          infoThreeVal;
 
       // If no current user send to register page
       if (!user) {
@@ -238,15 +240,32 @@
               return;
           }
           var braveType = user.braveCategory;
-          var infoOneRef = dataRef.child(braveType + "/profileQ1")
+          var infoRef = dataRef.child(braveType);
 
-          infoOneRef.once('value', function (snap) {
-              var profileQ1 = snap.val();
+          infoRef.once('value', function (snap) {
+              //main
+              var profileInfo = snap.val();
+              //Q1
+              var profileQ1 = profileInfo.profileQ1;
               var snowboarding = profileQ1.snowboarding;
-              var total = profileQ1.total;
-              infoOneVal = (snowboarding/total)*100;
+              var Q1total = profileQ1.total;
+              infoOneVal = (snowboarding/Q1total)*100;
               form.find('#infoOneVal').html(Math.round(infoOneVal));
+              //Q2
+              var profileQ2 = profileInfo.profileQ2;
+              var matureCheddar = profileQ2["mature cheddar"];
+              var Q2total = profileQ2.total;
+              infoTwoVal = (matureCheddar/Q2total)*100;
+              form.find('#infoTwoVal').html(Math.round(infoTwoVal));
+              //Q3
+              var profileQ3 = profileInfo.profileQ3;
+              var rock = profileQ3["rock music"];
+              var Q3total = profileQ3.total;
+              infoThreeVal = (rock/Q3total)*100;
+              form.find('#infoThreeVal').html(Math.round(infoThreeVal));
           });
+
+
 
           // set the fields
 
