@@ -162,7 +162,7 @@ form {
     margin-bottom: 5px;
  }
 
- a.btn.quizbtn {
+ a.btn.quizbtn, .profileSelector {
    color:white;
    font-family: 'knockout', Arial, sans-serif;
 	 font-size: 30px;
@@ -180,4 +180,18 @@ form {
  a.btn.quizbtn:hover {
    color:white;
    padding: 21px 60px 0 60px;
+ }
+
+ .profileSelector, .profileSelector:focus {
+	 color: white;
+	 display: inline-block;
+	 height: 75px;
+	 width: 280px;
+	 padding: 25px 0 0 0;
+	 text-decoration: none;
+ }
+
+ .profileSelector:hover {
+	 color:blue;
+	 text-decoration: none;
  }

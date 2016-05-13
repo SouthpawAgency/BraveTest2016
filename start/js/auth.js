@@ -1,8 +1,12 @@
 (function (jQuery, Firebase, Path) {
     "use strict";
 
+
     // the main firebase reference
     var rootRef = new Firebase('https://blistering-inferno-6990.firebaseio.com/web/uauth');
+
+    // the main data reference
+    var dataRef = new Firebase('https://blistering-inferno-6990.firebaseio.com/data');
 
     // pair our routes to our form elements and controller
     var routeMap = {
@@ -23,9 +27,14 @@
             controller: 'profile',
             authRequired: true // must be logged in to get here
         },
-        '#/quiz': {
+            '#/quiz': {
             form: 'quizProfile',
             controller: 'quiz',
+            authRequired: true // must be logged in to get here
+        },
+            '#/info': {
+            form: 'infoProfile',
+            controller: 'info',
             authRequired: true // must be logged in to get here
         },
     };
@@ -201,10 +210,48 @@
 
     };
 
-        // logout immediately when the controller is invoked
+    // logout immediately when the controller is invoked
     controllers.quiz = function (form) {
 
 
+
+    };
+
+    // logout immediately when the controller is invoked
+    controllers.info = function (form) {
+      // Check the current user
+      var user = rootRef.getAuth();
+      var userRef;
+      var infoOneVal;
+
+      // If no current user send to register page
+      if (!user) {
+          routeTo('login');
+          return;
+      }
+
+      // Load user info
+      userRef = rootRef.child('users').child(user.uid);
+      userRef.once('value', function (snap) {
+          var user = snap.val();
+          if (!user) {
+              return;
+          }
+          var braveType = user.braveCategory;
+          var infoOneRef = dataRef.child(braveType + "/profileQ1")
+
+          infoOneRef.once('value', function (snap) {
+              var profileQ1 = snap.val();
+              var snowboarding = profileQ1.snowboarding;
+              var total = profileQ1.total;
+              infoOneVal = (snowboarding/total)*100;
+              form.find('#infoOneVal').html(Math.round(infoOneVal));
+          });
+
+          // set the fields
+
+          form.find('#braveCategory').html(braveType);
+      });
 
     };
 
@@ -243,6 +290,7 @@
             }
 
             // set the fields
+            form.find('#braveCategory').html(user.braveCategory);
             form.find('#txtName').val(user.name);
             form.find('#ddlDino').val(user.favoriteDinosaur);
         });
@@ -322,6 +370,7 @@
     Path.map("#/register").to(prepRoute);
     Path.map("#/profile").to(prepRoute);
     Path.map("#/quiz").to(prepRoute);
+    Path.map("#/info").to(prepRoute);
 
     Path.root("#/");
 

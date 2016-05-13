@@ -181,18 +181,22 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
             if ($scope.isCategoryLeader(catId)) {
               theUserRef.child('braveCategory').set('Leader');
               $scope.braveCategory = "Leader";
+              dataCategory = "Leader";
             }
             if ($scope.isCategoryAdventurer(catId)) {
               theUserRef.child('braveCategory').set('Adventurer');
               $scope.braveCategory = "Adventurer";
+              dataCategory = "Adventurer";
             }
             if ($scope.isCategoryScientist(catId)) {
               theUserRef.child('braveCategory').set('Scientist');
               $scope.braveCategory = "Scientist";
+              dataCategory = "Scientist";
             }
             if ($scope.isCategoryProtector(catId)) {
               theUserRef.child('braveCategory').set('Protector');
               $scope.braveCategory = "Protector";
+              dataCategory = "Protector";
             }
         }
         $scope.safeApply();
@@ -203,42 +207,45 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
 
     }
 
+    //PROFILE QUESTIONS
+    var profileJustLoaded = true;
+    var dataCategory;
+
     $scope.onSelectProfileResponse = function (response) {
-      console.log('profile click');
-        //if response is selected...
+        var selectedOption;
         var questionNdx = $scope.profileQuestionNdx;
         var question = $scope.source.profileQuestions[questionNdx];
-        var questionId = question.id;
         $scope.profileQuestionNdx++;
-        // theUserRef.child('answers/' + (questionNdx + 1)).set(selectedResponse);
+
+        if (profileJustLoaded) {
+          theUser = myDataRef.child('web/uauth').getAuth();
+          theUserRef = myDataRef.child('web/uauth/users').child(theUser.uid);
+          dataCategory = $('#braveCategory').html();
+          console.log(dataCategory);
+          profileJustLoaded = false;
+        }
+
+        if (response == 1) {
+          selectedOption = question.optionLeft;
+        } else {
+          selectedOption = question.optionRight;
+        }
+
+        //add selected option to user's profile
+        theUserRef.child('profileAnswers/Q' + (questionNdx + 1)).set(selectedOption);
+        //increase total by 1
+        myDataRef.child('data/'+ dataCategory + "/profileQ" + (questionNdx + 1) + "/total").transaction(function(currentRank) { return currentRank+1; });
+        //increase selected option by 1
+        myDataRef.child('data/'+ dataCategory + "/profileQ" + (questionNdx + 1) + "/" + selectedOption).transaction(function(currentRank) { return currentRank+1; });
+
         // $('body').css("background-image",'url("images/'+backgrounds[i]+'")');
         // i++;
         if ($scope.profileQuestionNdx == $scope.source.profileQuestions.length) {
-            console.log('end');
             $scope.isProfileDone = true;
             $scope.profileQuestionsDone = true;
-
-            if ($scope.isCategoryLeader(catId)) {
-              // theUserRef.child('braveCategory').set('Leader');
-              // $scope.braveCategory = "Leader";
-            }
-            if ($scope.isCategoryAdventurer(catId)) {
-              // theUserRef.child('braveCategory').set('Adventurer');
-              // $scope.braveCategory = "Adventurer";
-            }
-            if ($scope.isCategoryScientist(catId)) {
-              // theUserRef.child('braveCategory').set('Scientist');
-              // $scope.braveCategory = "Scientist";
-            }
-            if ($scope.isCategoryProtector(catId)) {
-              // theUserRef.child('braveCategory').set('Protector');
-              // $scope.braveCategory = "Protector";
-            }
+            console.log($scope.profileQuestionsDone);
         }
         $scope.safeApply();
-        selectedResponse = false;
-
-
     }
 
     $scope.quizFinish = function(){
