@@ -13,10 +13,8 @@
 	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.0.0/jquery.serialize-object.compiled.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/path.js/0.8.4/path.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/unslider.css" />
 	<link rel="stylesheet" href="css/styles.css" />
 	<style>
 	form {
@@ -40,15 +38,11 @@
             <ul class="nav navbar-nav">
                 <li> <a href="#/">Login</a>
                 </li>
+                <li> <a href="#/logout">Logout</a>
+                </li>
                 <li> <a href="#/register">Register</a>
                 </li>
                 <li> <a href="#/profile">Profile</a>
-                </li>
-                <li> <a href="#/quiz">Quiz</a>
-                </li>
-								<li> <a href="#/info">Info</a>
-                </li>
-                <li class="pull-right"> <a href="#/logout">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -106,23 +100,17 @@
                     </form>
                     <!-- / REGISTER -->
                     <!-- PROFILE -->
-                    <form id="frmProfile" role="form">
+                    <form id="frmProfile" role="form" ng-show="profileInfo">
                             <!-- ALERT BOX -->
-                            <!-- <div id="alert" class="alert" role="alert">
+                            <div id="alert" class="alert" role="alert">
                                  <h4 id="alert-title">You are not logged in</h4>
 
                                 <p id="alert-detail"></p>
-                            </div> -->
+                            </div>
                             <!-- / ALERT BOX -->
 
-												<p ng-show="!profileQuestionsDone">Answer these 5 quick questions to see how you compare to the other <span id="braveCategory">{{braveCategory}}</span>s.</p>
-
-												<div ng-show="!profileQuestionsDone">
-                        <a href="#" class="profileSelector" ng-click="onSelectProfileResponse(1)">{{source.profileQuestions[ profileQuestionNdx ].optionLeft}}</a>
-                        <a href="#" class="profileSelector" ng-click="onSelectProfileResponse(2)">{{source.profileQuestions[ profileQuestionNdx ].optionRight}}</a>
-                        </div>
-												<a href="#/info" class="btn quizbtn" ng-show="profileQuestionsDone">View Results</a>
-                        <!--    <div class="form-group">
+                        <br />
+                        <div class="form-group">
                             <label for="txtName">Name</label>
                             <input type="text" class="form-control" id="txtName" placeholder="Name" name="name" />
                         </div>
@@ -135,94 +123,45 @@
                                 <option>Stegosaurus</option>
                                 <option>Daspletosaurus</option>
                             </select>
-                        </div> -->
-                        <!-- <button type="submit" class="btn btn-primary" ng-click="quizStart()">Start Quiz</button> -->
+                        </div>
+                        <button type="submit" class="btn btn-primary" ng-click="quizStart()">Start Quiz</button>
                     </form>
 
-                    <!-- QUIZ -->
-                    <form id="quizProfile" role="form" ng-show="profileInfo">
 
-                        <!-- QUESTIONS -->
-                        <div ng-show="!questionsDone" class="ng-cloak">
+                <!-- QUESTIONS -->
+                <div ng-show="questionsDone">
                         <div class="desc full-tile">{{source.questions[ questionNdx ].text}}</div>
-                        <span class="disagreeSpan">Disagree</span>
                         <a href="#" class="heat-high med-tile responseSelector" ng-class="{'active':selectedTab === 's-disagree'}" ng-click="selectedTab = 's-disagree'; onSelectResponse(1)"></a>
                         <a href="#" class="heat-med-high med-tile responseSelector" ng-class="{'active':selectedTab === 'disagree'}" ng-click="selectedTab = 'disagree'; onSelectResponse(2)"></a>
-                        <a href="#" class="heat-med med-tile responseSelector" ng-class="{'active':selectedTab === 'neutral'}" ng-click="selectedTab = 'neutral'; onSelectResponse(3)"></a>
+						<a href="#" class="heat-med med-tile responseSelector" ng-class="{'active':selectedTab === 'neutral'}" ng-click="selectedTab = 'neutral'; onSelectResponse(3)"></a>
                         <a href="#" class="heat-med-low med-tile responseSelector" ng-class="{'active':selectedTab === 'agree'}" ng-click="selectedTab = 'agree'; onSelectResponse(4)"></a>
                         <a href="#" class="heat-low med-tile responseSelector" ng-class="{'active':selectedTab === 's-agree'}" ng-click="selectedTab = 's-agree'; onSelectResponse(5)"></a>
-                        <span class="agreeSpan">Agree</span>
-                        <br/>
-                        <button class="btn btn-primary btn-lg next-button" ng-click="onConfirmResponse(); selectedTab = ''">Next</button>
+						<br/>
+						<button class="btn btn-primary btn-lg" ng-click="onConfirmResponse(); selectedTab = ''">Next</button>
+                </div>
+
+                <!-- RESULTS -->
+                <div ng-show="isDone">
+                        <div ng-repeat="category in source.categories">
+                            <div class="info-tile">{{category}}</div>
+                            <div ng-show="isCategoryLeader($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
+                            <div ng-show="isCategoryAdventurer($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
+                            <div ng-show="isCategoryScientist($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
+							<div ng-show="isCategoryProtector($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
+                            <div style="clear:both;"></div>
+                            <div ng-show="isCategoryLeader($index)" class="desc message-tile">{{source.categoryMessages[$index].leader}}</div>
+                            <div ng-show="isCategoryAdventurer($index)" class="desc message-tile">{{source.categoryMessages[$index].adventurer}}</div>
+                            <div ng-show="isCategoryScientist($index)" class="desc message-tile">{{source.categoryMessages[$index].scientist}}</div>
+							<div ng-show="isCategoryProtector($index)" class="desc message-tile">{{source.categoryMessages[$index].protector}}</div>
                         </div>
+                        <button class="btn btn-primary btn-lg" ng-click="quizFinish()">Continue</button>
+                </div>
 
-                        <!-- RESULTS -->
-                        <div ng-show="isDone" class="ng-cloak">
-                            <div ng-repeat="category in source.categories">
-                                <!-- <div class="info-tile">{{category}}</div>
-                                <div ng-show="isCategoryLeader($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
-                                <div ng-show="isCategoryAdventurer($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
-                                <div ng-show="isCategoryScientist($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
-                                <div ng-show="isCategoryProtector($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
-                                <div style="clear:both;"></div> -->
-                                <div ng-show="isCategoryLeader($index)" class="desc message-tile">
-																	<h1>You're a </h1></h1 class="quote">{{source.categoryMessages[$index].leader}}</h1>
-																	<p>Lead the way my friend, it’s what you were born to do. Be the black sheep, zag where others zig and pave the way for a brighter, more exciting future.</p>
-																</div>
-                                <div ng-show="isCategoryAdventurer($index)" class="desc message-tile">
-																	<h1>You're a {{source.categoryMessages[$index].adventurer}}</h1>
-																	<p>If there's a different way to look at something, you'll find it. You'll take the risks that others won't and work tirelessly to create something truly original.</p>
-																</div>
-                                <div ng-show="isCategoryScientist($index)" class="desc message-tile">
-																	<h1>You're a {{source.categoryMessages[$index].scientist}}</h1>
-																	<p>Yeah, science! You're like a combination of Walter White and Einstein! With the bravery to do things your own way and the furious curiosity to question everything, you're certainly not afraid to rock the boat.</p>
-																</div>
-                                <div ng-show="isCategoryProtector($index)" class="desc message-tile">
-																	<h1>You're a {{source.categoryMessages[$index].protector}}</h1>
-																	<p>You don't need your name up in lights. You're a humble hero and team player who knows how to get the best out of those around you, even if that means taking a back seat yourself.</p>
-																</div>
-                            </div>
-                            <a href="#/profile" class="btn quizbtn">Next</a>
-                        </div>
-
-                        <!-- SHARE PAGE -->
-                        <div ng-show="shareShow" class="ng-cloak share">
-                                <h1>SHARE PAGE</h1>
-                        </div>
-
-
-                    </form>
-
-										<!-- INFOGRAPHICS -->
-                    <form id="infoProfile" role="form" ng-show="profileInfo">
-
-                        <div class="css-slider">
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide d"></span></a>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide e"></span></a>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide f"><span id="infoThreeVal">00</span>% of <span id="braveCategory">{{braveCategory}}</span>s listen to rock</span></a>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide g"><span id="infoTwoVal">00</span>% of <span id="braveCategory">{{braveCategory}}</span>s prefer mature cheddar</span></a>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide h"><span id="infoOneVal">00</span>% of <span id="braveCategory">{{braveCategory}}</span>s love snowboarding</span></a>
-                        </div>
-
-                    </form>
-
-
-
+                <!-- SHARE PAGE -->
+                <div ng-show="shareShow">
+                        <h1>SHARE PAGE</h1>
+                </div>
             </div>
-
-						<!-- Cache images -->
-						<div style="display:none;">
-							<img src="images/Question1.jpg">
-							<img src="images/Question2.jpg">
-							<img src="images/Question3.jpg">
-							<img src="images/Question4.jpg">
-							<img src="images/Question5.jpg">
-							<img src="images/Question6.jpg">
-							<img src="images/Question7.jpg">
-							<img src="images/Question8.jpg">
-							<img src="images/Question9.jpg">
-							<img src="images/Question10.jpg">
-						</div>
 
 </div>
 		<script src="js/auth.js"></script>

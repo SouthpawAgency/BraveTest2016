@@ -10,15 +10,15 @@
 /* this is just example .slide styling, .slide could be anything really 
    the border however is used to get around rendering glitches in firefox.
    */
-.slide { display: block; width: 350px; height: 350px; border: 1px solid black; }
-.slide.a { background: red; }
-.slide.b { background: orange; }
-.slide.c { background: yellow; }
-.slide.d { background: green; }
-.slide.e { background: turquoise; }
-.slide.f { background: blue; }
-.slide.g { background: darkblue; }
-.slide.h { background: purple; }
+.slide { display: block; width: 500px; height: 350px; }
+.slide.a { background: none; }
+.slide.b { background: none; }
+.slide.c { background: none; }
+.slide.d { background: none; }
+.slide.e { background: none; }
+.slide.f { background: none; }
+.slide.g { background: none; }
+.slide.h { background: none; }
 
 /* .css-slider requires a fixed height */
 .css-slider {
@@ -28,6 +28,7 @@
   width: 100%;
   height: 350px;
   z-index: 1;
+  
 }
 
 /* trick to only show to browsers that support CSS3 selectors */
@@ -48,7 +49,9 @@
 }
 
 .css-slider a:hover {
-  background-image: url('data:image/svg+xml;utf8,<svg width="14px" height="20px" viewBox="0 0 14 20" xmlns="http://www.w3.org/2000/svg"><path d="m 0,0 l 14,10 l -14,10 z" fill="orange"/></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg width="14px" height="20px" viewBox="0 0 14 20" xmlns="http://www.w3.org/2000/svg"><path d="m 0,0 l 14,10 l -14,10 z" fill="white"/></svg>');
+  color: #ffffff;
+  text-decoration: none;
 }
 
 /* this code relies on css transitions, but would be instantaneous for older agents */
@@ -64,6 +67,8 @@
   -o-transition-duration: 0.5s;
   transition-property: width, left, opacity, padding-left;
   transition-duration: 0.5s;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 /* Specify our positioning when selected, or for the default first item
@@ -116,13 +121,13 @@
   padding-left: 0;
   left: 0%;
   width: 40px !important;
-  background: transparent url('data:image/svg+xml;utf8,<svg width="14px" height="20px" viewBox="0 0 14 20" xmlns="http://www.w3.org/2000/svg"><path d="m 14,0 l -14,10 l 14,10 z" fill="rgba(220,220,255,0.2)"/></svg>') no-repeat left center / 25px auto;
+  background: transparent url('data:image/svg+xml;utf8,<svg width="14px" height="20px" viewBox="0 0 14 20" xmlns="http://www.w3.org/2000/svg"><path d="m 14,0 l -14,10 l 14,10 z" fill="rgba(255,255,255,0.2)"/></svg>') no-repeat left center / 25px auto;
 }
 .css-slider a:focus ~ a .slide {
   opacity: 0;
 }
 .css-slider a:focus ~ a:hover {
-  background-image: url('data:image/svg+xml;utf8,<svg width="14px" height="20px" viewBox="0 0 14 20" xmlns="http://www.w3.org/2000/svg"><path d="m 14,0 l -14,10 l 14,10 z" fill="orange"/></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg width="14px" height="20px" viewBox="0 0 14 20" xmlns="http://www.w3.org/2000/svg"><path d="m 14,0 l -14,10 l 14,10 z" fill="white"/></svg>');
 }
 
 /* annoyingly the only arbitrary part of the css -- 
@@ -147,3 +152,9 @@
 .css-slider a:focus ~ a:nth-child(14){ z-index:86; }
 .css-slider a:focus ~ a:nth-child(15){ z-index:85; }
 .css-slider a:focus ~ a:nth-child(16){ z-index:84; }
+
+
+/*PERCENTAGE CALCULATOR*/
+
+
+
