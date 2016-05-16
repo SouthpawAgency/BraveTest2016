@@ -1,0 +1,160 @@
+/**
+ * CSS Slideshow v0.1
+ * http://www.codelamp.co.uk/
+ *
+ * Bear in mind, this slideshow works backwards :)
+ */
+
+/* my slider was designed for a black background */
+
+/* this is just example .slide styling, .slide could be anything really 
+   the border however is used to get around rendering glitches in firefox.
+   */
+.slide { display: block; width: 500px; height: 350px; }
+.slide.a { background: none; }
+.slide.b { background: none; }
+.slide.c { background: none; }
+.slide.d { background: none; }
+.slide.e { background: none; }
+.slide.f { background: none; }
+.slide.g { background: none; }
+.slide.h { background: none; }
+
+/* .css-slider requires a fixed height */
+.css-slider {
+  display: none;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 350px;
+  z-index: 1;
+  
+}
+
+/* trick to only show to browsers that support CSS3 selectors */
+.css-slider:nth-child(1) {
+  display: block;
+}
+
+/* this code makes use of svg background images, they could be replaced with images */
+.css-slider a {
+  position: absolute;
+  display: block;
+  padding: 0 40px 0 40px;
+  height: 350px;
+  /* by default we expect new slides to the right, with faded out images */
+  left: 95%;
+  left: calc(100% - 40px); /* Yay! Calc :D */
+  background: transparent url('data:image/svg+xml;utf8,<svg width="14px" height="20px" viewBox="0 0 14 20" xmlns="http://www.w3.org/2000/svg"><path d="m 0,0 l 14,10 l -14,10 z" fill="rgba(220,220,255,0.2)"/></svg>') no-repeat left center / 25px auto;
+}
+
+.css-slider a:hover {
+  background-image: url('data:image/svg+xml;utf8,<svg width="14px" height="20px" viewBox="0 0 14 20" xmlns="http://www.w3.org/2000/svg"><path d="m 0,0 l 14,10 l -14,10 z" fill="white"/></svg>');
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* this code relies on css transitions, but would be instantaneous for older agents */
+.css-slider a,
+.css-slider a .slide {
+  -moz-transition-property: width, left, opacity, padding-left;
+  -moz-transition-duration: 0.5s;
+  -webkit-transition-property: width, left, opacity, padding-left;
+  -webkit-transition-duration: 0.5s;
+  -ms-transition-property: width, left, opacity, padding-left;
+  -ms-transition-duration: 0.5s;
+  -o-transition-property: width, left, opacity, padding-left;
+  -o-transition-duration: 0.5s;
+  transition-property: width, left, opacity, padding-left;
+  transition-duration: 0.5s;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Specify our positioning when selected, or for the default first item
+   Make sure our images fade in. */
+.css-slider a:focus,
+.css-slider a:last-child {
+  padding: 0;
+  z-index: 100;
+  background: none;
+  outline: none;
+  left: 50%; /* centering trick */
+  pointer-events: none; /* repairs layers sometimes blocking clicks */
+  tartan-paint: enabled;
+}
+
+ /* centering trick */
+.css-slider a .slide {
+  -webkit-transform: translateX(-50%); 
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+/* reveal the focused slide */
+.css-slider a:focus .slide,
+.css-slider a:last-child .slide {
+  opacity: 1;
+}
+
+/* Override the forced visibility of the 
+   last-child when another sibling is selected */
+.css-slider a:focus ~ a:last-child {
+  left: 0;
+  padding-left: 0;
+  width: 40px !important;
+}
+
+.css-slider a:focus ~ a:last-child .slide {
+  opacity: 0;
+}
+
+.css-slider a .slide {
+  pointer-events: all; /* Seems to be required to get mouse pointer to react correctly */
+  opacity: 0;
+}
+
+/* once they're in the past, keep them to the left */
+.css-slider a:focus ~ a {
+  padding-left: 0;
+  left: 0%;
+  width: 40px !important;
+  background: transparent url('data:image/svg+xml;utf8,<svg width="14px" height="20px" viewBox="0 0 14 20" xmlns="http://www.w3.org/2000/svg"><path d="m 14,0 l -14,10 l 14,10 z" fill="rgba(255,255,255,0.2)"/></svg>') no-repeat left center / 25px auto;
+}
+.css-slider a:focus ~ a .slide {
+  opacity: 0;
+}
+.css-slider a:focus ~ a:hover {
+  background-image: url('data:image/svg+xml;utf8,<svg width="14px" height="20px" viewBox="0 0 14 20" xmlns="http://www.w3.org/2000/svg"><path d="m 14,0 l -14,10 l 14,10 z" fill="white"/></svg>');
+}
+
+/* annoyingly the only arbitrary part of the css -- 
+   the following means the back arrow is supported 
+   for up to 16 slides. If you need more, just extend. 
+   This could be fixed if there was a selector like "~"
+   which would work backwards through siblings.
+   */
+.css-slider a:focus ~ a:nth-child(1) { z-index:99; }
+.css-slider a:focus ~ a:nth-child(2) { z-index:98; }
+.css-slider a:focus ~ a:nth-child(3) { z-index:97; }
+.css-slider a:focus ~ a:nth-child(4) { z-index:96; }
+.css-slider a:focus ~ a:nth-child(5) { z-index:95; }
+.css-slider a:focus ~ a:nth-child(6) { z-index:94; }
+.css-slider a:focus ~ a:nth-child(7) { z-index:93; }
+.css-slider a:focus ~ a:nth-child(8) { z-index:92; }
+.css-slider a:focus ~ a:nth-child(9) { z-index:91; }
+.css-slider a:focus ~ a:nth-child(10){ z-index:90; }
+.css-slider a:focus ~ a:nth-child(11){ z-index:89; }
+.css-slider a:focus ~ a:nth-child(12){ z-index:88; }
+.css-slider a:focus ~ a:nth-child(13){ z-index:87; }
+.css-slider a:focus ~ a:nth-child(14){ z-index:86; }
+.css-slider a:focus ~ a:nth-child(15){ z-index:85; }
+.css-slider a:focus ~ a:nth-child(16){ z-index:84; }
+
+
+/*PERCENTAGE CALCULATOR*/
+
+
+

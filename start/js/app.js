@@ -16,43 +16,53 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
     $scope.source = {
         "questions": [{
             "id": 1001,
-                "text": "You rarely catch me changing my mind",
+                "text": "You rarely catch me",
+                "text2":"changing my mind",
                 "catId": 0
         }, {
             "id": 1002,
-                "text": "It's not over until the fat lady sings",
+                "text": "It's not over until",
+                "text2": "the fat lady sings",
                 "catId": 0
         }, {
             "id": 1003,
-                "text": "Rules? What rules? They're only made to be broken",
+                "text": "Rules? What rules?",
+                "text2": "They're only made to be broken",
                 "catId": 0
         }, {
             "id": 1004,
-                "text": "Just like the Duracell bunny, I keep going seven times longer than everyone else.",
+                "text": "Just like the Duracell bunny, I keep going",
+                "text2": "seven times longer than everyone else.",
                 "catId": 0
         }, {
             "id": 1005,
-                "text": "I go with my gut everytime",
+                "text": "I go with my gut",
+                "text2": "everytime",
                 "catId": 0
         }, {
             "id": 1006,
-                "text": "When I believe in something I give 110% of myself to it",
+                "text": "When I believe in something",
+                "text2": "I give 110% of myself to it",
                 "catId": 0
         }, {
             "id": 1007,
-                "text": "Once I get started on something big, it's all I can think about",
+                "text": "Once I get started on something big,",
+                "text2": "it's all I can think abouts",
                 "catId": 0
         }, {
             "id": 1008,
-                "text": "I'm constantly asking questions and looking for answers",
+                "text": "I'm constantly asking questions and",
+                "text2": "looking for answers",
                 "catId": 0
         }, {
             "id": 1009,
-                "text": "I'm not afraid to flip things on their head in order to get results",
+                "text": "I'm not afraid to flip things on their head",
+                "text2": "in order to get results",
                 "catId": 0
         }, {
             "id": 1010,
-                "text": "If it's been done before I don't know what to do",
+                "text": "If it's been done before",
+                "text2": "I don't want to know",
                 "catId": 0
         }],
             "categories": [
@@ -88,9 +98,13 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
 
     var theUser;
     var theUserRef;
-	  var firstBackground = ["Question1.jpg"];
+	var firstBackground = ["Question1.jpg"];
     var backgrounds = ["Question1.jpg", "Question2.jpg", "Question3.jpg", "Question4.jpg", "Question5.jpg", "Question6.jpg", "Question7.jpg", "Question8.jpg", "Question9.jpg", "Question10.jpg", "Question10.jpg"];
-    var resultsBackgrounds = ["ResultsPageAventurer.jpg", "ResultsPageLeader.jpg", "ResultsPageProtector.jpg", "ResultsPageScientist.jpg"];
+    var resultsBackgrounds1 = ["ResultsPageAventurer.jpg"];
+    var resultsBackgrounds2 = ["ResultsPageLeader.jpg"];
+    var resultsBackgrounds3 = ["ResultsPageProtector.jpg"];
+    var resultsBackgrounds4 = ["ResultsPageScientist.jpg"];
+    var profileBackground = ["Questionnaire Rock_Electronic.jpg"];
 
     var i;
     var questions = $scope.source.questions;
@@ -182,21 +196,25 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
               theUserRef.child('braveCategory').set('Leader');
               $scope.braveCategory = "Leader";
               dataCategory = "Leader";
+              $('body').css("background-image",'url("images/'+resultsBackgrounds2+'")');
             }
             if ($scope.isCategoryAdventurer(catId)) {
               theUserRef.child('braveCategory').set('Adventurer');
               $scope.braveCategory = "Adventurer";
               dataCategory = "Adventurer";
+              $('body').css("background-image",'url("images/'+resultsBackgrounds1+'")');
             }
             if ($scope.isCategoryScientist(catId)) {
               theUserRef.child('braveCategory').set('Scientist');
               $scope.braveCategory = "Scientist";
               dataCategory = "Scientist";
+              $('body').css("background-image",'url("images/'+resultsBackgrounds4+'")');
             }
             if ($scope.isCategoryProtector(catId)) {
               theUserRef.child('braveCategory').set('Protector');
               $scope.braveCategory = "Protector";
               dataCategory = "Protector";
+              $('body').css("background-image",'url("images/'+resultsBackgrounds3+'")');
             }
         }
         $scope.safeApply();
@@ -205,6 +223,11 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
         //do not continue
       }
 
+    }
+
+    $scope.onConfirmResults = function () {
+    //change background for profile
+    $('body').css("background-image",'url("images/'+profileBackground+'")');
     }
 
     //PROFILE QUESTIONS
