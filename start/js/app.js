@@ -129,6 +129,8 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
     $scope.isProfileDone = false;
     $scope.shareShow = false;
     $scope.profileInfo = true;
+    $scope.showSpecificInfo = true;
+    $scope.showAllInfo = false;
     // $scope.source.questions = shuffle($scope.source.questions);
     $scope.results = {
         questions: {},

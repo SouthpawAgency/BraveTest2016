@@ -1,4 +1,4 @@
-@font-face {font-family: 'knockout';src: url('../webfonts/ufonts.com_knockout-htf49-liteweight.woff') format('woff'),url('../webfonts/knockout-htf49-liteweight-webfont.ttf') format('truetype');}
+@import url(https://fonts.googleapis.com/css?family=Oswald);
 
 body {
   min-height:100vh;
@@ -40,12 +40,12 @@ body {
   bottom: 20%;
   left:50%;
   transform: translateX(-50%);
-  font-family: 'knockout';
+  font-family: 'Oswald', sans-serif;
   background: url('../images/button.svg');
   border: none;
   background-size: contain;
   font-size: 36px;
-  padding: 24px 40px 0 40px;
+  padding: 40px;
   text-align: center;
   background-position: center;
   background-repeat: no-repeat;
@@ -53,5 +53,6 @@ body {
 
 a.btn:hover {
   color:white;
-  padding: 24px 50px 0 50px;
+  font-family: 'Oswald', sans-serif;
+  padding: 40px;
 }

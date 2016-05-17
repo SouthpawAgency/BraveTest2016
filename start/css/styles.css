@@ -1,4 +1,4 @@
-@font-face {font-family: 'knockout';src: url('../webfonts/ufonts.com_knockout-htf49-liteweight.woff') format('woff'),url('../webfonts/knockout-htf49-liteweight-webfont.ttf') format('truetype');}
+@import url(https://fonts.googleapis.com/css?family=Oswald);
 
 /* @import must be at top of file, otherwise CSS will not work */
 @import url("//hello.myfonts.net/count/29ff2d");
@@ -16,6 +16,90 @@
          url('../webfonts/fonts/29FF2D_1_0.ttf') format('truetype');
 
 }
+/* Change the white to any color ;) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+-webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: #666666 !important;
+}
+input,
+input:hover,
+input:focus,
+input:active {
+    color: #666666 !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    font-family: 'Oswald', sans-serif;
+}
+#frmLogin{
+	width: 50%;
+}
+#frmRegister {
+    width: 50%;
+}
+.firebase-input{
+    background: white;
+    border-radius: 0px;
+    height: 50px;
+    color: #666666 !important;
+    font-size: 18px;
+    margin-bottom: 8px;
+    transition: all .25s;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+}
+.firebase-input:focus{
+    color: #666666 !important;
+
+}
+.socialContainer{
+	display: inline-block;
+    margin-bottom: 25px;
+	font-family: 'Oswald', sans-serif;
+}
+.socialButton{
+	background: transparent;
+    border: none;
+    border-radius: 0px;
+    color: white;
+    font-size: 24px;
+    margin-bottom: 8px;
+    transition: all .25s;
+    -webkit-text-fill-color: white;
+    border: 3px solid white;
+    float: left;
+    margin-right: 15px;
+}
+.loginHeader{
+	margin-right: 15px; 
+	display: inline-block;
+	float: left;
+	font-size: 18px;
+    padding: 10px 10px 10px 0px;
+}
+.loginButton{
+	color: white;
+    font-family: 'Oswald', sans-serif;
+    background: url('../images/button.svg');
+    border: none;
+    background-size: contain;
+    text-align: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 200px;
+    display: inline-block;
+    font-size: 24px;
+    margin-top: 25px;
+}
+.loginButton:hover {
+  color:white;
+}
+.registerHeader{
+	display: inline-block;
+	font-size: 26px;
+	font-family: 'Oswald', sans-serif;
+}
 
 body {
 	background-color: #1a1a1a;
@@ -26,7 +110,7 @@ body {
 	color:white;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
   font-family: "LubalinGraphStd-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-rendering: optimizeLegibility;
   text-transform: uppercase;
@@ -34,7 +118,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .quote {
   text-transform: lowercase;
-  text-decoration: underline;
   font-size: 72px;
   line-height: 100%;
   font-family: 'brush-tipTerrence', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -154,7 +237,7 @@ header.navbar {
 }
 
 form {
-	width: 800px;
+	width: 1000px;
 	margin: auto;
 }
 
@@ -221,17 +304,17 @@ form {
     margin-bottom: 5px;
  }
 
- a.btn.quizbtn, .profileSelector {
+.quizbtn, .profileSelector {
    color:white;
-   font-family: 'knockout', Arial, sans-serif;
-	 font-size: 30px;
-	 letter-spacing: 2px;
+   font-family: 'Oswald', sans-serif;
+   font-size: 30px;
+   letter-spacing: 2px;
    background: url('../images/button.svg');
    border: none;
    background-size: contain;
-   padding: 5px 55px 0 55px;
+   padding: 25px 45px 25px 45px;
    text-align: center;
-	 text-transform: uppercase;
+   text-transform: uppercase;
    background-position: center;
    background-repeat: no-repeat;
  }
@@ -240,6 +323,7 @@ form {
    color:white;
    padding: 5px 60px 0 60px;
  }
+
 
  .profileSelector, .profileSelector:focus {
 	 color: white;
@@ -251,6 +335,6 @@ form {
  }
 
  .profileSelector:hover {
-	 color:blue;
-	 text-decoration: none;
+	 color:white;
+	 text-decoration: underline;
  }
