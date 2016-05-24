@@ -53,13 +53,10 @@ input:active {
     color: #666666 !important;
 
 }
-.socialContainer{
-	display: inline-block;
-    margin-bottom: 25px;
-	font-family: 'Oswald', sans-serif;
-}
+
 .socialButton{
 	background: transparent;
+	font-family: 'Oswald', sans-serif;
     border: none;
     border-radius: 0px;
     color: white;
@@ -73,6 +70,7 @@ input:active {
 }
 .loginHeader{
 	margin-right: 15px; 
+	font-family: 'Oswald', sans-serif;
 	display: inline-block;
 	float: left;
 	font-size: 18px;

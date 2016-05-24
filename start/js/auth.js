@@ -380,7 +380,7 @@
             var loginPromise = createUserAndLogin(userAndPass);
             e.preventDefault();
 
-            handleAuthResponse(loginPromise, 'profile');
+            handleAuthResponse(loginPromise, 'quiz');
 
         });
 
