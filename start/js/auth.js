@@ -170,6 +170,7 @@
 
     controllers.login = function (form) {
 
+        $('body').removeClass().addClass('ng-scope loginPage');
         // Form submission for logging in
         form.on('submit', function (e) {
 
@@ -203,7 +204,7 @@
 
     // logout immediately when the controller is invoked
     controllers.logout = function (form) {
-
+        $('body').removeClass().addClass('ng-scope logoutPage');
         rootRef.unauth();
         routeTo('');
 
@@ -212,14 +213,12 @@
 
     // logout immediately when the controller is invoked
     controllers.quiz = function (form) {
-
-
-
+      $('body').removeClass().addClass('ng-scope quizPage');
     };
 
     // logout immediately when the controller is invoked
     controllers.info = function (form) {
-     
+
 // Check the current user
       var user = rootRef.getAuth();
       var userRef;
@@ -372,7 +371,7 @@
     };
 
     controllers.register = function (form) {
-
+        $('body').removeClass().addClass('ng-scope registerPage');
         // Form submission for registering
         form.on('submit', function (e) {
 
@@ -387,6 +386,7 @@
     };
 
     controllers.profile = function (form) {
+        $('body').removeClass().addClass('ng-scope profilePage');
         // Check the current user
         var user = rootRef.getAuth();
         var userRef;
@@ -406,7 +406,7 @@
             }
 
             // set the fields
-            form.find('#braveCategory').html(user.braveCategory);
+            $('#braveScore').html(user.scores["brave"]);
             form.find('#txtName').val(user.name);
             form.find('#ddlDino').val(user.favoriteDinosaur);
         });

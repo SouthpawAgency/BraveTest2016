@@ -18,12 +18,12 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
             "id": 1001,
                 "text": "You rarely catch me",
                 "text2":"changing my mind",
-                "catId": 0
+                "catId": 1
         }, {
             "id": 1002,
                 "text": "It's not over until",
                 "text2": "the fat lady sings",
-                "catId": 0
+                "catId": 2
         }, {
             "id": 1003,
                 "text": "Rules? What rules?",
@@ -33,22 +33,22 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
             "id": 1004,
                 "text": "Just like the Duracell bunny, I keep going",
                 "text2": "seven times longer than everyone else.",
-                "catId": 0
+                "catId": 2
         }, {
             "id": 1005,
                 "text": "I go with my gut",
                 "text2": "everytime",
-                "catId": 0
+                "catId": 1
         }, {
             "id": 1006,
                 "text": "When I believe in something",
                 "text2": "I give 110% of myself to it",
-                "catId": 0
+                "catId": 2
         }, {
             "id": 1007,
                 "text": "Once I get started on something big,",
-                "text2": "it's all I can think abouts",
-                "catId": 0
+                "text2": "it's all I can think about",
+                "catId": 2
         }, {
             "id": 1008,
                 "text": "I'm constantly asking questions and",
@@ -66,12 +66,24 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
                 "catId": 0
         }],
             "categories": [
-            "BRAVE SCORE"],
+            "UNORTHODOX",
+            "DECISIVE",
+            "DETERMINED"],
             "categoryMessages": [{
-                "protector": "Protector",
-                "scientist": "Scientist",
-                "adventurer": "Adventurer",
-                "leader": "Leader"
+                "high": "You're extremely unorthodox!",
+                "medHigh": "You're very unorthodox!",
+                "medLow": "You're slightly unorthodox",
+                "low": "You're not very unorthodox"
+              }, {
+                "high": "You're extremely decisive!",
+                "medHigh": "You're very decisive!",
+                "medLow": "You're slightly decisive",
+                "low": "You're not very decisive"
+              }, {
+                "high": "You're extremely determined!",
+                "medHigh": "You're very determined!",
+                "medLow": "You're slightly determined",
+                "low": "You're not very determined"
             }],
         "profileQuestions": [{
             "id":1001,
@@ -98,7 +110,6 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
 
     var theUser;
     var theUserRef;
-	var firstBackground = ["Question1.jpg"];
     var backgrounds = ["Question1.jpg", "Question2.jpg", "Question3.jpg", "Question4.jpg", "Question5.jpg", "Question6.jpg", "Question7.jpg", "Question8.jpg", "Question9.jpg", "Question10.jpg", "Question10.jpg"];
     var resultsBackgrounds1 = ["ResultsPageAventurer.jpg"];
     var resultsBackgrounds2 = ["ResultsPageLeader.jpg"];
@@ -117,10 +128,10 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
     }
     for (i = 0; i < questionCount; i++) {
         var catId = questions[i].catId;
-        categoryMaxScores[catId] += 5;
+        categoryMaxScores[catId] += 4;
     }
     $scope.source.categoryMaxScores = categoryMaxScores;
-    $scope.braveCategory = 'participant';
+    $scope.braveScore = 0;
     $scope.questionNdx = 0;
     $scope.profileQuestionNdx = 0;
     $scope.questionsDone = false;
@@ -143,22 +154,21 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
     $scope.quizStart = function(){
         $scope.questionsDone = true;
         $scope.profileInfo = false;
-        $('body').css("background-image",'url("images/'+firstBackground+'")');
+        $('body').css("background-image",'url("images/'+backgrounds[0]+'")');
 
     }
 
-    $scope.isCategoryLeader = function (catId) {
-        return $scope.results.categories[catId] >= 0.80;
-
+    $scope.isCategoryHigh = function (catId) {
+        return $scope.results.categories[catId] >= 0.75;
     }
-    $scope.isCategoryAdventurer = function (catId) {
-        return ($scope.results.categories[catId] >= 0.60 && $scope.results.categories[catId] <= 0.79);
+    $scope.isCategoryMedHigh = function (catId) {
+        return ($scope.results.categories[catId] >= 0.50 && $scope.results.categories[catId] <= 0.74);
     }
-    $scope.isCategoryScientist = function (catId) {
-        return ($scope.results.categories[catId] >= 0.40 && $scope.results.categories[catId] <= 0.59);
+    $scope.isCategoryMedLow = function (catId) {
+        return ($scope.results.categories[catId] >= 0.25 && $scope.results.categories[catId] <= 0.49);
     }
-    $scope.isCategoryProtector = function (catId) {
-        return $scope.results.categories[catId] <= 0.39;
+    $scope.isCategoryLow = function (catId) {
+        return $scope.results.categories[catId] <= 0.24;
     }
 
     var selectedResponse = false;
@@ -176,7 +186,7 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
         quizJustLoaded = false;
       }
 
-      if (selectedResponse) {
+      if (selectedResponse !== false) {
         //if response is selected...
         var questionNdx = $scope.questionNdx;
         var question = $scope.source.questions[questionNdx];
@@ -188,36 +198,20 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
         $scope.results.categories[catId] += catScore;
         $scope.questionNdx++;
         theUserRef.child('answers/' + (questionNdx + 1)).set(selectedResponse);
-        $('body').css("background-image",'url("images/'+backgrounds[i]+'")');
-        i++;
+        $('body').removeClass('question1 question2 question3 question4 question5 question6 question7 question8 question9 question10').addClass('question' + (questionNdx+2));
         if ($scope.questionNdx == $scope.source.questions.length) {
             $scope.isDone = true;
             $scope.questionsDone = true;
+            $('body').removeClass().addClass('ng-scope resultsPage');
 
-            if ($scope.isCategoryLeader(catId)) {
-              theUserRef.child('braveCategory').set('Leader');
-              $scope.braveCategory = "Leader";
-              dataCategory = "Leader";
-              $('body').css("background-image",'url("images/'+resultsBackgrounds2+'")');
+            var braveScore = 0;
+            for (i = 0; i < categoryCount; i++) {
+                categoryMaxScores[i] = 0;
+                theUserRef.child("scores/" + categories[i].toLowerCase()).set(Math.round($scope.results.categories[i]*100));
+                braveScore += ($scope.results.categories[i]*100);
             }
-            if ($scope.isCategoryAdventurer(catId)) {
-              theUserRef.child('braveCategory').set('Adventurer');
-              $scope.braveCategory = "Adventurer";
-              dataCategory = "Adventurer";
-              $('body').css("background-image",'url("images/'+resultsBackgrounds1+'")');
-            }
-            if ($scope.isCategoryScientist(catId)) {
-              theUserRef.child('braveCategory').set('Scientist');
-              $scope.braveCategory = "Scientist";
-              dataCategory = "Scientist";
-              $('body').css("background-image",'url("images/'+resultsBackgrounds4+'")');
-            }
-            if ($scope.isCategoryProtector(catId)) {
-              theUserRef.child('braveCategory').set('Protector');
-              $scope.braveCategory = "Protector";
-              dataCategory = "Protector";
-              $('body').css("background-image",'url("images/'+resultsBackgrounds3+'")');
-            }
+            theUserRef.child("scores/brave").set(Math.round(braveScore/categoryCount));
+            $scope.braveScore = Math.round(braveScore/categoryCount);
         }
         $scope.safeApply();
         selectedResponse = false;
@@ -234,7 +228,6 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
 
     //PROFILE QUESTIONS
     var profileJustLoaded = true;
-    var dataCategory;
 
     $scope.onSelectProfileResponse = function (response) {
         var selectedOption;
@@ -245,30 +238,50 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
         if (profileJustLoaded) {
           theUser = myDataRef.child('web/uauth').getAuth();
           theUserRef = myDataRef.child('web/uauth/users').child(theUser.uid);
-          dataCategory = $('#braveCategory').html();
-          console.log(dataCategory);
           profileJustLoaded = false;
         }
 
         if (response == 1) {
-          selectedOption = question.optionLeft;
+          // selectedOption = question.optionLeft;
+          selectedOption = "optionLeft";
         } else {
-          selectedOption = question.optionRight;
+          // selectedOption = question.optionRight;
+          selectedOption = "optionRight";
         }
-
+        //get current n value
+        var n = 0;
         //add selected option to user's profile
         theUserRef.child('profileAnswers/Q' + (questionNdx + 1)).set(selectedOption);
         //increase total by 1
-        myDataRef.child('data/'+ dataCategory + "/profileQ" + (questionNdx + 1) + "/total").transaction(function(currentRank) { return currentRank+1; });
-        //increase selected option by 1
-        myDataRef.child('data/'+ dataCategory + "/profileQ" + (questionNdx + 1) + "/" + selectedOption).transaction(function(currentRank) { return currentRank+1; });
+        myDataRef.child('data/Q' + (questionNdx + 1) + "/" + selectedOption + "/n").transaction(function(currentRank) {
+          n = currentRank;
+          return currentRank+1; });
+        //update average brave score
+        myDataRef.child('data/Q' + (questionNdx + 1) + "/" + selectedOption + "/braveScore").transaction(function(currentRank) {
+          //if user has come through the quiz
+          if ($scope.braveScore) {
+            var thisBraveScore = $scope.braveScore;
+          } else {
+            //if user has loaded profile page first
+            var thisBraveScore = parseInt($('#braveScore').html());
+          }
+          //if option has been selected by anyone in the past, create average of 2 numbers
+          //(Current Average * times selected) + this user's brave score, all divided by n + 1
+          if (currentRank) {
+            var avgScore = Math.round(((currentRank*n) + thisBraveScore)/(n+1));
+          } else {
+            //else just add this user's brave score
+            var avgScore = thisBraveScore;
+          }
 
-        // $('body').css("background-image",'url("images/'+backgrounds[i]+'")');
-        // i++;
+          return avgScore;
+        });
+
         if ($scope.profileQuestionNdx == $scope.source.profileQuestions.length) {
             $scope.isProfileDone = true;
             $scope.profileQuestionsDone = true;
             $scope.profileQuestionNdx = 0;
+            $('body').removeClass('profilePage');
         }
         $scope.safeApply();
     }

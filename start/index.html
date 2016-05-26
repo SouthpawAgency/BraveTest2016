@@ -6,7 +6,12 @@
 	<meta name="robots" content="index,follow"/>
 	<meta name="description" content=""/>
 	<meta name="KEYWORDS" content=""/>
-    <link rel="shortcut icon" href="http://lab.southpawagency.com/_global_styles/images/favicon.ico?v=2">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="http://lab.southpawagency.com/_global_styles/images/favicon.ico?v=2">
 	<title>Brave test</title>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="http://code.angularjs.org/1.1.3/angular.min.js"></script>
@@ -14,6 +19,7 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.0.0/jquery.serialize-object.compiled.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/path.js/0.8.4/path.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script src="js/scripts.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="css/unslider.css" />
@@ -26,7 +32,7 @@
 	</style>
 </head>
 
-<body ng-app="MyApp" class="ng-scope">
+<body ng-app="MyApp">
 	<header class="navbar navbar-static-top navbar-inverse" id="top" role="banner">
     <div class="container">
         <div class="navbar-header">
@@ -75,7 +81,7 @@
 
                             <input type="password" class="form-control firebase-input" id="txtPass" placeholder="Password" name="password" autocomplete="off"/>
                         </div>
-                        <button type="submit" class="btn btn-block loginButton">LOGIN</button>
+                        <button type="submit" class="btn loginButton">LOGIN</button>
                         <a href="#/register" class="btn loginButton">REGISTER</a>
 
                         <div class="socialContainer">
@@ -113,13 +119,13 @@
                             </div> -->
                             <!-- / ALERT BOX -->
 
-												<p ng-show="!profileQuestionsDone">Answer these 5 quick questions to see how you compare to the other <span id="braveCategory">{{braveCategory}}</span>s.</p>
+												<p ng-show="!profileQuestionsDone">Answer these 5 quick questions to see how you compare.</p>
 
 												<div ng-show="!profileQuestionsDone">
                         <a href="#" class="profileSelector" ng-click="onSelectProfileResponse(1)">{{source.profileQuestions[ profileQuestionNdx ].optionLeft}}</a>
                         <a href="#" class="profileSelector" ng-click="onSelectProfileResponse(2)">{{source.profileQuestions[ profileQuestionNdx ].optionRight}}</a>
                         </div>
-												<a href="#/info" class="quizbtn" ng-show="profileQuestionsDone">View Results</a>
+												<a href="#/info" class="btn quizbtn" ng-show="profileQuestionsDone">VIEW RESULTS</a>
                         <!--    <div class="form-group">
                             <label for="txtName">Name</label>
                             <input type="text" class="form-control" id="txtName" placeholder="Name" name="name" />
@@ -144,43 +150,42 @@
                         <div ng-show="!questionsDone" class="ng-cloak">
                         <div class="desc full-tile "><h1>{{source.questions[ questionNdx ].text}}</h1><h1 class="quote">{{source.questions[ questionNdx ].text2}}</h1></div>
                         <span class="disagreeSpan">Disagree</span>
-                        <a href="#" class="heat-high med-tile responseSelector" ng-class="{'active':selectedTab === 's-disagree'}" ng-click="selectedTab = 's-disagree'; onSelectResponse(1)"></a>
-                        <a href="#" class="heat-med-high med-tile responseSelector" ng-class="{'active':selectedTab === 'disagree'}" ng-click="selectedTab = 'disagree'; onSelectResponse(2)"></a>
-                        <a href="#" class="heat-med med-tile responseSelector" ng-class="{'active':selectedTab === 'neutral'}" ng-click="selectedTab = 'neutral'; onSelectResponse(3)"></a>
-                        <a href="#" class="heat-med-low med-tile responseSelector" ng-class="{'active':selectedTab === 'agree'}" ng-click="selectedTab = 'agree'; onSelectResponse(4)"></a>
-                        <a href="#" class="heat-low med-tile responseSelector" ng-class="{'active':selectedTab === 's-agree'}" ng-click="selectedTab = 's-agree'; onSelectResponse(5)"></a>
+                        <a href="#" class="heat-high med-tile responseSelector" ng-class="{'active':selectedTab === 's-disagree'}" ng-click="selectedTab = 's-disagree'; onSelectResponse(0)"></a>
+                        <a href="#" class="heat-med-high med-tile responseSelector" ng-class="{'active':selectedTab === 'disagree'}" ng-click="selectedTab = 'disagree'; onSelectResponse(1)"></a>
+                        <a href="#" class="heat-med med-tile responseSelector" ng-class="{'active':selectedTab === 'neutral'}" ng-click="selectedTab = 'neutral'; onSelectResponse(2)"></a>
+                        <a href="#" class="heat-med-low med-tile responseSelector" ng-class="{'active':selectedTab === 'agree'}" ng-click="selectedTab = 'agree'; onSelectResponse(3)"></a>
+                        <a href="#" class="heat-low med-tile responseSelector" ng-class="{'active':selectedTab === 's-agree'}" ng-click="selectedTab = 's-agree'; onSelectResponse(4)"></a>
                         <span class="agreeSpan">Agree</span>
                         <br/>
-                        <button class="btn btn-primary btn-lg next-button nextbtn" ng-click="onConfirmResponse(); selectedTab = ''">Next</button>
+                        <button class="btn btn-primary next-button nextbtn" ng-click="onConfirmResponse(); selectedTab = ''">NEXT</button>
                         </div>
 
                         <!-- RESULTS -->
                         <div ng-show="isDone" class="ng-cloak">
+
+														<div class="braveScore">
+															<h1>You're <span id="braveScore">{{braveScore}}%</span> brave</h1>
+														</div>
                             <div ng-repeat="category in source.categories">
-                                <!-- <div class="info-tile">{{category}}</div>
-                                <div ng-show="isCategoryLeader($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
-                                <div ng-show="isCategoryAdventurer($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
-                                <div ng-show="isCategoryScientist($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
-                                <div ng-show="isCategoryProtector($index)" class="score-tile">{{results.categories[$index] | number:1}}</div>
-                                <div style="clear:both;"></div> -->
-                                <div ng-show="isCategoryLeader($index)" class="desc message-tile">
-									<h1>You're a {{source.categoryMessages[$index].leader}}</h1>
-									<p>Lead the way my friend, it’s what you were born to do. Be the black sheep, zag where others zig and pave the way for a brighter, more exciting future.</p>
-								</div>
-                                <div ng-show="isCategoryAdventurer($index)" class="desc message-tile">
-									<h1>You're a {{source.categoryMessages[$index].adventurer}}</h1>
-									<p>If there's a different way to look at something, you'll find it. You'll take the risks that others won't and work tirelessly to create something truly original.</p>
-								</div>
-                                <div ng-show="isCategoryScientist($index)" class="desc message-tile">
-									<h1>You're a {{source.categoryMessages[$index].scientist}}</h1>
-									<p>Yeah, science! You're like a combination of Walter White and Einstein! With the bravery to do things your own way and the furious curiosity to question everything, you're certainly not afraid to rock the boat.</p>
-								</div>
-                                <div ng-show="isCategoryProtector($index)" class="desc message-tile">
-									<h1>You're a {{source.categoryMessages[$index].protector}}</h1>
-									<p>You don't need your name up in lights. You're a humble hero and team player who knows how to get the best out of those around you, even if that means taking a back seat yourself.</p>
-								</div>
+
+                                <div ng-show="isCategoryHigh($index)" class="desc message-tile">
+																<p>{{source.categoryMessages[$index].high}}</p>
+																</div>
+
+                                <div ng-show="isCategoryMedHigh($index)" class="desc message-tile">
+																<p>{{source.categoryMessages[$index].medHigh}}</p>
+																</div>
+
+                                <div ng-show="isCategoryMedLow($index)" class="desc message-tile">
+																<p>{{source.categoryMessages[$index].medLow}}</p>
+																</div>
+
+                                <div ng-show="isCategoryLow($index)" class="desc message-tile">
+																<p>{{source.categoryMessages[$index].low}}</p>
+																</div>
+
                             </div>
-                            <a href="#/profile" class="btn quizbtn" ng-click="onConfirmResults();">Next</a>
+                            <a href="#/profile" class="btn quizbtn" ng-click="onConfirmResults();">NEXT</a>
                         </div>
 
                         <!-- SHARE PAGE -->
@@ -193,24 +198,11 @@
 
                     <!-- INFOGRAPHICS -->
                     <form id="infoProfile" role="form" ng-show="profileInfo">
-                    <button style="color:black;" ng-click="showAllInfo = 'false'; showSpecificInfo = 'true'">Compare <span id="braveCategory">{{braveCategory}}</span>s</button>
-                    <button style="color:black;" ng-click="showAllInfo = 'true'; showSpecificInfo = 'false'">Compare all</button>
-                    <!-- specific -->
-                        <div class="css-slider" ng-show="showSpecificInfo">
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide d"><span id="infoFiveVal">00</span>% of <span id="braveCategory">{{braveCategory}}</span>s prefer <span id="infoFiveOption">beach holidays</span></span></a>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide e"><span id="infoFourVal">00</span>% of <span id="braveCategory">{{braveCategory}}</span>s prefer <span id="infoFourOption">tea</span></span></a>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide f">1 in <span id="infoThreeVal">00</span> <span id="braveCategory">{{braveCategory}}</span>s listen to <span id="infoThreeOption">rock</span></span></a>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide g"><span id="infoTwoVal">00</span>% of <span id="braveCategory">{{braveCategory}}</span>s prefer <span id="infoTwoOption">mature cheddar</span></span></a>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide h"><span id="infoOneVal">00</span>% of <span id="braveCategory">{{braveCategory}}</span>s love <span id="infoOneOption">snowboarding</span></span></a>
-                        </div>
-<!-- show all -->
-                        <div class="css-slider" ng-show="showAllInfo">
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide d"><span id="infoFiveValAll">00</span>% of people prefer <span id="infoFiveOptionAll">beach holidays</span></span></a>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide e"><span id="infoFourValAll">00</span>% of people prefer <span id="infoFourOptionAll">tea</span></span></a>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide f">1 in <span id="infoThreeValAll">00</span> listen to <span id="infoThreeOption">rock</span></span></a>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide g"><span id="infoTwoValAll">00</span>% of people prefer <span id="infoTwoOptionAll">mature </span></span></a>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="slide h"><span id="infoOneValAll">00</span>% of people love <span id="infoOneOptionAll">snowboarding</span></span></a>
-                        </div>
+                          <a href="javascript:void(0);" tabindex="-1"><span class="d"><span id="infoFiveValAll">00</span>% of people prefer <span id="infoFiveOptionAll">beach holidays</span></span></a><br/>
+                          <a href="javascript:void(0);" tabindex="-1"><span class="e"><span id="infoFourValAll">00</span>% of people prefer <span id="infoFourOptionAll">tea</span></span></a><br/>
+                          <a href="javascript:void(0);" tabindex="-1"><span class="f">1 in <span id="infoThreeValAll">00</span> listen to <span id="infoThreeOption">rock</span></span></a><br/>
+                          <a href="javascript:void(0);" tabindex="-1"><span class="g"><span id="infoTwoValAll">00</span>% of people prefer <span id="infoTwoOptionAll">mature </span></span></a><br/>
+                          <a href="javascript:void(0);" tabindex="-1"><span class="h"><span id="infoOneValAll">00</span>% of people love <span id="infoOneOptionAll">snowboarding</span></span></a>
                     </form>
 
 
@@ -235,6 +227,7 @@
                             <img src="images/ResultsPageProtector.jpg">
                             <img src="images/ResultsPageScientist.jpg">
                             <img src="images/Questionnaire Rock_Electronic.jpg">
+														<img src="images/Questionnaire Cheddar_Blue.jpg">
 						</div>
 
 </div>
@@ -252,7 +245,7 @@
             wf.async = 'true';
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(wf, s);
-          })(); 
+          })();
 
           $("input[type='text']").bind('focus', function() {
                $(this).css('background-color', 'white');
@@ -276,7 +269,7 @@
              js.src = "//connect.facebook.net/en_US/sdk.js";
              fjs.parentNode.insertBefore(js, fjs);
            }(document, 'script', 'facebook-jssdk'));
-          
+
         </script>
 
 </body>

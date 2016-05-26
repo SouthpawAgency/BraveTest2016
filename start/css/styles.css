@@ -5,6 +5,8 @@
 
 @font-face {font-family: 'brush-tipTerrence';src: url('../webfonts/29FF2D_0_0.eot');src: url('../webfonts/29FF2D_0_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/29FF2D_0_0.woff') format('woff'),url('../webfonts/29FF2D_0_0.ttf') format('truetype');}
 
+@font-face {font-family: 'LubalinGraphStd-Book';src: url('../webfonts/3123DE_0_0.eot');src: url('../webfonts/3123DE_0_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3123DE_0_0.woff') format('woff'),url('../webfonts/3123DE_0_0.ttf') format('truetype');}
+
 @font-face {
     font-family: 'LubalinGraphStd-Bold';
     src: url('../webfonts/fonts/29FF2D_1_0.eot');
@@ -32,12 +34,12 @@ input:active {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
     font-family: 'Oswald', sans-serif;
 }
-#frmLogin{
+
+#frmLogin, #frmRegister {
 	width: 50%;
+  min-width: 290px;
 }
-#frmRegister {
-    width: 50%;
-}
+
 .firebase-input{
     background: white;
     border-radius: 0px;
@@ -69,18 +71,19 @@ input:active {
     margin-right: 15px;
 }
 .loginHeader{
-	margin-right: 15px; 
+	margin-right: 15px;
 	font-family: 'Oswald', sans-serif;
 	display: inline-block;
 	float: left;
 	font-size: 18px;
     padding: 10px 10px 10px 0px;
 }
-.loginButton{
+.loginButton, .nextbtn, .nextbtn:focus, .nextbtn:active, .quizbtn {
 	color: white;
     font-family: 'Oswald', sans-serif;
     background: url('../images/button.svg');
     border: none;
+    outline: none !important;
     background-size: contain;
     text-align: center;
     background-position: center;
@@ -90,8 +93,9 @@ input:active {
     font-size: 24px;
     margin-top: 25px;
 }
-.loginButton:hover {
+.loginButton:hover, .nextbtn:hover {
   color:white;
+  background-color: transparent;
 }
 .registerHeader{
 	display: inline-block;
@@ -99,17 +103,46 @@ input:active {
 	font-family: 'Oswald', sans-serif;
 }
 
-body {
+/*.btn:focus, .btn:active:focus, .btn.active:focus {
+  outline-offset: 0;
+}*/
+
+body, body.loginPage, body.logoutPage, body.registerPage {
 	background-color: #1a1a1a;
 	background: url('../images/Main page.jpg');
 	background-size: cover;
 	background-position: center center;
+  background-attachment: fixed;
 	min-height: 100vh;
+  min-width: 320px;
 	color:white;
 }
 
+body.profilePage {
+  background-image: url('../images/Questionnaire Rock_Electronic.jpg');
+}
+
+body.quizPage {
+  background-image: url('../images/Question1.jpg');
+}
+
+body.question1 { background-image: url('../images/Question1.jpg'); }
+body.question2 { background-image: url('../images/Question2.jpg'); }
+body.question3 { background-image: url('../images/Question3.jpg'); }
+body.question4 { background-image: url('../images/Question4.jpg'); }
+body.question5 { background-image: url('../images/Question5.jpg'); }
+body.question6 { background-image: url('../images/Question6.jpg'); }
+body.question7 { background-image: url('../images/Question7.jpg'); }
+body.question8 { background-image: url('../images/Question8.jpg'); }
+body.question9 { background-image: url('../images/Question9.jpg'); }
+body.question10 { background-image: url('../images/Question10.jpg'); }
+
+body.resultsPage {
+  background-image: url('../images/ResultsPageAventurer.jpg');
+}
+
 h1 {
-  font-family: "LubalinGraphStd-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "LubalinGraphStd-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-rendering: optimizeLegibility;
   text-transform: uppercase;
 }
@@ -130,7 +163,7 @@ h1 {
   bottom: 20%;
   left:50%;
   transform: translateX(-50%);
-  font-family: 'knockout';
+  font-family: 'Oswald', Helvetica, Arial;
   background: url('../images/button.svg');
   border: none;
   background-size: contain;
@@ -141,12 +174,7 @@ h1 {
   background-repeat: no-repeat;
 }
 
-a.btn.quizbtn:hover {
-  color:white;
-  padding: 24px 50px 0 50px;
-}
-
-a.btn.nextbtn:hover {
+a.btn.quizbtn:hover, a.btn.nextbtn:hover {
   color:white;
   padding: 24px 50px 0 50px;
 }
@@ -160,7 +188,6 @@ a.btn.nextbtn:hover {
     font-family: segoe ui, verdana, arial, sans-serif;
 }
 .message-tile {
-    width: 490px;
     margin-top: 0px;
     margin-bottom: 5px;
     margin-left: 5px;
@@ -209,8 +236,8 @@ a.btn.nextbtn:hover {
     color: #ECF1EF;
     font-family: segoe ui, verdana, arial, sans-serif;
 }
-.next-button{
-  margin-top: 20px;
+.nextbtn{
+  margin-top: 25px;
 }
 a {
     text-decoration: none;
@@ -235,7 +262,7 @@ header.navbar {
 }
 
 form {
-	width: 1000px;
+	width: auto;
 	margin: auto;
 }
 
@@ -302,7 +329,7 @@ form {
     margin-bottom: 5px;
  }
 
-.quizbtn, .profileSelector {
+.profileSelector {
    color:white;
    font-family: 'Oswald', sans-serif;
    font-size: 30px;
@@ -317,22 +344,88 @@ form {
    background-repeat: no-repeat;
  }
 
- a.btn.quizbtn:hover {
-   color:white;
-   padding: 5px 60px 0 60px;
- }
-
-
- .profileSelector, .profileSelector:focus {
+ a.profileSelector, a.profileSelector:focus, a.profileSelector:active {
 	 color: white;
 	 display: inline-block;
 	 height: 75px;
 	 width: 280px;
-	 padding: 20px 0 0 0;
+	 padding: 17px 0 0 0;
 	 text-decoration: none;
+   margin-top: 20px;
  }
 
- .profileSelector:hover {
+ a.profileSelector:hover {
 	 color:white;
-	 text-decoration: underline;
+ }
+
+ .braveScore span {
+   font-size: 64px;
+ }
+
+ @media (max-width: 991px) {
+  .loginHeader {
+      width: 100%;
+      margin-right:0;
+      padding-right: 0;
+  }
+
+  .socialButton {
+    float: none;
+    margin: 0px 5px 40px;
+    width: 130px;
+  }
+
+  #quizProfile {
+    width: 100%;
+    min-width: 290px;
+  }
+
+
+}
+
+ @media (max-width: 670px) {
+   #quizProfile .quote {
+     font-size: 40px;
+     margin: 0;
+   }
+
+   #quizProfile h1 {
+     font-size: 26px;
+   }
+
+   .med-tile {
+    width: 35px;
+    height: 35px;
+    padding: 0px;
+    margin: 0;
+  }
+
+  .disagreeSpan, .agreeSpan {
+    height: 28px;
+    line-height: 28px;
+  }
+
+  .responseSelector::before {
+    width: 16px;
+    height: 16px;
+    top: calc(50% - 8px);
+    left: calc(50% - 8px);
+  }
+
+  .responseSelector.active::after {
+    width: 30px;
+    height: 30px;
+    border: 3px solid white;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+  }
+
+  .full-tile {
+    margin: 0;
+    padding: 0 0 40px 0;
+  }
+
+  .nextbtn, .nextbtn:active, .nextbtn:focus {
+    margin-top: 40px;
+  }
  }

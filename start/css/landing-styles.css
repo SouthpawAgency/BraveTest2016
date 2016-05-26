@@ -28,10 +28,34 @@ body {
   font-family: 'brush-tipTerrence', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 84px;
   letter-spacing: 2px;
+  text-transform: none;
+}
+
+.banner .banner-slogan h1 strong:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 105%;
+  height: 40%;
+  left: 50%;
+  top: 75%;
+  background-image: url('../images/fx/Brave_underline.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
 }
 
 .banner .banner-slogan h1 strong {
+  position: relative;
   font-size: 142px;
+}
+
+.banner .banner-slogan p {
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin-top: 50px;
 }
 
 .btn {

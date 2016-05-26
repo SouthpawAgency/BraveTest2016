@@ -45,7 +45,8 @@
         </div><!-- /logo -->
 
         <div class="banner-slogan">
-            <h1 class="large long-word text-center white quote">How <strong>Brave</strong> are you?</h1>
+            <h1 class="large long-word text-center white">How <strong>Brave</strong> are you?</h1>
+            <p>Take the 3-minute Southpaw Brave Test to find out</p>
         </div>
 
         <a href="start/" class="btn">LET'S GO!</a>
