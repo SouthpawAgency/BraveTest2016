@@ -87,24 +87,24 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
             }],
         "profileQuestions": [{
             "id":1001,
-            "optionLeft": "snowboarding",
-            "optionRight": "skiing"
+            "optionLeft": "Jazz",
+            "optionRight": "Hip Hop"
           },{
             "id":1002,
-            "optionLeft": "mature cheddar",
-            "optionRight": "blue cheese"
+            "optionLeft": "Lights on",
+            "optionRight": "Lights off"
           },{
             "id":1003,
-            "optionLeft": "rock music",
-            "optionRight": "electronic music"
+            "optionLeft": "Beer",
+            "optionRight": "Spirits"
           },{
             "id":1004,
-            "optionLeft": "tea",
-            "optionRight": "coffee"
+            "optionLeft": "Game of Thrones",
+            "optionRight": "Breaking Bad"
           },{
             "id":1005,
-            "optionLeft": "beach holiday",
-            "optionRight": "city break"
+            "optionLeft": "Nik Naks",
+            "optionRight": "Quavers"
           }]
         }
 

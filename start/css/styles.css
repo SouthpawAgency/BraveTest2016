@@ -59,24 +59,24 @@ input:active {
 .socialButton{
 	background: transparent;
 	font-family: 'Oswald', sans-serif;
-    border: none;
-    border-radius: 0px;
-    color: white;
-    font-size: 24px;
-    margin-bottom: 8px;
-    transition: all .25s;
-    -webkit-text-fill-color: white;
-    border: 3px solid white;
-    float: left;
-    margin-right: 15px;
+  border: none;
+  border-radius: 0px;
+  color: white;
+  font-size: 18px;
+  transition: all .25s;
+  -webkit-text-fill-color: white;
+  border: 3px solid white;
+  float: left;
+  margin: 7px 15px 34px 0;
 }
 .loginHeader{
 	margin-right: 15px;
+  margin-bottom: 35px;
 	font-family: 'Oswald', sans-serif;
 	display: inline-block;
 	float: left;
 	font-size: 18px;
-    padding: 10px 10px 10px 0px;
+  padding: 10px 10px 10px 0px;
 }
 .loginButton, .nextbtn, .nextbtn:focus, .nextbtn:active, .quizbtn {
 	color: white;
@@ -182,11 +182,75 @@ a.btn.quizbtn:hover, a.btn.nextbtn:hover {
 .full-tile {
     height: auto;
     margin: 5px;
-    padding: 40px;
+    padding: 0 40px 40px 40px;
     color: #fff;
     text-align: center;
     font-family: segoe ui, verdana, arial, sans-serif;
 }
+.full-tile h1 {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.questionFirstPart {
+  letter-spacing: 1px;
+  margin-bottom: 7px;
+}
+
+.questionSecondPart {
+  margin-top: 0;
+  position: relative;
+  font-size: 62px;
+}
+
+.questionSecondPart:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 105%;
+  height: 40%;
+  left: 50%;
+  top: 75%;
+  background-image: url('../images/fx/Question_underline.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+
+.question3 .questionSecondPart:after {
+  background-image: url('../images/fx/Question_underlineLong.png');
+}
+
+.question4 .questionSecondPart:after {
+  background-image: url('../images/fx/Question_underlineLong2.png');
+  width:80%;
+  top: 85%;
+}
+
+.question5 .questionSecondPart:after {
+  background-image: url('../images/fx/Question_underlineShort.png');
+}
+
+.question6 .questionSecondPart:after {
+  background-image: url('../images/fx/Question_underlineLong.png');
+}
+
+.question7 .questionSecondPart:after {
+  background-image: url('../images/fx/Question_underlineLong2.png');
+  top: 82%;
+}
+
+.question9 .questionSecondPart:after {
+  background-image: url('../images/fx/Question_underlineLong.png');
+}
+
+.quizPage .nextbtn {
+  margin-top: 125px;
+}
+
 .message-tile {
     margin-top: 0px;
     margin-bottom: 5px;
@@ -331,10 +395,10 @@ form {
 
 .profileSelector {
    color:white;
-   font-family: 'Oswald', sans-serif;
+   font-family: 'LubalinGraphStd-Book', sans-serif;
    font-size: 30px;
    letter-spacing: 2px;
-   background: url('../images/button.svg');
+   background: url('../images/buttonProfile.svg');
    border: none;
    background-size: contain;
    padding: 25px 45px 25px 45px;
@@ -347,11 +411,11 @@ form {
  a.profileSelector, a.profileSelector:focus, a.profileSelector:active {
 	 color: white;
 	 display: inline-block;
-	 height: 75px;
-	 width: 280px;
-	 padding: 17px 0 0 0;
+	 height: 131px;
+	 width: 390px;
+	 padding: 44px 0 0 0;
 	 text-decoration: none;
-   margin-top: 20px;
+   margin: 20px 75px 0;
  }
 
  a.profileSelector:hover {
@@ -360,6 +424,15 @@ form {
 
  .braveScore span {
    font-size: 64px;
+ }
+
+ #frmProfile > p {
+   font-family: 'LubalinGraphStd-Book', sans-serif;
+   font-size: 24px;
+ }
+
+ #frmProfile > div {
+   margin-top: 50px;
  }
 
  @media (max-width: 991px) {
