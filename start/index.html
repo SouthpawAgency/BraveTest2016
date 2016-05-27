@@ -188,13 +188,18 @@
                             <a href="#/profile" class="btn quizbtn" ng-click="onConfirmResults();">NEXT</a>
                         </div>
 
-                        <!-- SHARE PAGE -->
-                        <div ng-show="shareShow" class="ng-cloak share">
-                                <h1>SHARE PAGE</h1>
-                        </div>
-
-
                     </form>
+
+										<!-- SHARE PAGE -->
+										<form id="sharePage">
+															<h1>Thanks for taking part in the <strong>Southpaw</strong> Brave Test</h1>
+															<h2>Share your results with your friends!</h2>
+															<ul class="shareIcons">
+																<li class="fb"></li>
+																<li class="tw"></li>
+															</ul>
+															<p>If you want to know more about Southpaw - The Home of The Brave, follow us on social media or visit <a href="http://southpawagency.com">www.southpawagency.com</a>.</p>
+										</form>
 
                     <!-- INFOGRAPHICS -->
                     <form id="infoProfile" role="form" ng-show="profileInfo">
@@ -202,7 +207,8 @@
                           <a href="javascript:void(0);" tabindex="-1"><span class="e"><span id="infoFourValAll">00</span>% of people prefer <span id="infoFourOptionAll">tea</span></span></a><br/>
                           <a href="javascript:void(0);" tabindex="-1"><span class="f">1 in <span id="infoThreeValAll">00</span> listen to <span id="infoThreeOption">rock</span></span></a><br/>
                           <a href="javascript:void(0);" tabindex="-1"><span class="g"><span id="infoTwoValAll">00</span>% of people prefer <span id="infoTwoOptionAll">mature </span></span></a><br/>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="h"><span id="infoOneValAll">00</span>% of people love <span id="infoOneOptionAll">snowboarding</span></span></a>
+                          <a href="javascript:void(0);" tabindex="-1"><span class="h"><span id="infoOneValAll">00</span>% of people love <span id="infoOneOptionAll">snowboarding</span></span></a><br/>
+													<a href="#/share" class="btn quizbtn" ng-click="">NEXT</a>
                     </form>
 
 
@@ -228,6 +234,7 @@
               <img src="images/ResultsPageScientist.jpg">
               <img src="images/Questionnaire Rock_Electronic.jpg">
 							<img src="images/Questionnaire Cheddar_Blue.jpg">
+							<img src="images/FarewellPage.jpg">
 							<img src="images/fx/Question_underline.png">
 							<img src="images/fx/Question_underlineLong.png">
 							<img src="images/fx/Question_underlineLong2.png">
@@ -256,25 +263,23 @@
             });
 
           </script>
-          <script>
+					<script>
+					  window.fbAsyncInit = function() {
+					    FB.init({
+					      appId      : '1707512429512286',
+					      xfbml      : true,
+					      version    : 'v2.6'
+					    });
+					  };
 
-          window.fbAsyncInit = function() {
-            FB.init({
-              appId      : '1707512429512286',
-              xfbml      : true,
-              version    : 'v2.6'
-            });
-          };
-
-          (function(d, s, id){
-             var js, fjs = d.getElementsByTagName(s)[0];
-             if (d.getElementById(id)) {return;}
-             js = d.createElement(s); js.id = id;
-             js.src = "//connect.facebook.net/en_US/sdk.js";
-             fjs.parentNode.insertBefore(js, fjs);
-           }(document, 'script', 'facebook-jssdk'));
-
-        </script>
+					  (function(d, s, id){
+					     var js, fjs = d.getElementsByTagName(s)[0];
+					     if (d.getElementById(id)) {return;}
+					     js = d.createElement(s); js.id = id;
+					     js.src = "//connect.facebook.net/en_US/sdk.js";
+					     fjs.parentNode.insertBefore(js, fjs);
+					   }(document, 'script', 'facebook-jssdk'));
+					</script>
 
 </body>
 </html>

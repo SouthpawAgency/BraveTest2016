@@ -37,6 +37,11 @@
             controller: 'info',
             authRequired: true // must be logged in to get here
         },
+            '#/share': {
+            form: 'sharePage',
+            controller: 'share',
+            authRequired: true // must be logged in to get here
+        },
     };
 
     // create the object to store our controllers
@@ -191,13 +196,13 @@
             e.preventDefault();
 
             socialLoginPromise = thirdPartyLogin(provider);
-            handleAuthResponse(socialLoginPromise, 'profile');
+            handleAuthResponse(socialLoginPromise, 'quiz');
 
         });
 
         form.children('#btAnon').on('click', function (e) {
             e.preventDefault();
-            handleAuthResponse(authAnonymously(), 'profilex');
+            handleAuthResponse(authAnonymously(), 'quiz');
         });
 
     };
@@ -430,6 +435,11 @@
 
     };
 
+    // share page
+    controllers.share = function (form) {
+      $('body').addClass('sharePage');
+    };
+
     /// Routing
     ////////////////////////////////////////
 
@@ -487,6 +497,7 @@
     Path.map("#/profile").to(prepRoute);
     Path.map("#/quiz").to(prepRoute);
     Path.map("#/info").to(prepRoute);
+    Path.map("#/share").to(prepRoute);
 
     Path.root("#/");
 
