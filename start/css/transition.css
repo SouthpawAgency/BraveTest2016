@@ -1,4 +1,4 @@
-/* -------------------------------- 
+/* --------------------------------
 
 Primary style
 
@@ -19,7 +19,7 @@ a {
 
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 Patterns - reusable parts of our design
 
@@ -44,23 +44,9 @@ Patterns - reusable parts of our design
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* -------------------------------- 
 
-Typography
 
--------------------------------- */
-h1 {
-  font-size: 2.6rem;
-  line-height: 1;
-  margin-bottom: 1em;
-}
-@media only screen and (min-width: 768px) {
-  h1 {
-    font-size: 5rem;
-  }
-}
-
-/* -------------------------------- 
+/* --------------------------------
 
 Main Content
 
@@ -81,9 +67,9 @@ Main Content
   text-align: center;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
-Modal window 
+Modal window
 
 -------------------------------- */
 .cd-modal {
@@ -191,9 +177,9 @@ Modal window
   }
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
-Transition Layer 
+Transition Layer
 
 -------------------------------- */
 .cd-transition-layer {

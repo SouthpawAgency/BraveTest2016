@@ -188,7 +188,7 @@ a.btn.quizbtn:hover, a.btn.nextbtn:hover {
 .full-tile {
     height: auto;
     margin: 5px;
-    padding: 0 40px 40px 40px;
+    padding: 0 0 40px 0;
     color: #fff;
     text-align: center;
     font-family: segoe ui, verdana, arial, sans-serif;
@@ -494,8 +494,31 @@ form {
 
 .sharePage .shareIcons a {
   display: block;
+  position: relative;
   width: 100%;
   height: 100%;
+}
+
+.sharePage .shareIcons a:hover::after {
+  content: '';
+  display: block;
+  border: 2px solid white;
+  width: 62px;
+  height: 62px;
+  position: absolute;
+  top: calc(50% - 31px);
+  left: calc(50% - 31px);
+  border-radius: 50%;
+}
+
+@media (max-width: 1200px) {
+  .question4 .questionFirstPart, .question4 .questionSecondPart {
+    width: 600px;
+  }
+  .question4 .questionSecondPart:after {
+    width: 60%;
+    top: 92%;
+  }
 }
 
  @media (max-width: 991px) {
@@ -516,10 +539,22 @@ form {
     min-width: 290px;
   }
 
+  .question3 .questionSecondPart:after {
+    display: none;
+  }
 
+  .question9 .questionFirstPart {
+    width: 475px;
+  }
 }
 
- @media (max-width: 670px) {
+ @media (max-width: 769px) {
+   .question8 .questionFirstPart {
+     width: 500px;
+   }
+ }
+
+ @media (max-width: 690px) {
    #quizProfile .quote {
      font-size: 40px;
      margin: 0;
@@ -534,6 +569,10 @@ form {
     height: 35px;
     padding: 0px;
     margin: 0;
+  }
+
+  .question3 .questionSecondPart:after {
+    display: block;
   }
 
   .disagreeSpan, .agreeSpan {
@@ -564,4 +603,79 @@ form {
   .nextbtn, .nextbtn:active, .nextbtn:focus {
     margin-top: 40px;
   }
+
+  .question4 .questionFirstPart, .question4 .questionSecondPart {
+    width: 450px;
+  }
+
+  .question7 .questionFirstPart {
+    width: 350px;
+  }
+
+  .question8 .questionFirstPart {
+    width: 350px;
+  }
+
+  .question9 .questionFirstPart {
+    width: 350px;
+  }
  }
+
+ @media (max-width: 520px) {
+   .question3 .questionSecondPart:after, .question6 .questionSecondPart:after {
+     display: none;
+   }
+
+   .question4 .questionFirstPart, .question4 .questionSecondPart {
+     width: auto;
+   }
+
+   .question6 .questionFirstPart {
+     width: 250px;
+   }
+   .question6 .questionSecondPart {
+     width: 250px;
+   }
+
+   .question6 .questionSecondPart:after {
+     width: 75%;
+     top: 92%;
+     display: block;
+   }
+ }
+
+  @media (max-width: 420px) {
+    #quizProfile h1 {
+      font-size: 21px;
+    }
+    #quizProfile .quote {
+      font-size: 33px;
+    }
+    .full-tile h1 {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .question5 .questionFirstPart {
+      width: 100%;
+    }
+
+    .question7 .questionFirstPart {
+      width: auto;
+    }
+    .question7 .questionSecondPart:after {
+      display: none;
+    }
+
+    .question8 .questionFirstPart {
+      width: auto;
+    }
+
+    .question8 .questionFirstPart {
+      width: auto;
+    }
+
+    .question9 .questionFirstPart {
+      width: auto;
+    }
+  }
