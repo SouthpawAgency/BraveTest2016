@@ -24,6 +24,7 @@
 	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="css/unslider.css" />
 	<link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/transition.css" />
     <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 	<style>
 	form {
@@ -62,6 +63,11 @@
     </div>
 </header>
 
+ 
+<div class="cd-transition-layer"> 
+    <div class="bg-layer"></div>
+</div> <!-- .cd-transition-layer -->
+
 
             <!-- QUIZ CONTROLLER -->
             <div ng-controller="Questionnaire" class="container questionnaire ng-scope">
@@ -72,8 +78,8 @@
 
                     <form id="frmLogin" role="form" autocomplete="off">
                              <h4 class="loginHeader">LOGIN WITH</h4>
-                             <a href="#" class="btn btn-primary bt-social socialButton" data-provider="facebook">FACEBOOK</a>
-                             <a href="#" class="btn btn-info bt-social socialButton" data-provider="twitter">TWITTER</a>
+                             <a href="#" class="cd-modal-trigger btn btn-primary bt-social socialButton" data-provider="facebook">FACEBOOK</a>
+                             <a href="#" class="cd-modal-trigger btn btn-info bt-social socialButton" data-provider="twitter">TWITTER</a>
                         <div class="form-group">
                             <input type="email" class="form-control firebase-input" id="txtEmail" placeholder="Enter email" name="email" autocomplete="off"/>
                         </div>
@@ -81,8 +87,8 @@
 
                             <input type="password" class="form-control firebase-input" id="txtPass" placeholder="Password" name="password" autocomplete="off"/>
                         </div>
-                        <button type="submit" class="btn loginButton">LOGIN</button>
-                        <a href="#/register" class="btn loginButton">REGISTER</a>
+                        <button type="submit" class="cd-modal-trigger btn loginButton">LOGIN</button>
+                        <a href="#/register" class="cd-modal-trigger btn loginButton">REGISTER</a>
 
                         <div class="socialContainer">
                         </div>
@@ -125,7 +131,7 @@
                         <a href="#" class="profileSelector" ng-click="onSelectProfileResponse(1)">{{source.profileQuestions[ profileQuestionNdx ].optionLeft}}</a>
                         <a href="#" class="profileSelector" ng-click="onSelectProfileResponse(2)">{{source.profileQuestions[ profileQuestionNdx ].optionRight}}</a>
                         </div>
-												<a href="#/info" class="btn quizbtn" ng-show="profileQuestionsDone">VIEW RESULTS</a>
+												<a href="#/info" class="cd-modal-trigger btn quizbtn" ng-show="profileQuestionsDone">VIEW RESULTS</a>
                         <!--    <div class="form-group">
                             <label for="txtName">Name</label>
                             <input type="text" class="form-control" id="txtName" placeholder="Name" name="name" />
@@ -185,30 +191,31 @@
 																</div>
 
                             </div>
-                            <a href="#/profile" class="btn quizbtn" ng-click="onConfirmResults();">NEXT</a>
+                            <a href="#/profile" class="cd-modal-trigger btn quizbtn" ng-click="onConfirmResults();">NEXT</a>
                         </div>
 
                     </form>
 
-										<!-- SHARE PAGE -->
-										<form id="sharePage">
-															<h1>Thanks for taking part in the <strong>Southpaw</strong> Brave Test</h1>
-															<h2>Share your results with your friends!</h2>
-															<ul class="shareIcons">
-																<li class="fb"></li>
-																<li class="tw"></li>
-															</ul>
-															<p>If you want to know more about Southpaw - The Home of The Brave, follow us on social media or visit <a href="http://southpawagency.com">www.southpawagency.com</a>.</p>
-										</form>
+                    <!-- SHARE PAGE -->
+                    <form id="sharePage">
+                        <h1>Thanks for taking part in the <strong>Southpaw</strong> Brave Test</h1>
+                        <h2>Share your results with your friends!</h2>
+                        <ul class="shareIcons">
+                        <li class="fb"><a href="https://www.facebook.com/dialog/feed?app_id=1707512429512286&redirect_uri=http://southpawagency.com/bravetest2016&link=http://southpawagency.com/bravetest2016&picture=http://southpawagency.com/bravetest2016/start/images/Mainpage.jpg&description=I%20completed%20box%202%20in%2036.6%20seconds!%20Can%20you%20beat%20it" class="popup"></a></li>
+                        <li class="tw"><a href="https://twitter.com/intent/tweet?text=I%20am%20100%25%20brave" class="popup"</li>
+                        </ul>
+                        <p>If you want to know more about Southpaw - The Home of The Brave, follow us on social media or visit <a href="http://southpawagency.com">www.southpawagency.com</a>.</p>
+                        </form>
 
                     <!-- INFOGRAPHICS -->
                     <form id="infoProfile" role="form" ng-show="profileInfo">
-                          <a href="javascript:void(0);" tabindex="-1"><span class="d"><span id="infoFiveValAll">00</span>% of people prefer <span id="infoFiveOptionAll">beach holidays</span></span></a><br/>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="e"><span id="infoFourValAll">00</span>% of people prefer <span id="infoFourOptionAll">tea</span></span></a><br/>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="f">1 in <span id="infoThreeValAll">00</span> listen to <span id="infoThreeOption">rock</span></span></a><br/>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="g"><span id="infoTwoValAll">00</span>% of people prefer <span id="infoTwoOptionAll">mature </span></span></a><br/>
-                          <a href="javascript:void(0);" tabindex="-1"><span class="h"><span id="infoOneValAll">00</span>% of people love <span id="infoOneOptionAll">snowboarding</span></span></a><br/>
-													<a href="#/share" class="btn quizbtn" ng-click="">NEXT</a>
+                        <a href="javascript:void(0);" tabindex="-1"><span class="i">Average brave score: <span id="infoOverallAvg"></span>%</span></a><br/>
+                        <a href="javascript:void(0);" tabindex="-1"><span class="h">The bravest music lovers prefer <span id="infoOneOption"></span></span></a><br/>
+                        <a href="javascript:void(0);" tabindex="-1"><span class="g">The bravest people prefer the <span id="infoTwoOption"></span></span></a><br/>
+                        <a href="javascript:void(0);" tabindex="-1"><span class="f"><span id="infoThreeOption"></span> drinkers are the bravest</span></a><br/>
+                        <a href="javascript:void(0);" tabindex="-1"><span class="e"><span id="infoFourOption"></span> fans are bravest</span></a><br/>
+                        <a href="javascript:void(0);" tabindex="-1"><span class="d"><span id="infoFiveOption"></span> lovers are braver than <span id="infoFiveOptionAlt"></span> lovers</span></a><br/>
+                    <a href="#/share" class="btn quizbtn" ng-click="">NEXT</a>
                     </form>
 
 

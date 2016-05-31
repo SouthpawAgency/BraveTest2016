@@ -253,9 +253,9 @@ a.btn.quizbtn:hover, a.btn.nextbtn:hover {
   background-image: url('../images/fx/Question_underlineLong.png');
 }
 
-.quizPage .nextbtn {
+/*.quizPage .nextbtn {
   margin-top: 125px;
-}
+}*/
 
 .message-tile {
     margin-top: 0px;
