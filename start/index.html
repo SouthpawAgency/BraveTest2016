@@ -82,8 +82,8 @@
 
                     <form id="frmLogin" role="form" autocomplete="off">
                              <h4 class="loginHeader">LOGIN WITH</h4>
-                             <a href="#" class="cd-modal-trigger btn btn-primary bt-social socialButton" data-provider="facebook">FACEBOOK</a>
-                             <a href="#" class="cd-modal-trigger btn btn-info bt-social socialButton" data-provider="twitter">TWITTER</a>
+                             <a href="#" class="cd-modal-trigger btn btn-primary bt-social socialButton" data-provider="facebook" class=“ng-cloak”>FACEBOOK</a>
+                             <a href="#" class="cd-modal-trigger btn btn-info bt-social socialButton" data-provider="twitter" class=“ng-cloak”>TWITTER</a>
                         <div class="form-group">
                             <input type="email" class="form-control firebase-input" id="txtEmail" placeholder="Enter email" name="email" autocomplete="off"/>
                         </div>
@@ -91,7 +91,7 @@
 
                             <input type="password" class="form-control firebase-input" id="txtPass" placeholder="Password" name="password" autocomplete="off"/>
                         </div>
-                        <button type="submit" class="cd-modal-trigger btn loginButton">LOGIN</button>
+                        <button type="submit" class=" btn loginButton">LOGIN</button>
                         <a href="#/register" class="cd-modal-trigger btn loginButton">REGISTER</a>
 
                         <div class="socialContainer">
@@ -157,7 +157,7 @@
                     <form id="quizProfile" role="form" ng-show="profileInfo">
 
                         <!-- QUESTIONS -->
-                        <div ng-show="!questionsDone" class="ng-cloak">
+                        <div ng-show="!questionsDone" class="ng-cloak" class="cd-modal-trigger">
                         <div class="desc full-tile "><h1 class="questionFirstPart">{{source.questions[ questionNdx ].text}}</h1><h1 class="quote questionSecondPart">{{source.questions[ questionNdx ].text2}}</h1></div>
                         <span class="disagreeSpan">Disagree</span>
                         <a href="#" class="heat-high med-tile responseSelector" ng-class="{'active':selectedTab === 's-disagree'}" ng-click="selectedTab = 's-disagree'; onSelectResponse(0)"></a>
@@ -171,15 +171,15 @@
                         </div>
 
                         <!-- RESULTS -->
-                        <div ng-show="isDone" class="ng-cloak resultsContainer">
+                        <div ng-show="isDone" class="cd-modal-trigger ng-cloak resultsContainer">
 
 														<div class="braveScore col-md-6">
 															<h1>You're <span id="braveScore"><span class="count">{{braveScore}}</span>%</span> brave</h1>
 														</div>
 														<div class="braveSentences col-md-6">
-	                            <div ng-repeat="category in source.categories">
+	                            <div ng-repeat="category in source.categories" class="delay">
 
-	                                <div ng-show="isCategoryHigh($index)" class="desc message-tile">
+	                                <div ng-show="isCategoryHigh($index)" class="desc message-tile ">
 																	<p>{{source.categoryMessages[$index].high}}</p>
 																	</div>
 
@@ -222,26 +222,26 @@
                         <div class="row infographics-holder">
                             <div class="col-md-4">
                                 <div class="row" id="infographic1"><img class="infographic-img" src=""></div>
-                                <div class="row"><span class="h">The bravest music lovers prefer <span id="infoOneOption"></span></span></div>
+                                <div class="row infographic-text"><span class="h">The bravest music lovers prefer <span id="infoOneOption"></span></span></div>
                             </div>
                             <div class="col-md-4">
                                 <div class="row" id="infographic2"><img class="infographic-img" src=""></div>
-                                <div class="row"><span class="g">The bravest people prefer the <span id="infoTwoOption"></span></span></div>
+                                <div class="row infographic-text"><span class="g">The bravest people prefer the <span id="infoTwoOption"></span></span></div>
                             </div>
                             <div class="col-md-4">
                                 <div class="row" id="infographic3"><img class="infographic-img" src=""></div>
-                                <div class="row"><span class="f"><span id="infoThreeOption"></span> drinkers are the bravest</span></div>
+                                <div class="row infographic-text"><span class="f"><span id="infoThreeOption"></span> drinkers are the bravest</span></div>
                             </div>
                         </div>
 
                         <div class="row infographics-holder">
                             <div class="col-md-6">
                                 <div class="row" id="infographic4"><img class="infographic-img" src=""></div>
-                                <div class="row"><span class="e"><span id="infoFourOption"></span> fans are bravest</span></div>
+                                <div class="row infographic-text"><span class="e"><span id="infoFourOption"></span> fans are bravest</span></div>
                             </div>
                             <div class="col-md-6">
                                 <div class="row" id="infographic5"><img class="infographic-img" src=""></div>
-                                <div class="row"><span class="d"><span id="infoFiveOption"></span> lovers are braver than <span id="infoFiveOptionAlt"></span> lovers</span></div>
+                                <div class="row infographic-text"><span class="d"><span id="infoFiveOption"></span> lovers are braver than <span id="infoFiveOptionAlt"></span> lovers</span></div>
                             </div>
                         </div>
 

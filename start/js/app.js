@@ -126,14 +126,14 @@ jQuery(document).ready(function($){
     $(window).on('resize', function(){
         if( !resize ) {
             resize = true;
-            (!window.requestAnimationFrame) ? setTimeout(setLayerDimensions, 3300) : window.requestAnimationFrame(setLayerDimensions);
+            (!window.requestAnimationFrame) ? setTimeout(setLayerDimensions, 1000) : window.requestAnimationFrame(setLayerDimensions);
         }
     });
 
     //open modal window
-    modalTrigger.on('click', function(event){
-        // event.preventDefault();
+    $(window).on('hashchange', function(event){
         transitionLayer.addClass('visible closing');
+        event.preventDefault();
         var delay = ( $('.no-cssanimations').length > 0 ) ? 0 : 1600;
         setTimeout(function(){
             transitionLayer.removeClass('visible closing');
@@ -141,16 +141,6 @@ jQuery(document).ready(function($){
         }, delay);
     });
 
-    //close modal window
-    modalWindow.on('click', '.modal-close', function(event){
-        // event.preventDefault();
-        transitionLayer.addClass('closing');
-        modalWindow.removeClass('visible');
-        transitionBackground.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(){
-            transitionLayer.removeClass('closing opening visible');
-            transitionBackground.off('webkitAnimationEnd oanimationend msAnimationEnd animationend');
-        });
-    });
 
     function setLayerDimensions() {
         var windowWidth = $(window).width(),
@@ -293,12 +283,14 @@ jQuery(document).ready(function($){
                 $(this).prop('Counter',0).animate({
                     Counter: Math.round(braveScore/categoryCount)
                 }, {
-                    duration: 2000,
-                    easing: 'linear',
+                    duration: 1500,
+                    easing: 'swing',
                     step: function (now) {
                         $(this).text(Math.ceil(now));
                     }
+
                 });
+                $('.delay').css('visibility','visible').delay( 1750 ).css('opacity',0).animate({opacity:1}, 1500);
             });
 
         }
