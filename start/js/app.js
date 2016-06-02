@@ -70,20 +70,20 @@ app.controller('Questionnaire', ['$scope', '$http', '$templateCache', function (
             "DECISIVE",
             "DETERMINED"],
             "categoryMessages": [{
-                "high": "You're extremely unorthodox!",
-                "medHigh": "You're very unorthodox!",
-                "medLow": "You're slightly unorthodox",
-                "low": "You're not very unorthodox"
+                "high": "You’re extremely unorthodox. You don’t just think outside the box, you take a sledgehammer to it and smash the thing to pieces in order to create something new.",
+                "medHigh": "You’re very unorthodox. You understand that convention isn’t your friend and you’re not afraid to ruffle a few feathers to create something completely different.",
+                "medLow": "You’re fairly unorthodox. You pride yourself on thinking outside the box, but now it’s time to really shake things up. After all, nobody ever changed the world by following the rules.",
+                "low": "You’re a little unorthodox. You like to rock the boat every now and then, but sometimes that’s not enough. It’s time to capsize that boat, turn the world upside down and look at things in a whole new way."
               }, {
-                "high": "You're extremely decisive!",
-                "medHigh": "You're very decisive!",
-                "medLow": "You're slightly decisive",
-                "low": "You're not very decisive"
+                "high": "You’re extremely decisive. You don’t waste time with the ifs, buts and maybes. You make a call and run with it, and you’re more than happy to face the consequences and change things if it doesn’t work out.",
+                "medHigh": "You’re very decisive. You understand that you don’t get anything done by umming and ahhing, you’d rather try something and fail than spend all day thinking about it.",
+                "medLow": "You’re pretty indecisive. Making decisions isn’t your strong suit, but it’s time to change that. Don’t shy away from failure. If something doesn’t work first time, try something else, and keep trying and trying until you find what you’re looking for.",
+                "low": "You’re very indecisive. You can’t even decide whether to have a Mars bar or Dairy Milk. Who cares?! It’s time to start going with your gut and getting things done. If your gut says get both, get both."
               }, {
-                "high": "You're extremely determined!",
-                "medHigh": "You're very determined!",
-                "medLow": "You're slightly determined",
-                "low": "You're not very determined"
+                "high": "You’re extremely determined. If a job needs doing, you’ll get it done – even if it means fighting through the night and staying until the early hours to see it through.",
+                "medHigh": "You’re very determined. Deadlines are your friend. You don’t get caught flapping and panicking about what will happen if you don’t meet them, you just power through until the job is done.",
+                "medLow": "You’re fairly determined, but sometimes you can let your attention slip. Do you catch yourself glancing at your phone every now and then to swipe away that pesky notification? It’s time to set it to airplane mode, put it to one side and push on with the task at hand.",
+                "low": "You’re a little determined, but you often catch yourself getting distracted by people around you. Don’t let others stand in the way of your success. Find a quiet space, shut yourself off and get the job done."
             }],
         "profileQuestions": [{
             "id":1001,
@@ -131,7 +131,7 @@ jQuery(document).ready(function($){
     });
 
     //open modal window
-    modalTrigger.on('click', function(event){   
+    modalTrigger.on('click', function(event){
         // event.preventDefault();
         transitionLayer.addClass('visible closing');
         var delay = ( $('.no-cssanimations').length > 0 ) ? 0 : 1600;
@@ -280,6 +280,27 @@ jQuery(document).ready(function($){
             }
             theUserRef.child("scores/brave").set(Math.round(braveScore/categoryCount));
             $scope.braveScore = Math.round(braveScore/categoryCount);
+
+
+            $( ".message-tile p" ).each(function( index ) {
+              $(this).html($(this).html().replace(/(unorthodox)/g,'<span class="highlight">$1</span>'));
+              $(this).html($(this).html().replace(/(indecisive)/g,'<span class="highlight">$1</span>'));
+              $(this).html($(this).html().replace(/(decisive)/g,'<span class="highlight">$1</span>'));
+              $(this).html($(this).html().replace(/(determined)/g,'<span class="highlight">$1</span>'));
+            });
+
+            $('.count').each(function () {
+                $(this).prop('Counter',0).animate({
+                    Counter: Math.round(braveScore/categoryCount)
+                }, {
+                    duration: 2000,
+                    easing: 'linear',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            });
+
         }
         $scope.safeApply();
         selectedResponse = false;

@@ -375,7 +375,32 @@
 
     // share page
     controllers.share = function (form) {
-      $('body').addClass('sharePage');
+      $('body').removeClass().addClass('ng-scope sharePage');
+
+      // Check the current user
+      var user = rootRef.getAuth();
+      var userRef;
+
+      // If no current user send to register page
+      if (!user) {
+          routeTo('login');
+          return;
+      }
+
+      // Load user info
+      userRef = rootRef.child('users').child(user.uid);
+      userRef.once('value', function (snap) {
+          var user = snap.val();
+          if (!user) {
+              return;
+          }
+          var fbLink = "https://www.facebook.com/dialog/feed?app_id=1707512429512286&redirect_uri=http://southpawagency.com/bravetest2016&link=http://southpawagency.com/bravetest&picture=http://southpawagency.com/bravetest2016/start/images/Mainpage.jpg&description=I%20am%20" + user.scores["brave"] + "%25%20brave%20in%20the%20Southpaw%20Brave%20test."
+          var twLink = "https://twitter.com/intent/tweet?text=I%20am%20" + user.scores["brave"] + "%25%20brave%20in%20the%20Southpaw%20Brave%20Test.%20See%20how%20brave%20you%20are%3A%20http%3A//southpawagency.com/bravetest/";
+
+          // set the fields
+          $('.fb a').attr("href",fbLink);
+          $('.tw a').attr("href",twLink);
+      });
     };
 
     /// Routing
