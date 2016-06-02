@@ -31,7 +31,7 @@ body {
   text-transform: none;
 }
 
-.banner .banner-slogan h1 strong:after {
+.banner .banner-slogan h1 span:after {
   content: '';
   display: block;
   position: absolute;
@@ -47,7 +47,7 @@ body {
   -webkit-transform: translateX(-50%);
 }
 
-.banner .banner-slogan h1 strong {
+.banner .banner-slogan h1 span {
   position: relative;
   font-size: 142px;
 }
@@ -59,24 +59,41 @@ body {
 }
 
 .btn {
-  color:white;
   position: absolute;
   bottom: 20%;
-  left:50%;
+  left: 50%;
   transform: translateX(-50%);
+  color: white;
   font-family: 'Oswald', sans-serif;
   background: url('../images/button.svg');
   border: none;
+  outline: none !important;
   background-size: contain;
-  font-size: 36px;
-  padding: 40px;
   text-align: center;
   background-position: center;
   background-repeat: no-repeat;
+  width: 200px;
+  display: inline-block;
+  font-size: 24px;
+  margin-top: 25px;
 }
 
 a.btn:hover {
-  color:white;
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
   font-family: 'Oswald', sans-serif;
-  padding: 40px;
+  background: url('../images/button.svg');
+  border: none;
+  outline: none !important;
+  background-size: contain;
+  text-align: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 200px;
+  display: inline-block;
+  font-size: 24px;
+  margin-top: 25px;
 }

@@ -35,6 +35,7 @@
 
 <body ng-app="MyApp">
 	<header class="navbar navbar-static-top navbar-inverse" id="top" role="banner">
+
     <div class="container">
         <div class="navbar-header">
             <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"> <span class="sr-only">Toggle navigation</span>
@@ -63,6 +64,9 @@
     </div>
 </header>
 
+<div class="logo text-center" id="#logo">
+    <img src="http://southpawagency.com/assets/img/banner/southpaw.svg" alt="Southpaw">
+</div><!-- /logo -->
 
 <div class="cd-transition-layer">
     <div class="bg-layer"></div>
@@ -212,13 +216,35 @@
                         </form>
 
                     <!-- INFOGRAPHICS -->
-                    <form id="infoProfile" role="form" ng-show="profileInfo">
-                        <a href="javascript:void(0);" tabindex="-1"><span class="i">Average brave score: <span id="infoOverallAvg"></span>%</span></a><br/>
-                        <a href="javascript:void(0);" tabindex="-1"><span class="h">The bravest music lovers prefer <span id="infoOneOption"></span></span></a><br/>
-                        <a href="javascript:void(0);" tabindex="-1"><span class="g">The bravest people prefer the <span id="infoTwoOption"></span></span></a><br/>
-                        <a href="javascript:void(0);" tabindex="-1"><span class="f"><span id="infoThreeOption"></span> drinkers are the bravest</span></a><br/>
-                        <a href="javascript:void(0);" tabindex="-1"><span class="e"><span id="infoFourOption"></span> fans are bravest</span></a><br/>
-                        <a href="javascript:void(0);" tabindex="-1"><span class="d"><span id="infoFiveOption"></span> lovers are braver than <span id="infoFiveOptionAlt"></span> lovers</span></a><br/>
+                    <form id="infoProfile" role="form" ng-show="profileInfo" class="col-md-12">
+                        <!-- <a href="javascript:void(0);" tabindex="-1"><span class="i">Average brave score: <span id="infoOverallAvg"></span>%</span></a><br/> -->
+
+                        <div class="row infographics-holder">
+                            <div class="col-md-4">
+                                <div class="row" id="infographic1"><img class="infographic-img" src=""></div>
+                                <div class="row"><span class="h">The bravest music lovers prefer <span id="infoOneOption"></span></span></div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row" id="infographic2"><img class="infographic-img" src=""></div>
+                                <div class="row"><span class="g">The bravest people prefer the <span id="infoTwoOption"></span></span></div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row" id="infographic3"><img class="infographic-img" src=""></div>
+                                <div class="row"><span class="f"><span id="infoThreeOption"></span> drinkers are the bravest</span></div>
+                            </div>
+                        </div>
+
+                        <div class="row infographics-holder">
+                            <div class="col-md-6">
+                                <div class="row" id="infographic4"><img class="infographic-img" src=""></div>
+                                <div class="row"><span class="e"><span id="infoFourOption"></span> fans are bravest</span></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row" id="infographic5"><img class="infographic-img" src=""></div>
+                                <div class="row"><span class="d"><span id="infoFiveOption"></span> lovers are braver than <span id="infoFiveOptionAlt"></span> lovers</span></div>
+                            </div>
+                        </div>
+
                     <a href="#/share" class="btn quizbtn" ng-click="">NEXT</a>
                     </form>
 

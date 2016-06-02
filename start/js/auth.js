@@ -210,6 +210,7 @@
     // logout immediately when the controller is invoked
     controllers.logout = function (form) {
         $('body').removeClass().addClass('ng-scope logoutPage');
+        $('.logo').css('display','block');
         rootRef.unauth();
         routeTo('');
 
@@ -219,10 +220,12 @@
     // logout immediately when the controller is invoked
     controllers.quiz = function (form) {
       $('body').removeClass().addClass('ng-scope quizPage');
+      $('.logo').css('display','none');
     };
 
     // logout immediately when the controller is invoked
     controllers.info = function (form) {
+      $('.logo').css('display','none');
 
 // Check the current user
       var user = rootRef.getAuth();
@@ -255,32 +258,42 @@
               var Q1 = allInfo.Q1;
               if (Q1.optionLeft.braveScore >= Q1.optionRight.braveScore) {
                 infoOneOption = "Jazz";
+                $("#infographic1 img").attr("src", "images/infographics/1a.png");
+                
               } else {
                 infoOneOption = "Hip Hop";
+                $("#infographic1 img").attr("src", "images/infographics/1b.png");
               }
               form.find('#infoOneOption').html(infoOneOption);
+
               //Q2
               var Q2 = allInfo.Q2;
               if (Q2.optionLeft.braveScore >= Q2.optionRight.braveScore) {
                 infoTwoOption = "lights on";
+                $("#infographic2 img").attr("src", "images/infographics/2b.png");
               } else {
                 infoTwoOption = "lights off";
+                $("#infographic2 img").attr("src", "images/infographics/2a.png");
               }
               form.find('#infoTwoOption').html(infoTwoOption);
               //Q3
               var Q3 = allInfo.Q3;
               if (Q3.optionLeft.braveScore >= Q3.optionRight.braveScore) {
                 infoThreeOption = "Beer";
+                $("#infographic3 img").attr("src", "images/infographics/3a.png");
               } else {
                 infoThreeOption = "Spirit";
+                $("#infographic3 img").attr("src", "images/infographics/3b.png");
               }
               form.find('#infoThreeOption').html(infoThreeOption);
               //Q4
               var Q4 = allInfo.Q4;
               if (Q4.optionLeft.braveScore >= Q4.optionRight.braveScore) {
                 infoFourOption = "Game of Thrones";
+                $("#infographic4 img").attr("src", "images/infographics/4a.png");
               } else {
                 infoFourOption = "Breaking Bad";
+                $("#infographic4 img").attr("src", "images/infographics/4b.png");
               }
               form.find('#infoFourOption').html(infoFourOption);
               //Q4
@@ -288,9 +301,11 @@
               if (Q5.optionLeft.braveScore >= Q5.optionRight.braveScore) {
                 infoFiveOption = "Nik Naks";
                 infoFiveOptionAlt = "Quavers";
+                $("#infographic5 img").attr("src", "images/infographics/5.png");
               } else {
                 infoFiveOption = "Quavers";
                 infoFiveOptionAlt = "Nik Naks";
+                $("#infographic5 img").attr("src", "images/infographics/5.png");
               }
               form.find('#infoFiveOption').html(infoFiveOption);
               form.find('#infoFiveOptionAlt').html(infoFiveOptionAlt);
