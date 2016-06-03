@@ -279,7 +279,7 @@
               //Q3
               var Q3 = allInfo.Q3;
               if (Q3.optionLeft.n >= Q3.optionRight.n) {
-                infoThreeOption = "a beer";
+                infoThreeOption = "beer";
                 $("#infographic3 img").attr("src", "images/infographics/3a.png");
               } else {
                 infoThreeOption = "spirits";

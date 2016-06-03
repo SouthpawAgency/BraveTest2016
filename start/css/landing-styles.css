@@ -79,10 +79,6 @@ body {
 }
 
 a.btn:hover {
-  position: absolute;
-  bottom: 15%;
-  left: 50%;
-  transform: translateX(-50%);
   color: white;
   font-family: 'Oswald', sans-serif;
   background: url('../images/button.svg');
@@ -97,3 +93,51 @@ a.btn:hover {
   font-size: 24px;
   margin-top: 25px;
 }
+
+ @media (max-width: 1400px) {
+   .banner .banner-slogan h1 {
+     font-size: 64px;
+   }
+   .banner .banner-slogan h1 span {
+     font-size: 108px;
+   }
+   .banner .banner-slogan p {
+     font-size: 18px;
+   }
+   .banner-slogan p:last-child {
+     margin-top: 5px;
+   }
+ }
+
+ @media (max-width: 1100px) {
+   .banner .banner-slogan {
+     margin-top: 44%;
+     position: relative;
+     transform: translate(0);
+     -moz-transform: translate(0);
+     -webkit-transform: translate(0);
+   }
+  .banner .banner-slogan h1 {
+    font-size: 52px;
+  }
+
+  .banner .banner-slogan h1 span {
+    font-size: 100px;
+  }
+
+  .banner .banner-slogan p {
+    font-size: 16px;
+  }
+
+
+
+  .btn {
+    position: relative;
+    transform: translate(0);
+    -moz-transform: translate(0);
+    -webkit-transform: translate(0);
+    left: 0;
+    bottom: 0;
+    margin-bottom: 100px;
+  }
+ }

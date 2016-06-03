@@ -325,7 +325,7 @@ jQuery(document).ready(function($){
                     }
 
                 });
-                $('.delay').css('visibility','visible').delay( 1750 ).css('opacity',0).animate({opacity:1}, 1500);
+                $('.delay').delay( 1750 ).animate({opacity:1}, 1500);
             });
 
         }

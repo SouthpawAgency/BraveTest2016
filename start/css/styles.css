@@ -34,11 +34,11 @@ header {
 
 .logo{
 	position: absolute;
-    left: 0;
-    right: 0;
-    width: 320px;
-    margin: 2% auto;
-    z-index: 80;
+  left: 0;
+  right: 0;
+  width: 260px;
+  margin: 2% auto;
+  z-index: 80;
 }
 
 .logo img {
@@ -445,6 +445,10 @@ form {
     margin-bottom: 5px;
  }
 
+ .cd-transition-layer {
+   pointer-events: none !important;
+ }
+
 .profileSelector {
    color:white;
    font-family: 'LubalinGraphStd-Book', sans-serif;
@@ -520,7 +524,10 @@ form {
 
  .braveSentences {
    padding: 0;
-   visibility: hidden !important;
+ }
+
+ .delay {
+   opacity: 0;
  }
 
 .row.bottom {
@@ -656,6 +663,14 @@ form {
     width: 60%;
     top: 92%;
   }
+  .braveScore h1 > span {
+    font-size: 92px;
+  }
+  .braveScore h1 > span:after {
+    width: 190px;
+    left: 75px;
+    top: 75px
+  }
 }
 
  @media (max-width: 991px) {
@@ -703,11 +718,15 @@ form {
     padding: 10px 75px;
   }
 
-  .infoPage .container.questionnaire {
+  .infoPage .container.questionnaire, .resultsPage .container.questionnaire {
     position: relative;
     transform: translate(0);
     -moz-transform: translate(0);
     -webkit-transform: translate(0);
+  }
+
+  .resultsPage .container.questionnaire {
+    margin-top: 30%;
   }
 
   .row.bottom .col-md-4:first-child {
@@ -722,7 +741,7 @@ form {
     margin-bottom: 75px;
   }
 
-  .infoPage .quizbtn {
+  .infoPage .quizbtn, .resultsPage .button-holder {
     margin-bottom: 150px;
   }
 }
@@ -798,6 +817,44 @@ form {
   .question9 .questionFirstPart {
     width: 350px;
   }
+
+  a.profileSelector, a.profileSelector:focus, a.profileSelector:active {
+    width: 290px;
+    margin: 0;
+    padding: 55px 0 0 0;
+  }
+
+  .profileSelector, #frmProfile > p {
+    font-size: 20px;
+  }
+
+  #frmProfile > p {
+    padding: 0 10px;
+  }
+
+  #frmProfile > div {
+    margin-top: 10px;
+  }
+
+  .sharePage .container.questionnaire {
+    position: relative;
+    transform: translate(0);
+    -moz-transform: translate(0);
+    -webkit-transform: translate(0);
+    margin-top: 50px;
+  }
+
+  .sharePage h1 {
+    font-size: 34px;
+  }
+
+  .sharePage h2 {
+    font-size: 22px;
+  }
+
+  .sharePage .shareIcons {
+    margin-bottom: 10px;
+  }
  }
 
  @media (max-width: 520px) {
@@ -823,6 +880,15 @@ form {
    }
    .message-tile {
      padding: 10px;
+   }
+
+   .loginPage .container.questionnaire, .registerPage .container.questionnaire {
+     position: relative;
+     transform: translate(0);
+     -moz-transform: translate(0);
+     -webkit-transform: translate(0);
+     padding-top: 150px;
+     padding-bottom: 100px;
    }
  }
 
@@ -868,4 +934,15 @@ form {
       top: 42px;
       left: 44px;
     }
+  }
+
+
+    @media (max-height: 720px) and (min-width: 991px) {
+      .row.bottom {
+        margin-top: 0;
+      }
+
+      .infographic-img {
+        max-height: 120px;
+      }
   }
