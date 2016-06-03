@@ -14,7 +14,9 @@ body {
 }
 
 .banner .banner-slogan {
-  animation: none;
+  animation: none !important;
+  -moz-animation: none !important;
+  -webkit-animation: none !important;
   opacity: 1;
   position: absolute;
   top: 50%;
@@ -116,6 +118,7 @@ a.btn:hover {
      transform: translate(0);
      -moz-transform: translate(0);
      -webkit-transform: translate(0);
+         padding-top: 30px;
    }
   .banner .banner-slogan h1 {
     font-size: 52px;

@@ -250,7 +250,7 @@ a.btn.quizbtn:hover, a.btn.nextbtn:hover {
   width: 105%;
   height: 40%;
   left: 50%;
-  top: 75%;
+  top: 85%;
   background-image: url('../images/fx/Question_underline.png');
   background-size: contain;
   background-repeat: no-repeat;
