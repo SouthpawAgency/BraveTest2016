@@ -160,9 +160,8 @@ jQuery(document).ready(function($){
           t = true;
         }, 1000);
       });
-    });
 
-    $(".question10 .next-button").click(function() {
+      $(".question10 .next-button").click(function() {
       transitionLayer.addClass('visible closing');
       event.preventDefault();
       var delay = ( $('.no-cssanimations').length > 0 ) ? 0 : 1600;
@@ -170,7 +169,12 @@ jQuery(document).ready(function($){
           transitionLayer.removeClass('visible closing');
           $('.cd-transition-layer').css('pointer-events','none');
       }, delay);
+      t = false;
     });
+
+    });
+
+
 
 
     function setLayerDimensions() {
