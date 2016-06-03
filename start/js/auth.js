@@ -409,7 +409,7 @@
           if (!user) {
               return;
           }
-          var fbLink = "https://www.facebook.com/dialog/feed?app_id=1707512429512286&redirect_uri=http://southpawagency.com/bravetest2016&link=http://southpawagency.com/bravetest&picture=http://southpawagency.com/bravetest2016/start/images/Mainpage.jpg&description=I%20am%20" + user.scores["brave"] + "%25%20brave%20in%20the%20Southpaw%20Brave%20test."
+          var fbLink = "https://www.facebook.com/dialog/feed?app_id=1707512429512286&redirect_uri=http://southpawagency.com/bravetest/close.html&link=http://southpawagency.com/bravetest&picture=http://southpawagency.com/bravetest/start/images/ThumbnailImage.jpg&title=Southpaw%20Brave%20Test&description=I%20scored%20" + user.scores["brave"] + "%25%20in%20the%20Southpaw%20Brave%20Test.%20Think%20you%20can%20beat%20me?%20Take%20the%20test%20here."
           var twLink = "https://twitter.com/intent/tweet?text=I%20scored%20" + user.scores["brave"] + "%25%20in%20the%20Southpaw%20Brave%20Test.%20Think%20you%20can%20beat%20me?%20Take%20the%20test%20here%3A%20http%3A//southpawagency.com/bravetest/";
 
           // set the fields

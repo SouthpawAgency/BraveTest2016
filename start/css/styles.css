@@ -18,6 +18,11 @@
          url('../webfonts/fonts/29FF2D_1_0.ttf') format('truetype');
 
 }
+
+header {
+  display: none;
+}
+
 .navbar-inverse {
   background-color: transparent;
   border: none;

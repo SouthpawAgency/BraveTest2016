@@ -15,6 +15,12 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Southpaw Brave Test" />
+  	<meta property="og:image" content="http://southpawagency.com/bravetest/start/images/ThumbnailImage.jpg" />
+  	<meta property="og:image:type" content="image/jpeg" />
+  	<meta property="og:image:width" content="1280" />
+  	<meta property="og:image:height" content="720" />
+  	<meta property="og:description" content="How Brave are you? Take the 3-minute Southpaw Brave Test to find out." />
 
     <!-- TITLE -->
     <title>Southpaw | Creative Communications Agency</title>
