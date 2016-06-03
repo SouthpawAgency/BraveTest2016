@@ -165,6 +165,10 @@ body.resultsPage {
   background-image: url('../images/ResultsPageAventurer.jpg');
 }
 
+body.infoPage {
+  background-image: url('../images/infoPage.jpg');
+}
+
 body.sharePage {
   background-image: url('../images/FarewellPage.jpg');
 }
@@ -191,6 +195,8 @@ h1, h2 {
   bottom: 20%;
   left:50%;
   transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
   font-family: 'Oswald', Helvetica, Arial;
   background: url('../images/button.svg');
   border: none;
@@ -366,6 +372,8 @@ form {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
 }
 
  .responseSelector::before {
@@ -510,6 +518,14 @@ form {
    visibility: hidden !important;
  }
 
+.row.bottom {
+  margin-top: 40px;
+}
+
+ .row.bottom .col-md-4:first-child {
+   margin-left: 16.66666666%;
+ }
+
  .infographic-img {
    max-width: 200px;
    max-height: 140px;
@@ -518,6 +534,8 @@ form {
   .infographic-text {
 	padding-bottom: 20px;
 	padding-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
  }
 
  .infographics-holder{
@@ -548,6 +566,7 @@ form {
 .sharePage h1 strong {
   font-family: 'LubalinGraphStd-Bold', sans-serif;
   letter-spacing: 1px;
+  font-weight: normal;
 }
 
 .sharePage h2 {
@@ -677,6 +696,29 @@ form {
 
   .message-tile {
     padding: 10px 75px;
+  }
+
+  .infoPage .container.questionnaire {
+    position: relative;
+    transform: translate(0);
+    -moz-transform: translate(0);
+    -webkit-transform: translate(0);
+  }
+
+  .row.bottom .col-md-4:first-child {
+    margin-left: 0;
+  }
+
+  .row.top {
+    margin-top: 110px;
+  }
+
+  .infoPage .col-md-4 {
+    margin-bottom: 75px;
+  }
+
+  .infoPage .quizbtn {
+    margin-bottom: 150px;
   }
 }
 

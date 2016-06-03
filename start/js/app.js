@@ -131,14 +131,45 @@ jQuery(document).ready(function($){
     });
 
     //open modal window
-    $(window).on('hashchange', function(event){
-        transitionLayer.addClass('visible closing');
-        event.preventDefault();
-        var delay = ( $('.no-cssanimations').length > 0 ) ? 0 : 1600;
+
+
+    $( ".btn" ).click(function() {
+      var t = true;
+
+        $(window).on('hashchange', function(event){
+          if (t == true) {
+            transitionLayer.addClass('visible closing');
+            event.preventDefault();
+            var delay = ( $('.no-cssanimations').length > 0 ) ? 0 : 1600;
+            setTimeout(function(){
+                transitionLayer.removeClass('visible closing');
+                $('.cd-transition-layer').css('pointer-events','none');
+            }, delay);
+            t = false;
+          }
+        });
+
+
+      $(".profileSelector").click(function() {
         setTimeout(function(){
-            transitionLayer.removeClass('visible closing');
-            $('.cd-transition-layer').css('pointer-events','none');
-        }, delay);
+          t = true;
+        }, 1000);
+      });
+      $(".responseSelector").click(function() {
+        setTimeout(function(){
+          t = true;
+        }, 1000);
+      });
+    });
+
+    $(".question10 .next-button").click(function() {
+      transitionLayer.addClass('visible closing');
+      event.preventDefault();
+      var delay = ( $('.no-cssanimations').length > 0 ) ? 0 : 1600;
+      setTimeout(function(){
+          transitionLayer.removeClass('visible closing');
+          $('.cd-transition-layer').css('pointer-events','none');
+      }, delay);
     });
 
 
@@ -333,30 +364,34 @@ jQuery(document).ready(function($){
         var n = 0;
         //add selected option to user's profile
         theUserRef.child('profileAnswers/Q' + (questionNdx + 1)).set(selectedOption);
-        //increase total by 1
-        myDataRef.child('data/Q' + (questionNdx + 1) + "/" + selectedOption + "/n").transaction(function(currentRank) {
-          n = currentRank;
-          return currentRank+1; });
-        //update average brave score
-        myDataRef.child('data/Q' + (questionNdx + 1) + "/" + selectedOption + "/braveScore").transaction(function(currentRank) {
-          //if user has come through the quiz
-          if ($scope.braveScore) {
-            var thisBraveScore = $scope.braveScore;
-          } else {
-            //if user has loaded profile page first
-            var thisBraveScore = parseInt($('#braveScore').html());
-          }
-          //if option has been selected by anyone in the past, create average of 2 numbers
-          //(Current Average * times selected) + this user's brave score, all divided by n + 1
-          if (currentRank) {
-            var avgScore = Math.round(((currentRank*n) + thisBraveScore)/(n+1));
-          } else {
-            //else just add this user's brave score
-            var avgScore = thisBraveScore;
-          }
 
-          return avgScore;
-        });
+        if ($scope.braveScore > 50) {
+          //increase total by 1
+          myDataRef.child('data/Q' + (questionNdx + 1) + "/" + selectedOption + "/n").transaction(function(currentRank) {
+            n = currentRank;
+            return currentRank+1; });
+          //update average brave score
+          myDataRef.child('data/Q' + (questionNdx + 1) + "/" + selectedOption + "/braveScore").transaction(function(currentRank) {
+            //if user has come through the quiz
+            if ($scope.braveScore) {
+              var thisBraveScore = $scope.braveScore;
+            } else {
+              //if user has loaded profile page first
+              var thisBraveScore = parseInt($('#braveScore').html());
+            }
+            //if option has been selected by anyone in the past, create average of 2 numbers
+            //(Current Average * times selected) + this user's brave score, all divided by n + 1
+            if (currentRank) {
+              var avgScore = Math.round(((currentRank*n) + thisBraveScore)/(n+1));
+            } else {
+              //else just add this user's brave score
+              var avgScore = thisBraveScore;
+            }
+
+            return avgScore;
+          });
+        }
+
 
         if ($scope.profileQuestionNdx == $scope.source.profileQuestions.length) {
             $scope.isProfileDone = true;

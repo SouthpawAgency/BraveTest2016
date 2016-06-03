@@ -225,6 +225,7 @@
 
     // logout immediately when the controller is invoked
     controllers.info = function (form) {
+      $('body').removeClass().addClass('ng-scope infoPage');
       $('.logo').css('display','none');
 
 // Check the current user
@@ -256,10 +257,9 @@
 
               //Q1
               var Q1 = allInfo.Q1;
-              if (Q1.optionLeft.braveScore >= Q1.optionRight.braveScore) {
+              if (Q1.optionLeft.n >= Q1.optionRight.n) {
                 infoOneOption = "Jazz";
                 $("#infographic1 img").attr("src", "images/infographics/1a.png");
-                
               } else {
                 infoOneOption = "Hip Hop";
                 $("#infographic1 img").attr("src", "images/infographics/1b.png");
@@ -268,7 +268,7 @@
 
               //Q2
               var Q2 = allInfo.Q2;
-              if (Q2.optionLeft.braveScore >= Q2.optionRight.braveScore) {
+              if (Q2.optionLeft.n >= Q2.optionRight.n) {
                 infoTwoOption = "lights on";
                 $("#infographic2 img").attr("src", "images/infographics/2b.png");
               } else {
@@ -278,17 +278,17 @@
               form.find('#infoTwoOption').html(infoTwoOption);
               //Q3
               var Q3 = allInfo.Q3;
-              if (Q3.optionLeft.braveScore >= Q3.optionRight.braveScore) {
-                infoThreeOption = "Beer";
+              if (Q3.optionLeft.n >= Q3.optionRight.n) {
+                infoThreeOption = "a beer";
                 $("#infographic3 img").attr("src", "images/infographics/3a.png");
               } else {
-                infoThreeOption = "Spirit";
+                infoThreeOption = "spirits";
                 $("#infographic3 img").attr("src", "images/infographics/3b.png");
               }
               form.find('#infoThreeOption').html(infoThreeOption);
               //Q4
               var Q4 = allInfo.Q4;
-              if (Q4.optionLeft.braveScore >= Q4.optionRight.braveScore) {
+              if (Q4.optionLeft.n >= Q4.optionRight.n) {
                 infoFourOption = "Game of Thrones";
                 $("#infographic4 img").attr("src", "images/infographics/4a.png");
               } else {
@@ -298,17 +298,14 @@
               form.find('#infoFourOption').html(infoFourOption);
               //Q4
               var Q5 = allInfo.Q5;
-              if (Q5.optionLeft.braveScore >= Q5.optionRight.braveScore) {
+              if (Q5.optionLeft.n >= Q5.optionRight.n) {
                 infoFiveOption = "Nik Naks";
-                infoFiveOptionAlt = "Quavers";
                 $("#infographic5 img").attr("src", "images/infographics/5.png");
               } else {
                 infoFiveOption = "Quavers";
-                infoFiveOptionAlt = "Nik Naks";
                 $("#infographic5 img").attr("src", "images/infographics/5.png");
               }
               form.find('#infoFiveOption').html(infoFiveOption);
-              form.find('#infoFiveOptionAlt').html(infoFiveOptionAlt);
 
               //overall average
               var overallTotalScore = (Q1.optionLeft.braveScore * Q1.optionLeft.n) +
@@ -344,7 +341,9 @@
     };
 
     controllers.profile = function (form) {
+        $('.logo').css('display','none');
         $('body').removeClass().addClass('ng-scope profilePage');
+
         // Check the current user
         var user = rootRef.getAuth();
         var userRef;
@@ -391,6 +390,7 @@
     // share page
     controllers.share = function (form) {
       $('body').removeClass().addClass('ng-scope sharePage');
+      $('.logo').css('display','none');
 
       // Check the current user
       var user = rootRef.getAuth();
@@ -410,7 +410,7 @@
               return;
           }
           var fbLink = "https://www.facebook.com/dialog/feed?app_id=1707512429512286&redirect_uri=http://southpawagency.com/bravetest2016&link=http://southpawagency.com/bravetest&picture=http://southpawagency.com/bravetest2016/start/images/Mainpage.jpg&description=I%20am%20" + user.scores["brave"] + "%25%20brave%20in%20the%20Southpaw%20Brave%20test."
-          var twLink = "https://twitter.com/intent/tweet?text=I%20am%20" + user.scores["brave"] + "%25%20brave%20in%20the%20Southpaw%20Brave%20Test.%20See%20how%20brave%20you%20are%3A%20http%3A//southpawagency.com/bravetest/";
+          var twLink = "https://twitter.com/intent/tweet?text=I%20scored%20" + user.scores["brave"] + "%25%20in%20the%20Southpaw%20Brave%20Test.%20Think%20you%20can%20beat%20me?%20Take%20the%20test%20here%3A%20http%3A//southpawagency.com/bravetest/";
 
           // set the fields
           $('.fb a').attr("href",fbLink);
