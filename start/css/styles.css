@@ -96,6 +96,19 @@ input:active {
   float: left;
   margin: 7px 15px 34px 0;
 }
+.registerButton{
+	background: transparent;
+	font-family: 'Oswald', sans-serif;
+  border: none;
+  border-radius: 0px;
+  color: white;
+  font-size: 18px;
+  transition: all .25s;
+  -webkit-text-fill-color: white;
+  border: 3px solid white;
+  float: right;
+  margin: 7px 15px 34px 0;
+}
 .loginHeader{
 	margin-right: 15px;
   margin-bottom: 35px;
@@ -682,7 +695,7 @@ form {
 
   .socialButton {
     float: none;
-    margin: 0px 5px 40px;
+    margin: 0px 5px 20px;
     width: 130px;
   }
 
