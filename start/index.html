@@ -104,6 +104,8 @@
 
 
                     </form>
+
+
                     <!-- / LOGIN -->
                     <!-- LOGOUT -->
                     <form id="frmLogout" role="form">
@@ -175,11 +177,22 @@
                         <button class="btn btn-primary next-button nextbtn" ng-click="onConfirmResponse(); selectedTab = ''">NEXT</button>
                         </div>
 
+
+                        <!-- PROFILE -->
+                        <p ng-show="profileQuestionsDone" class="profileQuestions">Almost there...</br>Just answer these 5 quick questions to see how you compare with the rest.</p>
+
+                        <div ng-show="profileQuestionsDone">
+                        <a href="#" class="profileSelector" ng-click="onSelectProfileResponse(1)">{{source.profileQuestions[ profileQuestionNdx ].optionLeft}}</a>
+                        <a href="#" class="profileSelector" ng-click="onSelectProfileResponse(2)">{{source.profileQuestions[ profileQuestionNdx ].optionRight}}</a>
+                        </div>
+                        <!-- <a href="#/info" class="cd-modal-trigger btn quizbtn" ng-show="profileQuestionsDone">VIEW RESULTS</a> -->
+
+
                         <!-- RESULTS -->
                         <div ng-show="isDone" class="cd-modal-trigger ng-cloak resultsContainer">
 
 														<div class="braveScore col-md-6">
-															<h1>You're <span id="braveScore"><span class="count">{{braveScore}}</span>%</span> brave</h1>
+															<h1>You're <span id="braveScore"><span class="">{{braveScore}}</span>%</span> brave</h1>
 														</div>
 														<div class="braveSentences col-md-6">
 	                            <div ng-repeat="category in source.categories" class="delay">
@@ -203,7 +216,7 @@
 	                            </div>
 														</div>
 														<div class="button-holder">
-                            	<a href="#/profile" class="cd-modal-trigger btn quizbtn" ng-click="onConfirmResults();">NEXT</a>
+                            	<a href="#/info" class="cd-modal-trigger btn quizbtn" ng-click="onConfirmResults();">NEXT</a>
 														</div>
                         </div>
 

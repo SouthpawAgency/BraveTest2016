@@ -24,23 +24,19 @@
         },
             '#/profile': {
             form: 'frmProfile',
-            controller: 'profile',
-            authRequired: true // must be logged in to get here
+            controller: 'profile'
         },
             '#/quiz': {
             form: 'quizProfile',
-            controller: 'quiz',
-            authRequired: true // must be logged in to get here
+            controller: 'quiz'
         },
             '#/info': {
             form: 'infoProfile',
-            controller: 'info',
-            authRequired: true // must be logged in to get here
+            controller: 'info'
         },
             '#/share': {
             form: 'sharePage',
-            controller: 'share',
-            authRequired: true // must be logged in to get here
+            controller: 'share'
         },
     };
 
@@ -229,27 +225,12 @@
       $('.logo').css('display','none');
 
 // Check the current user
-      var user = rootRef.getAuth();
-      var userRef;
       var infoOneVal, infoOneOption,
           infoTwoVal, infoTwoOption,
           infoThreeVal, infoThreeOption,
           infoFourVal, infoFourOption,
           infoFiveVal, infoFiveOption, infoFiveOptionAlt;
 
-      // If no current user send to register page
-      if (!user) {
-          routeTo('login');
-          return;
-      }
-
-      // Load user info
-      userRef = rootRef.child('users').child(user.uid);
-      userRef.once('value', function (snap) {
-          var user = snap.val();
-          if (!user) {
-              return;
-          }
 
           dataRef.once('value', function (snap) {
               //main
@@ -259,6 +240,7 @@
               var Q1 = allInfo.Q1;
               if (Q1.optionLeft.n >= Q1.optionRight.n) {
                 infoOneOption = "Jazz";
+                console.log('Test image 1');
                 $("#infographic1 img").attr("src", "images/infographics/1a.png");
               } else {
                 infoOneOption = "Hip Hop";
@@ -322,7 +304,7 @@
               var overallAvg = overallTotalScore/overallTotalN;
               form.find('#infoOverallAvg').html(Math.round(overallAvg));
           });
-      });
+
     };
 
     controllers.register = function (form) {

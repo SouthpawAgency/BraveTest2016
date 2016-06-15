@@ -201,8 +201,6 @@ jQuery(document).ready(function($){
 
 // transition end
 
-    var theUser;
-    var theUserRef;
     var backgrounds = ["Question1.jpg", "Question2.jpg", "Question3.jpg", "Question4.jpg", "Question5.jpg", "Question6.jpg", "Question7.jpg", "Question8.jpg", "Question9.jpg", "Question10.jpg", "Question10.jpg"];
     var resultsBackgrounds1 = ["ResultsPageAventurer.jpg"];
     var resultsBackgrounds2 = ["ResultsPageLeader.jpg"];
@@ -247,6 +245,7 @@ jQuery(document).ready(function($){
     $scope.quizStart = function(){
         $scope.questionsDone = true;
         $scope.profileInfo = false;
+
         $('body').css("background-image",'url("images/'+backgrounds[0]+'")');
 
     }
@@ -274,8 +273,6 @@ jQuery(document).ready(function($){
     $scope.onConfirmResponse = function () {
       //get user info when quiz starts
       if (quizJustLoaded) {
-        theUser = myDataRef.child('web/uauth').getAuth();
-        theUserRef = myDataRef.child('web/uauth/users').child(theUser.uid);
         quizJustLoaded = false;
       }
 
@@ -290,20 +287,20 @@ jQuery(document).ready(function($){
         $scope.results.questions[questionId] = selectedResponse;
         $scope.results.categories[catId] += catScore;
         $scope.questionNdx++;
-        theUserRef.child('answers/' + (questionNdx + 1)).set(selectedResponse);
         $('body').removeClass('question1 question2 question3 question4 question5 question6 question7 question8 question9 question10').addClass('question' + (questionNdx+2));
         if ($scope.questionNdx == $scope.source.questions.length) {
-            $scope.isDone = true;
+            $scope.isDone = false;
+            $scope.profileQuestionsDone = true;
             $scope.questionsDone = true;
+            $('body').css("background-image",'url("images/'+profileBackground+'")');
             $('body').removeClass().addClass('ng-scope resultsPage');
-
+            $('body').addClass('profilePage');
+            
             var braveScore = 0;
             for (i = 0; i < categoryCount; i++) {
                 categoryMaxScores[i] = 0;
-                theUserRef.child("scores/" + categories[i].toLowerCase()).set(Math.round($scope.results.categories[i]*100));
                 braveScore += ($scope.results.categories[i]*100);
             }
-            theUserRef.child("scores/brave").set(Math.round(braveScore/categoryCount));
             $scope.braveScore = Math.round(braveScore/categoryCount);
 
 
@@ -314,19 +311,6 @@ jQuery(document).ready(function($){
               $(this).html($(this).html().replace(/(determined)/g,'<span class="highlight">$1</span>'));
             });
 
-            $('.count').each(function () {
-                $(this).prop('Counter',0).animate({
-                    Counter: Math.round(braveScore/categoryCount)
-                }, {
-                    duration: 1500,
-                    easing: 'swing',
-                    step: function (now) {
-                        $(this).text(Math.ceil(now));
-                    }
-
-                });
-                $('.delay').delay( 1750 ).animate({opacity:1}, 1500);
-            });
 
         }
         $scope.safeApply();
@@ -352,8 +336,6 @@ jQuery(document).ready(function($){
         $scope.profileQuestionNdx++;
 
         if (profileJustLoaded) {
-          theUser = myDataRef.child('web/uauth').getAuth();
-          theUserRef = myDataRef.child('web/uauth/users').child(theUser.uid);
           profileJustLoaded = false;
         }
 
@@ -367,7 +349,6 @@ jQuery(document).ready(function($){
         //get current n value
         var n = 0;
         //add selected option to user's profile
-        theUserRef.child('profileAnswers/Q' + (questionNdx + 1)).set(selectedOption);
 
         if ($scope.braveScore > 50) {
           //increase total by 1
@@ -381,7 +362,7 @@ jQuery(document).ready(function($){
               var thisBraveScore = $scope.braveScore;
             } else {
               //if user has loaded profile page first
-              var thisBraveScore = parseInt($('#braveScore').html());
+              var thisBraveScore = parseInt($('#braveScore').html()); 
             }
             //if option has been selected by anyone in the past, create average of 2 numbers
             //(Current Average * times selected) + this user's brave score, all divided by n + 1
@@ -399,9 +380,26 @@ jQuery(document).ready(function($){
 
         if ($scope.profileQuestionNdx == $scope.source.profileQuestions.length) {
             $scope.isProfileDone = true;
-            $scope.profileQuestionsDone = true;
+            $scope.isDone = true;
+            $scope.profileQuestionsDone = false;
             $scope.profileQuestionNdx = 0;
             $('body').removeClass('profilePage');
+            $('.delay').delay( 1750 ).animate({opacity:1}, 1500);
+
+            $('.count').each(function () {
+                $(this).prop('Counter',0).animate({
+                    Counter: Math.round(braveScore/categoryCount)
+                }, {
+                    duration: 1500,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    }
+
+                });
+            });
+            $('#braveScore > span').addClass('count');
+
         }
         $scope.safeApply();
     }
