@@ -11,8 +11,8 @@
     // pair our routes to our form elements and controller
     var routeMap = {
         '#/': {
-            form: 'frmLogin',
-            controller: 'login'
+            form: 'quizProfile',
+            controller: 'quiz'
         },
             '#/logout': {
             form: 'frmLogout',
@@ -25,10 +25,6 @@
             '#/profile': {
             form: 'frmProfile',
             controller: 'profile'
-        },
-            '#/quiz': {
-            form: 'quizProfile',
-            controller: 'quiz'
         },
             '#/info': {
             form: 'infoProfile',
@@ -209,8 +205,6 @@
         $('.logo').css('display','block');
         rootRef.unauth();
         routeTo('');
-
-
     };
 
     // logout immediately when the controller is invoked
@@ -455,7 +449,6 @@
     Path.map("#/logout").to(prepRoute);
     Path.map("#/register").to(prepRoute);
     Path.map("#/profile").to(prepRoute);
-    Path.map("#/quiz").to(prepRoute);
     Path.map("#/info").to(prepRoute);
     Path.map("#/share").to(prepRoute);
 

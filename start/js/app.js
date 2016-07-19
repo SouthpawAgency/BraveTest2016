@@ -130,6 +130,17 @@ jQuery(document).ready(function($){
         }
     });
 
+    //get current session number
+    myDataRef.once("value", function(snapshot) {
+      var totalSessions = snapshot.child("sessions").numChildren();
+      if (totalSessions !== undefined) {
+        currentSession = totalSessions + 1;
+        console.log(currentSession);
+      } else {
+        currentSession = 1;
+      }
+    });
+
     //open modal window
 
 
@@ -148,7 +159,7 @@ jQuery(document).ready(function($){
             t = false;
           }
         });
-
+    });
 
       $(".profileSelector").click(function() {
         setTimeout(function(){
@@ -172,7 +183,23 @@ jQuery(document).ready(function($){
       t = false;
     });
 
+
+    //show next button after all form buttons are selected
+    $(".cs-select").each(function() {
+      var init = false;
+      $(this).find(".cs-options ul li").click(function() {
+        if (init == false) {
+          console.log('dropdown selected');
+          formQuestionsAnswered ++;
+          console.log(formQuestionsAnswered);
+          $(this).parent().parent().parent().removeClass('notClicked');
+          init = true;
+        }
+      });
     });
+
+
+
 
 
 
@@ -200,7 +227,8 @@ jQuery(document).ready(function($){
 });
 
 // transition end
-
+    var currentSession;
+    var formQuestionsAnswered = 0;
     var backgrounds = ["Question1.jpg", "Question2.jpg", "Question3.jpg", "Question4.jpg", "Question5.jpg", "Question6.jpg", "Question7.jpg", "Question8.jpg", "Question9.jpg", "Question10.jpg", "Question10.jpg"];
     var resultsBackgrounds1 = ["ResultsPageAventurer.jpg"];
     var resultsBackgrounds2 = ["ResultsPageLeader.jpg"];
@@ -273,6 +301,7 @@ jQuery(document).ready(function($){
     $scope.onConfirmResponse = function () {
       //get user info when quiz starts
       if (quizJustLoaded) {
+
         quizJustLoaded = false;
       }
 
@@ -287,6 +316,7 @@ jQuery(document).ready(function($){
         $scope.results.questions[questionId] = selectedResponse;
         $scope.results.categories[catId] += catScore;
         $scope.questionNdx++;
+        myDataRef.child('sessions/' + currentSession + '/' + (questionNdx + 1)).set(selectedResponse);
         $('body').removeClass('question1 question2 question3 question4 question5 question6 question7 question8 question9 question10').addClass('question' + (questionNdx+2));
         if ($scope.questionNdx == $scope.source.questions.length) {
             $scope.isDone = false;
@@ -295,7 +325,7 @@ jQuery(document).ready(function($){
             $('body').css("background-image",'url("images/'+profileBackground+'")');
             $('body').removeClass().addClass('ng-scope resultsPage');
             $('body').addClass('profilePage');
-            
+
             var braveScore = 0;
             for (i = 0; i < categoryCount; i++) {
                 categoryMaxScores[i] = 0;
@@ -319,6 +349,57 @@ jQuery(document).ready(function($){
         //do not continue
       }
 
+    }
+
+    $scope.onSubmitForm = function (response) {
+        console.log('submit form');
+        var totalQuestions = 6;
+        //if all questions answered
+        if (formQuestionsAnswered == totalQuestions) {
+          var braveScore = $scope.braveScore;
+
+          //gender
+          var nGender = 0;
+          var selectedGender = $('.gender .cs-placeholder').html();
+          myDataRef.child('data/gender/' + selectedGender + '/n').transaction(function(currentRank) {
+            nGender = currentRank;
+            return currentRank+1;
+          });
+          myDataRef.child('data/gender/' + selectedGender + '/avgBraveScore').transaction(function(currentRank) {
+            var avgGender = Math.round(((currentRank*nGender) + braveScore)/(nGender+1));
+            return avgGender;
+          });
+
+          //age
+          var nAge = 0;
+          var selectedAge = $('.age .cs-placeholder').html();
+          myDataRef.child('data/age/' + selectedAge + '/n').transaction(function(currentRank) {
+            nAge = currentRank;
+            return currentRank+1;
+          });
+          myDataRef.child('data/age/' + selectedAge + '/avgBraveScore').transaction(function(currentRank) {
+            var avgAge = Math.round(((currentRank*nAge) + braveScore)/(nAge+1));
+            return avgAge;
+          });
+
+          //occupation - replace audio/video with audio & video as / affects firebase
+          var selectedOccupation = $('.occupation .cs-placeholder').html().replace(/\//g, ' & ');;
+          myDataRef.child('data/occupation/' + selectedOccupation + '/n').transaction(function(currentRank) { return currentRank+1; });
+
+          //education
+          var selectedEducation = $('.education .cs-placeholder').html();
+          myDataRef.child('data/education/' + selectedEducation + '/n').transaction(function(currentRank) { return currentRank+1; });
+
+          //lifestyle
+          var selectedLifestyle = $('.lifestyle .cs-placeholder').html();
+          myDataRef.child('data/lifestyle/' + selectedLifestyle + '/n').transaction(function(currentRank) { return currentRank+1; });
+
+          //news
+          var selectedNews = $('.news .cs-placeholder').html();
+          myDataRef.child('data/news/' + selectedNews + '/n').transaction(function(currentRank) { return currentRank+1; });
+        } else {
+          console.log("Please fill in every question");
+        }
     }
 
     $scope.onConfirmResults = function () {
@@ -362,7 +443,7 @@ jQuery(document).ready(function($){
               var thisBraveScore = $scope.braveScore;
             } else {
               //if user has loaded profile page first
-              var thisBraveScore = parseInt($('#braveScore').html()); 
+              var thisBraveScore = parseInt($('#braveScore').html());
             }
             //if option has been selected by anyone in the past, create average of 2 numbers
             //(Current Average * times selected) + this user's brave score, all divided by n + 1

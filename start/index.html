@@ -30,8 +30,10 @@
 	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="css/unslider.css" />
 	<link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/transition.css" />
-    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/transition.css" />
+	<link rel="stylesheet" href="css/cs-select.css" />
+	<link rel="stylesheet" href="css/cs-skin-border.css" />
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 	<style>
 	form {
     display: none;
@@ -127,12 +129,12 @@
                     <!-- PROFILE -->
                     <form id="frmProfile" role="form">
 
-						<p>Almost there...</br>Fill in these details while we work out your results.</p>
+										<p>Almost there...</br>Fill in these details while we work out your results.</p>
 
                     </form>
 
                     <!-- QUIZ -->
-                    <form id="quizProfile" role="form" ng-show="profileInfo">
+                    <form id="quizProfile" role="form" >
 
                         <!-- QUESTIONS -->
                         <div ng-show="!questionsDone" class="ng-cloak" class="cd-modal-trigger">
@@ -154,71 +156,93 @@
 
                         <div ng-show="profileQuestionsDone">
 
-                            <p class="profileQuestions">What gender do you identify with?</p>
-                            <select>
+													<div class="multipleChoice">
+                            <select class="cs-select cs-skin-border gender notClicked">
+															<option value="" disabled selected>What gender do you identify with?</option>
                               <option value="Male">Male</option>
                               <option value="Female">Female</option>
                               <option value="PreferNotToSay">Prefer not to say</option>
                             </select>
 
-                            <p class="profileQuestions">Age</p>
-                            <select>
+                            <select class="cs-select cs-skin-border age notClicked">
+															<option value="" disabled selected>Age</option>
                               <option value="18-24">18-24</option>
                               <option value="25-34">25-34</option>
                               <option value="35-44">35-44</option>
                               <option value="45-54">45-54</option>
                               <option value="55-64">55-64</option>
                               <option value="65-74">65-74</option>
-                              <option value="+75">75 years or older</option>
+                              <option value="75+">75 years or older</option>
                             </select>
 
-                            <p class="profileQuestions">Occupation</p>
-                            <select>
-                              <option value="Accountant">Accountant</option>
-                              <option value="Actor">Actor</option>
-                              <option value="Administrator">Administrator</option>
-                              <option value="Advertising">Advertising</option>
-                              <option value="Agriculture">Agriculture</option>
-                              <option value="Airline">Airline</option>
-                              <option value="Ambulance Service">Ambulance Service</option>
-                              <option value="AAAAA">Architect</option>
-                              <option value="AAAAA">Artist</option>
-                              <option value="AAAAA">Banker</option>
-                              <option value="AAAAA">Barrister</option>
-                              <option value="AAAAA">Beautician/ Hairdresser</option>
-                              <option value="AAAAA">Building Society</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-                              <option value="AAAAA">AAAAA</option>
-
-                              <option value="+75">75 years or older</option>
+                            <select class="cs-select cs-skin-border occupation notClicked">
+															<option value="" disabled selected>Occupation</option>
+															<option value="Agriculture and Horticulture">Agriculture and Horticulture</option>
+                              <option value="Arts, Audio/Video Technology and Communications">Arts, Audio/Video Technology and Communications</option>
+                              <option value="Business Management and Administration">Business Management and Administration</option>
+                              <option value="Education and Training">Education and Training</option>
+                              <option value="Finance">Finance</option>
+                              <option value="Government and Public Administration">Government and Public Administration</option>
+                              <option value="Health Services">Health Services</option>
+                              <option value="Hospitality and Tourism">Hospitality and Tourism</option>
+															<option value="Human Services">Human Services</option>
+                              <option value="Information Technology">Information Technology</option>
+                              <option value="Law, Public Safety, Corrections and Security">Law, Public Safety, Corrections and Security</option>
+                              <option value="Manufacturing">Manufacturing</option>
+                              <option value="Marketing, Sales and Service">Marketing, Sales and Service</option>
+                              <option value="Science, Technology, Engineering and Mathematics">Science, Technology, Engineering and Mathematics</option>
+                              <option value="Transportation">Transportation</option>
+                              <option value="Other">Other</option>
                             </select>
 
+                            <select class="cs-select cs-skin-border education notClicked">
+															<option value="" disabled selected>Education</option>
+															<option value="Primary School">Primary School</option>
+                              <option value="Secondary School">Secondary School</option>
+                              <option value="Higher Education">Higher Education</option>
+                              <option value="Undergraduate Degree">Undergraduate Degree</option>
+                              <option value="Master's Degree">Master's Degree</option>
+                              <option value="Doctorate">Doctorate</option>
+                              <option value="No Schooling">No Schooling</option>
+                              <option value="Prefer not to say">Prefer not to say</option>
+                            </select>
+
+														<select class="cs-select cs-skin-border lifestyle notClicked">
+															<option value="" disabled selected>Lifestyle</option>
+															<option value="Young Adults">Young Adults</option>
+															<option value="Families With Children">Families With Children</option>
+															<option value="Mid-Life No Children">Mid-Life No Children</option>
+															<option value="Empty Nesters">Empty Nesters</option>
+															<option value="Retirees">Retirees</option>
+															<option value="Unclassified">Unclassified</option>
+														</select>
+
+														<select class="cs-select cs-skin-border news notClicked">
+															<option value="" disabled selected>Favourite news source</option>
+															<option value="Daily Telegraph">Daily Telegraph</option>
+															<option value="Financial Times">Financial Times</option>
+															<option value="The Times">The Times</option>
+															<option value="The Guardian">The Guardian</option>
+															<option value="The Independent">The Independent</option>
+															<option value="Daily Mail">Daily Mail</option>
+															<option value="Daily Express">Daily Express</option>
+															<option value="The Sun">The Sun</option>
+															<option value="Daily Mirror">Daily Mirror</option>
+															<option value="Daily Star">Daily Star</option>
+															<option value="BBC News Website">BBC News Website</option>
+															<option value="Channel 4 News Website">Channel 4 News Website</option>
+															<option value="Metro">Metro</option>
+															<option value="Buzzfeed">Buzzfeed</option>
+															<option value="Mashable">Mashable</option>
+															<option value="Twitter">Twitter</option>
+															<option value="Huffington Post">Huffington Post</option>
+															<option value="Vice">Vice</option>
+														</select>
+													</div>
+
+														<p><button>option 1</button> or <button>option 2</button></p>
+
+														<button class="btn btn-primary next-button nextbtn" ng-click="onSubmitForm();">NEXT</button>
 
                         </div>
 
@@ -344,6 +368,8 @@
 </div>
 		<script src="js/auth.js"></script>
 		<script src="js/app.js"></script>
+		<script src="js/classie.js"></script>
+		<script src="js/selectFx.js"></script>
         <script type="text/javascript">
 
           WebFontConfig = {
@@ -379,6 +405,13 @@
 					     js.src = "//connect.facebook.net/en_US/sdk.js";
 					     fjs.parentNode.insertBefore(js, fjs);
 					   }(document, 'script', 'facebook-jssdk'));
+					</script>
+					<script>
+						(function() {
+							[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
+								new SelectFx(el);
+							} );
+						})();
 					</script>
 
 </body>

@@ -55,7 +55,7 @@
             <p>Take the 3-minute Southpaw Brave Test to find out.</p><p>Please read each of the following statements and rate how much you agree with each one.</p>
         </div>
 
-        <a href="start/#/quiz" class="btn">LET'S GO!</a>
+        <a href="start/" class="btn">LET'S GO!</a>
 
     </div><!-- /banner -->
 

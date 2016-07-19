@@ -660,6 +660,10 @@ form {
   border-radius: 50%;
 }
 
+option[default] {
+  display: none;
+}
+
 @media (max-width: 1400px) {
     .message-tile {
       font-size: 16px;
