@@ -353,6 +353,7 @@ jQuery(document).ready(function($){
 
     $scope.onSubmitForm = function (response) {
         console.log('submit form');
+        $scope.profileQuestionsDone = false;
         var totalQuestions = 6;
         //if all questions answered
         if (formQuestionsAnswered == totalQuestions) {
@@ -400,6 +401,53 @@ jQuery(document).ready(function($){
         } else {
           console.log("Please fill in every question");
         }
+
+         $scope.isDone = true;
+
+            $('.count').each(function () {
+                $(this).prop('Counter',0).animate({
+                    Counter: Math.round(braveScore/categoryCount)
+                }, {
+                    duration: 1500,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    }
+
+                });
+            });
+            $('#braveScore > span').addClass('count');
+
+            $('.delay').delay( 1750 ).animate({opacity:1}, 1500);
+
+
+            if ($scope.braveScore > 50) {
+          //increase total by 1
+          myDataRef.child('data/Q' + (questionNdx + 1) + "/" + selectedOption + "/n").transaction(function(currentRank) {
+            n = currentRank;
+            return currentRank+1; });
+          //update average brave score
+          myDataRef.child('data/Q' + (questionNdx + 1) + "/" + selectedOption + "/braveScore").transaction(function(currentRank) {
+            //if user has come through the quiz
+            if ($scope.braveScore) {
+              var thisBraveScore = $scope.braveScore;
+            } else {
+              //if user has loaded profile page first
+              var thisBraveScore = parseInt($('#braveScore').html());
+            }
+            //if option has been selected by anyone in the past, create average of 2 numbers
+            //(Current Average * times selected) + this user's brave score, all divided by n + 1
+            if (currentRank) {
+              var avgScore = Math.round(((currentRank*n) + thisBraveScore)/(n+1));
+            } else {
+              //else just add this user's brave score
+              var avgScore = thisBraveScore;
+            }
+
+            return avgScore;
+          });
+        }
+        
     }
 
     $scope.onConfirmResults = function () {

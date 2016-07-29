@@ -240,7 +240,10 @@
 														</select>
 													</div>
 
-														<p><button>option 1</button> or <button>option 2</button></p>
+												<div ng-show="profileQuestionsDone">
+                          <a href="#" class="profileSelector" ng-click="onSelectProfileResponse(1)">{{source.profileQuestions[ profileQuestionNdx ].optionLeft}}</a>
+                          <a href="#" class="profileSelector" ng-click="onSelectProfileResponse(2)">{{source.profileQuestions[ profileQuestionNdx ].optionRight}}</a>
+                        </div>
 
 														<button class="btn btn-primary next-button nextbtn" ng-click="onSubmitForm();">NEXT</button>
 
@@ -257,33 +260,33 @@
                         <!-- RESULTS -->
                         <div ng-show="isDone" class="cd-modal-trigger ng-cloak resultsContainer">
 
-								<div class="braveScore col-md-6">
-									<h1>You're <span id="braveScore"><span class="">{{braveScore}}</span>%</span> brave</h1>
-								</div>
-								<div class="braveSentences col-md-6">
-    	                            <div ng-repeat="category in source.categories" class="delay">
+        								<div class="braveScore col-md-6">
+        									<h1>You're <span id="braveScore"><span class="">{{braveScore}}</span>%</span> brave</h1>
+        								</div>
+        								<div class="braveSentences col-md-6">
+    	                       <div ng-repeat="category in source.categories" class="delay">
 
-    	                                <div ng-show="isCategoryHigh($index)" class="desc message-tile ">
-    									   <p>{{source.categoryMessages[$index].high}}</p>
-    									</div>
+	                                <div ng-show="isCategoryHigh($index)" class="desc message-tile ">
+                									   <p>{{source.categoryMessages[$index].high}}</p>
+                									</div>
 
-    	                                <div ng-show="isCategoryMedHigh($index)" class="desc message-tile">
-    									   <p>{{source.categoryMessages[$index].medHigh}}</p>
-    									</div>
+                	                <div ng-show="isCategoryMedHigh($index)" class="desc message-tile">
+                									   <p>{{source.categoryMessages[$index].medHigh}}</p>
+                									</div>
 
-    	                                <div ng-show="isCategoryMedLow($index)" class="desc message-tile">
-    									   <p>{{source.categoryMessages[$index].medLow}}</p>
-    									</div>
+                	                <div ng-show="isCategoryMedLow($index)" class="desc message-tile">
+                									   <p>{{source.categoryMessages[$index].medLow}}</p>
+                									</div>
 
-    	                                <div ng-show="isCategoryLow($index)" class="desc message-tile">
-    									   <p>{{source.categoryMessages[$index].low}}</p>
-    									</div>
+                	                <div ng-show="isCategoryLow($index)" class="desc message-tile">
+                									   <p>{{source.categoryMessages[$index].low}}</p>
+                									</div>
 
-    	                            </div>
-								</div>
-								<div class="button-holder">
-                            	   <a href="#/info" class="cd-modal-trigger btn quizbtn" ng-click="onConfirmResults();">NEXT</a>
-								</div>
+    	                       </div>
+        								</div>
+        								<div class="button-holder">
+                                    	   <a href="#/info" class="cd-modal-trigger btn quizbtn" ng-click="onConfirmResults();">NEXT</a>
+        								</div>
                         </div>
 
                     </form>
