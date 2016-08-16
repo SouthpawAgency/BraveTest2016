@@ -135,11 +135,11 @@ jQuery(document).ready(function($){
       var totalSessions = snapshot.child("sessions").numChildren();
       if (totalSessions !== undefined) {
         currentSession = totalSessions + 1;
-        console.log(currentSession);
       } else {
         currentSession = 1;
       }
     });
+
 
     //open modal window
 
@@ -352,13 +352,13 @@ jQuery(document).ready(function($){
     }
 
     $scope.onSubmitForm = function (response) {
-        console.log('submit form');
+
         $scope.profileQuestionsDone = false;
-        var totalQuestions = 6;
+        var totalQuestions = 10;
         //if all questions answered
         if (formQuestionsAnswered == totalQuestions) {
           var braveScore = $scope.braveScore;
-
+        console.log('submit form');
           //gender
           var nGender = 0;
           var selectedGender = $('.gender .cs-placeholder').html();
@@ -398,11 +398,24 @@ jQuery(document).ready(function($){
           //news
           var selectedNews = $('.news .cs-placeholder').html();
           myDataRef.child('data/news/' + selectedNews + '/n').transaction(function(currentRank) { return currentRank+1; });
-        } else {
-          console.log("Please fill in every question");
-        }
 
-         $scope.isDone = true;
+          //money spend or save
+          var selectedMoney = $('.money .cs-placeholder').html();
+          myDataRef.child('data/money/' + selectedMoney + '/n').transaction(function(currentRank) { return currentRank+1; });
+
+          //slap or tickle
+          var selectedSlap = $('.slap .cs-placeholder').html();
+          myDataRef.child('data/slap/' + selectedSlap+ '/n').transaction(function(currentRank) { return currentRank+1; });
+
+          //aliens
+          var selectedAliens = $('.aliens .cs-placeholder').html();
+          myDataRef.child('data/aliens/' + selectedAliens+ '/n').transaction(function(currentRank) { return currentRank+1; });
+
+          //aliens
+          var selectedEating = $('.eating .cs-placeholder').html();
+          myDataRef.child('data/eating/' + selectedEating+ '/n').transaction(function(currentRank) { return currentRank+1; });
+
+          $scope.isDone = true;
 
             $('.count').each(function () {
                 $(this).prop('Counter',0).animate({
@@ -421,32 +434,13 @@ jQuery(document).ready(function($){
             $('.delay').delay( 1750 ).animate({opacity:1}, 1500);
 
 
-            if ($scope.braveScore > 50) {
-          //increase total by 1
-          myDataRef.child('data/Q' + (questionNdx + 1) + "/" + selectedOption + "/n").transaction(function(currentRank) {
-            n = currentRank;
-            return currentRank+1; });
-          //update average brave score
-          myDataRef.child('data/Q' + (questionNdx + 1) + "/" + selectedOption + "/braveScore").transaction(function(currentRank) {
-            //if user has come through the quiz
-            if ($scope.braveScore) {
-              var thisBraveScore = $scope.braveScore;
-            } else {
-              //if user has loaded profile page first
-              var thisBraveScore = parseInt($('#braveScore').html());
-            }
-            //if option has been selected by anyone in the past, create average of 2 numbers
-            //(Current Average * times selected) + this user's brave score, all divided by n + 1
-            if (currentRank) {
-              var avgScore = Math.round(((currentRank*n) + thisBraveScore)/(n+1));
-            } else {
-              //else just add this user's brave score
-              var avgScore = thisBraveScore;
-            }
-
-            return avgScore;
-          });
+        } else {
+          console.log("Please fill in every question");
+          return false;
+          $scope.isDone = false;
+          $scope.profileQuestionsDone = false;
         }
+
         
     }
 

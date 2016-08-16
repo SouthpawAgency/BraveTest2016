@@ -2,47 +2,47 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="robots" content="index,follow"/>
-	<meta name="description" content=""/>
-	<meta name="KEYWORDS" content=""/>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="HandheldFriendly" content="True">
-	<meta name="MobileOptimized" content="320">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta property="og:title" content="Southpaw Brave Test" />
-	<meta property="og:image" content="http://southpawagency.com/bravetest/start/images/ThumbnailImage.jpg" />
-	<meta property="og:image:type" content="image/jpeg" />
-	<meta property="og:image:width" content="1280" />
-	<meta property="og:image:height" content="720" />
-	<meta property="og:description" content="How Brave are you? Take the 3-minute Southpaw Brave Test to find out." />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="robots" content="index,follow"/>
+  <meta name="description" content=""/>
+  <meta name="KEYWORDS" content=""/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Southpaw Brave Test" />
+  <meta property="og:image" content="http://southpawagency.com/bravetest/start/images/ThumbnailImage.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="720" />
+  <meta property="og:description" content="How Brave are you? Take the 3-minute Southpaw Brave Test to find out." />
 
   <link rel="shortcut icon" href="http://lab.southpawagency.com/_global_styles/images/favicon.ico?v=2">
-	<title>Brave test</title>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <title>Brave test</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="http://code.angularjs.org/1.1.3/angular.min.js"></script>
-	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.0.0/jquery.serialize-object.compiled.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/path.js/0.8.4/path.min.js"></script>
+  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.0.0/jquery.serialize-object.compiled.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/path.js/0.8.4/path.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-		<script src="js/scripts.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/unslider.css" />
-	<link rel="stylesheet" href="css/styles.css" />
+    <script src="js/scripts.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/unslider.css" />
+  <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/transition.css" />
-	<link rel="stylesheet" href="css/cs-select.css" />
-	<link rel="stylesheet" href="css/cs-skin-border.css" />
+  <link rel="stylesheet" href="css/cs-select.css" />
+  <link rel="stylesheet" href="css/cs-skin-border.css" />
   <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-	<style>
-	form {
+  <style>
+  form {
     display: none;
 }
-	</style>
+  </style>
 </head>
 
 <body ng-app="MyApp">
-	<header class="navbar navbar-static-top navbar-inverse" id="top" role="banner">
+  <header class="navbar navbar-static-top navbar-inverse" id="top" role="banner">
 
     <div class="container">
         <div class="navbar-header">
@@ -63,7 +63,7 @@
                 </li>
                 <li> <a href="#/quiz">Quiz</a>
                 </li>
-								<li> <a href="#/info">Info</a>
+                <li> <a href="#/info">Info</a>
                 </li>
                 <li class="pull-right"> <a href="#/logout">Logout</a>
                 </li>
@@ -129,7 +129,7 @@
                     <!-- PROFILE -->
                     <form id="frmProfile" role="form">
 
-										<p>Almost there...</br>Fill in these details while we work out your results.</p>
+                    <p>Almost there...</br>Fill in these details while we work out your results.</p>
 
                     </form>
 
@@ -152,100 +152,154 @@
 
 
                         <!-- PROFILE -->
-                        <p ng-show="profileQuestionsDone" class="profileQuestions">Almost there...</br>Just answer these 5 quick questions to see how you compare with the rest.</p>
+                        <!-- <p ng-show="profileQuestionsDone" class="profileQuestions">Almost there...</br>Just answer these 5 quick questions to see how you compare with the rest.</p> -->
 
                         <div ng-show="profileQuestionsDone">
 
-													<div class="multipleChoice">
-                            <select class="cs-select cs-skin-border gender notClicked">
-															<option value="" disabled selected>What gender do you identify with?</option>
-                              <option value="Male">Male</option>
-                              <option value="Female">Female</option>
-                              <option value="PreferNotToSay">Prefer not to say</option>
-                            </select>
+                            <div class="row infographics-holder">
+                              <div class="col-md-3"><p>Drag bar to select your age</p></div>
+                              <div class="col-md-3"><p>What gender do you identify with</p></div>
+                              <div class="col-md-3"><p></p></div>
+                              <div class="col-md-3"><p>You are what you eat or YOLO?</p></div>
+                            </div>
 
-                            <select class="cs-select cs-skin-border age notClicked">
-															<option value="" disabled selected>Age</option>
-                              <option value="18-24">18-24</option>
-                              <option value="25-34">25-34</option>
-                              <option value="35-44">35-44</option>
-                              <option value="45-54">45-54</option>
-                              <option value="55-64">55-64</option>
-                              <option value="65-74">65-74</option>
-                              <option value="75+">75 years or older</option>
-                            </select>
+                            <div class="row top infographics-holder">
+                                <div class="col-md-3">
+                                    <div class="row" id="infographic1"><img class="infographic-img" src=""></div>
+                                        <div>
+                                            <input id="age-slider-text" type="tel" id ="textInput" maxlength="2"  value="18" maxlength="3" size="3" onChange="setLinearGradient(this)">
+                                            <input id="age-slider" type="range"  min="18" max="100" step="1" class="slider" step = "any" value="18" onChange="setLinearGradient(this)" >
+                                        </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row" id="infographic1"><img class="infographic-img" src=""></div>
 
-                            <select class="cs-select cs-skin-border occupation notClicked">
-															<option value="" disabled selected>Occupation</option>
-															<option value="Agriculture and Horticulture">Agriculture and Horticulture</option>
-                              <option value="Arts, Audio/Video Technology and Communications">Arts, Audio/Video Technology and Communications</option>
-                              <option value="Business Management and Administration">Business Management and Administration</option>
-                              <option value="Education and Training">Education and Training</option>
-                              <option value="Finance">Finance</option>
-                              <option value="Government and Public Administration">Government and Public Administration</option>
-                              <option value="Health Services">Health Services</option>
-                              <option value="Hospitality and Tourism">Hospitality and Tourism</option>
-															<option value="Human Services">Human Services</option>
-                              <option value="Information Technology">Information Technology</option>
-                              <option value="Law, Public Safety, Corrections and Security">Law, Public Safety, Corrections and Security</option>
-                              <option value="Manufacturing">Manufacturing</option>
-                              <option value="Marketing, Sales and Service">Marketing, Sales and Service</option>
-                              <option value="Science, Technology, Engineering and Mathematics">Science, Technology, Engineering and Mathematics</option>
-                              <option value="Transportation">Transportation</option>
-                              <option value="Other">Other</option>
-                            </select>
+                                    <ol class="grades">
+                                      <li>
+                                         <input id="a" type="checkbox" name="A" value="A" onclick="javascript:uncheckB(this);" />
+                                         <label id="a-input" class="button check-selected" for="a">M</label>
+                                      </li>
+                                      <li>
+                                         <input id="b" type="checkbox" name="b" value="B" onclick="javascript:uncheckA(this);" />
+                                         <label id="b-input" class="button" for="b">F</label>
+                                      </li>
+                                    </ol>
 
-                            <select class="cs-select cs-skin-border education notClicked">
-															<option value="" disabled selected>Education</option>
-															<option value="Primary School">Primary School</option>
-                              <option value="Secondary School">Secondary School</option>
-                              <option value="Higher Education">Higher Education</option>
-                              <option value="Undergraduate Degree">Undergraduate Degree</option>
-                              <option value="Master's Degree">Master's Degree</option>
-                              <option value="Doctorate">Doctorate</option>
-                              <option value="No Schooling">No Schooling</option>
-                              <option value="Prefer not to say">Prefer not to say</option>
-                            </select>
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="row" id="infographic1"><img class="infographic-img" src=""></div>
+                                         <select class="cs-select cs-skin-border occupation notClicked">
+                                           <option value="" disabled selected>Occupation</option>
+                                           <option value="Agriculture and Horticulture">Agriculture and Horticulture</option>
+                                           <option value="Arts, Audio/Video Technology and Communications">Arts, Audio/Video Technology and Communications</option>
+                                           <option value="Business Management and Administration">Business Management and Administration</option>
+                                           <option value="Education and Training">Education and Training</option>
+                                           <option value="Finance">Finance</option>
+                                           <option value="Government and Public Administration">Government and Public Administration</option>
+                                           <option value="Health Services">Health Services</option>
+                                           <option value="Hospitality and Tourism">Hospitality and Tourism</option>
+                                           <option value="Human Services">Human Services</option>
+                                           <option value="Information Technology">Information Technology</option>
+                                           <option value="Law, Public Safety, Corrections and Security">Law, Public Safety, Corrections and Security</option>
+                                           <option value="Manufacturing">Manufacturing</option>
+                                           <option value="Marketing, Sales and Service">Marketing, Sales and Service</option>
+                                           <option value="Science, Technology, Engineering and Mathematics">Science, Technology, Engineering and Mathemat</option>
+                                           <option value="Transportation">Transportation</option>
+                                           <option value="Other">Other</option>
+                                          </select>
+                                          <select class="cs-select cs-skin-border education notClicked">
+                                            <option value="" disabled selected>Education</option>
+                                            <option value="Primary School">Primary School</option>
+                                            <option value="Secondary School">Secondary School</option>
+                                            <option value="Higher Education">Higher Education</option>
+                                            <option value="Undergraduate Degree">Undergraduate Degree</option>
+                                            <option value="Master's Degree">Master's Degree</option>
+                                            <option value="Doctorate">Doctorate</option>
+                                            <option value="No Schooling">No Schooling</option>
+                                            <option value="Prefer not to say">Prefer not to say</option>
+                                          </select>
+                                          <select class="cs-select cs-skin-border lifestyle notClicked">
+                                            <option value="" disabled selected>Lifestyle</option>
+                                            <option value="Young Adults">Young Adults</option>
+                                            <option value="Families With Children">Families With Children</option>
+                                            <option value="Mid-Life No Children">Mid-Life No Children</option>
+                                            <option value="Empty Nesters">Empty Nesters</option>
+                                            <option value="Retirees">Retirees</option>
+                                            <option value="Unclassified">Unclassified</option>
+                                          </select>
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="row" id="infographic1"><img class="infographic-img" src="images/infographics/6.png"></div>
+                                          <select class="cs-select cs-skin-border news notClicked">
+                                          <option value="" disabled selected>Favourite News Source</option>
+                                            <option value="Daily Telegraph">Daily Telegraph</option>
+                                            <option value="Financial Times">Financial Times</option>
+                                            <option value="The Times">The Times</option>
+                                            <option value="The Guardian">The Guardian</option>
+                                            <option value="The Independent">The Independent</option>
+                                            <option value="Daily Mail">Daily Mail</option>
+                                            <option value="Daily Express">Daily Express</option>
+                                            <option value="The Sun">The Sun</option>
+                                            <option value="Daily Mirror">Daily Mirror</option>
+                                            <option value="Daily Star">Daily Star</option>
+                                            <option value="BBC News Website">BBC News Website</option>
+                                            <option value="Channel 4 News Website">Channel 4 News Website</option>
+                                            <option value="Metro">Metro</option>
+                                            <option value="Buzzfeed">Buzzfeed</option>
+                                            <option value="Mashable">Mashable</option>
+                                            <option value="Twitter">Twitter</option>
+                                            <option value="Huffington Post">Huffington Post</option>
+                                            <option value="Vice">Vice</option>
+                                          </select>
+                                </div>
+                            </div>
 
-														<select class="cs-select cs-skin-border lifestyle notClicked">
-															<option value="" disabled selected>Lifestyle</option>
-															<option value="Young Adults">Young Adults</option>
-															<option value="Families With Children">Families With Children</option>
-															<option value="Mid-Life No Children">Mid-Life No Children</option>
-															<option value="Empty Nesters">Empty Nesters</option>
-															<option value="Retirees">Retirees</option>
-															<option value="Unclassified">Unclassified</option>
-														</select>
+                            <div class="row infographics-holder">
+                              <div class="col-md-3"><p>Spend it all or Save it all?</p></div>
+                              <div class="col-md-3"><p>Slap or Tickle?</p></div>
+                              <div class="col-md-3"><p>Do you believe in Aliens?</p></div>
+                              <div class="col-md-3"><p>You are what you eat or YOLO?</p></div>
+                            </div>
 
-														<select class="cs-select cs-skin-border news notClicked">
-															<option value="" disabled selected>Favourite news source</option>
-															<option value="Daily Telegraph">Daily Telegraph</option>
-															<option value="Financial Times">Financial Times</option>
-															<option value="The Times">The Times</option>
-															<option value="The Guardian">The Guardian</option>
-															<option value="The Independent">The Independent</option>
-															<option value="Daily Mail">Daily Mail</option>
-															<option value="Daily Express">Daily Express</option>
-															<option value="The Sun">The Sun</option>
-															<option value="Daily Mirror">Daily Mirror</option>
-															<option value="Daily Star">Daily Star</option>
-															<option value="BBC News Website">BBC News Website</option>
-															<option value="Channel 4 News Website">Channel 4 News Website</option>
-															<option value="Metro">Metro</option>
-															<option value="Buzzfeed">Buzzfeed</option>
-															<option value="Mashable">Mashable</option>
-															<option value="Twitter">Twitter</option>
-															<option value="Huffington Post">Huffington Post</option>
-															<option value="Vice">Vice</option>
-														</select>
-													</div>
+                            <div class="row infographics-holder">
 
-												<div ng-show="profileQuestionsDone">
-                          <a href="#" class="profileSelector" ng-click="onSelectProfileResponse(1)">{{source.profileQuestions[ profileQuestionNdx ].optionLeft}}</a>
-                          <a href="#" class="profileSelector" ng-click="onSelectProfileResponse(2)">{{source.profileQuestions[ profileQuestionNdx ].optionRight}}</a>
-                        </div>
+                                
+                                <div class="col-md-3 spend">
+                                      <div class="row" id="infographic1"><img class="game-picture infographic-img" alt="Spend/Save" id="select-game-picture" src="images/infographics/7a.png"></div>
+                                          <select class="cs-select cs-skin-border spend notClicked" id="select-games" onchange="changeImage()">
+                                              <option value="7a">Spend it all</option>
+                                              <option value="7b">Save it all</option>
+                                          </select>
+                                </div>
 
-														<button class="btn btn-primary next-button nextbtn" ng-click="onSubmitForm();">NEXT</button>
+
+                                <div class="col-md-3 slap">
+                                    <div class="row" id="infographic1"><img class="game-picture infographic-img" alt="Slap/Tickle" id="select-game-picture2" src="images/infographics/8a.png"></div>
+                                          <select class="cs-select cs-skin-border slap notClicked" id="select-games2" onchange="changeImage2()">
+                                            <option value="8a">Slap</option>
+                                            <option value="8b">Tickle</option>
+                                          </select>
+                                </div>
+
+
+                                <div class="col-md-3 aliens">   
+                                    <div class="row" id="infographic1"><img class="game-picture infographic-img" alt="No/Yes" id="select-game-picture3" src="images/infographics/9a.png"></div>
+                                          <select class="cs-select cs-skin-border aliens notClicked" id="select-games3" onchange="changeImage3()">
+                                            <option value="9a">Yes</option>
+                                            <option value="9b">No</option>
+                                          </select>
+                                </div>
+
+                                <div class="col-md-3 eat">
+                                    <div class="row" id="infographic1"><img class="game-picture infographic-img" alt="Eat/Yolo" id="select-game-picture4" src="images/infographics/10a.png"></div>
+                                          <select class="cs-select cs-skin-border eating notClicked" id="select-games4" onchange="changeImage4()">
+                                            <option value="10a">Your are what you eat</option>
+                                            <option value="10b">YOLO</option>
+                                          </select>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary next-button nextbtn" ng-click="onSubmitForm();">NEXT</button>
 
                         </div>
 
@@ -260,33 +314,34 @@
                         <!-- RESULTS -->
                         <div ng-show="isDone" class="cd-modal-trigger ng-cloak resultsContainer">
 
-        								<div class="braveScore col-md-6">
-        									<h1>You're <span id="braveScore"><span class="">{{braveScore}}</span>%</span> brave</h1>
-        								</div>
-        								<div class="braveSentences col-md-6">
-    	                       <div ng-repeat="category in source.categories" class="delay">
+                          <div class="braveScore col-md-6">
+                            <h1>You're <span id="braveScore"><span class="">{{braveScore}}</span>%</span> brave</h1>
+                          </div>
+                          <div class="braveSentences col-md-6">
+                               <div ng-repeat="category in source.categories" class="delay">
 
-	                                <div ng-show="isCategoryHigh($index)" class="desc message-tile ">
-                									   <p>{{source.categoryMessages[$index].high}}</p>
-                									</div>
+                                    <div ng-show="isCategoryHigh($index)" class="desc message-tile ">
+                                       <p>{{source.categoryMessages[$index].high}}</p>
+                                    </div>
 
-                	                <div ng-show="isCategoryMedHigh($index)" class="desc message-tile">
-                									   <p>{{source.categoryMessages[$index].medHigh}}</p>
-                									</div>
+                                    <div ng-show="isCategoryMedHigh($index)" class="desc message-tile">
+                                       <p>{{source.categoryMessages[$index].medHigh}}</p>
+                                    </div>
 
-                	                <div ng-show="isCategoryMedLow($index)" class="desc message-tile">
-                									   <p>{{source.categoryMessages[$index].medLow}}</p>
-                									</div>
+                                    <div ng-show="isCategoryMedLow($index)" class="desc message-tile">
+                                       <p>{{source.categoryMessages[$index].medLow}}</p>
+                                    </div>
 
-                	                <div ng-show="isCategoryLow($index)" class="desc message-tile">
-                									   <p>{{source.categoryMessages[$index].low}}</p>
-                									</div>
+                                    <div ng-show="isCategoryLow($index)" class="desc message-tile">
+                                       <p>{{source.categoryMessages[$index].low}}</p>
+                                    </div>
 
-    	                       </div>
-        								</div>
-        								<div class="button-holder">
-                                    	   <a href="#/info" class="cd-modal-trigger btn quizbtn" ng-click="onConfirmResults();">NEXT</a>
-        								</div>
+                               </div>
+                          </div>
+                          <div class="button-holder">
+                          <a href="#/info" class="cd-modal-trigger btn quizbtn" ng-click="onConfirmResults();">NEXT</a>
+                          </div>
+
                         </div>
 
                     </form>
@@ -309,16 +364,16 @@
 
                         <div class="row top infographics-holder">
                             <div class="col-md-4">
-																<div class="row infographic-text"><span class="f">Brave people<br/> prefer drinking<br/> <span id="infoThreeOption"></span></span></div>
-																<div class="row" id="infographic3"><img class="infographic-img" src=""></div>
+                                <div class="row infographic-text"><span class="f">Brave people<br/> prefer drinking<br/> <span id="infoThreeOption"></span></span></div>
+                                <div class="row" id="infographic3"><img class="infographic-img" src=""></div>
                             </div>
                             <div class="col-md-4">
                                 <div class="row" id="infographic2"><img class="infographic-img" src=""></div>
                                 <div class="row infographic-text"><span class="g">Brave people<br/> like to keep<br/> the <span id="infoTwoOption"></span></span></div>
                             </div>
                             <div class="col-md-4">
-															<div class="row infographic-text"><span class="d">Brave people<br/> enjoy snacking<br/> on <span id="infoFiveOption"></span></span></div>
-															<div class="row" id="infographic5"><img class="infographic-img" src=""></div>
+                              <div class="row infographic-text"><span class="d">Brave people<br/> enjoy snacking<br/> on <span id="infoFiveOption"></span></span></div>
+                              <div class="row" id="infographic5"><img class="infographic-img" src=""></div>
                             </div>
                         </div>
 
@@ -328,7 +383,7 @@
                                 <div class="row infographic-text"><span class="e">Brave people<br/> can't stop watching<br/> <span id="infoFourOption"></span></span></div>
                             </div>
                             <div class="col-md-4">
-																<div class="row" id="infographic1"><img class="infographic-img" src=""></div>
+                                <div class="row" id="infographic1"><img class="infographic-img" src=""></div>
                                 <div class="row infographic-text"><span class="h">Brave people<br/> love listening<br/> to <span id="infoOneOption"></span></span></div>
                             </div>
                         </div>
@@ -341,38 +396,38 @@
 
             </div>
 
-						<!-- Cache images -->
-						<div style="display:none;">
-							<img src="images/Question1.jpg">
-							<img src="images/Question2.jpg">
-							<img src="images/Question3.jpg">
-							<img src="images/Question4.jpg">
-							<img src="images/Question5.jpg">
-							<img src="images/Question6.jpg">
-							<img src="images/Question7.jpg">
-							<img src="images/Question8.jpg">
-							<img src="images/Question9.jpg">
-							<img src="images/Question10.jpg">
+            <!-- Cache images -->
+            <div style="display:none;">
+              <img src="images/Question1.jpg">
+              <img src="images/Question2.jpg">
+              <img src="images/Question3.jpg">
+              <img src="images/Question4.jpg">
+              <img src="images/Question5.jpg">
+              <img src="images/Question6.jpg">
+              <img src="images/Question7.jpg">
+              <img src="images/Question8.jpg">
+              <img src="images/Question9.jpg">
+              <img src="images/Question10.jpg">
               <img src="images/ResultsPageAventurer.jpg">
               <img src="images/ResultsPageLeader.jpg">
               <img src="images/ResultsPageProtector.jpg">
               <img src="images/ResultsPageScientist.jpg">
               <img src="images/Questionnaire Rock_Electronic.jpg">
-							<img src="images/Questionnaire Cheddar_Blue.jpg">
-							<img src="images/FarewellPage.jpg">
-							<img src="images/infoPage.jpg">
-							<img src="images/fx/Question_underline.png">
-							<img src="images/fx/Question_underlineLong.png">
-							<img src="images/fx/Question_underlineLong2.png">
-							<img src="images/fx/Question_underlineShort.png">
-							<img src="images/ink.png">
-						</div>
+              <img src="images/Questionnaire Cheddar_Blue.jpg">
+              <img src="images/FarewellPage.jpg">
+              <img src="images/infoPage.jpg">
+              <img src="images/fx/Question_underline.png">
+              <img src="images/fx/Question_underlineLong.png">
+              <img src="images/fx/Question_underlineLong2.png">
+              <img src="images/fx/Question_underlineShort.png">
+              <img src="images/ink.png">
+            </div>
 
 </div>
-		<script src="js/auth.js"></script>
-		<script src="js/app.js"></script>
-		<script src="js/classie.js"></script>
-		<script src="js/selectFx.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/selectFx.js"></script>
         <script type="text/javascript">
 
           WebFontConfig = {
@@ -392,30 +447,130 @@
             });
 
           </script>
-					<script>
-					  window.fbAsyncInit = function() {
-					    FB.init({
-					      appId      : '1707512429512286',
-					      xfbml      : true,
-					      version    : 'v2.6'
-					    });
-					  };
 
-					  (function(d, s, id){
-					     var js, fjs = d.getElementsByTagName(s)[0];
-					     if (d.getElementById(id)) {return;}
-					     js = d.createElement(s); js.id = id;
-					     js.src = "//connect.facebook.net/en_US/sdk.js";
-					     fjs.parentNode.insertBefore(js, fjs);
-					   }(document, 'script', 'facebook-jssdk'));
-					</script>
-					<script>
-						(function() {
-							[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
-								new SelectFx(el);
-							} );
-						})();
-					</script>
+          <script>
+            window.fbAsyncInit = function() {
+              FB.init({
+                appId      : '1707512429512286',
+                xfbml      : true,
+                version    : 'v2.6'
+              });
+            };
+
+            (function(d, s, id){
+               var js, fjs = d.getElementsByTagName(s)[0];
+               if (d.getElementById(id)) {return;}
+               js = d.createElement(s); js.id = id;
+               js.src = "//connect.facebook.net/en_US/sdk.js";
+               fjs.parentNode.insertBefore(js, fjs);
+             }(document, 'script', 'facebook-jssdk'));
+          </script>
+
+          <script>
+            (function() {
+              [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
+                new SelectFx(el);
+              } );
+            })();
+          </script>
+
+          <script type="text/javascript">
+            
+          function changeImage() {
+
+            var gameValue = document.getElementById("select-games").value;
+
+            document.getElementById("select-game-picture").src = "images/infographics/" + gameValue + ".png";
+            console.log("image changed");
+          }
+
+          function changeImage2() {
+
+            var gameValue = document.getElementById("select-games2").value;
+
+            document.getElementById("select-game-picture2").src = "images/infographics/" + gameValue + ".png";
+            console.log("image changed");
+          }
+
+          function changeImage3() {
+
+            var gameValue = document.getElementById("select-games3").value;
+
+            document.getElementById("select-game-picture3").src = "images/infographics/" + gameValue + ".png";
+            console.log("image changed");
+          }
+
+          function changeImage4() {
+
+            var gameValue = document.getElementById("select-games4").value;
+
+            document.getElementById("select-game-picture4").src = "images/infographics/" + gameValue + ".png";
+            console.log("image changed");
+          }
+
+          $('.spend .cs-options ul li').click(function(event) {
+            changeImage();
+          });
+
+          $('.slap .cs-options ul li').click(function(event) {
+            changeImage2();
+          });
+
+          $('.aliens .cs-options ul li').click(function(event) {
+            changeImage3();
+          });
+
+          $('.eat .cs-options ul li').click(function(event) {
+            changeImage4();
+          });
+
+          function setLinearGradient(elm) {
+
+              if($(elm).attr('type') == 'range') {
+                var rangeElm = $(elm);
+                var textElm = $('#' + rangeElm.attr('id') + '-text');
+                textElm.val(rangeElm.val());
+                
+              } else {
+                var textElm = $(elm);
+                var rangeElm = $('#' + textElm.attr('id').substr(00,  textElm.attr('id').length-5));
+                rangeElm.val(textElm.val());
+              }
+              var min =rangeElm.attr('min');
+              var max = rangeElm.attr('max');
+              var value = ((rangeElm.val() - min) * 100) / (max-min);
+              var linear = "-webkit-linear-gradient(left, #3b56bb "+value+"%, #000 "+value+"%)";
+              $(rangeElm).css("background-image", linear);
+          }
+
+          </script>
+
+          <script type="text/javascript">
+
+             function uncheckA(obj)
+                      {
+                       
+                          if (obj.checked == true)
+                          {
+                              document.getElementById("a").checked = false;
+
+                              $("#b-input").addClass('check-selected');
+                              $("#a-input").removeClass('check-selected');
+                          }
+                      }
+
+              function uncheckB(obj)
+                      {
+                       
+                          if (obj.checked == true)
+                          {
+                              document.getElementById("b").checked = false;
+
+                              $("#a-input").addClass('check-selected');
+                              $("#b-input").removeClass('check-selected');
+                          }
+                      }
+          </script>
 
 </body>
 </html>

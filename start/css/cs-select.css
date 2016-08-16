@@ -28,7 +28,7 @@ div.cs-select:focus {
 	display: block;
 	position: relative;
 	cursor: pointer;
-	padding: 1em;
+	padding: 0.5em 1em 0.5em 1em;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;

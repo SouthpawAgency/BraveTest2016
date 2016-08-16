@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<script type="text/javascript">
+		function changeImage() {
+		  var gameValue = document.getElementById("select-games").value;
+		  document.getElementById("select-game-picture").src = "images/infographics/" + gameValue + ".png";
+		}
+	</script>
+</head>
+<body style="background: #262626;">
+
+<div class="row" id="infographic1"><img class="game-picture" alt="Logo of chosen game" id="select-game-picture" src="images/infographics/7a.png"></div>
+
+<select id="select-games" onchange="changeImage()">
+    <option value="7a">Send it all</option>
+    <option value="7b">Save it all</option>
+</select>
+
+
+</body>
+</html>
