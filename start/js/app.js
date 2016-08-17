@@ -189,9 +189,7 @@ jQuery(document).ready(function($){
       var init = false;
       $(this).find(".cs-options ul li").click(function() {
         if (init == false) {
-          console.log('dropdown selected');
           formQuestionsAnswered ++;
-          console.log(formQuestionsAnswered);
           $(this).parent().parent().parent().removeClass('notClicked');
           init = true;
         }
@@ -234,7 +232,7 @@ jQuery(document).ready(function($){
     var resultsBackgrounds2 = ["ResultsPageLeader.jpg"];
     var resultsBackgrounds3 = ["ResultsPageProtector.jpg"];
     var resultsBackgrounds4 = ["ResultsPageScientist.jpg"];
-    var profileBackground = ["Questionnaire Rock_Electronic.jpg"];
+    var profileBackground = ["InfoPage.jpg"];
 
     var i;
     var questions = $scope.source.questions;
@@ -352,16 +350,17 @@ jQuery(document).ready(function($){
     }
 
     $scope.onSubmitForm = function (response) {
-
-        $scope.profileQuestionsDone = false;
-        var totalQuestions = 10;
+        var isAgeUnselected = $('.age-slider').hasClass('notClicked');
+        var isSexUnselected = $('.grades').hasClass('notClicked');
+        var totalDropdownQuestions = 8;
         //if all questions answered
-        if (formQuestionsAnswered == totalQuestions) {
+        if (formQuestionsAnswered == totalDropdownQuestions && !isAgeUnselected && !isSexUnselected) {
+          $scope.profileQuestionsDone = false;
           var braveScore = $scope.braveScore;
-        console.log('submit form');
+          console.log('submit form');
           //gender
           var nGender = 0;
-          var selectedGender = $('.gender .cs-placeholder').html();
+          var selectedGender = $('.grades label.check-selected').html();
           myDataRef.child('data/gender/' + selectedGender + '/n').transaction(function(currentRank) {
             nGender = currentRank;
             return currentRank+1;
@@ -373,7 +372,22 @@ jQuery(document).ready(function($){
 
           //age
           var nAge = 0;
-          var selectedAge = $('.age .cs-placeholder').html();
+          var sliderValue = $('#age-slider-text').val();
+          var selectedAge;
+          //sort age into ranges
+          if (sliderValue < 25) {
+            selectedAge = "15-24";
+          } else if (sliderValue > 24 && sliderValue < 35) {
+            selectedAge = "25-34";
+          } else if (sliderValue > 34 && sliderValue < 45) {
+            selectedAge = "35-44";
+          } else if (sliderValue > 44 && sliderValue < 55) {
+            selectedAge = "45-54";
+          } else if (sliderValue > 54 && sliderValue < 65) {
+            selectedAge = "55-64";
+          } else {
+            selectedAge = "65+";
+          }
           myDataRef.child('data/age/' + selectedAge + '/n').transaction(function(currentRank) {
             nAge = currentRank;
             return currentRank+1;
@@ -437,11 +451,9 @@ jQuery(document).ready(function($){
         } else {
           console.log("Please fill in every question");
           return false;
-          $scope.isDone = false;
-          $scope.profileQuestionsDone = false;
         }
 
-        
+
     }
 
     $scope.onConfirmResults = function () {

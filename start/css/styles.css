@@ -165,7 +165,7 @@ body, body.loginPage, body.logoutPage, body.registerPage {
 }
 
 body.profilePage {
-  background-image: url('../images/Questionnaire Rock_Electronic.jpg');
+  background-image: url('../images/InfoPage.jpg');
 }
 
 body.quizPage {
@@ -672,33 +672,130 @@ form {
   border-radius: 50%;
 }
 
-
-input[type=range].slider {
-    -webkit-appearance: inherit;
-	vertical-align: bottom;
-	/*background: -webkit-linear-gradient(left, #3b56bb 18%, black 18%) !important; */
-	border-right: 2px solid #efefef !important;
-    border-left: 2px solid #efefef !important;
+input[type=range] {
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 1;
+  height: 20px;
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+input[type=range]::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left:0;
+  top: 1px;
+  width: 100%;
+  height: 28px;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  z-index: 0;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 0;
+  background-color: black;
+  border: 3px solid rgb(255, 255, 255);
+  cursor: pointer;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+input[type=range]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  margin-top: 0;
+  background-color: black;
+  border: 3px solid rgb(255, 255, 255);
+  cursor: pointer;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+input[type=range]::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  margin-top: 0;
+  background-color: black;
+  border: 3px solid rgb(255, 255, 255);
+  cursor: pointer;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+input[type=range]:hover::-webkit-slider-thumb {
+  background: white;
+}
+input[type=range]:hover::-moz-range-thumb {
+  background: white;
+}
+input[type=range]:hover::-ms-thumb {
+  background: white;
+}
+input[type=range]:active::-webkit-slider-thumb {
+  border-color: #ffffff;
+}
+input[type=range]:active::-moz-range-thumb {
+  border-color: #ffffff;
+}
+input[type=range]:active::-ms-thumb {
+  border-color: #ffffff;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  cursor: pointer;
+  height: 11px;
+  border-bottom: 2px solid rgb(255, 255, 255);
+  background-color: transparent;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  cursor: pointer;
+  height: 11px;
+  border-bottom: 2px solid rgb(255, 255, 255);
+  background-color: transparent;
+}
+input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
 }
 
-input[type=range].slider:focus {
-	outline: none;
-	outline-offset: 0px;
+.age-slider {
+  margin-bottom: 25px;
 }
-
-input[type=range]::-webkit-slider-thumb  {
-
-
-	
- }
 
 #age-slider-text{
- 	background:none; 
- 	border:none;  
- 	font-size: 72px; 
- 	line-height: 100%;   
- 	font-family: "LubalinGraphStd-Book", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+ 	background:none;
+ 	border:none;
+ 	font-size: 133px;
+ 	line-height: 100%;
+ 	font-family: "LubalinGraphStd-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
  	color: white !important;
+  text-align: center;
  }
 
 
@@ -715,7 +812,7 @@ option[default] {
 .grades li {float:left;padding-right:22px;}
 
 
-.grades input[type="checkbox"], 
+.grades input[type="checkbox"],
 .grades input[type="radio"] {
 box-sizing: border-box;padding: 0;
 }
@@ -753,9 +850,11 @@ background-color: rgba(59, 86, 187, 0.35);
 .grades {list-style: none;}
 
 
-#infographic1{
+.infographic{
 	margin-bottom: 1em;
 }
+
+
 
 
 
