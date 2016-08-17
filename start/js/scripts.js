@@ -20,6 +20,13 @@ $(document).ready(function() {
   //
   // });
 
+  // var minAge = 18;
+  //   if ($('#age-slider-text').val() == 'minAge'){
+
+  //     $('.grades').removeClass('notClicked');
+  //     console.log('Minimum age');
+  // }
+
   $('.popup').click(function(event) {
     var width  = 575,
         height = 400,

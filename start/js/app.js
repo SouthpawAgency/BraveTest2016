@@ -185,11 +185,12 @@ jQuery(document).ready(function($){
 
 
     //show next button after all form buttons are selected
-    $(".cs-select").each(function() {
+    $(".infographics-holder .cs-select").each(function() {
       var init = false;
       $(this).find(".cs-options ul li").click(function() {
         if (init == false) {
           formQuestionsAnswered ++;
+          console.log('answered');
           $(this).parent().parent().parent().removeClass('notClicked');
           init = true;
         }
@@ -350,11 +351,11 @@ jQuery(document).ready(function($){
     }
 
     $scope.onSubmitForm = function (response) {
-        var isAgeUnselected = $('.age-slider').hasClass('notClicked');
         var isSexUnselected = $('.grades').hasClass('notClicked');
-        var totalDropdownQuestions = 8;
+        var isMinAge = 18;
+        var totalDropdownQuestions = 4;
         //if all questions answered
-        if (formQuestionsAnswered == totalDropdownQuestions && !isAgeUnselected && !isSexUnselected) {
+        if (formQuestionsAnswered == totalDropdownQuestions && !isSexUnselected) {
           $scope.profileQuestionsDone = false;
           var braveScore = $scope.braveScore;
           console.log('submit form');
@@ -446,7 +447,6 @@ jQuery(document).ready(function($){
             $('#braveScore > span').addClass('count');
 
             $('.delay').delay( 1750 ).animate({opacity:1}, 1500);
-
 
         } else {
           console.log("Please fill in every question");

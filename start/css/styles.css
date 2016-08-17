@@ -579,7 +579,7 @@ form {
   letter-spacing: 0.5px;
  }
 
- .infographics-holder{
+ .infographics-holder, .infographics-holder2{
  	font-family: 'LubalinGraphStd-Book', sans-serif;
  	font-size: 24px;
     line-height: 130%;

@@ -159,7 +159,7 @@
                             <div class="row top infographics-holder">
                                 <div class="col-md-3">
                                     <div class="row infographic"><img class="infographic-img" src=""></div>
-                                        <div class="age-slider notClicked">
+                                        <div class="age-slider">
                                             <input id="age-slider-text" type="tel" id ="textInput" maxlength="2"  value="018" maxlength="3" size="3" onChange="setLinearGradient(this)">
                                             <input id="age-slider" type="range"  min="18" max="100" step="1" class="slider" step = "any" value="18" onChange="setLinearGradient(this)" >
                                         </div>
@@ -248,7 +248,7 @@
                                 </div>
                             </div>
 
-                            <div class="row infographics-holder">
+                            <div class="row infographics-holder2">
 
 
                                 <div class="col-md-3 spend">
@@ -515,6 +515,8 @@
             changeImage4();
           });
 
+
+
           function setLinearGradient(elm) {
               $('.age-slider').removeClass('notClicked');
               if($(elm).attr('type') == 'range') {
@@ -548,6 +550,8 @@
              function uncheckA(obj)
                       {
 
+                      var minAge = 18;
+
                           if (obj.checked == true)
                           {
                               document.getElementById("a").checked = false;
@@ -555,7 +559,7 @@
                               $("#b-input").addClass('check-selected');
                               $("#a-input").removeClass('check-selected');
                               $('.grades').removeClass('notClicked');
-                          }
+                          } 
                       }
 
               function uncheckB(obj)
