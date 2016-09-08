@@ -218,7 +218,7 @@
       $('body').removeClass().addClass('ng-scope infoPage');
       $('.logo').css('display','none');
 
-// Check the current user
+      // Check the current user
       var infoOneVal, infoOneOption,
           infoTwoVal, infoTwoOption,
           infoThreeVal, infoThreeOption,
@@ -226,78 +226,98 @@
           infoFiveVal, infoFiveOption, infoFiveOptionAlt;
 
 
-          dataRef.once('value', function (snap) {
-              //main
-              var allInfo = snap.val();
+          // dataRef.once('value', function (snap) {
+          //     //main
+          //     var allInfo = snap.val();
+          //
+          //     //Q1
+          //     var Q1 = allInfo.Q1;
+          //     if (Q1.optionLeft.n >= Q1.optionRight.n) {
+          //       infoOneOption = "Jazz";
+          //       console.log('Test image 1');
+          //       $("#infographic1 img").attr("src", "images/infographics/1a.png");
+          //     } else {
+          //       infoOneOption = "Hip Hop";
+          //       $("#infographic1 img").attr("src", "images/infographics/1b.png");
+          //     }
+          //     form.find('#infoOneOption').html(infoOneOption);
+          //
+          //     //Q2
+          //     var Q2 = allInfo.Q2;
+          //     if (Q2.optionLeft.n >= Q2.optionRight.n) {
+          //       infoTwoOption = "lights on";
+          //       $("#infographic2 img").attr("src", "images/infographics/2b.png");
+          //     } else {
+          //       infoTwoOption = "lights off";
+          //       $("#infographic2 img").attr("src", "images/infographics/2a.png");
+          //     }
+          //     form.find('#infoTwoOption').html(infoTwoOption);
+          //     //Q3
+          //     var Q3 = allInfo.Q3;
+          //     if (Q3.optionLeft.n >= Q3.optionRight.n) {
+          //       infoThreeOption = "beer";
+          //       $("#infographic3 img").attr("src", "images/infographics/3a.png");
+          //     } else {
+          //       infoThreeOption = "spirits";
+          //       $("#infographic3 img").attr("src", "images/infographics/3b.png");
+          //     }
+          //     form.find('#infoThreeOption').html(infoThreeOption);
+          //     //Q4
+          //     var Q4 = allInfo.Q4;
+          //     if (Q4.optionLeft.n >= Q4.optionRight.n) {
+          //       infoFourOption = "Game of Thrones";
+          //       $("#infographic4 img").attr("src", "images/infographics/4a.png");
+          //     } else {
+          //       infoFourOption = "Breaking Bad";
+          //       $("#infographic4 img").attr("src", "images/infographics/4b.png");
+          //     }
+          //     form.find('#infoFourOption').html(infoFourOption);
+          //     //Q4
+          //     var Q5 = allInfo.Q5;
+          //     if (Q5.optionLeft.n >= Q5.optionRight.n) {
+          //       infoFiveOption = "Nik Naks";
+          //       $("#infographic5 img").attr("src", "images/infographics/5.png");
+          //     } else {
+          //       infoFiveOption = "Quavers";
+          //       $("#infographic5 img").attr("src", "images/infographics/5.png");
+          //     }
+          //     form.find('#infoFiveOption').html(infoFiveOption);
+          //
+          //     //overall average
+          //     var overallTotalScore = (Q1.optionLeft.braveScore * Q1.optionLeft.n) +
+          //                             (Q1.optionRight.braveScore * Q1.optionRight.n) +
+          //                             (Q2.optionLeft.braveScore * Q2.optionLeft.n) +
+          //                             (Q2.optionRight.braveScore * Q2.optionRight.n) +
+          //                             (Q3.optionLeft.braveScore * Q3.optionLeft.n) +
+          //                             (Q3.optionRight.braveScore * Q3.optionRight.n) +
+          //                             (Q4.optionLeft.braveScore * Q4.optionLeft.n) +
+          //                             (Q4.optionRight.braveScore * Q4.optionRight.n) +
+          //                             (Q5.optionLeft.braveScore * Q5.optionLeft.n) +
+          //                             (Q5.optionRight.braveScore * Q5.optionRight.n);
+          //     var overallTotalN = Q1.optionLeft.n + Q1.optionRight.n + Q2.optionLeft.n + Q2.optionRight.n + Q3.optionLeft.n + Q3.optionRight.n + Q4.optionLeft.n + Q4.optionRight.n + Q5.optionLeft.n + Q5.optionRight.n;
+          //     var overallAvg = overallTotalScore/overallTotalN;
+          //     form.find('#infoOverallAvg').html(Math.round(overallAvg));
+          // });
 
-              //Q1
-              var Q1 = allInfo.Q1;
-              if (Q1.optionLeft.n >= Q1.optionRight.n) {
-                infoOneOption = "Jazz";
-                console.log('Test image 1');
-                $("#infographic1 img").attr("src", "images/infographics/1a.png");
-              } else {
-                infoOneOption = "Hip Hop";
-                $("#infographic1 img").attr("src", "images/infographics/1b.png");
+          var chart = new CanvasJS.Chart("chartContainer", {
+              backgroundColor: "transparent",
+              data: [
+              {
+                  type: "line",
+                  dataPoints: [
+                  { x: 10, y: 10 },
+                  { x: 20, y: 15 },
+                  { x: 30, y: 25 },
+                  { x: 40, y: 30 },
+                  { x: 50, y: 28 }
+                  ]
               }
-              form.find('#infoOneOption').html(infoOneOption);
-
-              //Q2
-              var Q2 = allInfo.Q2;
-              if (Q2.optionLeft.n >= Q2.optionRight.n) {
-                infoTwoOption = "lights on";
-                $("#infographic2 img").attr("src", "images/infographics/2b.png");
-              } else {
-                infoTwoOption = "lights off";
-                $("#infographic2 img").attr("src", "images/infographics/2a.png");
-              }
-              form.find('#infoTwoOption').html(infoTwoOption);
-              //Q3
-              var Q3 = allInfo.Q3;
-              if (Q3.optionLeft.n >= Q3.optionRight.n) {
-                infoThreeOption = "beer";
-                $("#infographic3 img").attr("src", "images/infographics/3a.png");
-              } else {
-                infoThreeOption = "spirits";
-                $("#infographic3 img").attr("src", "images/infographics/3b.png");
-              }
-              form.find('#infoThreeOption').html(infoThreeOption);
-              //Q4
-              var Q4 = allInfo.Q4;
-              if (Q4.optionLeft.n >= Q4.optionRight.n) {
-                infoFourOption = "Game of Thrones";
-                $("#infographic4 img").attr("src", "images/infographics/4a.png");
-              } else {
-                infoFourOption = "Breaking Bad";
-                $("#infographic4 img").attr("src", "images/infographics/4b.png");
-              }
-              form.find('#infoFourOption').html(infoFourOption);
-              //Q4
-              var Q5 = allInfo.Q5;
-              if (Q5.optionLeft.n >= Q5.optionRight.n) {
-                infoFiveOption = "Nik Naks";
-                $("#infographic5 img").attr("src", "images/infographics/5.png");
-              } else {
-                infoFiveOption = "Quavers";
-                $("#infographic5 img").attr("src", "images/infographics/5.png");
-              }
-              form.find('#infoFiveOption').html(infoFiveOption);
-
-              //overall average
-              var overallTotalScore = (Q1.optionLeft.braveScore * Q1.optionLeft.n) +
-                                      (Q1.optionRight.braveScore * Q1.optionRight.n) +
-                                      (Q2.optionLeft.braveScore * Q2.optionLeft.n) +
-                                      (Q2.optionRight.braveScore * Q2.optionRight.n) +
-                                      (Q3.optionLeft.braveScore * Q3.optionLeft.n) +
-                                      (Q3.optionRight.braveScore * Q3.optionRight.n) +
-                                      (Q4.optionLeft.braveScore * Q4.optionLeft.n) +
-                                      (Q4.optionRight.braveScore * Q4.optionRight.n) +
-                                      (Q5.optionLeft.braveScore * Q5.optionLeft.n) +
-                                      (Q5.optionRight.braveScore * Q5.optionRight.n);
-              var overallTotalN = Q1.optionLeft.n + Q1.optionRight.n + Q2.optionLeft.n + Q2.optionRight.n + Q3.optionLeft.n + Q3.optionRight.n + Q4.optionLeft.n + Q4.optionRight.n + Q5.optionLeft.n + Q5.optionRight.n;
-              var overallAvg = overallTotalScore/overallTotalN;
-              form.find('#infoOverallAvg').html(Math.round(overallAvg));
+              ]
           });
+
+          chart.render();
+
+
 
     };
 

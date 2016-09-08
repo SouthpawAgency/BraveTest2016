@@ -191,7 +191,7 @@ jQuery(document).ready(function($){
         if (init == false) {
           formQuestionsAnswered ++;
           console.log('answered');
-          $(this).parent().parent().parent().removeClass('notClicked');
+          $(this).parent().parent().parent().removeClass('notClicked').css("border-color", "#fff");;
           init = true;
         }
       });
@@ -265,6 +265,7 @@ jQuery(document).ready(function($){
         questions: {},
         categories: {}
     };
+
     for (i = 0; i < categoryCount; i++) {
         $scope.results.categories[i] = 0;
     }
@@ -450,6 +451,8 @@ jQuery(document).ready(function($){
 
         } else {
           console.log("Please fill in every question");
+          $('.cs-select.notClicked').css("border-color", "#cb2626");
+          $('.grades.notClicked').parent().find('p').css("color", "#cb2626");
           return false;
         }
 

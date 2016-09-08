@@ -26,6 +26,7 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/path.js/0.8.4/path.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/canvasjs.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/unslider.css" />
@@ -160,22 +161,22 @@
                                 <div class="col-md-3">
                                     <div class="row infographic"><img class="infographic-img" src=""></div>
                                         <div class="age-slider">
-                                            <input id="age-slider-text" type="tel" id ="textInput" maxlength="2"  value="018" maxlength="3" size="3" onChange="setLinearGradient(this)">
-                                            <input id="age-slider" type="range"  min="18" max="100" step="1" class="slider" step = "any" value="18" onChange="setLinearGradient(this)" >
+                                            <input id="age-slider-text" type="tel" id ="textInput" maxlength="2"  value="018" maxlength="3" size="3" oninput="setLinearGradient(this)">
+                                            <input id="age-slider" type="range"  min="18" max="100" step="1" class="slider" step = "any" value="18" oninput="setLinearGradient(this)" >
                                         </div>
                                         <p>Drag bar to select your age</p>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="row infographic"><img class="infographic-img" src=""></div>
-                                    <p>What gender do you identify with?</p>
+                                    <p class="gender-p">What gender do you identify with?</p>
                                     <ol class="grades notClicked">
                                       <li>
                                          <input id="a" type="checkbox" name="A" value="A" onclick="javascript:uncheckB(this);" />
-                                         <label id="a-input" class="button" for="a">M</label>
+                                         <label id="a-input" class="button" for="a">F</label>
                                       </li>
                                       <li>
                                          <input id="b" type="checkbox" name="b" value="B" onclick="javascript:uncheckA(this);" />
-                                         <label id="b-input" class="button" for="b">F</label>
+                                         <label id="b-input" class="button" for="b">M</label>
                                       </li>
                                     </ol>
 
@@ -254,7 +255,7 @@
                                 <div class="col-md-3 spend">
                                   <p>Spend it all or Save it all?</p>
                                   <div class="row infographic"><img class="game-picture infographic-img" alt="Spend/Save" id="select-game-picture" src="images/infographics/7a.png"></div>
-                                  <select class="cs-select cs-skin-border spend notClicked" id="select-games" onchange="changeImage()">
+                                  <select class="cs-select cs-skin-border spend" id="select-games" onchange="changeImage()">
                                     <option value="7a">Spend it all</option>
                                     <option value="7b">Save it all</option>
                                     </select>
@@ -264,7 +265,7 @@
                                 <div class="col-md-3 slap">
                                   <p>Slap or Tickle?</p>
                                   <div class="row infographic"><img class="game-picture infographic-img" alt="Slap/Tickle" id="select-game-picture2" src="images/infographics/8a.png"></div>
-                                  <select class="cs-select cs-skin-border slap notClicked" id="select-games2" onchange="changeImage2()">
+                                  <select class="cs-select cs-skin-border slap" id="select-games2" onchange="changeImage2()">
                                     <option value="8a">Slap</option>
                                     <option value="8b">Tickle</option>
                                   </select>
@@ -274,7 +275,7 @@
                                 <div class="col-md-3 aliens">
                                   <p>Do you believe in Aliens?</p>
                                   <div class="row infographic"><img class="game-picture infographic-img" alt="No/Yes" id="select-game-picture3" src="images/infographics/9a.png"></div>
-                                  <select class="cs-select cs-skin-border aliens notClicked" id="select-games3" onchange="changeImage3()">
+                                  <select class="cs-select cs-skin-border aliens" id="select-games3" onchange="changeImage3()">
                                     <option value="9a">Yes</option>
                                     <option value="9b">No</option>
                                   </select>
@@ -283,7 +284,7 @@
                                 <div class="col-md-3 eat">
                                   <p>You are what you eat or YOLO?</p>
                                   <div class="row infographic"><img class="game-picture infographic-img" alt="Eat/Yolo" id="select-game-picture4" src="images/infographics/10a.png"></div>
-                                  <select class="cs-select cs-skin-border eating notClicked" id="select-games4" onchange="changeImage4()">
+                                  <select class="cs-select cs-skin-border eating" id="select-games4" onchange="changeImage4()">
                                     <option value="10a">Your are what you eat</option>
                                     <option value="10b">YOLO</option>
                                   </select>
@@ -354,28 +355,36 @@
                         <!-- <a href="javascript:void(0);" tabindex="-1"><span class="i">Average brave score: <span id="infoOverallAvg"></span>%</span></a><br/> -->
 
                         <div class="row top infographics-holder">
-                            <div class="col-md-4">
-                                <div class="row infographic-text"><span class="f">Brave people<br/> prefer drinking<br/> <span id="infoThreeOption"></span></span></div>
-                                <div class="row" id="infographic3"><img class="infographic-img" src=""></div>
+                            <div class="col-md-5" style="background:blue">
+                                <div class="row infographic-text"><span class="f">News source<span id="infoThreeOption"></span></span></div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="row" id="infographic2"><img class="infographic-img" src=""></div>
-                                <div class="row infographic-text"><span class="g">Brave people<br/> like to keep<br/> the <span id="infoTwoOption"></span></span></div>
+                            <div class="col-md-2" style="background:green">
+                                <div class="row infographic-text"><span class="g">Slap or tickle<span id="infoTwoOption"></span></span></div>
                             </div>
-                            <div class="col-md-4">
-                              <div class="row infographic-text"><span class="d">Brave people<br/> enjoy snacking<br/> on <span id="infoFiveOption"></span></span></div>
-                              <div class="row" id="infographic5"><img class="infographic-img" src=""></div>
+                            <div class="col-md-5" style="background:red">
+                              <div class="row infographic-text"><span class="d">Aliens & YOLO<span id="infoFiveOption"></span></span></div>
                             </div>
                         </div>
 
                         <div class="row bottom infographics-holder">
-                            <div class="col-md-4">
-                                <div class="row" id="infographic4"><img class="infographic-img" src=""></div>
-                                <div class="row infographic-text"><span class="e">Brave people<br/> can't stop watching<br/> <span id="infoFourOption"></span></span></div>
+                            <div class="col-md-2" style="background:brown">
+                                <div class="row infographic-text"><span class="e">Save it all</span></div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="row" id="infographic1"><img class="infographic-img" src=""></div>
-                                <div class="row infographic-text"><span class="h">Brave people<br/> love listening<br/> to <span id="infoOneOption"></span></span></div>
+                            <div class="col-md-5">
+                                <div class="row infographic-text">
+                                  <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-3" style="background:blue">
+                                <div class="row infographic-text"><span class="e">Sex</span></div>
+                            </div>
+                            <div class="col-md-2 shareInfographic">
+                                <div class="row infographic-text">
+                                  <p>Lorem ipsum dolor sit amet, consec teteur adipiscing elit, sed diam nonummy qui blandit praesent cum soluta nobis.</p>
+                                  <div class="button-holder">
+                                    <a href="#/info" class="cd-modal-trigger btn quizbtn">SHARE</a>
+                                  </div>
+                                </div>
                             </div>
                         </div>
 
@@ -550,8 +559,6 @@
              function uncheckA(obj)
                       {
 
-                      var minAge = 18;
-
                           if (obj.checked == true)
                           {
                               document.getElementById("a").checked = false;
@@ -559,7 +566,8 @@
                               $("#b-input").addClass('check-selected');
                               $("#a-input").removeClass('check-selected');
                               $('.grades').removeClass('notClicked');
-                          } 
+                              $('.gender-p').css("color","white");
+                          }
                       }
 
               function uncheckB(obj)
@@ -572,6 +580,7 @@
                               $("#a-input").addClass('check-selected');
                               $("#b-input").removeClass('check-selected');
                               $('.grades').removeClass('notClicked');
+                              $('.gender-p').css("color","white");
                           }
                       }
           </script>

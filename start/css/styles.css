@@ -573,16 +573,37 @@ form {
  }
 
   .infographic-text {
-	padding-bottom: 20px;
-	padding-top: 20px;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
+  font-size: 13px;
+  line-height: 1.3em;
+  padding: 20px 25px;
  }
 
  .infographics-holder, .infographics-holder2{
  	font-family: 'LubalinGraphStd-Book', sans-serif;
  	font-size: 24px;
     line-height: 130%;
+ }
+
+.chart {
+  width: 400px;
+  height: 200px;
+  margin: 0px auto;
+}
+.chart svg {
+  background: #1D2C3E;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px #1D2C3E;
+}
+.chart svg path {
+  fill: none;
+  stroke: #F2E646;
+  stroke-width: 2px;
+}
+
+
+ .shareInfographic {
+   border: 2px solid white;
  }
 
  .button-holder {
@@ -817,6 +838,30 @@ option[default] {
 box-sizing: border-box;padding: 0;
 }
 
+#a-input, #b-input { position: relative; }
+
+#a-input::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  background: url('../images/infographics/female.svg');
+  width: 95px;
+  height: 140px;
+}
+
+#b-input::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 1px;
+  left: 1px;
+  background: url('../images/infographics/male.svg');
+  width: 113px;
+  height: 113px;
+}
+
 /*
 .grades li input[type=checkbox]:checked + label {
 border-bottom: 3px solid #3b56bb;
@@ -842,7 +887,7 @@ background-color: rgba(59, 86, 187, 0.35);
     background-color: none;
     text-align: center;
     width: 100px;
-    border: 3px solid #efefef !important;
+    border: 2px solid #fff !important;
     font-size: 1.5em;
 }
 
