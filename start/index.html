@@ -26,7 +26,6 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/path.js/0.8.4/path.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
-    <script src="js/canvasjs.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/unslider.css" />
@@ -361,8 +360,23 @@
                             <div class="col-md-2" style="background:green">
                                 <div class="row infographic-text"><span class="g">Slap or tickle<span id="infoTwoOption"></span></span></div>
                             </div>
-                            <div class="col-md-5" style="background:red">
-                              <div class="row infographic-text"><span class="d">Aliens & YOLO<span id="infoFiveOption"></span></span></div>
+                            <div class="col-md-5" style="background:rgba(255,0,0,0.2)">
+                              <div class="row infographic-text">
+                                <div class="aliens">
+                                  <div class="slider">
+                                    <div class="left"></div><div class="right"></div>
+                                  </div>
+                                  <div class="icon left" style="background:blue;height:100px;width:100px;"></div>
+                                  <div class="icon right" style="background:black;height:100px;width:100px;"></div>
+                                </div>
+                                <div class="eat">
+                                  <div class="slider">
+                                    <div class="marker"></div>
+                                  </div>
+                                  <div class="icon left" style="background:blue;height:100px;width:100px;"></div>
+                                  <div class="icon right" style="background:black;height:100px;width:100px;"></div>
+                                </div>
+                              </div>
                             </div>
                         </div>
 
@@ -372,11 +386,42 @@
                             </div>
                             <div class="col-md-5">
                                 <div class="row infographic-text">
-                                  <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                                  <div id="ageChart"><h1>age</h1></div>
                                 </div>
                             </div>
-                            <div class="col-md-3" style="background:blue">
-                                <div class="row infographic-text"><span class="e">Sex</span></div>
+                            <div class="col-md-3">
+                                <div class="row infographic-text">
+                                  <!-- this is just a placeholder of an svg that looks right. Needs a lot of work still -->
+                                  <div id="photoUploadChart">
+                                    <svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="285" height="400">
+                                      <g class="highcharts-series-group">
+                                        <g class="highcharts-series highcharts-series-0 highcharts-tracker" style="">
+                                          <path fill="rgba(255, 255, 255,0)"
+                                                d="M 132.47963267963047 87.50000207413872
+                                                  A 100 100 0 0 1 227.57963789140533 156.51835287723972
+                                                  L 180.03981894570268 172.00917643861985
+                                                  A 50 50 0 0 0 132.48981633981523 137.50000103706935 Z"
+                                                stroke="#FFFFFF"
+                                                stroke-width="2"
+                                                stroke-linejoin="round"
+                                                transform="translate(0,0)">
+                                          </path>
+                                          <path fill="rgba(255, 255, 255,0)"
+                                                d="M 227.6105719935495 156.61344799010678
+                                                  A 100 100 0 1 1 132.36110200619285 87.50009646330994
+                                                  L 132.4305510030964 137.50004823165497
+                                                  A 50 50 0 1 0 180.05528599677476 172.0567239950534 Z"
+                                                stroke="#FFFFFF"
+                                                stroke-width="2"
+                                                stroke-linejoin="round"
+                                                transform="translate(0,0)">
+                                          </path>
+                                        </g>
+                                      </g>
+                                    </svg>
+
+                                  </div>
+                                  </div>
                             </div>
                             <div class="col-md-2 shareInfographic">
                                 <div class="row infographic-text">
