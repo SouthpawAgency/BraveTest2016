@@ -25,7 +25,11 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.0.0/jquery.serialize-object.compiled.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/path.js/0.8.4/path.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
     <script src="js/scripts.js"></script>
+    <!-- <script src="js/chart.js"></script> -->
   <link rel="stylesheet" type="text/css" href="css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/unslider.css" />
@@ -84,7 +88,7 @@
             <!-- QUIZ CONTROLLER -->
             <div ng-controller="Questionnaire" class="container questionnaire ng-scope">
 
-                <div id="container" class="container">
+                <div id="" class="container">
                     <!-- LOGIN -->
 
 
@@ -160,7 +164,7 @@
                                 <div class="col-md-3">
                                     <div class="row infographic"><img class="infographic-img" src=""></div>
                                         <div class="age-slider">
-                                            <input id="age-slider-text" type="tel" id ="textInput" maxlength="2"  value="018" maxlength="3" size="3" oninput="setLinearGradient(this)">
+                                            <input id="age-slider-text" type="tel" id ="textInput" maxlength="2"  value="015" maxlength="3" size="3" oninput="setLinearGradient(this)">
                                             <input id="age-slider" type="range"  min="18" max="100" step="1" class="slider" step = "any" value="18" oninput="setLinearGradient(this)" >
                                         </div>
                                         <p>Drag bar to select your age</p>
@@ -254,7 +258,7 @@
                                 <div class="col-md-3 spend">
                                   <p>Spend it all or Save it all?</p>
                                   <div class="row infographic"><img class="game-picture infographic-img" alt="Spend/Save" id="select-game-picture" src="images/infographics/7a.png"></div>
-                                  <select class="cs-select cs-skin-border spend" id="select-games" onchange="changeImage()">
+                                  <select class="cs-select cs-skin-border money" id="select-games" onchange="changeImage()">
                                     <option value="7a">Spend it all</option>
                                     <option value="7b">Save it all</option>
                                     </select>
@@ -284,7 +288,7 @@
                                   <p>You are what you eat or YOLO?</p>
                                   <div class="row infographic"><img class="game-picture infographic-img" alt="Eat/Yolo" id="select-game-picture4" src="images/infographics/10a.png"></div>
                                   <select class="cs-select cs-skin-border eating" id="select-games4" onchange="changeImage4()">
-                                    <option value="10a">Your are what you eat</option>
+                                    <option value="10a">You are what you eat</option>
                                     <option value="10b">YOLO</option>
                                   </select>
                                 </div>
@@ -354,83 +358,107 @@
                         <!-- <a href="javascript:void(0);" tabindex="-1"><span class="i">Average brave score: <span id="infoOverallAvg"></span>%</span></a><br/> -->
 
                         <div class="row top infographics-holder">
-                            <div class="col-md-5" style="background:blue">
-                                <div class="row infographic-text"><span class="f">News source<span id="infoThreeOption"></span></span></div>
+                            <div class="col-md-8">
+                            <h4>How Brave are the readers of..</h4>
+                                <div id="newsChart"></div>
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                          <div class="col-sm-7 five-three">
+                                            <div class="row">
+                                              <div class="col-sm-4">
+                                                <h3><span id="newsColumnOne"></span></h3>
+                                              </div>
+                                              <div class="col-sm-4">
+                                                <h3><span id="newsColumnTwo"></span></h3>
+                                              </div>
+                                              <div class="col-sm-4">
+                                                <h3><span id="newsColumnThird"></span></h3>
+                                              </div><!-- end inner row -->
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-5 five-two">
+                                            <div class="row">
+                                              <div class="col-sm-6">
+                                                <h3><span id="newsColumnFourth"></span></h3>
+                                              </div>
+                                              <div class="col-sm-6">
+                                                <h3><span id="newsColumnFith"></span></h3>
+                                              </div>
+                                            </div><!-- end inner row -->
+                                          </div>
+                                        </div>​<!-- end outer row -->
+                                     </div>
                             </div>
-                            <div class="col-md-2" style="background:green">
-                                <div class="row infographic-text"><span class="g">Slap or tickle<span id="infoTwoOption"></span></span></div>
+                              <div class="col-md-1">
                             </div>
-                            <div class="col-md-5" style="background:rgba(255,0,0,0.2)">
-                              <div class="row infographic-text">
-                                <div class="aliens">
-                                  <div class="slider">
-                                    <div class="left"></div><div class="right"></div>
-                                  </div>
-                                  <div class="icon left" style="background:blue;height:100px;width:100px;"></div>
-                                  <div class="icon right" style="background:black;height:100px;width:100px;"></div>
-                                </div>
-                                <div class="eat">
-                                  <div class="slider">
-                                    <div class="marker"></div>
-                                  </div>
-                                  <div class="icon left" style="background:blue;height:100px;width:100px;"></div>
-                                  <div class="icon right" style="background:black;height:100px;width:100px;"></div>
-                                </div>
-                              </div>
+                            <div class="col-md-3">
+                                <div id="slapChart"></div>
+                            <h4><span id="slapValueP"></span>% of brave people prefer a <span id="slapValue"></span>.</h4>
+                            </div>
+
+                        </div>
+
+                        <div class="row top infographics-holder">
+                            <div class="col-md-3">
+                                <div id="moneyChart"></div>
+                            <h4><span id="moneyValueP"></span>% of brave people would <span id="moneyValue"></span>.</h4>
+                            </div>
+                              <div class="col-md-1">
+                            </div>
+                            <div class="col-md-8">
+                              <img class="info-9a" src="images/infographics/9a-D.png">
+                              <img class="info-9b" src="images/infographics/9b-D.png">
+                              <img class="info-10a" src="images/infographics/10a-D.png">
+                              <img class="info-10b" src="images/infographics/10b-D.png">
+                            <h4><span id="alienValueP"></span>% of brave people <span id="alienValue"></span> believe in Aliens.</h4>
+                              <div id="alienChart"></div>
+                            <h4><span id="eatingValueP"></span>% of brave think <span id="eatingValue"></span></h4>
                             </div>
                         </div>
 
                         <div class="row bottom infographics-holder">
-                            <div class="col-md-2" style="background:brown">
-                                <div class="row infographic-text"><span class="e">Save it all</span></div>
+                            <div class="col-md-8">
+                              <div id="ageChart"></div>
+                                    <div class="col-md-12">
+                                        <div class="row">
+
+                                              <div class="col-md-2">
+                                                <h3><span id="ageColumnOne"></span></h3>
+                                              </div>
+                                              <div class="col-md-2">
+                                                <h3><span id="ageColumnTwo"></span></h3>
+                                              </div>
+                                              <div class="col-md-2">
+                                                <h3><span id="ageColumnThird"></span></h3>
+                                              </div>
+                                              <div class="col-md-2">
+                                                <h3><span id="ageColumnFourth"></span></h3>
+                                              </div>
+                                              <div class="col-md-2">
+                                                <h3><span id="ageColumnFith"></span></h3>
+                                              </div>
+                                              <div class="col-md-2">
+                                                <h3><span id="ageColumnSixth"></span></h3>
+                                              </div>
+
+                                        </div>​<!-- end outer row -->
+                                     </div>
                             </div>
-                            <div class="col-md-5">
-                                <div class="row infographic-text">
-                                  <div id="ageChart"><h1>age</h1></div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="row infographic-text">
                                   <!-- this is just a placeholder of an svg that looks right. Needs a lot of work still -->
-                                  <div id="photoUploadChart">
-                                    <svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="285" height="400">
-                                      <g class="highcharts-series-group">
-                                        <g class="highcharts-series highcharts-series-0 highcharts-tracker" style="">
-                                          <path fill="rgba(255, 255, 255,0)"
-                                                d="M 132.47963267963047 87.50000207413872
-                                                  A 100 100 0 0 1 227.57963789140533 156.51835287723972
-                                                  L 180.03981894570268 172.00917643861985
-                                                  A 50 50 0 0 0 132.48981633981523 137.50000103706935 Z"
-                                                stroke="#FFFFFF"
-                                                stroke-width="2"
-                                                stroke-linejoin="round"
-                                                transform="translate(0,0)">
-                                          </path>
-                                          <path fill="rgba(255, 255, 255,0)"
-                                                d="M 227.6105719935495 156.61344799010678
-                                                  A 100 100 0 1 1 132.36110200619285 87.50009646330994
-                                                  L 132.4305510030964 137.50004823165497
-                                                  A 50 50 0 1 0 180.05528599677476 172.0567239950534 Z"
-                                                stroke="#FFFFFF"
-                                                stroke-width="2"
-                                                stroke-linejoin="round"
-                                                transform="translate(0,0)">
-                                          </path>
-                                        </g>
-                                      </g>
-                                    </svg>
-
-                                  </div>
-                                  </div>
+                                  <div id="genderChart" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+                                  <h4>Average Brave Score.</h4>
+                                </div>
                             </div>
-                            <div class="col-md-2 shareInfographic">
+                            <!--<div class="col-md-2 shareInfographic">
                                 <div class="row infographic-text">
                                   <p>Lorem ipsum dolor sit amet, consec teteur adipiscing elit, sed diam nonummy qui blandit praesent cum soluta nobis.</p>
                                   <div class="button-holder">
                                     <a href="#/info" class="cd-modal-trigger btn quizbtn">SHARE</a>
                                   </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
 
                     <a href="#/share" class="btn quizbtn" ng-click="">NEXT</a>

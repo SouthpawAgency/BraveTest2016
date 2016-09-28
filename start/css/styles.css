@@ -398,6 +398,17 @@ form {
   -webkit-transform: translateY(-50%);
 }
 
+body.infoPage .container.questionnaire {
+	position: relative;
+	top: 0;
+	transform: translateY(0%);
+  -moz-transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+  margin-top: 100px;
+  margin-bottom: 100px;
+
+}
+
  .responseSelector::before {
   content: '';
   display: block;
@@ -722,6 +733,40 @@ form {
   top: calc(50% - 31px);
   left: calc(50% - 31px);
   border-radius: 50%;
+}
+
+.info-9a{
+	position: absolute;
+ 	top: 13%;
+    left: 85%;
+    width: 180px;
+    z-index: 999;
+
+}
+
+.info-9b{
+	position: absolute;
+    top: 13%;
+    left: -8%;
+    width: 180px;
+    z-index: 999;
+}
+
+.info-10a{
+	position: absolute;
+    top: 52%;
+    left: -8%;
+    width: 180px;
+    z-index: 999;
+}
+
+.info-10b{
+	position: absolute;
+ 	top: 52%;
+    left: 85%;
+    width: 180px;
+    z-index: 999;
+
 }
 
 input[type=range] {

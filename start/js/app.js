@@ -360,6 +360,7 @@ jQuery(document).ready(function($){
           $scope.profileQuestionsDone = false;
           var braveScore = $scope.braveScore;
           console.log('submit form');
+          
           //gender
           var nGender = 0;
           var selectedGender = $('.grades label.check-selected').html();
@@ -367,10 +368,12 @@ jQuery(document).ready(function($){
             nGender = currentRank;
             return currentRank+1;
           });
-          myDataRef.child('data/gender/' + selectedGender + '/avgBraveScore').transaction(function(currentRank) {
-            var avgGender = Math.round(((currentRank*nGender) + braveScore)/(nGender+1));
-            return avgGender;
-          });
+
+          //gender brave
+          if ($scope.braveScore > 50) {
+              myDataRef.child('data/gender/' + selectedGender + '/nb').transaction(function(currentRank) { nGender = currentRank;return currentRank+1;});
+
+          }
 
           //age
           var nAge = 0;
@@ -399,37 +402,81 @@ jQuery(document).ready(function($){
             return avgAge;
           });
 
+          if ($scope.braveScore > 50) {
+              myDataRef.child('data/age/' + selectedAge + '/nb').transaction(function(currentRank) {nAge = currentRank;return currentRank+1;});
+          }
+
           //occupation - replace audio/video with audio & video as / affects firebase
           var selectedOccupation = $('.occupation .cs-placeholder').html().replace(/\//g, ' & ');;
           myDataRef.child('data/occupation/' + selectedOccupation + '/n').transaction(function(currentRank) { return currentRank+1; });
+
+          if ($scope.braveScore > 50) {
+              myDataRef.child('data/occupation/' + selectedOccupation + '/nb').transaction(function(currentRank) { return currentRank+1; });
+          }
 
           //education
           var selectedEducation = $('.education .cs-placeholder').html();
           myDataRef.child('data/education/' + selectedEducation + '/n').transaction(function(currentRank) { return currentRank+1; });
 
+
+          if ($scope.braveScore > 50) {             
+              myDataRef.child('data/education/' + selectedEducation + '/nb').transaction(function(currentRank) { return currentRank+1; });
+          }
+
           //lifestyle
           var selectedLifestyle = $('.lifestyle .cs-placeholder').html();
           myDataRef.child('data/lifestyle/' + selectedLifestyle + '/n').transaction(function(currentRank) { return currentRank+1; });
 
+          if ($scope.braveScore > 50) {             
+              myDataRef.child('data/lifestyle/' + selectedLifestyle + '/nb').transaction(function(currentRank) { return currentRank+1; });
+          }
+
           //news
+          var nNews = 0;
           var selectedNews = $('.news .cs-placeholder').html();
           myDataRef.child('data/news/' + selectedNews + '/n').transaction(function(currentRank) { return currentRank+1; });
+
+          myDataRef.child('data/news/' + selectedNews + '/avgBraveScore').transaction(function(currentRank) {
+            var avgNews = Math.round(((currentRank*nNews) + braveScore)/(nNews+1));
+            return avgNews;
+          });
+
+          if ($scope.braveScore > 50) {             
+              myDataRef.child('data/news/' + selectedNews + '/nb').transaction(function(currentRank) { return currentRank+1; });
+          }
 
           //money spend or save
           var selectedMoney = $('.money .cs-placeholder').html();
           myDataRef.child('data/money/' + selectedMoney + '/n').transaction(function(currentRank) { return currentRank+1; });
 
+          if ($scope.braveScore > 50) {             
+              myDataRef.child('data/money/' + selectedMoney + '/nb').transaction(function(currentRank) { return currentRank+1; });
+          }
+
+
           //slap or tickle
           var selectedSlap = $('.slap .cs-placeholder').html();
           myDataRef.child('data/slap/' + selectedSlap+ '/n').transaction(function(currentRank) { return currentRank+1; });
+
+          if ($scope.braveScore > 50) {             
+              myDataRef.child('data/slap/' + selectedSlap+ '/nb').transaction(function(currentRank) { return currentRank+1; });
+          }
 
           //aliens
           var selectedAliens = $('.aliens .cs-placeholder').html();
           myDataRef.child('data/aliens/' + selectedAliens+ '/n').transaction(function(currentRank) { return currentRank+1; });
 
-          //aliens
+          if ($scope.braveScore > 50) {             
+              myDataRef.child('data/aliens/' + selectedAliens+ '/nb').transaction(function(currentRank) { return currentRank+1; });
+          }
+
+          //eating
           var selectedEating = $('.eating .cs-placeholder').html();
           myDataRef.child('data/eating/' + selectedEating+ '/n').transaction(function(currentRank) { return currentRank+1; });
+
+          if ($scope.braveScore > 50) {             
+              myDataRef.child('data/eating/' + selectedEating+ '/nb').transaction(function(currentRank) { return currentRank+1; });
+          }
 
           $scope.isDone = true;
 
