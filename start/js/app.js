@@ -198,11 +198,6 @@ jQuery(document).ready(function($){
     });
 
 
-
-
-
-
-
     function setLayerDimensions() {
         var windowWidth = $(window).width(),
             windowHeight = $(window).height(),
@@ -223,6 +218,8 @@ jQuery(document).ready(function($){
 
         resize = false;
     }
+
+
 });
 
 // transition end
@@ -353,7 +350,7 @@ jQuery(document).ready(function($){
 
     $scope.onSubmitForm = function (response) {
         var isSexUnselected = $('.grades').hasClass('notClicked');
-        var isMinAge = 18;
+        var isMinAge = 15;
         var totalDropdownQuestions = 4;
         //if all questions answered
         if (formQuestionsAnswered == totalDropdownQuestions && !isSexUnselected) {
@@ -480,11 +477,23 @@ jQuery(document).ready(function($){
 
           $scope.isDone = true;
 
+            var fbLink = "https://www.facebook.com/dialog/feed?app_id=1707512429512286&redirect_uri=http://southpawagency.com/bravetest/close.html&link=http://southpawagency.com/bravetest&picture=http://southpawagency.com/bravetest/start/images/thumbnails/" + braveScore + ".jpg&title=Southpaw%20Brave%20Test&description=I%20scored%20" + $scope.braveScore + "%25%20in%20the%20Southpaw%20Brave%20Test.%20Think%20you%20can%20beat%20me?%20Take%20the%20test%20here."
+            var twLink = "https://twitter.com/intent/tweet?text=I%20scored%20" + $scope.braveScore + "%25%20in%20the%20Southpaw%20Brave%20Test.%20Think%20you%20can%20beat%20me?%20Take%20the%20test%20here%3A%20http%3A//southpawagency.com/bravetest/";
+
+            // set the fields
+            $('.score-block .fb a').attr("href",fbLink);
+            $('.score-block .tw a').attr("href",twLink);
+
+            $('.share-block .fb a').attr("href",fbLink);
+            $('.share-block .tw a').attr("href",twLink);
+            $(".default-block").css("display","none");
+            $(".share-block").css("display","block");
+
             $('.count').each(function () {
                 $(this).prop('Counter',0).animate({
-                    Counter: Math.round(braveScore/categoryCount)
+                    Counter: Math.round($scope.braveScore)
                 }, {
-                    duration: 1500,
+                    duration: 2500,
                     easing: 'swing',
                     step: function (now) {
                         $(this).text(Math.ceil(now));
@@ -492,9 +501,10 @@ jQuery(document).ready(function($){
 
                 });
             });
+            
             $('#braveScore > span').addClass('count');
 
-            $('.delay').delay( 1750 ).animate({opacity:1}, 1500);
+            $('.delay').delay( 2000 ).animate({opacity:1}, 2000);
 
         } else {
           console.log("Please fill in every question");
@@ -585,6 +595,8 @@ jQuery(document).ready(function($){
             });
             $('#braveScore > span').addClass('count');
 
+
+
         }
         $scope.safeApply();
     }
@@ -604,6 +616,8 @@ jQuery(document).ready(function($){
             this.$apply(fn);
         }
     };
+
+
 
 
 }]);

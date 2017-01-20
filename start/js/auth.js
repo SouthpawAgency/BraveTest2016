@@ -218,11 +218,14 @@
       $('body').removeClass().addClass('ng-scope infoPage');
       $('.logo').css('display','none');
 
+
+
+
       // Check the current user
       var fPercentage, mPercentage,
           aliensYes, aliensNo,
           eatingYolo, eatingYawye,
-          moneySpend, moneySave,
+          moneySpend, moneySave, maleAvBravescore, femaleAvBravescore,
           sSlap, sTickle,
           slapValue, moneyValue, alienValue, eatingValue,
           fifteen, twentyfive, thirtyfive, fourtyfive, fiftyfive, sixtyfive,
@@ -233,12 +236,12 @@
           dataRef.once('value', function (snap) {
               //main
               var allInfo = snap.val();
-          
-              //Q1
+
               var gender = allInfo.gender;
-                fPercentage = Math.round((gender.F.nb/(gender.M.nb+gender.F.nb))*100);
-                mPercentage = 100 - fPercentage;
-              console.log('Males:' + mPercentage + ' Females:' + fPercentage);
+                maleAvBravescore = gender.M.avgBraveScore;
+                console.log('maleAvBravescore:' + maleAvBravescore);
+                femaleAvBravescore = gender.F.avgBraveScore;
+                console.log('maleAvBravescore:' + maleAvBravescore);
 
               var aliens = allInfo.aliens;
                 aliensYes = Math.round((aliens.Yes.nb/(aliens.No.nb+aliens.Yes.nb))*100);
@@ -261,14 +264,16 @@
               console.log('Eating Yawye:' + eatingYawye + ' Eating Yolo:' + eatingYolo);
 
               if (eating["YOLO"].nb >= eating["You are what you eat"].nb) {
-                eatingValue = "you are what you eat";
+                eatingValue = "think you are what you eat";
                 form.find('#eatingValue').html(eatingValue);
                 form.find('#eatingValueP').html(eatingYolo);
               } else {
-                eatingValue = "YOLO towards eating";
+                eatingValue = "have a YOLO attitude towards eating";
                 form.find('#eatingValue').html(eatingValue);
                 form.find('#eatingValueP').html(eatingYawye);
               }
+
+
 
               var money = allInfo.money;
                 moneySpend = Math.round((money["Spend it all"].nb/(money["Save it all"].nb+money["Spend it all"].nb))*100);
@@ -301,120 +306,88 @@
               }
 
               
-              // var age = allInfo.age;
-              // var allAges = age["15-24"].nb+age["25-34"].nb+age["35-44"].nb+age["45-54"].nb+age["55-64"].nb+age["65+"].nb;
-
-              //   fifteen = Math.round((age["15-24"].nb/(allAges))*100);
-              //   twentyfive = Math.round((age["25-34"].nb/(allAges))*100);
-              //   thirtyfive = Math.round((age["35-44"].nb/(allAges))*100);
-              //   fourtyfive = Math.round((age["45-54"].nb/(allAges))*100);
-              //   fiftyfive = Math.round((age["55-64"].nb/(allAges))*100);
-              //   sixtyfive = Math.round((age["65+"].nb/(allAges))*100);
-              // console.log('15-24:' + fifteen + ' 25-34:' + twentyfive + ' 35-44:' + thirtyfive + ' 45-54:' + fourtyfive + ' 55-64:' + fiftyfive + ' 65plus:' + sixtyfive);
-
               var age = allInfo.age;
-                fifteen = age["15-24"].avgBraveScore;
-                console.log('15-24:' + fifteen + '% brave');
+              var allAges = age["15-24"].nb+age["25-34"].nb+age["35-44"].nb+age["45-54"].nb+age["55-64"].nb+age["65+"].nb;
 
-                twentyfive = age["25-34"].avgBraveScore;
-                console.log('25-34:' + twentyfive + '% brave');
+                fifteen = Math.round((age["15-24"].nb/(age["15-24"].n))*100);
+                twentyfive = Math.round((age["25-34"].nb/(age["25-34"].n))*100);
+                thirtyfive = Math.round((age["35-44"].nb/(age["35-44"].n))*100);
+                fourtyfive = Math.round((age["45-54"].nb/(age["45-54"].n))*100);
+                fiftyfive = Math.round((age["55-64"].nb/(age["55-64"].n))*100);
+                sixtyfive = Math.round((age["65+"].nb/(age["65+"].n))*100);
+              console.log('15-24:' + fifteen + ' 25-34:' + twentyfive + ' 35-44:' + thirtyfive + ' 45-54:' + fourtyfive + ' 55-64:' + fiftyfive + ' 65plus:' + sixtyfive);
 
-                thirtyfive = age["35-44"].avgBraveScore;
-                console.log('35-44:' + thirtyfive + '% brave');
+              // var age = allInfo.age;
+              //   fifteen = age["15-24"].avgBraveScore;
+              //   console.log('15-24:' + fifteen + '% brave');
 
-                fourtyfive = age["45-54"].avgBraveScore;
-                console.log('45-54:' + fourtyfive + '% brave');
+              //   twentyfive = age["25-34"].avgBraveScore;
+              //   console.log('25-34:' + twentyfive + '% brave');
 
-                fiftyfive = age["55-64"].avgBraveScore;
-                console.log('55-64:' + fiftyfive + '% brave');
+              //   thirtyfive = age["35-44"].avgBraveScore;
+              //   console.log('35-44:' + thirtyfive + '% brave');
 
-                sixtyfive = age["65+"].avgBraveScore;
-                console.log('65+:' + sixtyfive + '% brave');
+              //   fourtyfive = age["45-54"].avgBraveScore;
+              //   console.log('45-54:' + fourtyfive + '% brave');
 
-                form.find('#ageColumnOne').html('15-24');
-                form.find('#ageColumnTwo').html('25-34');
-                form.find('#ageColumnThird').html('35-44');
-                form.find('#ageColumnFourth').html('45-54');
-                form.find('#ageColumnFith').html('55-64');
-                form.find('#ageColumnSixth').html('65+');
+              //   fiftyfive = age["55-64"].avgBraveScore;
+              //   console.log('55-64:' + fiftyfive + '% brave');
+
+              //   sixtyfive = age["65+"].avgBraveScore;
+              //   console.log('65+:' + sixtyfive + '% brave');
+
+              //   form.find('#ageColumnOne').html('15-24');
+              //   form.find('#ageColumnTwo').html('25-34');
+              //   form.find('#ageColumnThird').html('35-44');
+              //   form.find('#ageColumnFourth').html('45-54');
+              //   form.find('#ageColumnFith').html('55-64');
+              //   form.find('#ageColumnSixth').html('65+');
 
 
               var news = allInfo.news;
-                bbc = news["BBC News Website"].avgBraveScore;
+         
+                bbc = Math.round((news["BBC News Website"].nb/(news["BBC News Website"].n))*100);
+                buzzfeed = Math.round((news["Buzzfeed"].nb/(news["Buzzfeed"].n))*100);  
+                channelfour = Math.round((news["Channel 4 News Website"].nb/(news["Channel 4 News Website"].n))*100);  
+                dailyexpress = Math.round((news["Daily Express"].nb/(news["Daily Express"].n))*100); 
+                dailymail = Math.round((news["Daily Mail"].nb/(news["Daily Mail"].n))*100);     
+                dailymirror = Math.round((news["Daily Mirror"].nb/(news["Daily Mirror"].n))*100); 
+                dailystar = Math.round((news["Daily Star"].nb/(news["Daily Star"].n))*100);
+                dailytelegraph = Math.round((news["Daily Telegraph"].nb/(news["Daily Telegraph"].n))*100);
+                financialtimes = Math.round((news["Financial Times"].nb/(news["Financial Times"].n))*100);            
+                huffington = Math.round((news["Huffington Post"].nb/(news["Huffington Post"].n))*100); 
+                mashable = Math.round((news["Mashable"].nb/(news["Mashable"].n))*100);
+                metro = Math.round((news["Metro"].nb/(news["Metro"].n))*100);       
+                guardian = Math.round((news["The Guardian"].nb/(news["The Guardian"].n))*100);            
+                independent = Math.round((news["The Independent"].nb/(news["The Independent"].n))*100);
+                thesun = Math.round((news["The Sun"].nb/(news["The Sun"].n))*100);
+                times = Math.round((news["The Times"].nb/(news["The Times"].n))*100);
+                twitter = Math.round((news["Twitter"].nb/(news["Twitter"].n))*100);
+                vice = Math.round((news["Vice"].nb/(news["Vice"].n))*100);
+
+
                 bbcN = "BBC News Website";
-                console.log(bbcN + bbc);
-
-                buzzfeed = news["Buzzfeed"].avgBraveScore;
                 buzzfeedN = "Buzzfeed";
-                console.log('Buzzfeed:' + buzzfeed);
-
-                channelfour = news["Channel 4 News Website"].avgBraveScore;
                 channelfourN = "Channel 4 News Website";
-                console.log('Channel 4 News Website:' + channelfour);
-
-                dailyexpress = news["Daily Express"].avgBraveScore;
                 dailyexpressN = "Daily Express";
-                console.log('Daily Express:' + dailyexpress);
-
-                dailymail = news["Daily Mail"].avgBraveScore;
                 dailymailN = "Daily Mail";
-                console.log('Daily Mail:' + dailymail);
-
-                dailymirror = news["Daily Mirror"].avgBraveScore;
                 dailymirrorN = "Daily Mirror";
-                console.log('Daily Mirror:' + dailymirror);
-
-                dailystar = news["Daily Star"].avgBraveScore;
                 dailystarN = "Daily Star";
-                console.log('Daily Star:' + dailystar);
-
-                dailytelegraph = news["Daily Telegraph"].avgBraveScore;
                 dailytelegraphN = "Daily Telegraph";
-                console.log('Daily Telegraph:' + dailytelegraph);
-
-                financialtimes = news["Financial Times"].avgBraveScore;
                 financialtimesN = "Financial Times";
-                console.log('Financial Times:' + financialtimes);
-
-                huffington = news["Huffington Post"].avgBraveScore;
                 huffingtonN = "Huffington Post";
-                console.log('Huffington Post:' + huffington);
-
-                mashable = news["Mashable"].avgBraveScore;
                 mashableN = "Mashable";
-                console.log('Mashable:' + mashable);
-
-                metro = news["Metro"].avgBraveScore;
                 metroN = "Metro";
-                console.log('Metro:' + metro);
-
-                guardian = news["The Guardian"].avgBraveScore;
                 guardianN =  "The Guardian";
-                console.log('The Guardian:' + guardian);
-
-                independent = news["The Independent"].avgBraveScore;
                 independentN = "The Independent";
-                console.log('The Independent:' + independent);
-
-                thesun = news["The Sun"].avgBraveScore;
                 thesunN = "The Sun";
-                console.log('The Sun:' + thesun);
-
-                times = news["The Times"].avgBraveScore;
                 timesN = "The Times";
-                console.log('The Times:' + times);
-
-                twitter = news["Twitter"].avgBraveScore;
                 twitterN = "Twitter";
-                console.log('Twitter:' + twitter);
-
-                vice = news["Vice"].avgBraveScore;
                 viceN = "Vice";
-                console.log('Vice:' + vice);
 
                 var array = [[bbc, bbcN], [buzzfeed, buzzfeedN], [channelfour, channelfourN], [dailyexpress, dailyexpressN], [dailymail, dailymailN], [dailymirror, dailymirrorN], [dailystar, dailystarN], [dailytelegraph, dailytelegraphN], [financialtimes, financialtimesN], [huffington, huffingtonN], [mashable, mashableN], [metro, metroN], [guardian, guardianN], [independent, independentN], [thesun, thesunN], [times, timesN], [twitter, twitterN], [vice, viceN]];
                 // var largest = Math.max.apply(Math, array);
-                array.sort();
+                array.sort(function(b,a) {return b[0]-a[0]});
                 console.log('Ordered News:' + array);
 
                 var lastItem = array.pop();
@@ -428,74 +401,117 @@
                 console.log('4th Highest News:' + fourthLastItem);
                 console.log('5th Highest News:' + fithLastItem);
 
-                form.find('#newsColumnOne').html(lastItem[1]);
+                console.log('Average Female Bravescore: ' + femaleAvBravescore);
+                console.log('Average Male Bravescore: ' + maleAvBravescore);
+
+                form.find('#newsColumnOne').html(fourthLastItem[1]);
                 form.find('#newsColumnTwo').html(secondLastItem[1]);
                 form.find('#newsColumnThird').html(thirdLastItem[1]);
-                form.find('#newsColumnFourth').html(fourthLastItem[1]);
-                form.find('#newsColumnFith').html(fithLastItem[1]);
+                form.find('#newsColumnFourth').html(fithLastItem[1]);
+                form.find('#newsColumnFith').html(lastItem[1]);
 
 
-              // GENDER PIE CHART
+                var gender = allInfo.gender;
 
-                  Highcharts.setOptions({
-                     colors: ['rgba(0,50,255,0.0)', 'rgba(0,50,255,0.0)']
-                    });
+                fPercentage = Math.round((gender.F.nb/(gender.F.n)*100));
+                mPercentage = Math.round((gender.M.nb/(gender.M.n)*100));
+                console.log('Males:' + mPercentage + ' Females:' + fPercentage);
 
-              var chart,
-                female_to_male = [['Female', fPercentage],['Male', mPercentage]];
+                form.find('#femaleAvBravescore').html(fPercentage);
+                form.find('#maleAvBravescore').html(mPercentage);
 
+
+
+                // GENDER ACITVITY GAUGE
+                var chart,
                 chart = new Highcharts.Chart({
-                    chart: {
-                        renderTo: 'genderChart',
-                        backgroundColor: "none",
-                        color: "rgba(0,50,255,0.2)",
-                        border: "none",
-                        type: 'pie'
 
+                    chart: {
+                        renderTo: 'genderGauge',
+                        type: 'solidgauge',
+                        backgroundColor: 'none',
+                        spacingTop: 0,
+                        spacingRight: 0,
+                        spacingBottom: 0,
+                        spacingLeft: 0,
+                        plotBorderWidth: 0,
+                        marginRight: 0, //-60, //this does move the chart but you'll need to recompute it
+                        marginLeft: 0, //-60,  //whenever the page changes width
+                        marginTop: 80,
+                        marginBottom: 0
+                    },
+                    tooltip: {
+                        enabled: false
                     },
                     title: {
-                        text: ''
+                        text: 'Average Brave Score. Male vs. Female',
+                        style: {
+                            fontSize: '18px',
+                            color: 'white',
+                            fontFamily: "LubalinGraphStd-Book",
+                        }
+                    },
+                    credits: {
+                        enabled: false
                     },
                     exporting: { 
                       enabled: false 
                     },
-                    credits: {
-                  enabled: false
-              },
-                    yAxis: {
-                        title: {
-                            text: ''
-                        },
-                        visible: false
+                    pane: {
+                        size: '100%',
+                        startAngle: 0,
+                        endAngle: 360,
+
+                        background: {
+                            //innerRadius: '50%', #fix for inner border :D
+                            outerRadius: '0%',
+                            backgroundColor: 'transparent',
+                        }
                     },
                     plotOptions: {
-                        pie: {
-                            shadow: false
+                        solidgauge: {
+                            dataLabels: {
+                                enabled: false,
+                            }
                         }
                     },
-                    tooltip: {
-                        formatter: function() {
-                            return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
-                        }
-                    },
-                    series: [{
-                        name: 'Gender',
-                        data: female_to_male,
-                        size: '60%',
-                        borderWidth: 3,
-                        innerSize: '50%',
-                        showInLegend:false,
-                        dataLabels: {
+                    yAxis: {
+                        labels: {
                             enabled: false
-                        }
+                        },
 
+                        min: 0,
+                        max: 100,
+                        gridLineColor: 'transparent',
+                        lineColor: 'transparent',
+                        minorTickLength: 0,
+                        tickColor: 'white',
+                        tickPosition: 'inside',
+                        tickInterval: 1,
+                        tickWidth: 2,
+
+                    },
+
+                    series: [{
+                        name: 'Female',
+                        innerRadius: '80%',
+                        borderWidth: 2,
+                        borderColor: 'white',
+                         data: [{y:fPercentage,color:"rgba(255,255,255,0.2)"}],
+                        radius: '60%'
+                    }, {
+                        name: 'Male',
+                        innerRadius: '100%',
+                        borderWidth: 2,
+                        borderColor: 'white',
+                         data: [{y:mPercentage,color:"rgba(0,50,255,0.2)"}],
+                        radius: '80%',
                     }]
                 });
 
-              // AGE LINE CHART
-              var chart,
+                // AGE LINE CHART
+                var chart,
                 age_ranges = [['15-24', fifteen],['25-34', twentyfive],['35-44', thirtyfive],['45-54', fourtyfive],['55-64', fiftyfive],['65+', sixtyfive]];
-
 
                 chart = new Highcharts.Chart({
                     chart: {
@@ -509,31 +525,72 @@
                         text: ''
                     },
                     exporting: { 
-                      enabled: false 
+                        enabled: false 
                     },
                     credits: {
-                  enabled: false
-              },
+                        enabled: false
+                    },
+                    title: {
+                        text: 'How Brave is your age range?',
+                        style: {
+                            fontSize: '18px',
+                            color: 'white',
+                            fontFamily: "LubalinGraphStd-Book",
+                            align: 'top',
+                        }
+                    },
                     yAxis: {
                         title: {
-                            text: ''
+                            text: "Percentage of participants that are brave",
+                            style: {
+                                fontSize: '14px',
+                                color: 'rgba(255,255,255,0.6)',
+                                fontFamily: "LubalinGraphStd-Book",    
+                            },
                         },
                         labels: {
                             style: {
                                 color: 'rgba(255,255,255,0.5)',
                                 fontSize:'14px',
                                 fontFamily: "LubalinGraphStd-Book",
-                            }
+                            },
                         },  
+                        gridLineColor: 'rgba(255,255,255,0.3)',
+                        lineColor: 'rgba(255,255,255,0.3)',
+                        gridLineWidth: 1,
+                        minorTickLength: 0,
+                        tickColor: 'white',
+                        tickPosition: 'outside',
+                        tickInterval: 2,
+                        tickWidth: 2,
+                        startOnTick: false,
+                        offset : 20,
                     },
                     xAxis: {
+                        title: {
+                            text: "Age Group",
+                            style: {
+                                fontSize: '14px',
+                                color: 'rgba(255,255,255,0.6)',
+                                fontFamily: "LubalinGraphStd-Book",    
+                            },
+                        },
                     labels: {
                             enabled:false
                         },
+                    tickColor: 'transparent',
+                    gridLineColor: 'rgba(255,255,255,0.2)',
+                    lineColor: 'rgba(255,255,255,0.2)',
+                    gridLineWidth: 1,
                     },
                     plotOptions: {
                         series: {
                             lineWidth: 3
+                        },
+                        dataLabels: {
+                            enabled: true,
+                            color: 'red',
+                            style: { fontFamily: '\'LubalinGraphStd-Book\', sans-serif', lineHeight: '18px', fontSize: '17px' }
                         }
                     },
                     tooltip: {
@@ -556,9 +613,9 @@
                     }]
                 });
 
-              // MONEY BAR CHART
-              var chart,
-                age_ranges = [['Spend it all', moneySpend],['Save it all', moneySave]];
+                // MONEY BAR CHART
+                var chart,
+                money_ranges = [['Spend it all', moneySpend],['Save it all', moneySave]];
                 
 
                 chart = new Highcharts.Chart({
@@ -573,11 +630,11 @@
                         text: ''
                     },
                     exporting: { 
-                      enabled: false 
+                        enabled: false 
                     },
                     credits: {
-                  enabled: false
-              },
+                        enabled: false
+                    },
                     yAxis: {
                         title: {
                             text: ''
@@ -590,8 +647,17 @@
                             }
                         },
                         visible: true,
-                        tickInterval: 50,
+                        min: 0,
+                        max: 100,
                         gridLineWidth: 0,
+                        gridLineColor: 'transparent',
+                        lineColor: 'transparent',
+                        minorTickLength: 0,
+                        tickColor: 'white',
+                        tickPosition: 'outside',
+                        tickInterval: 20,
+                        tickWidth: 2,
+                        offset : 20,
                     },
                     xAxis: {
                     labels: {
@@ -599,6 +665,7 @@
                         },
                         visible: true,
                         gridLineWidth: 0,
+                        tickColor: 'transparent',
 
                     },
                     plotOptions: {
@@ -609,11 +676,12 @@
                     tooltip: {
                         formatter: function() {
                             return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
-                        }
+                        },
+                        enabled: false 
                     },
                     series: [{
                         name: 'Ages',
-                        data: age_ranges,
+                        data: money_ranges,
                         size: '60%',
                         color: "rgba(0,50,255,0.2)",
                         innerSize: '50%',
@@ -628,9 +696,9 @@
                     }]
                 });
 
-              // SLAP BAR CHART
-              var chart,
-                age_ranges = [['Slap', sSlap],['Tickle', sTickle]];
+                // SLAP BAR CHART
+                var chart,
+                slap_ranges = [['Slap', sSlap],['Tickle', sTickle]];
 
                 chart = new Highcharts.Chart({
                     chart: {
@@ -644,11 +712,11 @@
                         text: ''
                     },
                     exporting: { 
-                      enabled: false 
+                        enabled: false 
                     },
                     credits: {
-                  enabled: false
-              },
+                        enabled: false
+                    },
                     yAxis: {
                         title: {
                             text: ''
@@ -661,13 +729,24 @@
                             }
                         },                        
                         visible: true,
-                        tickInterval: 50,
+                        min: 0,
+                        max: 100,
                         gridLineWidth: 0,
+                        gridLineColor: 'transparent',
+                        lineColor: 'transparent',
+                        minorTickLength: 0,
+                        tickColor: 'white',
+                        tickPosition: 'outside',
+                        tickInterval: 20,
+                        tickWidth: 2,
+                        offset : 20,
                     },
                     xAxis: {
                     labels: {
                             enabled:false
                         },
+                        gridLineWidth: 0,
+                        tickColor: 'transparent',
                     },
                     plotOptions: {
                         series: {
@@ -687,11 +766,12 @@
                     tooltip: {
                         formatter: function() {
                             return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
-                        }
+                        },
+                        enabled: false 
                     },
                     series: [{
                         name: 'Ages',
-                        data: age_ranges,
+                        data: slap_ranges,
                         size: '60%',
                         color: "rgba(0,50,255,0.2)",
                         innerSize: '50%',
@@ -701,12 +781,23 @@
                         showInLegend:false,
                         dataLabels: {
                             enabled: false
+                        },
+                        point: {
+                            events: {
+                                mouseOver: function() {
+                                   $(this.series.chart.xAxis[0].labelGroup.element.childNodes[this.x]).css('font-size', '24px');
+                                },
+                                mouseOut: function() {                       
+                                     $(this.series.chart.xAxis[0].labelGroup.element.childNodes[this.x]).css('font-size', '24px');
+                                }
+                            }
                         }
 
                     }]
                 });
 
                 // ALIEN CHART
+                var chart,
                 chart = new Highcharts.Chart({
 
                     chart: {
@@ -729,27 +820,32 @@
                     },
 
                     xAxis: {
-                    labels: {
-                        enabled: false,
-                        align: 'left',
-                        x: 0,
-                        y: -20
-                    },visible: false,
+                        labels: {
+                            enabled: false,
+                            x: 0,
+                            y: -12
+                        },
+                        tickWidth: 0,
+                        lineWidth: 0,
+                        minorGridLineWidth: 0         
                     },
-
                     yAxis: {
-                    labels: {
-                        align: 'left',
-                        x: 0,
-                        y: 0
-                    },
-                    visible: false,
                         
-                        min: 0,
-                        max: 100,
-
+                        minorGridLineWidth: 0,
+                        majorGridLineWidth: 0,
+                        
+                        gridLineWidth: 0,
+                        labels: {
+                            enabled: false
+                        },
+                        title: {
+                            text: '',
+                            align: 'high'
+                        },
+                        tickWidth: 0,
+                         min:-1.2,
+                         startOnTick:false,
                     },
-
                     legend: {
                         backgroundColor: '#FFFFFF',
                         reversed: true
@@ -789,12 +885,11 @@
                 });
 
 
-              // NEWS CHART
-              var chart,
-                news_ranges = [[lastItem[1],lastItem[0]],[secondLastItem[1],secondLastItem[0]],[thirdLastItem[1],thirdLastItem[0]],[fourthLastItem[1],fourthLastItem[0]],[fithLastItem[1],fithLastItem[0]]];
+                // NEWS CHART
+                var chart,
+                news_ranges = [[fourthLastItem[1],fourthLastItem[0]],[secondLastItem[1],secondLastItem[0]],[thirdLastItem[1],thirdLastItem[0]],[fithLastItem[1],fithLastItem[0]],[lastItem[1],lastItem[0]]];
 
                 // age_ranges = [['Slap', sSlap],['Tickle', sTickle]];
-
                 chart = new Highcharts.Chart({
                     chart: {
                         renderTo: 'newsChart',
@@ -810,11 +905,16 @@
                       enabled: false 
                     },
                     credits: {
-                  enabled: false
-              },
+                      enabled: false
+                    },
                     yAxis: {
                         title: {
-                            text: ''
+                            text: "Percentage of participants that are brave",
+                            style: {
+                                fontSize: '14px',
+                                color: 'rgba(255,255,255,0.6)',
+                                fontFamily: "LubalinGraphStd-Book",    
+                            },
                         },
                         labels: {
                             style: {
@@ -825,13 +925,39 @@
                         },                        
                         visible: true,
                         allowDecimals: false,
-                        tickInterval: 50,
                         gridLineWidth: 0,
+                        gridLineColor: 'transparent',
+                        lineColor: 'transparent',
+                        minorTickLength: 0,
+                        tickColor: 'white',
+                        tickPosition: 'outside',
+                        tickInterval: 10,
+                        tickWidth: 2,
+                        offset : 20,
                     },
                     xAxis: {
+                        title: {
+                            text: "News Source",
+                            style: {
+                                fontSize: '14px',
+                                color: 'rgba(255,255,255,0.6)',
+                                fontFamily: "LubalinGraphStd-Book",    
+                            },
+                        },
                         labels: {
                             enabled:false
                         },
+                        tickWidth: 0,
+                        lineWidth: 2,
+                    },
+                    title: {
+                        text: 'How Brave are the readers of',
+                        style: {
+                            fontSize: '18px',
+                            color: 'white',
+                            fontFamily: "LubalinGraphStd-Book",
+                            align: 'top',
+                        }
                     },
                     plotOptions: {
                         series: {
@@ -870,63 +996,6 @@
                     }]
                 });
 
-
-          //
-          //     //Q2
-          //     var Q2 = allInfo.Q2;
-          //     if (Q2.optionLeft.n >= Q2.optionRight.n) {
-          //       infoTwoOption = "lights on";
-          //       $("#infographic2 img").attr("src", "images/infographics/2b.png");
-          //     } else {
-          //       infoTwoOption = "lights off";
-          //       $("#infographic2 img").attr("src", "images/infographics/2a.png");
-          //     }
-          //     form.find('#infoTwoOption').html(infoTwoOption);
-          //     //Q3
-          //     var Q3 = allInfo.Q3;
-          //     if (Q3.optionLeft.n >= Q3.optionRight.n) {
-          //       infoThreeOption = "beer";
-          //       $("#infographic3 img").attr("src", "images/infographics/3a.png");
-          //     } else {
-          //       infoThreeOption = "spirits";
-          //       $("#infographic3 img").attr("src", "images/infographics/3b.png");
-          //     }
-          //     form.find('#infoThreeOption').html(infoThreeOption);
-          //     //Q4
-          //     var Q4 = allInfo.Q4;
-          //     if (Q4.optionLeft.n >= Q4.optionRight.n) {
-          //       infoFourOption = "Game of Thrones";
-          //       $("#infographic4 img").attr("src", "images/infographics/4a.png");
-          //     } else {
-          //       infoFourOption = "Breaking Bad";
-          //       $("#infographic4 img").attr("src", "images/infographics/4b.png");
-          //     }
-          //     form.find('#infoFourOption').html(infoFourOption);
-          //     //Q4
-          //     var Q5 = allInfo.Q5;
-          //     if (Q5.optionLeft.n >= Q5.optionRight.n) {
-          //       infoFiveOption = "Nik Naks";
-          //       $("#infographic5 img").attr("src", "images/infographics/5.png");
-          //     } else {
-          //       infoFiveOption = "Quavers";
-          //       $("#infographic5 img").attr("src", "images/infographics/5.png");
-          //     }
-          //     form.find('#infoFiveOption').html(infoFiveOption);
-          //
-          //     //overall average
-          //     var overallTotalScore = (Q1.optionLeft.braveScore * Q1.optionLeft.n) +
-          //                             (Q1.optionRight.braveScore * Q1.optionRight.n) +
-          //                             (Q2.optionLeft.braveScore * Q2.optionLeft.n) +
-          //                             (Q2.optionRight.braveScore * Q2.optionRight.n) +
-          //                             (Q3.optionLeft.braveScore * Q3.optionLeft.n) +
-          //                             (Q3.optionRight.braveScore * Q3.optionRight.n) +
-          //                             (Q4.optionLeft.braveScore * Q4.optionLeft.n) +
-          //                             (Q4.optionRight.braveScore * Q4.optionRight.n) +
-          //                             (Q5.optionLeft.braveScore * Q5.optionLeft.n) +
-          //                             (Q5.optionRight.braveScore * Q5.optionRight.n);
-          //     var overallTotalN = Q1.optionLeft.n + Q1.optionRight.n + Q2.optionLeft.n + Q2.optionRight.n + Q3.optionLeft.n + Q3.optionRight.n + Q4.optionLeft.n + Q4.optionRight.n + Q5.optionLeft.n + Q5.optionRight.n;
-          //     var overallAvg = overallTotalScore/overallTotalN;
-          //     form.find('#infoOverallAvg').html(Math.round(overallAvg));
           });
 
     };
@@ -973,6 +1042,8 @@
             $('#braveScore').html(user.scores["brave"]);
             form.find('#txtName').val(user.name);
             form.find('#ddlDino').val(user.favoriteDinosaur);
+
+            
         });
 
         // Save user's info to Firebase

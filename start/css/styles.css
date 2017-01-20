@@ -19,6 +19,10 @@
 
 }
 
+.ui-page {
+    -webkit-backface-visibility: hidden;
+}
+
 header {
   display: none;
 }
@@ -34,15 +38,23 @@ header {
 
 .logo{
 	position: absolute;
-  left: 0;
-  right: 0;
-  width: 260px;
-  margin: 2% auto;
-  z-index: 80;
+	left: 0;
+	right: 0;
+	width: 260px;
+	margin: 2% auto;
+	z-index: 80;
 }
 
 .logo img {
     width: 100%;
+}
+
+.margin-top {
+	margin-top: 75px;
+}
+
+.slap .cs-skin-border > span{
+	margin-top: 31px;
 }
 
 /* Change the white to any color */
@@ -145,6 +157,10 @@ input:active {
 .profileQuestions{
 	font-family: 'LubalinGraphStd-Book', sans-serif;
     font-size: 24px;
+}
+
+.gender label {
+  cursor: pointer;
 }
 
 /*.btn:focus, .btn:active:focus, .btn.active:focus {
@@ -404,7 +420,7 @@ body.infoPage .container.questionnaire {
 	transform: translateY(0%);
   -moz-transform: translateY(0%);
   -webkit-transform: translateY(0%);
-  margin-top: 100px;
+  margin-top: -50px;
   margin-bottom: 100px;
 
 }
@@ -589,7 +605,14 @@ body.infoPage .container.questionnaire {
   line-height: 1.3em;
  }
 
- .infographics-holder, .infographics-holder2{
+ .infographics-holder{
+ 	font-family: 'LubalinGraphStd-Book', sans-serif;
+ 	font-size: 24px;
+    line-height: 130%;
+    margin-top: 100px;
+ }
+
+ .infographics-holder2{
  	font-family: 'LubalinGraphStd-Book', sans-serif;
  	font-size: 24px;
     line-height: 130%;
@@ -645,14 +668,19 @@ body.infoPage .container.questionnaire {
 }
 
  .shareInfographic {
-   border: 2px solid white;
+   border: 0px solid white;
  }
+
+.share-block {
+	display: none;
+}
 
  .button-holder {
    display: block;
    width: 100%;
    text-align: center;
-   margin-top: 50px;
+   margin-top: 30px;
+   margin-bottom: 30px;
  }
 
  #frmProfile > p {
@@ -694,7 +722,11 @@ body.infoPage .container.questionnaire {
 }
 
 .sharePage .shareIcons {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+}
+
+.score-block .sharePage .shareIcons{
+	margin-bottom: 0px;
 }
 
 .sharePage .shareIcons li {
@@ -716,7 +748,7 @@ body.infoPage .container.questionnaire {
   background-image: url('../images/tw.png');
 }
 
-.sharePage .shareIcons a {
+.shareIcons a {
   display: block;
   position: relative;
   width: 100%;
@@ -735,38 +767,135 @@ body.infoPage .container.questionnaire {
   border-radius: 50%;
 }
 
-.info-9a{
-	position: absolute;
- 	top: 13%;
-    left: 85%;
-    width: 180px;
-    z-index: 999;
-
+#genderGauge{
+	padding-bottom: 40px;
 }
 
-.info-9b{
+.eating-stat{
 	position: absolute;
-    top: 13%;
-    left: -8%;
-    width: 180px;
+    top: 92%;
+	left: 9%;
+}
+
+.alien-stat{
+	position: absolute;
+    top: -2%;
+	left: 20%;
+}
+
+.image-keys{
+	width: 25px;
+	text-align: right;
+}
+
+.col-thirteen{
+	width: 13%;
+	float: left;
+}
+.col-two{
+	width: 2%;
+	float: left;
+}
+.col-seventeen{
+	width: 17%;
+	float: left;
+}
+.col-fifteen{
+    width: 16.6%;
+    float: left;
+    text-align: right;
+}
+
+.col-thirty{
+    width: 30%;
+    float: left;
+}
+
+.col-seventy{
+    width: 70%;
+    float: left;
+}
+
+/*.col-fifteen:first-child{
+	width: 16.6%;
+    float: left;
+    text-align: center;
+}*/
+.info-7a{
+	position: absolute;
+    top: 63%;
+    left: 24%;
+    width: 122px;
     z-index: 999;
 }
 
-.info-10a{
-	position: absolute;
-    top: 52%;
-    left: -8%;
-    width: 180px;
+.info-7b{
+    position: absolute;
+    top: 64%;
+    left: 61%;
+    width: 117px;
+    z-index: 999;
+}
+
+.info-8a{
+    position: absolute;
+    top: 62%;
+    left: 24%;
+    width: 132px;
+    z-index: 999;
+}
+
+.info-8b{
+    position: absolute;
+    top: 61%;
+    left: 59%;
+    width: 130px;
+    z-index: 999;
+}
+
+.info-9a {
+    position: absolute;
+    top: 7%;
+    left: 74%;
+    width: 170px;
+    z-index: 999;
+}
+
+.info-9b {
+    position: absolute;
+    top: 10%;
+    left: -6%;
+    width: 150px;
+    z-index: 999;
+}
+
+.info-10a {
+    position: absolute;
+    top: 51%;
+    left: -9%;
+    width: 188px;
     z-index: 999;
 }
 
 .info-10b{
-	position: absolute;
- 	top: 52%;
-    left: 85%;
+    position: absolute;
+    top: 52%;
+    left: 75%;
     width: 180px;
     z-index: 999;
 
+}
+
+.info-gender{
+    position: absolute;
+    top: 34%;
+    left: 35%;
+    width: 120px;
+    z-index: 999;
+}
+
+.age-row .col-md-2 {
+	text-align: right;
 }
 
 input[type=range] {
@@ -900,6 +1029,9 @@ option[default] {
   display: none;
 }
 
+.share-text{
+	padding: 20px 20px 0px 20px;
+}
 
 
 /*CHECKBOX*/
@@ -976,9 +1108,6 @@ background-color: rgba(59, 86, 187, 0.35);
 }
 
 
-
-
-
 @media (max-width: 1400px) {
     .message-tile {
       font-size: 16px;
@@ -1007,9 +1136,87 @@ background-color: rgba(59, 86, 187, 0.35);
     left: 75px;
     top: 75px
   }
+.info-7a {
+	position: absolute;
+	top: 63%;
+	left: 26%;
+	width: 108px;
+	z-index: 999;
+}
+.info-7b {
+    position: absolute;
+    top: 65%;
+    left: 61%;
+    width: 96px;
+    z-index: 999;
+}
+.info-8a {
+    position: absolute;
+    top: 65%;
+    left: 27%;
+    width: 100px;
+    z-index: 999;
+}
+.info-8b {
+    position: absolute;
+    top: 63%;
+    left: 60%;
+    width: 104px;
+    z-index: 999;
+}
+.info-9a {
+    position: absolute;
+    top: 9%;
+    left: 66%;
+    width: 157px;
+    z-index: 999;
+}
+.info-9b {
+    position: absolute;
+    top: 11%;
+    left: -7%;
+    width: 140px;
+    z-index: 999;
+}
+.info-10a {
+    position: absolute;
+    top: 56%;
+    left: -10%;
+    width: 170px;
+    z-index: 999;
+}
+.info-10b {
+    position: absolute;
+    top: 58%;
+    left: 66%;
+    width: 170px;
+    z-index: 999;
+}
+.info-gender {
+    position: absolute;
+    top: 35%;
+    left: 33%;
+    width: 117px;
+    z-index: 999;
+}
+
+.alien-stat{
+	position: absolute;
+    top: -5%;
+    left: 10%;
+}
+
+.eating-stat {
+    position: absolute;
+    top: 100%;
+    left: 0%;
+}
+
 }
 
  @media (max-width: 991px) {
+
+
   .loginHeader {
       width: 100%;
       margin-right:0;
@@ -1054,15 +1261,20 @@ background-color: rgba(59, 86, 187, 0.35);
     padding: 10px 75px;
   }
 
-  .infoPage .container.questionnaire, .resultsPage .container.questionnaire {
+  .infoPage .container.questionnaire, .resultsPage .container.questionnaire, .profilePage .container.questionnaire  {
     position: relative;
     transform: translate(0);
     -moz-transform: translate(0);
     -webkit-transform: translate(0);
+    top: 0%;
+  }
+
+  .profilePage body {
+
   }
 
   .resultsPage .container.questionnaire {
-    margin-top: 30%;
+    margin-top: 20%;
   }
 
   .row.bottom .col-md-4:first-child {
@@ -1070,22 +1282,185 @@ background-color: rgba(59, 86, 187, 0.35);
   }
 
   .row.top {
-    margin-top: 110px;
+    margin-top: 20px;
+  }
+
+  #ageChart{
+  	 margin-top: 100px;
   }
 
   .infoPage .col-md-4 {
-    margin-bottom: 75px;
+    margin-bottom: 55px;
   }
 
   .infoPage .quizbtn, .resultsPage .button-holder {
-    margin-bottom: 150px;
+    margin-bottom: 15px;
   }
+
+
+	.info-7a {
+	    position: absolute;
+	    top: 55%;
+	    left: 21%;
+	    width: 173px;
+	    z-index: 999;
+	}
+	.info-7b {
+	    position: absolute;
+	    top: 58%;
+	    left: 66%;
+	    width: 156px;
+	    z-index: 999;
+	}
+	.info-8a {
+	    position: absolute;
+	    top: 55%;
+	    left: 22%;
+	    width: 180px;
+	    z-index: 999;
+	}
+	.info-8b {
+	    position: absolute;
+	    top: 48%;
+	    left: 62%;
+	    width: 207px;
+	    z-index: 999;
+	}
+	.info-9a {
+	    position: absolute;
+	    top: 8%;
+	    left: 78%;
+	    width: 165px;
+	    z-index: 999;
+	}
+	.info-9b {
+	    position: absolute;
+	    top: 11%;
+	    left: -5%;
+	    width: 140px;
+	    z-index: 999;
+	}
+	.info-10a {
+	    position: absolute;
+	    top: 56%;
+        left: -7%;
+	    width: 170px;
+	    z-index: 999;
+	}
+	.info-10b {
+	    position: absolute;
+	    top: 56%;
+	    left: 76%;
+	    width: 180px;
+	    z-index: 999;
+	}
+	.info-gender {
+	    position: absolute;
+	    top: 41%;
+	    left: 39%;
+	    width: 24%;
+	    z-index: 999;
+	}
+
+	.row .age-row h4{
+		font-size: 12px;
+	}
+
+	.alien-stat{
+		position: absolute;
+    	top: -3%;
+    	left: 21%;
+	}
+
+	.eating-stat {
+	    position: absolute;
+		top: 91%;
+    	left: 12%;
+	}
+
+
 }
+
 
  @media (max-width: 769px) {
    .question8 .questionFirstPart {
      width: 500px;
    }
+
+  .row.top {
+    margin-top: 20px;
+  }
+
+  #ageChart{
+  	 margin-top: 100px;
+  }
+
+	.info-7a {
+	    position: absolute;
+	    top: 55%;
+	    left: 19%;
+	    width: 173px;
+	    z-index: 999;
+	}
+
+	.info-7b {
+	    position: absolute;
+	    top: 58%;
+	    left: 63%;
+	    width: 156px;
+	    z-index: 999;
+	}
+	.info-8a {
+	    position: absolute;
+	    top: 55%;
+	    left: 21%;
+	    width: 180px;
+	    z-index: 999;
+	}
+	.info-8b {
+	    position: absolute;
+	    top: 48%;
+	    left: 60%;
+	    width: 207px;
+	    z-index: 999;
+	}
+	.info-9a {
+	    position: absolute;
+	    top: 8%;
+    	left: 78%;
+	    width: 165px;
+	    z-index: 999;
+	}
+	.info-9b {
+	    position: absolute;
+	    top: 11%;
+	    left: -3%;
+	    width: 140px;
+	    z-index: 999;
+	}
+	.info-10a {
+	    position: absolute;
+	    top: 52%;
+	    left: -7%;
+	    width: 170px;
+	    z-index: 999;
+	}
+	.info-10b {
+	    position: absolute;
+	    top: 52%;
+    	left: 76%;
+	    width: 180px;
+	    z-index: 999;
+	}
+	.info-gender {
+	    position: absolute;
+	    top: 44%;
+	    left: 40%;
+	    width: 151px;
+	    z-index: 999;
+	}
+
+
  }
 
  @media (max-width: 690px) {
@@ -1129,6 +1504,14 @@ background-color: rgba(59, 86, 187, 0.35);
     left: calc(50% - 15px);
   }
 
+  .row.top {
+    margin-top: 20px;
+  }
+
+  #ageChart{
+  	 margin-top: 100px;
+  }
+
   .full-tile {
     margin: 0;
     padding: 0 0 40px 0;
@@ -1136,6 +1519,7 @@ background-color: rgba(59, 86, 187, 0.35);
 
   .nextbtn, .nextbtn:active, .nextbtn:focus {
     margin-top: 40px;
+    margin-bottom: 40px;
   }
 
   .question4 .questionFirstPart, .question4 .questionSecondPart {
@@ -1191,7 +1575,131 @@ background-color: rgba(59, 86, 187, 0.35);
   .sharePage .shareIcons {
     margin-bottom: 10px;
   }
+
+  .infographics-holder{
+  	margin-top: 40px;
+  }
+
+  	.info-7b {
+	    position: absolute;
+	    top: 66%;
+	    left: 67%;
+	    width: 114px;
+	    z-index: 999;
+	}
+	.info-7a {
+	    position: absolute;
+	    top: 64%;
+	    left: 26%;
+	    width: 124px;
+	    z-index: 999;
+	}
+	.info-8a {
+	    position: absolute;
+	    top: 66%;
+	    left: 27%;
+	    width: 119px;
+	    z-index: 999;
+	}
+	.info-8b {
+	    position: absolute;
+	    top: 59%;
+	    left: 63%;
+	    width: 148px;
+	    z-index: 999;
+	}
+	.info-9b {
+	    position: absolute;
+	    top: 11%;
+	    left: -2%;
+	    width: 140px;
+	    z-index: 999;
+	}
+	.info-9a {
+	    position: absolute;
+	    top: 8%;
+	    left: 75%;
+	    width: 165px;
+	    z-index: 999;
+	}
+	.info-10a {
+	    position: absolute;
+	    top: 52%;
+	    left: -8%;
+	    width: 170px;
+	    z-index: 999;
+	}
+	.info-10b {
+	    position: absolute;
+	    top: 52%;
+	    left: 75%;
+	    width: 180px;
+	    z-index: 999;
+	}
+
+	.eating-stat {
+	    position: absolute;
+    	top: 43%;
+    	left: 8%;
+	}
+
+	.col-fifteen{
+		width: 14%;
+    	float: left;
+    	text-align: right;
+	}
+
+	.col-fifteen:first-child{
+		margin-left: 12%;
+	}
+
  }
+
+  @media (max-width: 590px) {
+
+  	.info-9b {
+	    position: absolute;
+	    top: 11%;
+	    left: -2%;
+	    width: 140px;
+	    z-index: 999;
+	}
+	.info-9a {
+	    position: absolute;
+	    top: 8%;
+	    left: 65%;
+	    width: 165px;
+	    z-index: 999;
+	}
+	.info-10a {
+	    position: absolute;
+	    top: 55%;
+	    left: -10%;
+	    width: 170px;
+	    z-index: 999;
+	}
+	.info-10b {
+	    position: absolute;
+	    top: 57%;
+	    left: 65%;
+	    width: 180px;
+	    z-index: 999;
+	}
+
+	.alien-stat{
+		position: absolute;
+	    top: -2%;
+		left: 11%;
+	}
+
+	.eating-stat {
+    	position: absolute;
+    	top: 43%;
+    	left: 3%;
+	}
+
+}
+
 
  @media (max-width: 520px) {
    .question3 .questionSecondPart:after, .question6 .questionSecondPart:after {
@@ -1218,6 +1726,14 @@ background-color: rgba(59, 86, 187, 0.35);
      padding: 10px;
    }
 
+  .row.top {
+    margin-top: 20px;
+  }
+
+  #ageChart{
+  	 margin-top: 100px;
+  }
+
    .loginPage .container.questionnaire, .registerPage .container.questionnaire {
      position: relative;
      transform: translate(0);
@@ -1226,6 +1742,132 @@ background-color: rgba(59, 86, 187, 0.35);
      padding-top: 150px;
      padding-bottom: 100px;
    }
+
+   .occupation{
+   		margin-bottom: 50px;
+   		margin-top: 110px;
+   }
+
+   .cs-skin-border > span {
+   		font-size: 18px;
+   }
+
+   .news .cs-skin-border.cs-active .cs-options, .occupation .cs-skin-border.cs-active .cs-options{
+   		font-size: 12px;
+   }
+
+   .age, .gender, .news, .spend, .slap, .aliens, .eat {
+   		margin-bottom: 50px;
+   }
+   .grades li label {
+	    margin: 0px 0px 0.5em 40px;
+	    padding: 0 .5em;
+	    display: block;
+	    height: 100px;
+	    cursor: pointer;
+	    letter-spacing: -0.03em;
+	    font-family: "LubalinGraphStd-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	    line-height: 2.8;
+	    border-radius: 115px;
+	    background-color: none;
+	    text-align: center;
+	    width: 100px;
+	    border: 2px solid #fff !important;
+	    font-size: 1.5em;
+	}
+
+	.info-7b {
+	    position: absolute;
+	    top: 66%;
+	    left: 62%;
+	    width: 114px;
+	    z-index: 999;
+	}
+	.info-7a {
+	    position: absolute;
+	    top: 64%;
+	    left: 24%;
+	    width: 124px;
+	    z-index: 999;
+	}
+	.info-8a {
+	    position: absolute;
+	    top: 66%;
+	    left: 25%;
+	    width: 119px;
+	    z-index: 999;
+	}
+	.info-8b {
+	    position: absolute;
+	    top: 59%;
+	    left: 59%;
+	    width: 148px;
+	    z-index: 999;
+	}
+	.info-9b {
+	    position: absolute;
+	    top: 11%;
+	    left: 2%;
+	    width: 140px;
+	    z-index: 999;
+	}
+	.info-9a {
+	    position: absolute;
+	    top: 8%;
+	    left: 63%;
+	    width: 165px;
+	    z-index: 999;
+	}
+	.info-10a {
+	    position: absolute;
+	    top: 57%;
+    	left: -4%;
+	    width: 150px;
+	    z-index: 999;
+	}
+	.info-10b {
+	    position: absolute;
+	    top: 58%;
+    	left: 64%;
+	    width: 160px;
+	    z-index: 999;
+	}
+	.info-gender {
+	    position: absolute;
+	    top: 32%;
+	    left: 35%;
+	    width: 151px;
+	    z-index: 999;
+	}
+	.age-row h4{
+		font-size: 12px;
+	}
+	.col-sm-12 .row{
+		display: none;
+	}
+
+	#alienChart{
+		margin-left: 30px;
+	}
+	.alien-stat{
+		position: absolute;
+    	top: -2%;
+    	left: 19%;
+	}
+
+	.eating-stat {
+    	position: absolute;
+    	top: 45%;
+    	left: 10%;
+	}
+
+	#infoProfile .eating-stat{
+		font-size: 13px;
+	}
+
+	#infoProfile .alien-stat{
+		font-size: 13px;
+	}
  }
 
   @media (max-width: 420px) {
@@ -1239,6 +1881,14 @@ background-color: rgba(59, 86, 187, 0.35);
       margin-left: 0;
       margin-right: 0;
     }
+
+      .row.top {
+	    margin-top: 20px;
+	  }
+
+	  #ageChart{
+	  	 margin-top: 100px;
+	  }
 
     .question5 .questionFirstPart {
       width: 100%;
@@ -1270,7 +1920,192 @@ background-color: rgba(59, 86, 187, 0.35);
       top: 42px;
       left: 44px;
     }
+    .info-7a {
+	    position: absolute;
+	    top: 60%;
+	    left: 19%;
+	    width: 132px;
+	    z-index: 999;
+	}
+	.info-7b {
+	    position: absolute;
+	    top: 63%;
+	    left: 60%;
+	    width: 115px;
+	    z-index: 999;
+	}
+	.info-8a {
+	    position: absolute;
+	    top: 66%;
+	    left: 24%;
+	    width: 119px;
+	    z-index: 999;
+	}
+	.info-8b {
+	    position: absolute;
+	    top: 59%;
+	    left: 56%;
+	    width: 148px;
+	    z-index: 999;
+	}
+	.info-9b {
+	    position: absolute;
+	    top: 11%;
+	    left: -4%;
+	    width: 140px;
+	    z-index: 999;
+	}
+	.info-9a {
+	    position: absolute;
+	    top: 8%;
+	    left: 59%;
+	    width: 165px;
+	    z-index: 999;
+	}
+	.info-10a {
+	    position: absolute;
+	    top: 56%;
+	    left: -7%;
+	    width: 170px;
+	    z-index: 999;
+	}
+	.info-10b {
+	    position: absolute;
+	    top: 56%;
+	    left: 56%;
+	    width: 180px;
+	    z-index: 999;
+	}
+	.info-gender {
+	    position: absolute;
+	    top: 32%;
+	    left: 31%;
+	    width: 151px;
+	    z-index: 999;
+	}
+	.age-row h4{
+		font-size: 12px;
+	}
+	.eating-stat {
+	    position: absolute;
+    	top: 46%;
+    	left: 3%;
+	}
+	.alien-stat {
+	    position: absolute;
+	    top: 2%;
+	    left: 11%;
+	}
+
+	#infoProfile .eating-stat{
+		font-size: 13px;
+	}
+
+	#infoProfile .alien-stat{
+		font-size: 13px;
+	}
+
+	.col-fifteen:first-child{
+		margin-left: 16%;
+	}
   }
+
+ @media (max-width: 320px) {
+
+ 	.grades li label {
+	    margin: 0px 0px 0.5em 20px;
+	    padding: 0 .5em;
+	    display: block;
+	    height: 100px;
+	    cursor: pointer;
+	    letter-spacing: -0.03em;
+	    font-family: "LubalinGraphStd-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	    line-height: 2.8;
+	    border-radius: 115px;
+	    background-color: none;
+	    text-align: center;
+	    width: 100px;
+	    border: 2px solid #fff !important;
+	    font-size: 1.5em;
+	}
+
+	.info-7a {
+	    position: absolute;
+	    top: 65%;
+	    left: 27%;
+	    width: 104px;
+	    z-index: 999;
+	}
+	.info-7b {
+	    position: absolute;
+	    top: 67%;
+	    left: 60%;
+	    width: 93px;
+	    z-index: 999;
+	}
+ 	.info-8a {
+	    position: absolute;
+	    top: 66%;
+	    left: 27%;
+	    width: 103px;
+	    z-index: 999;
+	}
+	.info-8b {
+	    position: absolute;
+	    top: 63%;
+	    left: 56%;
+	    width: 113px;
+	    z-index: 999;
+	}
+	.info-9a {
+	    position: absolute;
+	    top: 16%;
+	    left: 61%;
+	    width: 99px;
+	    z-index: 999;
+	}
+	.info-9b {
+	    position: absolute;
+	    top: 16%;
+	    left: 4%;
+	    width: 90px;
+	    z-index: 999;
+	}
+	.info-10a {
+	    position: absolute;
+	    top: 57%;
+	    left: -4%;
+	    width: 132px;
+	    z-index: 999;
+	}
+	.info-10b {
+	    position: absolute;
+	    top: 59%;
+	    left: 61%;
+	    width: 110px;
+	    z-index: 999;
+	}
+	.info-gender {
+	    position: absolute;
+	    top: 34%;
+	    left: 33%;
+	    width: 110px;
+	    z-index: 999;
+	}
+
+	.col-fifteen {
+	    width: 13%;
+	    float: left;
+	    text-align: right;
+	}
+
+	.row .age-row h4{
+		font-size: 9px;
+	}
+	.col-fifteen:first-child{
+		margin-left: 22%;
+	}
+ }
 
 
     @media (max-height: 720px) and (min-width: 991px) {

@@ -68,6 +68,13 @@ div.cs-skin-border {
 	transition: opacity 0.2s;
 }
 
+.news .cs-skin-border.cs-active .cs-options, .occupation .cs-skin-border.cs-active .cs-options {
+	opacity: 1;
+	-webkit-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+	height: 358px;
+    overflow: auto;
+}
 .cs-skin-border ul span {
 	padding: 1em 2em;
 	-webkit-backface-visibility: hidden;
