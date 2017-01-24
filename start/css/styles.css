@@ -783,9 +783,18 @@ body.infoPage .container.questionnaire {
 	left: 20%;
 }
 
+.genderLegend h5 {
+  display: inline-block;
+}
+
+.genderLegend .inner {
+  display: inline-block;
+  text-align: left;
+}
+
 .image-keys{
 	width: 25px;
-	text-align: right;
+  margin-right: 15px;
 }
 
 .col-thirteen{
@@ -1035,15 +1044,15 @@ option[default] {
 
 
 /*CHECKBOX*/
-
+.grades { text-align: center;}
 .grades li input[type=checkbox] {display: none;}
 
-.grades li {float:left;padding-right:22px;}
+.grades li {display:inline-block;padding-right:22px;}
 
 
 .grades input[type="checkbox"],
 .grades input[type="radio"] {
-box-sizing: border-box;padding: 0;
+  box-sizing: border-box;padding: 0;
 }
 
 #a-input, #b-input { position: relative; }
@@ -1055,6 +1064,7 @@ box-sizing: border-box;padding: 0;
   top: 2px;
   left: 0;
   background: url('../images/infographics/female.svg');
+  background-repeat: no-repeat;
   width: 95px;
   height: 140px;
 }
@@ -1066,6 +1076,7 @@ box-sizing: border-box;padding: 0;
   bottom: 1px;
   left: 1px;
   background: url('../images/infographics/male.svg');
+  background-repeat: no-repeat;
   width: 113px;
   height: 113px;
 }
@@ -1212,7 +1223,38 @@ background-color: rgba(59, 86, 187, 0.35);
     left: 0%;
 }
 
+#age-slider-text {
+  font-size: 104px;
 }
+
+.grades li label {
+  width: 75px;
+  height: 75px;
+}
+
+#a-input::before {
+  width: 71px;
+  height: 100px;
+}
+
+#b-input::before {
+  width: 82px;
+  height: 82px;
+}
+
+.grades li label {
+  line-height: 3;
+  font-size: 24px;
+}
+
+.gender-p {
+  margin-bottom: 20px;
+}
+
+}
+
+
+
 
  @media (max-width: 991px) {
 
@@ -1377,6 +1419,8 @@ background-color: rgba(59, 86, 187, 0.35);
 		top: 91%;
     	left: 12%;
 	}
+
+
 
 
 }
