@@ -1,33 +1,23 @@
 $(document).ready(function() {
   var leftBackground = true;
 
-  // $( "body" ).mousemove(function( event ) {
-  //
-  //   if ($('body').hasClass('profilePage')) {
-  //     var windowWidth = $(window).width();
-  //     if (event.pageX > windowWidth/2) {
-  //       if (leftBackground) {
-  //         $('body').css("background-image","url('images/Questionnaire Cheddar_Blue.jpg')");
-  //       }
-  //       leftBackground = false;
-  //     } else {
-  //       if (!leftBackground) {
-  //         $('body').css("background-image","url('images/Questionnaire Rock_Electronic.jpg')");
-  //       }
-  //       leftBackground = true;
-  //     }
-  //   }
-  //
-  // });
+  //stop share icon links following through
+  $( ".shareIcons a.popup").unbind( "click" );
 
-  // var minAge = 18;
-  //   if ($('#age-slider-text').val() == 'minAge'){
+  if ($(window).width() < 1225) {
+    $('.inner.mobile').insertBefore($('.inner.desktop'));
+  } else {
+    $('.inner.desktop').insertBefore($('.inner.mobile'));
+  }
 
-  //     $('.grades').removeClass('notClicked');
-  //     console.log('Minimum age');
-  // }
 
-  $('.popup').click(function(event) {
+  $('a.responseSelector').on('click touchend', function(e) {
+    var el = $(this);
+    var link = el.attr('href');
+    window.location = link;
+  });
+
+  $('a.popup').on('click touchend', function(e) {
     var width  = 575,
         height = 400,
         left   = ($(window).width()  - width)  / 2,
@@ -43,6 +33,30 @@ $(document).ready(function() {
 
     return false;
   });
+});
+
+$( window ).resize(function() {
+  if ($(window).width() < 1225) {
+    $('.inner.mobile').insertBefore($('.inner.desktop'));
+  } else {
+    $('.inner.desktop').insertBefore($('.inner.mobile'));
+  }
+});
 
 
+$(document).off('click', 'a.popup').on('click', 'a.popup', function(event) {
+  var width  = 575,
+      height = 400,
+      left   = ($(window).width()  - width)  / 2,
+      top    = ($(window).height() - height) / 2,
+      url    = this.href,
+      opts   = 'status=1' +
+               ',width='  + width  +
+               ',height=' + height +
+               ',top='    + top    +
+               ',left='   + left;
+
+  window.open(url, 'twitter', opts);
+
+  return false;
 });

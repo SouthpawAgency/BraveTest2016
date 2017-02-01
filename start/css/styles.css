@@ -569,7 +569,7 @@ body.infoPage .container.questionnaire {
    width: 225px;
    height: 40%;
    left: 100px;
-   top: 100px;
+   bottom: -44px;
    background-image: url('../images/fx/Question_underlineShort.png');
    background-size: contain;
    background-repeat: no-repeat;
@@ -610,6 +610,10 @@ body.infoPage .container.questionnaire {
  	font-size: 24px;
     line-height: 130%;
     margin-top: 100px;
+ }
+
+ .infographics-holder.last-row {
+   margin-top: 120px;
  }
 
  .infographics-holder2{
@@ -772,15 +776,21 @@ body.infoPage .container.questionnaire {
 }
 
 .eating-stat{
-	position: absolute;
-    top: 92%;
-	left: 9%;
+  position: absolute;
+  top: 355px;
+  left: 0;
+  width: 100%;
+  padding-left: 32px;
+  padding-right: 80px;
 }
 
-.alien-stat{
+.alien-stat {
+  top: 5px;
 	position: absolute;
-    top: -2%;
-	left: 20%;
+  left: 0;
+  width: 100%;
+  padding-left: 32px;
+  padding-right: 80px;
 }
 
 .genderLegend h5 {
@@ -825,39 +835,102 @@ body.infoPage .container.questionnaire {
     float: left;
 }
 
-/*.col-fifteen:first-child{
-	width: 16.6%;
-    float: left;
-    text-align: center;
-}*/
+.row.age-row {
+  padding-left: 90px;
+  padding-right: 15px;
+  margin-top: -10px;
+}
+
+.row.news-row {
+  margin-top: 0;
+}
+
+.row.age-row .inner {
+  position: relative;
+}
+
+.row.age-row span {
+  position: absolute;
+  transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  color: white;
+  font-size: 14px;
+}
+
+.row.age-row span.age1 { left:0; }
+.row.age-row span.age2 { left:20%; }
+.row.age-row span.age3 { left:40%; }
+.row.age-row span.age4 { left:60%; }
+.row.age-row span.age5 { left:80%; }
+.row.age-row span.age6 { left:100%; }
+
+#newsColumnOne, #newsColumnOneMob { left:10%; }
+#newsColumnTwo, #newsColumnTwoMob { left:30%; }
+#newsColumnThird, #newsColumnThirdMob { left:50%; }
+#newsColumnFourth, #newsColumnFourthMob { left:70%; }
+#newsColumnFith, #newsColumnFithMob { left:90%; }
+
+.SlapTickleTag, .SpendSaveTag {
+  position: absolute;
+  transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  left: 50%;
+  width: 100%;
+  font-size: 14px;
+  margin: -7px 0 0 0;
+  line-height: 130%;
+  padding-left: 58px;
+}
+
+.inner.desktop { display: block; }
+.inner.mobile { display: none; }
+
+.SpendSaveTag {
+  margin-top: 2px;
+}
+
+.col-sm-12.newsLegends {
+  float: none !important;
+}
+
+.infoPage h4 {
+  font-size: 14px;
+}
+
+.alienYOLOGraphs {
+  margin-top: 39px;
+}
+
 .info-7a{
 	position: absolute;
-    top: 63%;
-    left: 24%;
-    width: 122px;
-    z-index: 999;
+  top: 275px;
+  left: 92px;
+  width: 122px;
+  z-index: 999;
 }
 
 .info-7b{
     position: absolute;
-    top: 64%;
-    left: 61%;
+    top: 280px;
+    left: calc(92px + 36.5%);
     width: 117px;
     z-index: 999;
 }
 
 .info-8a{
     position: absolute;
-    top: 62%;
-    left: 24%;
+    top: 345px;
+    left: 86px;
     width: 132px;
     z-index: 999;
 }
 
 .info-8b{
     position: absolute;
-    top: 61%;
-    left: 59%;
+    top: 342px;
+    left: calc(86px + 36%);
     width: 130px;
     z-index: 999;
 }
@@ -1145,83 +1218,124 @@ background-color: rgba(59, 86, 187, 0.35);
   .braveScore h1 > span:after {
     width: 190px;
     left: 75px;
-    top: 75px
+    bottom: -32px;
   }
-.info-7a {
-	position: absolute;
-	top: 63%;
-	left: 26%;
-	width: 108px;
-	z-index: 999;
-}
-.info-7b {
-    position: absolute;
-    top: 65%;
-    left: 61%;
-    width: 96px;
-    z-index: 999;
-}
-.info-8a {
-    position: absolute;
-    top: 65%;
-    left: 27%;
-    width: 100px;
-    z-index: 999;
-}
-.info-8b {
-    position: absolute;
-    top: 63%;
-    left: 60%;
-    width: 104px;
-    z-index: 999;
-}
-.info-9a {
-    position: absolute;
-    top: 9%;
-    left: 66%;
-    width: 157px;
-    z-index: 999;
-}
-.info-9b {
-    position: absolute;
-    top: 11%;
-    left: -7%;
-    width: 140px;
-    z-index: 999;
-}
-.info-10a {
-    position: absolute;
-    top: 56%;
-    left: -10%;
-    width: 170px;
-    z-index: 999;
-}
-.info-10b {
-    position: absolute;
-    top: 58%;
-    left: 66%;
-    width: 170px;
-    z-index: 999;
-}
-.info-gender {
-    position: absolute;
-    top: 35%;
-    left: 33%;
-    width: 117px;
-    z-index: 999;
-}
 
-.alien-stat{
-	position: absolute;
-    top: -5%;
-    left: 10%;
-}
+  .inner.mobile { display: block; }
 
-.eating-stat {
+  .news-row { position: relative; }
+
+  .row.age-row .inner.desktop {
+    position: relative;;
+    width: 100%;
+    margin-top: 42px;
+    text-align: left;
+  }
+  .inner.desktop span {
+    width: 48%;
+    left: 0 !important;
+    transform: translateX(0);
+    -moz-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    position: relative;
+    display: inline-block;;
+    text-align: left;
+    padding-left: 40px;
+    margin-bottom: 3px;
+    vertical-align: top;
+  }
+
+  .inner.desktop span::before {
+    content: '1';
+    display: block;
     position: absolute;
-    top: 100%;
-    left: 0%;
-}
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    border: 2px solid white;
+    padding: 0px 0px 0px 7px;
+    line-height: 23px;
+  }
+
+  .inner.desktop span:nth-child(2)::before {
+    content: '2';
+  }
+
+  .inner.desktop span:nth-child(3)::before {
+    content: '3';
+  }
+
+  .inner.desktop span:nth-child(4)::before {
+    content: '4';
+  }
+  .inner.desktop span:nth-child(5)::before {
+    content: '5';
+  }
+
+  .info-7a {
+  	position: absolute;
+    top: 286px;
+    left: 81px;
+  	width: 108px;
+  	z-index: 999;
+  }
+  .info-7b {
+      position: absolute;
+      top: 297px;
+      left: calc(81px + 34.5%);
+      width: 96px;
+      z-index: 999;
+  }
+  .info-8a {
+      position: absolute;
+      top: 371px;
+      width: 100px;
+      z-index: 999;
+  }
+  .info-8b {
+      position: absolute;
+      top: 363px;
+      left: calc(86px + 32%);
+      width: 104px;
+      z-index: 999;
+  }
+  .info-9a {
+      position: absolute;
+      top: 9%;
+      left: 66%;
+      width: 157px;
+      z-index: 999;
+  }
+  .info-9b {
+      position: absolute;
+      top: 11%;
+      left: -7%;
+      width: 140px;
+      z-index: 999;
+  }
+  .info-10a {
+      position: absolute;
+      top: 56%;
+      left: -10%;
+      width: 170px;
+      z-index: 999;
+  }
+  .info-10b {
+      position: absolute;
+      top: 58%;
+      left: 66%;
+      width: 170px;
+      z-index: 999;
+  }
+  .info-gender {
+      position: absolute;
+      top: 35%;
+      left: 33%;
+      width: 117px;
+      z-index: 999;
+  }
+
 
 #age-slider-text {
   font-size: 104px;
@@ -1295,7 +1409,7 @@ background-color: rgba(59, 86, 187, 0.35);
 
   .braveScore h1 > span:after {
     width: 160px;
-    top: 66px;
+    bottom: -28px;
     left: 70px;
   }
 
@@ -1313,6 +1427,11 @@ background-color: rgba(59, 86, 187, 0.35);
 
   .profilePage body {
 
+  }
+
+  input[type=range] {
+    width: 90%;
+    margin: auto;
   }
 
   .resultsPage .container.questionnaire {
@@ -1339,32 +1458,35 @@ background-color: rgba(59, 86, 187, 0.35);
     margin-bottom: 15px;
   }
 
+  .row.age-row .inner.desktop {
+    position: relative;
+  }
 
 	.info-7a {
 	    position: absolute;
-	    top: 55%;
-	    left: 21%;
+      top: 234px;
+      left: 150px;
 	    width: 173px;
 	    z-index: 999;
 	}
 	.info-7b {
 	    position: absolute;
-	    top: 58%;
-	    left: 66%;
+      top: 248px;
+      left: calc(150px + 43%);
 	    width: 156px;
 	    z-index: 999;
 	}
 	.info-8a {
 	    position: absolute;
-	    top: 55%;
-	    left: 22%;
+      top: 233px;
+      left: 150px;
 	    width: 180px;
 	    z-index: 999;
 	}
 	.info-8b {
 	    position: absolute;
-	    top: 48%;
-	    left: 62%;
+      top: 203px;
+      left: calc(150px + 40%);
 	    width: 207px;
 	    z-index: 999;
 	}
@@ -1408,19 +1530,28 @@ background-color: rgba(59, 86, 187, 0.35);
 		font-size: 12px;
 	}
 
-	.alien-stat{
-		position: absolute;
-    	top: -3%;
-    	left: 21%;
-	}
+  .SlapTickleTag, .SpendSaveTag, .alien-stat, .eating-stat {
+    padding: 0 10px;
+  }
 
-	.eating-stat {
-	    position: absolute;
-		top: 91%;
-    	left: 12%;
-	}
+  #newsChart {
+    margin-top: 50px;
+  }
 
+  #genderGauge {
+    margin-top: 75px;
+  }
 
+  .row.age-row .inner.desktop {
+    width: auto;
+    display: inline-block;
+    margin-left: -37.5px;
+  }
+
+  .inner.desktop span {
+    width: auto;
+    display: table;
+  }
 
 
 }
@@ -1515,6 +1646,7 @@ background-color: rgba(59, 86, 187, 0.35);
 
    #quizProfile h1 {
      font-size: 26px;
+     line-height: 1.4;
    }
 
    .med-tile {
@@ -1682,9 +1814,7 @@ background-color: rgba(59, 86, 187, 0.35);
 	}
 
 	.eating-stat {
-	    position: absolute;
-    	top: 43%;
-    	left: 8%;
+    	top: 193px;
 	}
 
 	.col-fifteen{
@@ -1730,17 +1860,6 @@ background-color: rgba(59, 86, 187, 0.35);
 	    z-index: 999;
 	}
 
-	.alien-stat{
-		position: absolute;
-	    top: -2%;
-		left: 11%;
-	}
-
-	.eating-stat {
-    	position: absolute;
-    	top: 43%;
-    	left: 3%;
-	}
 
 }
 
@@ -1770,6 +1889,15 @@ background-color: rgba(59, 86, 187, 0.35);
      padding: 10px;
    }
 
+   #a-input::before {
+    width: 96px;
+    height: 137px;
+  }
+  #b-input::before {
+    width: 113px;
+    height: 113px;
+  }
+
   .row.top {
     margin-top: 20px;
   }
@@ -1789,7 +1917,7 @@ background-color: rgba(59, 86, 187, 0.35);
 
    .occupation{
    		margin-bottom: 50px;
-   		margin-top: 110px;
+   		margin-top: 20px;
    }
 
    .cs-skin-border > span {
@@ -1886,23 +2014,17 @@ background-color: rgba(59, 86, 187, 0.35);
 	.age-row h4{
 		font-size: 12px;
 	}
-	.col-sm-12 .row{
-		display: none;
-	}
+
+  #newsChart {
+    margin-top: 0;
+  }
 
 	#alienChart{
 		margin-left: 30px;
 	}
-	.alien-stat{
-		position: absolute;
-    	top: -2%;
-    	left: 19%;
-	}
 
 	.eating-stat {
-    	position: absolute;
-    	top: 45%;
-    	left: 10%;
+    	top: 190px;
 	}
 
 	#infoProfile .eating-stat{
@@ -1915,6 +2037,22 @@ background-color: rgba(59, 86, 187, 0.35);
  }
 
   @media (max-width: 420px) {
+
+    .grades li label {
+      width: 90px;
+      height: 90px;
+      line-height: 2.5;
+      margin: 0;
+    }
+    #a-input::before {
+      width: 86px;
+      height: 137px;
+    }
+
+    #b-input::before {
+      width: 100px;
+      height: 100px;
+    }
     #quizProfile h1 {
       font-size: 21px;
     }
@@ -1961,34 +2099,56 @@ background-color: rgba(59, 86, 187, 0.35);
     }
     .braveScore h1 > span:after {
       width: 100px;
-      top: 42px;
+      bottom: -20px;
       left: 44px;
     }
+    .row.age-row span.age1,
+    .row.age-row span.age2,
+    .row.age-row span.age3,
+    .row.age-row span.age4,
+    .row.age-row span.age5,
+    .row.age-row span.age6 {
+      font-size: 10px;
+    }
+
+    .row.age-row .inner.desktop {
+      margin-left:0;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+    }
+
+    .news-row {
+      height: 215px;
+    }
+
     .info-7a {
 	    position: absolute;
-	    top: 60%;
-	    left: 19%;
+      top: 267px;
+      left: 76px;
 	    width: 132px;
 	    z-index: 999;
 	}
 	.info-7b {
 	    position: absolute;
-	    top: 63%;
-	    left: 60%;
+      top: 281px;
+      left: calc(76px + 36.5%);
 	    width: 115px;
 	    z-index: 999;
 	}
 	.info-8a {
 	    position: absolute;
-	    top: 66%;
-	    left: 24%;
+      top: 281px;
+      left: 83px;
 	    width: 119px;
 	    z-index: 999;
 	}
 	.info-8b {
 	    position: absolute;
-	    top: 59%;
-	    left: 56%;
+      top: 252px;
+      left: calc(83px + 29%);
 	    width: 148px;
 	    z-index: 999;
 	}
@@ -2030,16 +2190,6 @@ background-color: rgba(59, 86, 187, 0.35);
 	.age-row h4{
 		font-size: 12px;
 	}
-	.eating-stat {
-	    position: absolute;
-    	top: 46%;
-    	left: 3%;
-	}
-	.alien-stat {
-	    position: absolute;
-	    top: 2%;
-	    left: 11%;
-	}
 
 	#infoProfile .eating-stat{
 		font-size: 13px;
@@ -2055,23 +2205,6 @@ background-color: rgba(59, 86, 187, 0.35);
   }
 
  @media (max-width: 320px) {
-
- 	.grades li label {
-	    margin: 0px 0px 0.5em 20px;
-	    padding: 0 .5em;
-	    display: block;
-	    height: 100px;
-	    cursor: pointer;
-	    letter-spacing: -0.03em;
-	    font-family: "LubalinGraphStd-Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	    line-height: 2.8;
-	    border-radius: 115px;
-	    background-color: none;
-	    text-align: center;
-	    width: 100px;
-	    border: 2px solid #fff !important;
-	    font-size: 1.5em;
-	}
 
 	.info-7a {
 	    position: absolute;

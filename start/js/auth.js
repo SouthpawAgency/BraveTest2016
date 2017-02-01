@@ -239,14 +239,14 @@
 
               var gender = allInfo.gender;
                 maleAvBravescore = gender.M.avgBraveScore;
-                console.log('maleAvBravescore:' + maleAvBravescore);
+                // console.log('maleAvBravescore:' + maleAvBravescore);
                 femaleAvBravescore = gender.F.avgBraveScore;
-                console.log('maleAvBravescore:' + maleAvBravescore);
+                // console.log('maleAvBravescore:' + maleAvBravescore);
 
               var aliens = allInfo.aliens;
                 aliensYes = Math.round((aliens.Yes.nb/(aliens.No.nb+aliens.Yes.nb))*100);
                 aliensNo = 100 - aliensYes;
-              console.log('Aliens No:' + aliensNo + ' Aliens Yes:' + aliensYes);
+              // console.log('Aliens No:' + aliensNo + ' Aliens Yes:' + aliensYes);
 
               if (aliens.Yes.nb >= aliens.No.nb) {
                 alienValue = "don't";
@@ -261,7 +261,7 @@
               var eating = allInfo.eating;
                 eatingYolo = Math.round((eating.YOLO.nb/(eating["You are what you eat"].nb+eating.YOLO.nb))*100);
                 eatingYawye = 100 - eatingYolo;
-              console.log('Eating Yawye:' + eatingYawye + ' Eating Yolo:' + eatingYolo);
+              // console.log('Eating Yawye:' + eatingYawye + ' Eating Yolo:' + eatingYolo);
 
               if (eating["YOLO"].nb >= eating["You are what you eat"].nb) {
                 eatingValue = "think you are what you eat";
@@ -278,7 +278,7 @@
               var money = allInfo.money;
                 moneySpend = Math.round((money["Spend it all"].nb/(money["Save it all"].nb+money["Spend it all"].nb))*100);
                 moneySave = 100 - moneySpend;
-              console.log('Save it all:' + moneySave + ' Spend it all:' + moneySpend);
+              // console.log('Save it all:' + moneySave + ' Spend it all:' + moneySpend);
 
               if (money["Spend it all"].nb >= money["Save it all"].nb) {
                 moneyValue = "spend it all";
@@ -293,7 +293,7 @@
               var slap = allInfo.slap;
                 sSlap = Math.round((slap.Slap.nb/(slap.Tickle.nb+slap.Slap.nb))*100);
                 sTickle = 100 - sSlap;
-              console.log('Tickle:' + sTickle + ' Slap:' + sSlap);
+              // console.log('Tickle:' + sTickle + ' Slap:' + sSlap);
 
               if (slap.Slap.nb >= slap.Tickle.nb) {
                 slapValue = "Slap";
@@ -305,7 +305,7 @@
                 form.find('#slapValueP').html(sTickle);
               }
 
-              
+
               var age = allInfo.age;
               var allAges = age["15-24"].nb+age["25-34"].nb+age["35-44"].nb+age["45-54"].nb+age["55-64"].nb+age["65+"].nb;
 
@@ -315,7 +315,7 @@
                 fourtyfive = Math.round((age["45-54"].nb/(age["45-54"].n))*100);
                 fiftyfive = Math.round((age["55-64"].nb/(age["55-64"].n))*100);
                 sixtyfive = Math.round((age["65+"].nb/(age["65+"].n))*100);
-              console.log('15-24:' + fifteen + ' 25-34:' + twentyfive + ' 35-44:' + thirtyfive + ' 45-54:' + fourtyfive + ' 55-64:' + fiftyfive + ' 65plus:' + sixtyfive);
+              // console.log('15-24:' + fifteen + ' 25-34:' + twentyfive + ' 35-44:' + thirtyfive + ' 45-54:' + fourtyfive + ' 55-64:' + fiftyfive + ' 65plus:' + sixtyfive);
 
               // var age = allInfo.age;
               //   fifteen = age["15-24"].avgBraveScore;
@@ -345,20 +345,20 @@
 
 
               var news = allInfo.news;
-         
+
                 bbc = Math.round((news["BBC News Website"].nb/(news["BBC News Website"].n))*100);
-                buzzfeed = Math.round((news["Buzzfeed"].nb/(news["Buzzfeed"].n))*100);  
-                channelfour = Math.round((news["Channel 4 News Website"].nb/(news["Channel 4 News Website"].n))*100);  
-                dailyexpress = Math.round((news["Daily Express"].nb/(news["Daily Express"].n))*100); 
-                dailymail = Math.round((news["Daily Mail"].nb/(news["Daily Mail"].n))*100);     
-                dailymirror = Math.round((news["Daily Mirror"].nb/(news["Daily Mirror"].n))*100); 
+                buzzfeed = Math.round((news["Buzzfeed"].nb/(news["Buzzfeed"].n))*100);
+                channelfour = Math.round((news["Channel 4 News Website"].nb/(news["Channel 4 News Website"].n))*100);
+                dailyexpress = Math.round((news["Daily Express"].nb/(news["Daily Express"].n))*100);
+                dailymail = Math.round((news["Daily Mail"].nb/(news["Daily Mail"].n))*100);
+                dailymirror = Math.round((news["Daily Mirror"].nb/(news["Daily Mirror"].n))*100);
                 dailystar = Math.round((news["Daily Star"].nb/(news["Daily Star"].n))*100);
                 dailytelegraph = Math.round((news["Daily Telegraph"].nb/(news["Daily Telegraph"].n))*100);
-                financialtimes = Math.round((news["Financial Times"].nb/(news["Financial Times"].n))*100);            
-                huffington = Math.round((news["Huffington Post"].nb/(news["Huffington Post"].n))*100); 
+                financialtimes = Math.round((news["Financial Times"].nb/(news["Financial Times"].n))*100);
+                huffington = Math.round((news["Huffington Post"].nb/(news["Huffington Post"].n))*100);
                 mashable = Math.round((news["Mashable"].nb/(news["Mashable"].n))*100);
-                metro = Math.round((news["Metro"].nb/(news["Metro"].n))*100);       
-                guardian = Math.round((news["The Guardian"].nb/(news["The Guardian"].n))*100);            
+                metro = Math.round((news["Metro"].nb/(news["Metro"].n))*100);
+                guardian = Math.round((news["The Guardian"].nb/(news["The Guardian"].n))*100);
                 independent = Math.round((news["The Independent"].nb/(news["The Independent"].n))*100);
                 thesun = Math.round((news["The Sun"].nb/(news["The Sun"].n))*100);
                 times = Math.round((news["The Times"].nb/(news["The Times"].n))*100);
@@ -388,21 +388,21 @@
                 var array = [[bbc, bbcN], [buzzfeed, buzzfeedN], [channelfour, channelfourN], [dailyexpress, dailyexpressN], [dailymail, dailymailN], [dailymirror, dailymirrorN], [dailystar, dailystarN], [dailytelegraph, dailytelegraphN], [financialtimes, financialtimesN], [huffington, huffingtonN], [mashable, mashableN], [metro, metroN], [guardian, guardianN], [independent, independentN], [thesun, thesunN], [times, timesN], [twitter, twitterN], [vice, viceN]];
                 // var largest = Math.max.apply(Math, array);
                 array.sort(function(b,a) {return b[0]-a[0]});
-                console.log('Ordered News:' + array);
+                // console.log('Ordered News:' + array);
 
                 var lastItem = array.pop();
                 var secondLastItem = array.pop();
                 var thirdLastItem = array.pop();
                 var fourthLastItem = array.pop();
                 var fithLastItem = array.pop();
-                console.log('Highest News:' + lastItem);
-                console.log('2nd Highest News:' + secondLastItem);
-                console.log('3rd Highest News:' + thirdLastItem);
-                console.log('4th Highest News:' + fourthLastItem);
-                console.log('5th Highest News:' + fithLastItem);
-
-                console.log('Average Female Bravescore: ' + femaleAvBravescore);
-                console.log('Average Male Bravescore: ' + maleAvBravescore);
+                // console.log('Highest News:' + lastItem);
+                // console.log('2nd Highest News:' + secondLastItem);
+                // console.log('3rd Highest News:' + thirdLastItem);
+                // console.log('4th Highest News:' + fourthLastItem);
+                // console.log('5th Highest News:' + fithLastItem);
+                //
+                // console.log('Average Female Bravescore: ' + femaleAvBravescore);
+                // console.log('Average Male Bravescore: ' + maleAvBravescore);
 
                 form.find('#newsColumnOne').html(fourthLastItem[1]);
                 form.find('#newsColumnTwo').html(secondLastItem[1]);
@@ -415,7 +415,7 @@
 
                 fPercentage = Math.round((gender.F.nb/(gender.F.n)*100));
                 mPercentage = Math.round((gender.M.nb/(gender.M.n)*100));
-                console.log('Males:' + mPercentage + ' Females:' + fPercentage);
+                // console.log('Males:' + mPercentage + ' Females:' + fPercentage);
 
                 form.find('#femaleAvBravescore').html(fPercentage);
                 form.find('#maleAvBravescore').html(mPercentage);
@@ -444,9 +444,9 @@
                         enabled: false
                     },
                     title: {
-                        text: 'Average Brave Score. Male vs. Female',
+                        text: 'Average Brave Score:<br/> Male vs. Female',
                         style: {
-                            fontSize: '18px',
+                            fontSize: '14px',
                             color: 'white',
                             fontFamily: "LubalinGraphStd-Book",
                         }
@@ -454,8 +454,8 @@
                     credits: {
                         enabled: false
                     },
-                    exporting: { 
-                      enabled: false 
+                    exporting: {
+                      enabled: false
                     },
                     pane: {
                         size: '100%',
@@ -524,8 +524,8 @@
                     title: {
                         text: ''
                     },
-                    exporting: { 
-                        enabled: false 
+                    exporting: {
+                        enabled: false
                     },
                     credits: {
                         enabled: false
@@ -533,7 +533,7 @@
                     title: {
                         text: 'How Brave is your age range?',
                         style: {
-                            fontSize: '18px',
+                            fontSize: '14px',
                             color: 'white',
                             fontFamily: "LubalinGraphStd-Book",
                             align: 'top',
@@ -544,35 +544,34 @@
                             text: "Percentage of participants that are brave",
                             style: {
                                 fontSize: '14px',
-                                color: 'rgba(255,255,255,0.6)',
-                                fontFamily: "LubalinGraphStd-Book",    
+                                color: 'white',
+                                fontFamily: "LubalinGraphStd-Book",
                             },
                         },
                         labels: {
                             style: {
-                                color: 'rgba(255,255,255,0.5)',
+                                color: 'white',
                                 fontSize:'14px',
                                 fontFamily: "LubalinGraphStd-Book",
                             },
-                        },  
+                        },
                         gridLineColor: 'rgba(255,255,255,0.3)',
-                        lineColor: 'rgba(255,255,255,0.3)',
+                        lineColor: 'white',
                         gridLineWidth: 1,
                         minorTickLength: 0,
                         tickColor: 'white',
                         tickPosition: 'outside',
                         tickInterval: 2,
                         tickWidth: 2,
-                        startOnTick: false,
+                        startOnTick: true,
                         offset : 20,
                     },
                     xAxis: {
                         title: {
-                            text: "Age Group",
                             style: {
                                 fontSize: '14px',
                                 color: 'rgba(255,255,255,0.6)',
-                                fontFamily: "LubalinGraphStd-Book",    
+                                fontFamily: "LubalinGraphStd-Book",
                             },
                         },
                     labels: {
@@ -616,7 +615,7 @@
                 // MONEY BAR CHART
                 var chart,
                 money_ranges = [['Spend it all', moneySpend],['Save it all', moneySave]];
-                
+
 
                 chart = new Highcharts.Chart({
                     chart: {
@@ -629,8 +628,8 @@
                     title: {
                         text: ''
                     },
-                    exporting: { 
-                        enabled: false 
+                    exporting: {
+                        enabled: false
                     },
                     credits: {
                         enabled: false
@@ -641,7 +640,7 @@
                         },
                         labels: {
                             style: {
-                                color: 'rgba(255,255,255,0.5)',
+                                color: 'white',
                                 fontSize:'14px',
                                 fontFamily: "LubalinGraphStd-Book",
                             }
@@ -677,7 +676,7 @@
                         formatter: function() {
                             return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
                         },
-                        enabled: false 
+                        enabled: false
                     },
                     series: [{
                         name: 'Ages',
@@ -711,8 +710,8 @@
                     title: {
                         text: ''
                     },
-                    exporting: { 
-                        enabled: false 
+                    exporting: {
+                        enabled: false
                     },
                     credits: {
                         enabled: false
@@ -723,11 +722,11 @@
                         },
                         labels: {
                             style: {
-                                color: 'rgba(255,255,255,0.5)',
+                                color: 'white',
                                 fontSize:'14px',
                                 fontFamily: "LubalinGraphStd-Book",
                             }
-                        },                        
+                        },
                         visible: true,
                         min: 0,
                         max: 100,
@@ -767,7 +766,7 @@
                         formatter: function() {
                             return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
                         },
-                        enabled: false 
+                        enabled: false
                     },
                     series: [{
                         name: 'Ages',
@@ -787,7 +786,7 @@
                                 mouseOver: function() {
                                    $(this.series.chart.xAxis[0].labelGroup.element.childNodes[this.x]).css('font-size', '24px');
                                 },
-                                mouseOut: function() {                       
+                                mouseOut: function() {
                                      $(this.series.chart.xAxis[0].labelGroup.element.childNodes[this.x]).css('font-size', '24px');
                                 }
                             }
@@ -811,8 +810,8 @@
                     title: {
                         text: ''
                     },
-                    exporting: { 
-                      enabled: false 
+                    exporting: {
+                      enabled: false
                     },
 
                     credits: {
@@ -827,13 +826,13 @@
                         },
                         tickWidth: 0,
                         lineWidth: 0,
-                        minorGridLineWidth: 0         
+                        minorGridLineWidth: 0
                     },
                     yAxis: {
-                        
+
                         minorGridLineWidth: 0,
                         majorGridLineWidth: 0,
-                        
+
                         gridLineWidth: 0,
                         labels: {
                             enabled: false
@@ -856,7 +855,7 @@
                             return ''+
                                 this.series.name +': '+ this.y +'';
                         },
-                        enabled: false 
+                        enabled: false
                     },
 
                     plotOptions: {
@@ -874,7 +873,7 @@
                         data: [aliensNo, eatingYawye],
                         color: "rgba(0,0,0,0)",
                         borderWidth: 2
-                    }, 
+                    },
                     {
                         name: 'No',
                         data: [aliensYes, eatingYolo],
@@ -901,28 +900,28 @@
                     title: {
                         text: ''
                     },
-                    exporting: { 
-                      enabled: false 
+                    exporting: {
+                      enabled: false
                     },
                     credits: {
                       enabled: false
                     },
                     yAxis: {
                         title: {
-                            text: "Percentage of participants that are brave",
+                            text: "Percentage of readers that are brave",
                             style: {
                                 fontSize: '14px',
-                                color: 'rgba(255,255,255,0.6)',
-                                fontFamily: "LubalinGraphStd-Book",    
+                                color: 'white',
+                                fontFamily: "LubalinGraphStd-Book",
                             },
                         },
                         labels: {
                             style: {
-                                color: 'rgba(255,255,255,0.5)',
+                                color: 'white',
                                 fontSize:'14px',
                                 fontFamily: "LubalinGraphStd-Book",
                             }
-                        },                        
+                        },
                         visible: true,
                         allowDecimals: false,
                         gridLineWidth: 0,
@@ -937,11 +936,10 @@
                     },
                     xAxis: {
                         title: {
-                            text: "News Source",
                             style: {
                                 fontSize: '14px',
-                                color: 'rgba(255,255,255,0.6)',
-                                fontFamily: "LubalinGraphStd-Book",    
+                                color: 'white',
+                                fontFamily: "LubalinGraphStd-Book",
                             },
                         },
                         labels: {
@@ -951,9 +949,9 @@
                         lineWidth: 2,
                     },
                     title: {
-                        text: 'How Brave are the readers of',
+                        text: 'Brave people read...',
                         style: {
-                            fontSize: '18px',
+                            fontSize: '14px',
                             color: 'white',
                             fontFamily: "LubalinGraphStd-Book",
                             align: 'top',
@@ -1043,7 +1041,7 @@
             form.find('#txtName').val(user.name);
             form.find('#ddlDino').val(user.favoriteDinosaur);
 
-            
+
         });
 
         // Save user's info to Firebase
@@ -1093,6 +1091,7 @@
           // set the fields
           $('.fb a').attr("href",fbLink);
           $('.tw a').attr("href",twLink);
+
       });
     };
 

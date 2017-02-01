@@ -351,8 +351,8 @@
                                 <div class="row infographic-text score-block">
                                   <div id="sharePage" class="sharePage">
                                       <ul class="shareIcons">
-                                      <li class="fb"><a href="" class="popup"></a></li>
-                                      <li class="tw"><a href="" class="popup"></a></li>
+                                      <li class="fb"><a class="popup" href=""></a></li>
+                                      <li class="tw"><a class="popup" href=""></a></li>
                                       </ul>
                                   </div>
                                 </div>
@@ -370,8 +370,8 @@
                         <h1>Thanks for taking part in the <strong>Southpaw</strong> Brave Test</h1>
                         <h2>Share your results with your friends!</h2>
                         <ul class="shareIcons">
-                        <li class="fb"><a href="" class="popup"></a></li>
-                        <li class="tw"><a href="" class="popup"></a></li>
+                        <li class="fb"><a class="popup" href=""></a></li>
+                        <li class="tw"><a class="popup" href=""></a></li>
                         </ul>
                         <p>If you want to know more about Southpaw - The Home of the Brave, follow us on social media or visit <a href="http://southpawagency.com">www.southpawagency.com</a>.</p>
                         <a href="../index.php" class="cd-modal-trigger btn quizbtn" style="text-decoration:none;">RESTART</a>
@@ -383,29 +383,18 @@
 
                         <div class="row top infographics-holder">
                             <div class="col-md-7">
-                              <div id="ageChart"></div>
+                              <div id="ageChart" class="margin-top"></div>
                                     <div class="col-md-12">
                                         <div class="row age-row">
-                                              <div class="col-fifteen">
-                                                <h4><span>15-24</span></h4>
-                                              </div>
-                                              <div class="col-fifteen">
-                                                <h4><span>25-34</span></h4>
-                                              </div><!-- end inner row -->
-
-                                              <div class="col-fifteen">
-                                                <h4><span>35-44</span></h4>
-                                              </div>
-                                              <div class="col-fifteen">
-                                                <h4><span>45-54</span></h4>
-                                              </div>
-                                              <div class="col-fifteen">
-                                                <h4><span>55-64</span></h4>
-                                              </div>
-                                              <div class="col-fifteen">
-                                                <h4><span>65+</span></h4>
-                                              </div>
-                                            </div><!-- end inner row -->
+                                            <div class="inner">
+                                                <span class="age1">15-24</span>
+                                                <span class="age2">25-34</span>
+                                                <span class="age3">35-44</span>
+                                                <span class="age4">45-54</span>
+                                                <span class="age5">55-64</span>
+                                                <span class="age6">65+</span>
+                                            </div>
+                                        </div>
                                      </div>
                             </div>
                               <div class="col-md-1">
@@ -413,8 +402,8 @@
                             <div class="col-md-4">
                             <img class="info-8a" src="images/infographics/8a.png">
                             <img class="info-8b" src="images/infographics/8b.png">
-                                <div id="slapChart"></div>
-                            <h4><span id="slapValueP"></span>% of brave people prefer a <span id="slapValue"></span></h4>
+                            <div id="slapChart" class="margin-top"></div>
+                            <h4 class="SlapTickleTag"><span id="slapValueP"></span>% of brave people prefer a <span id="slapValue"></span></h4>
                             </div>
 
                         </div>
@@ -424,11 +413,11 @@
                                 <img class="info-7a" src="images/infographics/7a.png">
                                 <img class="info-7b" src="images/infographics/7b.png">
                                 <div id="moneyChart"></div>
-                            <h4><span id="moneyValueP"></span>% of brave people would <span id="moneyValue"></span></h4>
+                            <h4 class="SpendSaveTag"><span id="moneyValueP"></span>% of brave people would <span id="moneyValue"></span></h4>
                             </div>
                               <div class="col-md-1">
                             </div>
-                            <div class="col-md-7">
+                            <div class="col-md-7 alienYOLOGraphs">
                               <img class="info-9a" src="images/infographics/9a-D.png">
                               <img class="info-9b" src="images/infographics/9b-D.png">
                               <img class="info-10a" src="images/infographics/10a-D.png">
@@ -439,40 +428,29 @@
                             </div>
                         </div>
 
-                        <div class="row top infographics-holder margin-top">
+                        <div class="row top infographics-holder last-row margin-top">
                             <div class="col-md-7">
                             <!-- <h4>How Brave are the readers of..</h4> -->
                                 <div id="newsChart"></div>
 
-                                    <div class="col-sm-12">
-                                        <div class="row">
-                                          <div class="">
-                                            <div class="row">
-                                              <div class="col-thirteen">
-                                                <h4></h4>
-                                              </div>
-                                              <div class="col-seventeen">
-                                                <h5><span id="newsColumnOne"></span></h5>
-                                              </div>
-                                              <div class="col-seventeen">
-                                                <h5><span id="newsColumnTwo"></span></h5>
-                                              </div><!-- end inner row -->
-
-                                              <div class="col-seventeen">
-                                                <h5><span id="newsColumnThird"></span></h5>
-                                              </div>
-                                              <div class="col-seventeen">
-                                                <h5><span id="newsColumnFourth"></span></h5>
-                                              </div>
-                                              <div class="col-seventeen">
-                                                <h5><span id="newsColumnFith"></span></h5>
-                                              </div>
-                                              <div class="col-two">
-                                                <h4></h4>
-                                              </div>
-                                            </div><!-- end inner row -->
+                                    <div class="col-sm-12 newsLegends">
+                                      <div class="row age-row news-row">
+                                          <div class="inner desktop">
+                                            <span id="newsColumnOne"></span>
+                                            <span id="newsColumnTwo"></span>
+                                            <span id="newsColumnThird"></span>
+                                            <span id="newsColumnFourth"></span>
+                                            <span id="newsColumnFith"></span>
                                           </div>
-                                        </div>​<!-- end outer row -->
+                                          <div class="inner mobile">
+                                            <span id="newsColumnOneMob">1</span>
+                                            <span id="newsColumnTwoMob">2</span>
+                                            <span id="newsColumnThirdMob">3</span>
+                                            <span id="newsColumnFourthMob">4</span>
+                                            <span id="newsColumnFithMob">5</span>
+
+                                          </div>
+                                      </div>
                                      </div>
                             </div>
                             <div class="col-md-1">
@@ -502,8 +480,8 @@
                                       <h1>Thanks for taking part in the <strong>Southpaw</strong> Brave Test</h1>
                                       <h2>Share your results with your friends!</h2>
                                       <ul class="shareIcons">
-                                      <li class="fb"><a href="" class="popup"></a></li>
-                                      <li class="tw"><a href="" class="popup"></a></li>
+                                      <li class="fb"><a href="http://test.com" class="popup"></a></li>
+                                      <li class="tw"><a href="http://test.com" class="popup"></a></li>
                                       </ul>
                                       <p>If you want to know more about Southpaw - The Home of The Brave, follow us on social media or visit <a href="http://southpawagency.com">www.southpawagency.com</a>.</p>
                                   </div>
@@ -526,7 +504,7 @@
                                       <h2>Test your friends!</h2>
                                       <ul class="shareIcons">
                                       <li class="fb"><a href="https://www.facebook.com/dialog/feed?app_id=1707512429512286&redirect_uri=http://southpawagency.com/bravetest/close.html&link=http://southpawagency.com/bravetest&picture=http://southpawagency.com/bravetest/start/images/ThumbnailImage.jpg&title=Southpaw%20Brave%20Test&description=How%20brave%20are%20you?%20Take%20the%20test%20here." class="popup"></a></li>
-                                      <li class="tw"><a href="https://twitter.com/intent/tweet?text=How%20brave%20are%20you?%20Take%20the%20test%20here%3A%20http%3A//southpawagency.com/bravetest/"" class="popup"></a></li>
+                                      <li class="tw"><a href="https://twitter.com/intent/tweet?text=How%20brave%20are%20you?%20Take%20the%20test%20here%3A%20http%3A//southpawagency.com/bravetest/" class="popup"></a></li>
                                       </ul>
                                       <p>If you want to know more about Southpaw - The Home of The Brave, follow us on social media or visit <a href="http://southpawagency.com">www.southpawagency.com</a>.</p>
                                   </div>
@@ -627,11 +605,6 @@
 
           <script type="text/javascript">
 
-          $('a').on('click touchend', function(e) {
-          var el = $(this);
-          var link = el.attr('href');
-          window.location = link;
-          });
 
           function changeImage() {
 
