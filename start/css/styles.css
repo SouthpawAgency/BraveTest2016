@@ -1631,30 +1631,30 @@ background-color: rgba(59, 86, 187, 0.35);
 
 	.info-7a {
 	    position: absolute;
-	    top: 55%;
-	    left: 19%;
+	    top: 59%;
+    	left: 21%;
 	    width: 173px;
 	    z-index: 999;
 	}
 
 	.info-7b {
 	    position: absolute;
-	    top: 58%;
-	    left: 63%;
+	    top: 62%;
+	    left: 64%;
 	    width: 156px;
 	    z-index: 999;
 	}
 	.info-8a {
 	    position: absolute;
-	    top: 55%;
+	    top: 59%;
 	    left: 21%;
 	    width: 180px;
 	    z-index: 999;
 	}
 	.info-8b {
 	    position: absolute;
-	    top: 48%;
-	    left: 60%;
+	    top: 51%;
+	    left: 61%;
 	    width: 207px;
 	    z-index: 999;
 	}
@@ -1817,28 +1817,28 @@ background-color: rgba(59, 86, 187, 0.35);
 
   	.info-7b {
 	    position: absolute;
-	    top: 66%;
+	    top: 70.5%;
 	    left: 67%;
 	    width: 114px;
 	    z-index: 999;
 	}
 	.info-7a {
 	    position: absolute;
-	    top: 64%;
-	    left: 26%;
+    	top: 68.8%;
+    	left: 25%;
 	    width: 124px;
 	    z-index: 999;
 	}
 	.info-8a {
 	    position: absolute;
-	    top: 66%;
+	    top: 70.5%;
 	    left: 27%;
 	    width: 119px;
 	    z-index: 999;
 	}
 	.info-8b {
 	    position: absolute;
-	    top: 59%;
+	    top: 63%;
 	    left: 63%;
 	    width: 148px;
 	    z-index: 999;
@@ -2009,29 +2009,29 @@ background-color: rgba(59, 86, 187, 0.35);
 
 	.info-7b {
 	    position: absolute;
-	    top: 66%;
+	    top: 70.5%;
 	    left: 62%;
 	    width: 114px;
 	    z-index: 999;
 	}
 	.info-7a {
 	    position: absolute;
-	    top: 64%;
+	    top: 68.8%;
 	    left: 24%;
 	    width: 124px;
 	    z-index: 999;
 	}
 	.info-8a {
 	    position: absolute;
-	    top: 66%;
+		top: 70.5%;
 	    left: 25%;
 	    width: 119px;
 	    z-index: 999;
 	}
 	.info-8b {
 	    position: absolute;
-	    top: 59%;
-	    left: 59%;
+    	top: 63.3%;
+    	left: 60%;
 	    width: 148px;
 	    z-index: 999;
 	}
@@ -2263,32 +2263,447 @@ background-color: rgba(59, 86, 187, 0.35);
 	}
   }
 
- @media (max-width: 320px) {
+ @media (max-width: 414px) {
+
+    .grades li label {
+      width: 90px;
+      height: 90px;
+      line-height: 2.5;
+      margin: 0;
+    }
+    #a-input::before {
+      width: 86px;
+      height: 137px;
+    }
+
+    #b-input::before {
+      width: 100px;
+      height: 100px;
+    }
+    #quizProfile h1 {
+      font-size: 21px;
+    }
+    #quizProfile .quote {
+      font-size: 33px;
+    }
+    .full-tile h1 {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+      .row.top {
+	    margin-top: 20px;
+	  }
+
+	  #ageChart{
+	  	 margin-top: 100px;
+	  }
+
+    .question5 .questionFirstPart {
+      width: 100%;
+    }
+
+    .question7 .questionFirstPart {
+      width: auto;
+    }
+    .question7 .questionSecondPart:after {
+      display: none;
+    }
+
+    .question8 .questionFirstPart {
+      width: auto;
+    }
+
+    .question8 .questionFirstPart {
+      width: auto;
+    }
+
+    .question9 .questionFirstPart {
+      width: auto;
+    }
+    .braveScore h1 > span {
+      font-size: 48px;
+    }
+    .braveScore h1 > span:after {
+      width: 100px;
+      bottom: -20px;
+      left: 44px;
+    }
+    .row.age-row span.age1,
+    .row.age-row span.age2,
+    .row.age-row span.age3,
+    .row.age-row span.age4,
+    .row.age-row span.age5,
+    .row.age-row span.age6 {
+      font-size: 10px;
+    }
+
+    .row.age-row .inner.desktop {
+      margin-left:0;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+    }
+
+    .news-row {
+      height: 215px;
+    }
+
+    .info-7a {
+	    position: absolute;
+        top: 269px;
+    	left: 85px;
+	    width: 132px;
+	    z-index: 999;
+	}
+	.info-7b {
+	    position: absolute;
+      top: 281px;
+      left: calc(76px + 41%);
+	    width: 115px;
+	    z-index: 999;
+	}
+	.info-8a {
+	    position: absolute;
+      	top: 281px;
+        left: 94px;
+	    width: 119px;
+	    z-index: 999;
+	}
+	.info-8b {
+	    position: absolute;
+      top: 252px;
+      left: calc(83px + 35%);
+	    width: 148px;
+	    z-index: 999;
+	}
+	.info-9b {
+	    position: absolute;
+	    top: 11%;
+	    left: -4%;
+	    width: 140px;
+	    z-index: 999;
+	}
+	.info-9a {
+	    position: absolute;
+	    top: 8%;
+	    left: 59%;
+	    width: 165px;
+	    z-index: 999;
+	}
+	.info-10a {
+	    position: absolute;
+	    top: 56%;
+	    left: -7%;
+	    width: 170px;
+	    z-index: 999;
+	}
+	.info-10b {
+	    position: absolute;
+	    top: 56%;
+	    left: 56%;
+	    width: 180px;
+	    z-index: 999;
+	}
+	.info-gender {
+	    position: absolute;
+	    top: 32%;
+	    left: 31%;
+	    width: 151px;
+	    z-index: 999;
+	}
+	.age-row h4{
+		font-size: 12px;
+	}
+
+	#infoProfile .eating-stat{
+		font-size: 13px;
+	}
+
+	#infoProfile .alien-stat{
+		font-size: 13px;
+	}
+
+	.col-fifteen:first-child{
+		margin-left: 16%;
+	}
+  }
+
+  @media (max-width: 375px) {
+
+    .grades li label {
+      width: 90px;
+      height: 90px;
+      line-height: 2.5;
+      margin: 0;
+    }
+    #a-input::before {
+      width: 86px;
+      height: 137px;
+    }
+
+    #b-input::before {
+      width: 100px;
+      height: 100px;
+    }
+    #quizProfile h1 {
+      font-size: 21px;
+    }
+    #quizProfile .quote {
+      font-size: 33px;
+    }
+    .full-tile h1 {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+      .row.top {
+	    margin-top: 20px;
+	  }
+
+	  #ageChart{
+	  	 margin-top: 100px;
+	  }
+
+    .question5 .questionFirstPart {
+      width: 100%;
+    }
+
+    .question7 .questionFirstPart {
+      width: auto;
+    }
+    .question7 .questionSecondPart:after {
+      display: none;
+    }
+
+    .question8 .questionFirstPart {
+      width: auto;
+    }
+
+    .question8 .questionFirstPart {
+      width: auto;
+    }
+
+    .question9 .questionFirstPart {
+      width: auto;
+    }
+    .braveScore h1 > span {
+      font-size: 48px;
+    }
+    .braveScore h1 > span:after {
+      width: 100px;
+      bottom: -20px;
+      left: 44px;
+    }
+    .row.age-row span.age1,
+    .row.age-row span.age2,
+    .row.age-row span.age3,
+    .row.age-row span.age4,
+    .row.age-row span.age5,
+    .row.age-row span.age6 {
+      font-size: 10px;
+    }
+
+    .row.age-row .inner.desktop {
+      margin-left:0;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+    }
+
+    .news-row {
+      height: 215px;
+    }
+
+    .info-7a {
+	    position: absolute;
+    	top: 268px;
+    	left: 79px;
+	    width: 132px;
+	    z-index: 999;
+	}
+	.info-7b {
+	    position: absolute;
+      top: 281px;
+      left: calc(76px + 37%);
+	    width: 115px;
+	    z-index: 999;
+	}
+	.info-8a {
+	    position: absolute;
+	    top: 281px;
+	    left: 85px;
+	    width: 119px;
+	}
+	.info-8b {
+	    position: absolute;
+      top: 252px;
+      left: calc(83px + 30%);
+	    width: 148px;
+	    z-index: 999;
+	}
+	.info-9b {
+	    position: absolute;
+	    top: 11%;
+	    left: -4%;
+	    width: 140px;
+	    z-index: 999;
+	}
+	.info-9a {
+	    position: absolute;
+	    top: 8%;
+	    left: 59%;
+	    width: 165px;
+	    z-index: 999;
+	}
+	.info-10a {
+	    position: absolute;
+	    top: 56%;
+	    left: -7%;
+	    width: 170px;
+	    z-index: 999;
+	}
+	.info-10b {
+	    position: absolute;
+	    top: 56%;
+	    left: 56%;
+	    width: 180px;
+	    z-index: 999;
+	}
+	.info-gender {
+	    position: absolute;
+	    top: 32%;
+	    left: 31%;
+	    width: 151px;
+	    z-index: 999;
+	}
+	.age-row h4{
+		font-size: 12px;
+	}
+
+	#infoProfile .eating-stat{
+		font-size: 13px;
+	}
+
+	#infoProfile .alien-stat{
+		font-size: 13px;
+	}
+
+	.col-fifteen:first-child{
+		margin-left: 16%;
+	}
+  }
+
+ @media (max-width: 360px) {
 
 	.info-7a {
 	    position: absolute;
-	    top: 65%;
+	    top: 73%;
 	    left: 27%;
 	    width: 104px;
 	    z-index: 999;
 	}
 	.info-7b {
 	    position: absolute;
-	    top: 67%;
+	    top: 75%;
+	    left: 61.5%;
+	    width: 93px;
+	    z-index: 999;
+	}
+ 	.info-8a {
+	    position: absolute;
+    	top: 296px;
+    	left: 94px;
+	    width: 103px;
+	    z-index: 999;
+	}
+	.info-8b {
+	    position: absolute;
+   		top: 70.5%;
+    	left: 58%;
+	    width: 113px;
+	    z-index: 999;
+	}
+	.info-9a {
+	    position: absolute;
+	    top: 16%;
+	    left: 61%;
+	    width: 99px;
+	    z-index: 999;
+	}
+	.info-9b {
+	    position: absolute;
+	    top: 16%;
+	    left: 4%;
+	    width: 90px;
+	    z-index: 999;
+	}
+	.info-10a {
+	    position: absolute;
+	    top: 57%;
+	    left: -4%;
+	    width: 132px;
+	    z-index: 999;
+	}
+	.info-10b {
+	    position: absolute;
+	    top: 59%;
+	    left: 61%;
+	    width: 110px;
+	    z-index: 999;
+	}
+	.info-gender {
+	    position: absolute;
+	    top: 34%;
+	    left: 33%;
+	    width: 110px;
+	    z-index: 999;
+	}
+
+	.col-fifteen {
+	    width: 13%;
+	    float: left;
+	    text-align: right;
+	}
+
+	.row .age-row h4{
+		font-size: 9px;
+	}
+	.col-fifteen:first-child{
+		margin-left: 22%;
+	}
+ }
+
+ @media (max-width: 320px) {
+
+	.info-7a {
+	    position: absolute;
+	    top: 73%;
+	    left: 27%;
+	    width: 104px;
+	    z-index: 999;
+	}
+	.info-7b {
+	    position: absolute;
+	    top: 75%;
 	    left: 60%;
 	    width: 93px;
 	    z-index: 999;
 	}
  	.info-8a {
 	    position: absolute;
-	    top: 66%;
+	    top: 74%;
 	    left: 27%;
 	    width: 103px;
 	    z-index: 999;
 	}
 	.info-8b {
 	    position: absolute;
-	    top: 63%;
+	    top: 70%;
 	    left: 56%;
 	    width: 113px;
 	    z-index: 999;
