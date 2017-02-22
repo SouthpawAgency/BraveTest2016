@@ -33,6 +33,8 @@ $(document).ready(function() {
 
     return false;
   });
+
+  $('.scrollmore-holder').css('top', $(window).height() + $(window).scrollTop() - 50);
 });
 
 $( window ).resize(function() {
@@ -40,6 +42,14 @@ $( window ).resize(function() {
     $('.inner.mobile').insertBefore($('.inner.desktop'));
   } else {
     $('.inner.desktop').insertBefore($('.inner.mobile'));
+  }
+});
+
+$( window ).scroll(function() {
+  $('.scrollmore-holder').css('top', $(window).height() + $(window).scrollTop() - 50);
+
+  if ($(window).scrollTop() > 100) {
+    $('.scrollmore-holder').fadeOut();
   }
 });
 

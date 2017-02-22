@@ -211,12 +211,15 @@
     controllers.quiz = function (form) {
       $('body').removeClass().addClass('ng-scope quizPage');
       $('.logo').css('display','none');
+
     };
 
     // logout immediately when the controller is invoked
     controllers.info = function (form) {
       $('body').removeClass().addClass('ng-scope infoPage');
       $('.logo').css('display','none');
+
+      $('.scrollmore-holder').css('display', 'block');
 
 
 

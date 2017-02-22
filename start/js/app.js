@@ -322,6 +322,12 @@ jQuery(document).ready(function($){
             $('body').css("background-image",'url("images/'+profileBackground+'")');
             $('body').removeClass().addClass('ng-scope resultsPage');
             $('body').addClass('profilePage');
+            if ($(window).height() < 780) {
+              $('.scrollmore-holder').css('display', 'block');
+              console.log('less than');
+            } else {
+              console.log('more than');
+            }
 
             var braveScore = 0;
             for (i = 0; i < categoryCount; i++) {
