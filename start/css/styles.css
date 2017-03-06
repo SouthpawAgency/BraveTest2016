@@ -558,7 +558,7 @@ body.infoPage .container.questionnaire {
 
  .braveScore h1 > span {
    font-family: 'brush-tipTerrence', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-   font-size: 120px;
+   font-size: 116px;
    position: relative;
  }
 
@@ -865,11 +865,16 @@ body.infoPage .container.questionnaire {
 .row.age-row span.age5 { left:80%; }
 .row.age-row span.age6 { left:100%; }
 
-#newsColumnOne, #newsColumnOneMob { left:10%; }
-#newsColumnTwo, #newsColumnTwoMob { left:30%; }
-#newsColumnThird, #newsColumnThirdMob { left:50%; }
-#newsColumnFourth, #newsColumnFourthMob { left:70%; }
-#newsColumnFith, #newsColumnFithMob { left:90%; }
+#newsColumnOne, #newsColumnOneMob { left:10%;     width: 20%;
+    line-height: 20px; }
+#newsColumnTwo, #newsColumnTwoMob { left:30%;     width: 20%;
+    line-height: 20px;}
+#newsColumnThird, #newsColumnThirdMob { left:50%;     width: 20%;
+    line-height: 20px;}
+#newsColumnFourth, #newsColumnFourthMob { left:70%;     width: 20%;
+    line-height: 20px;}
+#newsColumnFith, #newsColumnFithMob { left:90%;     width: 20%;
+    line-height: 20px;}
 
 .SlapTickleTag, .SpendSaveTag {
   position: absolute;

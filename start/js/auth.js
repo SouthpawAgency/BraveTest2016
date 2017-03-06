@@ -952,7 +952,7 @@
                         lineWidth: 2,
                     },
                     title: {
-                        text: 'Brave people read...',
+                        text: 'News sources with the bravest readers',
                         style: {
                             fontSize: '14px',
                             color: 'white',
