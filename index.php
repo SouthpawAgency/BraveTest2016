@@ -23,7 +23,7 @@
   	<meta property="og:description" content="How Brave are you? Take the 3-minute Southpaw Brave Test to find out." />
 
     <!-- TITLE -->
-    <title>Southpaw | Creative Communications Agency</title>
+    <title>Southpaw | Brave Test</title>
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
@@ -38,7 +38,7 @@
 
     <!-- ICONS -->
     <link rel="apple-touch-icon" href="assets/img/favicons/favicon152x152.png" sizes="152x152" />
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicons/favicon.ico"/>
 </head>
 <body class="home-page">
 
@@ -53,9 +53,10 @@
         <div class="banner-slogan">
             <h1 class="large long-word text-center white">How <span>Brave</span> are you?</h1>
             <p>Take the 3-minute Southpaw Brave Test to find out.</p><p>Please read each of the following statements and rate how much you agree with each one.</p>
+            <a href="start/" class="btn">LET'S GO!</a>
         </div>
 
-        <a href="start/" class="btn">LET'S GO!</a>
+
 
     </div><!-- /banner -->
 

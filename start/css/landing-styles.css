@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald);
 
+body, html { min-width: 320px; }
+
 body {
   min-height:100vh;
   background:url('../images/Main page.jpg');
@@ -20,6 +22,7 @@ body {
   opacity: 1;
   position: absolute;
   top: 50%;
+  padding-top: 30px;
   transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
@@ -61,10 +64,6 @@ body {
 }
 
 .btn {
-  position: absolute;
-  bottom: 20%;
-  left: 50%;
-  transform: translateX(-50%);
   color: white;
   font-family: 'Oswald', sans-serif;
   background: url('../images/button.svg');
@@ -77,11 +76,11 @@ body {
   width: 200px;
   display: inline-block;
   font-size: 24px;
-  margin-top: 25px;
+  margin-top: 60px;
 }
 
-a.btn:hover {
-  color: white;
+a.btn:hover, a.btn:active {
+  color: white !important;
   font-family: 'Oswald', sans-serif;
   background: url('../images/button.svg');
   border: none;
@@ -93,7 +92,6 @@ a.btn:hover {
   width: 200px;
   display: inline-block;
   font-size: 24px;
-  margin-top: 25px;
 }
 
  @media (max-width: 1400px) {
@@ -118,7 +116,6 @@ a.btn:hover {
      transform: translate(0);
      -moz-transform: translate(0);
      -webkit-transform: translate(0);
-         padding-top: 30px;
    }
   .banner .banner-slogan h1 {
     font-size: 52px;
@@ -144,3 +141,9 @@ a.btn:hover {
     margin-bottom: 100px;
   }
  }
+
+  @media (max-width: 400px) {
+    .banner .banner-slogan h1 { line-height: 120%; }
+    .banner .banner-slogan h1 span { width: 100%; display: block; margin-bottom: 6px; }
+    .banner .banner-slogan h1 span:after { top: 85%; width: 77%; }
+  }
