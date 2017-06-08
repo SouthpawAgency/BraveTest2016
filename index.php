@@ -46,7 +46,7 @@
 
         <div class="logo text-center">
 
-            <img src="http://southpawagency.com/assets/img/banner/southpaw.svg" alt="Southpaw">
+            <img src="start/images/southpaw.svg" alt="Southpaw">
 
         </div><!-- /logo -->
 
